@@ -1,0 +1,10 @@
+[
+  {"id":"CHSMO","name":"全国高中数学联赛","level":"高中","region":"中国","description":"复赛层级：一试与加试分开；保留 A/B 卷及补赛版本。省级预赛不混入。","source":"https://www.cms.org.cn/","priority":1},
+  {"id":"CMO","name":"中国数学奥林匹克","level":"高中","region":"中国","description":"全国决赛（冬令营），通常两天六题；与加拿大 CMO 区分。","source":"https://www.cms.org.cn/","priority":1},
+  {"id":"CMC","name":"全国大学生数学竞赛","level":"本科","region":"中国","description":"初赛/决赛、数学与非数学、A/B 类及高低年级分别建档；届次年不等于实际决赛年。","source":"https://www.cms.org.cn/","priority":1},
+  {"id":"YAU","name":"丘成桐大学生数学竞赛","level":"本科","region":"中国 / 国际","description":"分析与微分方程、代数数论、几何拓扑、概率统计、应用计算、数学物理；先归档笔试。","source":"https://www.yau-contest.com/lists-jxxg.html","priority":1},
+  {"id":"IMO","name":"国际数学奥林匹克","level":"高中","region":"国际","description":"两天六题，代表中学奥林匹克证明型题目。官方主卷与 shortlist 是不同资料。","source":"https://www.imo-official.org/problems/","priority":1},
+  {"id":"EGMO","name":"欧洲女子数学奥林匹克","level":"高中","region":"国际","description":"两天六题；归档英文/官方简体中文题面及官方解答，语言版本分别计数。","source":"https://www.egmo.org/egmos/","priority":1},
+  {"id":"IMC","name":"国际大学生数学竞赛","level":"本科","region":"国际","description":"International Mathematics Competition for University Students；不是 UKMT 的同缩写中级挑战赛。","source":"https://imc-math.org.uk/?item=archive","priority":1},
+  {"id":"PUTNAM","name":"William Lowell Putnam Competition","level":"本科","region":"美国 / 加拿大","description":"A/B 两场共十二题。2020 届延期至 2021 年；2026 届截至 11 月 16 日尚未举行。","source":"https://maa.org/maa-putnam-archive/","priority":1}
+]

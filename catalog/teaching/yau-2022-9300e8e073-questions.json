@@ -1,0 +1,115 @@
+{
+  "resource_id": "yau-2022-9300e8e073-questions",
+  "source_sha256": "e4cff6caef33262cdb6d6c06a040a3809f3562844a6fc981cf40a86decffe666",
+  "solution_resource_id": "yau-2022-347cd8c83f-solutions",
+  "solution_sha256": "4439a109c339b6135d0d1858676be25afda3b4dd474c1643ecb6925646435ed1",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2022-9300e8e073-questions-q1",
+      "resource_id": "yau-2022-9300e8e073-questions",
+      "source_sha256": "e4cff6caef33262cdb6d6c06a040a3809f3562844a6fc981cf40a86decffe666",
+      "solution_resource_id": "yau-2022-347cd8c83f-solutions",
+      "solution_sha256": "4439a109c339b6135d0d1858676be25afda3b4dd474c1643ecb6925646435ed1",
+      "contest": "YAU",
+      "year": 2022,
+      "number": "1",
+      "level": "本科",
+      "title": "probability and statistics 22s.pdf · 1",
+      "blind_attempt": {
+        "approach": "利用特征函数与依分布收敛的性质证明。首先由依分布收敛推得特征函数逐点收敛，进而取模并利用特征函数在零点处的连续性证明方差序列收敛到某一非负实数；接着结合随机变量的紧性（或分布函数连续点）与切比雪夫不等式证明均值序列有界，再由子列极限的唯一性得到均值序列收敛；最后通过特征函数的唯一性定理得出极限随机变量仍为（可能退化的）高斯随机变量。",
+        "final_answer": "\\(X\\) 服从（可能退化的）高斯分布 \\(\\mathcal{N}(\\mu, \\sigma^2)\\)，其中 \\(\\mu = \\lim_{n\\to\\infty} \\mu_n \\in \\mathbb{R}\\)，\\(\\sigma^2 = \\lim_{n\\to\\infty} \\sigma_n^2 \\ge 0\\)（当 \\(\\sigma = 0\\) 时退化为常数随机变量 \\(\\mu\\)）。",
+        "problem_statement_zh": "设 \\(\\{X_n\\}\\) 是一列高斯随机变量，\\(X\\) 是一个随机变量，满足当 \\(n \\to \\infty\\) 时 \\(X_n\\) 依分布收敛于 \\(X\\)。证明：\\(X\\) 也是一个（可能退化的，即方差为零的）高斯随机变量。",
+        "steps": [
+          "记 \\(X_n \\sim \\mathcal{N}(\\mu_n, \\sigma_n^2)\\)，其中 \\(\\mu_n \\in \\mathbb{R}\\)，\\(\\sigma_n \\ge 0\\)。对任意 \\(t \\in \\mathbb{R}\\)，函数 \\(x \\mapsto e^{itx}\\) 有界连续，由 \\(X_n \\xrightarrow{d} X\\) 得特征函数逐点收敛：\\(\\varphi_{X_n}(t) = \\exp\\left(i\\mu_n t - \\frac{1}{2}\\sigma_n^2 t^2\\right) \\to \\varphi_X(t)\\)（\\(n \\to \\infty\\)）。",
+          "两边取模得 \\(|\\varphi_{X_n}(t)| = \\exp\\left(-\\frac{1}{2}\\sigma_n^2 t^2\\right) \\to |\\varphi_X(t)|\\)。由于 \\(\\varphi_X(0) = 1\\) 且 \\(\\varphi_X\\) 在 \\(0\\) 处连续，存在 \\(t_0 > 0\\) 使得 \\(|\\varphi_X(t_0)| \\ge \\frac{1}{2} > 0\\)。取对数得 \\(-\\frac{1}{2}\\sigma_n^2 t_0^2 \\to \\ln |\\varphi_X(t_0)| \\in [-\\ln 2, 0]\\)，从而 \\(\\sigma_n^2 \\to \\sigma^2 := -\\frac{2}{t_0^2}\\ln |\\varphi_X(t_0)| \\in [0, \\infty)\\)。特别地，存在常数 \\(M > 0\\) 使得对所有 \\(n\\) 有 \\(\\sigma_n^2 \\le M\\)。",
+          "证明 \\(\\{\\mu_n\\}\\) 有界：因 \\(X\\) 为实值随机变量，其分布函数 \\(F_X\\) 至多有可数个间断点，故可取 \\(R > 0\\) 使得 \\(\\pm R\\) 均为 \\(F_X\\) 的连续点且 \\(\\mathbb{P}(|X| \\le R) = F_X(R) - F_X(-R) > \\frac{1}{2}\\)。由依分布收敛知 \\(\\lim_{n\\to\\infty}\\mathbb{P}(|X_n| \\le R) = F_X(R) - F_X(-R) > \\frac{1}{2}\\)。另一方面，当 \\(|\\mu_n| > R\\) 时，由切比雪夫不等式有 \\(\\mathbb{P}(|X_n| \\le R) \\le \\mathbb{P}(|X_n - \\mu_n| \\ge |\\mu_n| - R) \\le \\frac{\\sigma_n^2}{(|\\mu_n| - R)^2} \\le \\frac{M}{(|\\mu_n| - R)^2}\\)。若 \\(\\{\\mu_n\\}\\) 无界，则存在子列 \\(|\\mu_{n_k}| \\to \\infty\\) 使得 \\(\\mathbb{P}(|X_{n_k}| \\le R) \\to 0\\)，矛盾。故 \\(\\{\\mu_n\\}\\) 有界。",
+          "由 Bolzano-Weierstrass 定理，\\(\\{\\mu_n\\}\\) 存在收敛子列。设 \\(\\mu_{n_k} \\to \\mu'\\) 与 \\(\\mu_{m_k} \\to \\mu''\\) 为任意两个收敛子列，则对任意 \\(t \\in \\mathbb{R}\\) 均有 \\(\\varphi_X(t) = \\exp\\left(i\\mu' t - \\frac{1}{2}\\sigma^2 t^2\\right) = \\exp\\left(i\\mu'' t - \\frac{1}{2}\\sigma^2 t^2\\right)\\)。消去非零因子 \\(\\exp\\left(-\\frac{1}{2}\\sigma^2 t^2\\right)\\) 得 \\(e^{i(\\mu' - \\mu'')t} = 1\\) 对所有 \\(t \\in \\mathbb{R}\\) 成立，对 \\(t\\) 在 \\(0\\) 处求导即得 \\(\\mu' = \\mu''\\)。因此 \\(\\{\\mu_n\\}\\) 收敛于某个 \\(\\mu \\in \\mathbb{R}\\)。",
+          "综合上述极限，对所有 \\(t \\in \\mathbb{R}\\) 有 \\(\\varphi_X(t) = \\lim_{n\\to\\infty}\\exp\\left(i\\mu_n t - \\frac{1}{2}\\sigma_n^2 t^2\\right) = \\exp\\left(i\\mu t - \\frac{1}{2}\\sigma^2 t^2\\right)\\)。由特征函数的唯一性定理，\\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)（当 \\(\\sigma = 0\\) 时为退化的常数分布 \\(\\delta_\\mu\\)）。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "只对正实数模长 \\(|f_n(t)|^2 = e^{-\\sigma_n^2 t^2}\\) 取对数以求 \\(\\sigma_n^2\\)；对于虚部相位 \\(e^{i\\mu_n t}\\)，应通过积分技巧、有界性结合子列极限，或局部对数分支的严格论证来推导 \\(\\mu_n \\to \\mu\\)。",
+            "mistake": "直接对复数等式 \\(e^{i\\mu_n t} \\to f(t)e^{\\sigma^2 t^2/2}\\) 两边取复对数，从而声称 \\(i\\mu_n t\\) 收敛。",
+            "title": "复指数取对数的多值性陷阱",
+            "why_wrong": "复对数具有 \\(2\\pi i k\\) 的多值性，单从 \\(e^{i\\mu_n t}\\) 对固定 \\(t\\) 收敛无法直接推出 \\(\\mu_n\\) 收敛（例如 \\(\\mu_n = 2\\pi n / t\\) 时 \\(e^{i\\mu_n t} \\equiv 1\\) 但 \\(\\mu_n \\to \\infty\\)）。"
+          },
+          {
+            "how_to_avoid": "利用 \\(f(0)=1\\) 及特征函数的一致连续性，先说明存在充分小的 \\(t \\neq 0\\) 使得目标式非零（进而对充分大的 \\(n\\) 分母也非零），再做除法。",
+            "mistake": "未验证 \\(f(t) \\neq 0\\) 或 \\(\\int_0^t e^{i\\mu_n s}\\,ds \\neq 0\\) 就直接作除法或取对数。",
+            "title": "忽视分母为零与局部非零条件",
+            "why_wrong": "一般特征函数在远离原点处可能取零值，若不限制 \\(t\\) 在 \\(0\\) 的充分小邻域内，分母可能为零或趋于零，导致倒数无意义或极限失效。"
+          },
+          {
+            "how_to_avoid": "牢记退化正态分布 \\(\\mathcal{N}(\\mu, 0)\\)（即常数 \\(\\mu\\)）也是高斯族的一员，其分布函数没有密度函数，但特征函数 \\(\\varphi(t) = e^{i\\mu t}\\) 依然完全适用。",
+            "mistake": "试图通过高斯密度函数 \\(p_n(x) = \\frac{1}{\\sqrt{2\\pi}\\sigma_n} e^{-(x-\\mu_n)^2/(2\\sigma_n^2)}\\) 的收敛来证明，而忽略 \\(\\sigma_n \\to 0\\) 的情形。",
+            "title": "依赖密度函数而遗漏退化情形",
+            "why_wrong": "当 \\(\\sigma_n \\to 0\\) 时，密度函数在 \\(x = \\mu\\) 处发散，无法直接通过密度函数逐点收敛说明极限分布为高斯分布（此时极限分布无密度函数）。"
+          }
+        ],
+        "comparison_summary": "第一轮盲解与参考解答均完整正确地证明了结论，且核心框架一致：先由依分布收敛得到特征函数逐点收敛，再通过取模并结合特征函数在零点附近的非零性证明 \\(\\sigma_n^2 \\to \\sigma^2 \\in [0,\\infty)\\)。两者的差异在于如何从 \\(e^{i\\mu_n t}\\) 的收敛推出 \\(\\mu_n\\) 收敛：参考解答采用“积分+控制收敛定理”的技巧，将 \\(\\mu_n\\) 显式表示为收敛量之比，简洁精妙；第一轮盲解则通过切比雪夫不等式与分布函数连续点证明 \\(\\{\\mu_n\\}\\) 有界，再结合 Bolzano-Weierstrass 定理与极限子列的唯一性完成证明，思路更为直观基础。两种方法均为严格有效的证明。",
+        "difficulties": [
+          {
+            "detail": "从特征函数逐点收敛仅能直接得到模长 \\(e^{-\\sigma_n^2 t^2/2}\\) 和相位因子 \\(e^{i\\mu_n t}\\) 各自收敛。由于复指数函数具有周期性 \\(2\\pi i\\)，\\(e^{i\\mu_n t}\\) 对所有 \\(t\\) 收敛并不像实指数那样可以直接取对数得到 \\(\\mu_n\\) 收敛，需要绕开复对数多值性的障碍。",
+            "title": "从 \\(e^{i\\mu_n t}\\) 的收敛推出参数 \\(\\mu_n\\) 的收敛"
+          },
+          {
+            "detail": "取对数求 \\(\\sigma_n^2\\) 的极限要求 \\(|f(t)| \\neq 0\\)，用积分表达式反解 \\(\\mu_n\\) 要求 \\(\\int_0^t e^{i\\mu_n s}\\,ds \\neq 0\\)。这两点都必须借助特征函数在 \\(t=0\\) 处取值为 \\(1\\) 且连续的性质，将 \\(t\\) 限制在 \\(0\\) 的充分小去心邻域内才能严格成立。",
+            "title": "利用 \\(t=0\\) 附近的局部连续性保证分母非零"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "放缩与估值",
+          "局部-整体转化"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:极限与积分交换",
+          "易错:定义域与分母为零",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目给出随机变量序列依分布收敛 \\(X_n \\xrightarrow{d} X\\)，且每个 \\(X_n\\) 均为高斯随机变量（对应两参数 \\(\\mu_n, \\sigma_n^2\\)）。依分布收敛最直接且不依赖密度函数（兼容退化情形 \\(\\sigma=0\\)）的分析工具是特征函数。",
+            "step": "识别收敛模式与核心工具"
+          },
+          {
+            "detail": "高斯分布的特征函数为 \\(\\varphi_{X_n}(t) = \\exp(i\\mu_n t - \\frac{1}{2}\\sigma_n^2 t^2)\\)。观察其模长 \\(|\\varphi_{X_n}(t)| = \\exp(-\\frac{1}{2}\\sigma_n^2 t^2)\\) 仅与方差有关，而相位因子 \\(e^{i\\mu_n t}\\) 仅与均值有关，自然可将问题拆解为先证 \\(\\sigma_n^2\\) 收敛，再证 \\(\\mu_n\\) 收敛。",
+            "step": "参数解耦（模长与相位分离）"
+          },
+          {
+            "detail": "极限随机变量 \\(X\\) 的特征函数 \\(f(t)\\) 在任意 \\(t\\) 处未必非零，但在 \\(t=0\\) 处满足 \\(f(0)=1\\) 且连续，因此在 \\(0\\) 的充分小邻域内具有严格非零的性质，这为取对数和作除法提供了安全区域。",
+            "step": "锁定 \\(t=0\\) 附近的局部性质"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(f_n(t) = \\mathbb{E}[e^{itX_n}] = e^{i\\mu_n t - \\sigma_n^2 t^2/2}\\)，\\(f(t) = \\mathbb{E}[e^{itX}]\\)。由 \\(X_n \\xrightarrow{d} X\\) 及 \\(x \\mapsto e^{itx}\\) 有界连续，得 \\(f_n(t) \\to f(t)\\) 对一切 \\(t \\in \\mathbb{R}\\) 成立。两边取模平方得 \\(e^{-\\sigma_n^2 t^2} \\to |f(t)|^2\\)。因 \\(f\\) 连续且 \\(f(0)=1\\)，存在充分小的 \\(t_0 \\neq 0\\) 使 \\(f(t_0) \\neq 0\\)，取对数即得 \\(\\sigma_n^2 \\to \\sigma^2 \\in [0, \\infty)\\)。这一步之所以有效，是因为模长消去了振荡的相位因子 \\(e^{i\\mu_n t}\\)，把复数极限转化为正实数极限。",
+            "motivation": "通过特征函数把依分布收敛转化为函数逐点收敛，并先用模长分离出方差参数。",
+            "step": "第一步：证明方差序列收敛"
+          },
+          {
+            "detail": "由 \\(f_n(t) \\to f(t)\\) 及 \\(\\sigma_n^2 \\to \\sigma^2\\)，对所有 \\(t \\in \\mathbb{R}\\) 有 \\(e^{i\\mu_n t} \\to f(t)e^{\\sigma^2 t^2/2}\\)。注意到被积函数模长恒为 \\(1\\)，在有限区间 \\([0, t]\\) 上由控制收敛定理（DCT）可得 \\(\\lim_{n\\to\\infty}\\int_0^t e^{i\\mu_n s}\\,ds = \\int_0^t f(s)e^{\\sigma^2 s^2/2}\\,ds\\)。右侧被积函数连续且在 \\(s=0\\) 处为 \\(1\\)，故当 \\(t\\) 充分接近 \\(0\\) 且 \\(t \\neq 0\\) 时，右侧积分非零。这一步利用积分将难以直接取对数的相位因子平滑化，同时借助局部连续性保证极限积分非零。",
+            "motivation": "避免直接对复指数取对数，改用积分与控制收敛定理构造非零的辅助量。",
+            "step": "第二步：积分与控制收敛定理"
+          },
+          {
+            "detail": "利用微积分基本定理的恒等式 \\(i\\mu_n \\int_0^t e^{i\\mu_n s}\\,ds = e^{i\\mu_n t} - 1\\)（对 \\(\\mu_n = 0\\) 亦成立），当 \\(n\\) 充分大时 \\(\\int_0^t e^{i\\mu_n s}\\,ds \\neq 0\\)，于是可将 \\(\\mu_n\\) 反解为 \\(\\mu_n = -i\\bigl(f_n(t)e^{\\sigma_n^2 t^2/2} - 1\\bigr)\\bigl(\\int_0^t e^{i\\mu_n s}\\,ds\\bigr)^{-1}\\)。右侧分子与分母均收敛且分母极限非零，故 \\(\\mu_n\\) 收敛到某一有限实数 \\(\\mu\\)。从而 \\(f(t) = \\lim_{n\\to\\infty} f_n(t) = e^{i\\mu t - \\sigma^2 t^2/2}\\)，由特征函数唯一性定理即知 \\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\)（\\(\\sigma=0\\) 时为退化高斯分布）。",
+            "motivation": "建立 \\(\\mu_n\\) 与收敛量之间的显式代数关系，直接读出 \\(\\mu_n\\) 的极限并完成判定。",
+            "step": "第三步：反解 \\(\\mu_n\\) 并由唯一性收尾"
+          }
+        ],
+        "teaching_takeaway": "处理分布族在依分布收敛下的封闭性问题时，特征函数是兼具严格性与统一性（兼容退化分布）的首选工具；面对复指数相位因子的收敛问题，在 \\(t=0\\) 邻域内利用“积分+控制收敛定理”或“紧性+子列极限唯一性”是绕开复对数多值性的两种经典技巧。",
+        "topic_tags": [
+          "概率论",
+          "依分布收敛",
+          "特征函数"
+        ]
+      }
+    }
+  ]
+}

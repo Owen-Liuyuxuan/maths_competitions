@@ -1,0 +1,9 @@
+[
+  {"contest":"CHSMO","year":2025,"title":"2025 全国高中数学联赛 A卷一试与加试试题及参考答案（江苏招生考试网转载图）","url":"https://m.jszs.com/n/474973.html","selector":"img[src*='/uploads/image/202509/15/1757905']"},
+  {"contest":"CHSMO","year":2025,"title":"2025 全国高中数学联赛一试 A卷（公开预览，非完整题解）","url":"https://zy.21cnjy.com/23981233","selector":"img[src*='preview.21cnjy.com']","metadata":{"completeness":"partial-preview","format_note":"仅归档公开展示的预览页；完整下载需登录，不绕过访问控制。"}},
+  {"contest":"CHSMO","year":2025,"title":"2025 全国高中数学联赛加试 A卷（公开预览，非完整题解）","url":"https://zy.21cnjy.com/23981243","selector":"img[src*='preview.21cnjy.com']","metadata":{"completeness":"partial-preview","format_note":"仅归档公开展示的预览页；完整下载需登录，不绕过访问控制。"}},
+  {"contest":"CHSMO","year":2026,"title":"2026 全国高中数学联赛加试 B卷试题与第三方解答（转载图）","url":"https://www.sina.cn/news/detail/5344228814360909.html","selector":"img[src*='wx'][src*='sinaimg.cn']"},
+  {"contest":"CMO","year":2023,"title":"2023 CMO 第一天回忆版试题（非完整两日卷）","url":"https://www.jingsailian.com/zlk/598709.html","selector":"img[src*='1701227702-6-1701227702.jpeg']","metadata":{"role":"questions","completeness":"partial-recall","format_note":"来源明确标记为第一天回忆版；不作为官方定稿。两日整卷仍待补。"}},
+  {"contest":"CMC","year":2026,"title":"第18届 CMC 初赛非数学 A类（公开预览，题解不完整）","url":"https://www.yeyulingfeng.com/a/1355555.html","selector":"article img[src*='img.bim99.cn']","metadata":{"completeness":"partial-preview","edition":18,"format_note":"公开预览页，非完整题解；来源注明仅部分预览。"}},
+  {"contest":"CMC","year":2026,"title":"第17届 CMC 决赛数学高年级组试题与参考答案（转载图）","url":"https://sjds.net/644777.html","selector":"img[src$='.webp']:not([src*='26306687'])","metadata":{"edition":17,"date_note":"实际决赛年2026，届次17；不按2025初赛年归档。"}}
+]

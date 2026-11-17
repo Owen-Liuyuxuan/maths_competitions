@@ -1,0 +1,39 @@
+{
+  "resource_id": "egmo-2021-day1-English-questions",
+  "source_sha256": "1c8e4c5c3108d72698fcaa43fd39fb5f6bc8ceb5dba77394a8239127ab888b8c",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "1",
+      "title": "EGMO 2021 · 第1题",
+      "body_zh": "数 \\(2021\\) 具有“奇妙”性质。对每个正整数 \\(m\\)，如果集合 \\(\\{m,2m+1,3m\\}\\) 中任意一个数具有奇妙性质，那么这三个数都具有奇妙性质。\n由此能否推出 \\(2021^{2021}\\) 也具有奇妙性质？",
+      "tags": [
+        "数论",
+        "整数操作",
+        "可达性",
+        "同余"
+      ]
+    },
+    {
+      "number": "2",
+      "title": "EGMO 2021 · 第2题",
+      "body_zh": "求所有函数 \\(f:\\mathbb Q\\to\\mathbb Q\\)，使对任意有理数 \\(x,y\\)，都有\n\\[f(xf(x)+y)=f(y)+x^2.\\]\n其中 \\(\\mathbb Q\\) 表示有理数集。",
+      "tags": [
+        "代数",
+        "函数方程",
+        "有理数"
+      ]
+    },
+    {
+      "number": "3",
+      "title": "EGMO 2021 · 第3题",
+      "body_zh": "三角形 \\(ABC\\) 的角 \\(A\\) 为钝角。角 \\(A\\) 的外角平分线分别与从 \\(B,C\\) 引出的高所在直线交于 \\(E,F\\)。点 \\(M,N\\) 分别在线段 \\(EC,FB\\) 上，满足 \\(\\angle EMA=\\angle BCA\\) 与 \\(\\angle ANF=\\angle ABC\\)。\n证明 \\(E,F,N,M\\) 共圆。",
+      "tags": [
+        "平面几何",
+        "外角平分线",
+        "高",
+        "共圆"
+      ]
+    }
+  ]
+}

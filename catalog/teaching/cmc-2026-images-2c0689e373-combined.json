@@ -1,0 +1,992 @@
+{
+  "resource_id": "cmc-2026-images-2c0689e373-combined",
+  "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+  "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+  "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q10",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "10",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第10题",
+      "blind_attempt": {
+        "approach": "第（1）问通过直接构造特征向量 \\(v_j^{(k)} = \\sin\\frac{jk\\pi}{n+1}\\) 并利用和差化积公式验证 \\(A_n v^{(k)} = \\lambda_k v^{(k)}\\)，由 \\(n\\) 个特征值互异即得 \\(A_n\\) 的全部特征值，进而利用等价无穷小求得谱条件数渐近式。第（2）问将 Richardson 迭代误差矩阵表示为 \\(I_n - \\alpha A_n\\)，利用其对称性将收敛条件转化为谱半径 \\(\\max_k |1 - \\alpha\\lambda_k| < 1\\)，并在端点处平衡 \\(|1 - \\alpha\\lambda_1|\\) 与 \\(|1 - \\alpha\\lambda_n|\\) 求得最优参数 \\(\\alpha^*\\)。第（3）问将 Jacobi 迭代矩阵写为 \\(B_J = I_n - \\frac{1}{2}A_n\\)，发现其恰好对应 \\(\\alpha = \\frac{1}{2}\\) 的 Richardson 迭代，从而直接得到特征值与谱半径 \\(\\rho(B_J) = \\cos\\frac{\\pi}{n+1} < 1\\)，再由泰勒展开分析大 \\(n\\) 时的渐近收敛速度。",
+        "final_answer": "（1）\\(A_n\\) 的特征值为 \\(\\lambda_k = 4\\sin^2\\frac{k\\pi}{2(n+1)}\\)（\\(k=1,2,\\dots,n\\)），且当 \\(n\\to+\\infty\\) 时，\\(\\kappa_2(A_n) = \\cot^2\\frac{\\pi}{2(n+1)} \\sim \\frac{4n^2}{\\pi^2}\\)。\n（2）使 Richardson 迭代收敛的 \\(\\alpha\\) 的取值范围为 \\(0 < \\alpha < \\frac{1}{2\\cos^2\\frac{\\pi}{2(n+1)}}\\)（即 \\(0 < \\alpha < \\frac{2}{\\lambda_n}\\)）；使收敛最快的最优参数为 \\(\\alpha^* = \\frac{2}{\\lambda_1+\\lambda_n} = \\frac{1}{2}\\)，此时最优谱半径为 \\(\\cos\\frac{\\pi}{n+1}\\)。\n（3）Jacobi 迭代矩阵为 \\(B_J = I_n - \\frac{1}{2}A_n\\)，其谱半径 \\(\\rho(B_J) = \\cos\\frac{\\pi}{n+1} < 1\\)，故对任意 \\(n \\ge 1\\) 迭代均收敛；当 \\(n\\) 充分大时，\\(\\rho(B_J) = 1 - \\frac{\\pi^2}{2n^2} + O\\left(\\frac{1}{n^3}\\right)\\)，渐近收敛速度 \\(-\\ln\\rho(B_J) \\sim \\frac{\\pi^2}{2n^2}\\)，将误差缩小固定倍数所需迭代次数为 \\(O(n^2)\\)，因此收敛非常缓慢。",
+        "problem_statement_zh": "设矩阵 \\(A_n \\in \\mathbb{R}^{n\\times n}\\) 为三对角矩阵：\n\\[A_n = \\begin{pmatrix} 2 & -1 & & \\\\ -1 & 2 & \\ddots & \\\\ & \\ddots & \\ddots & -1 \\\\ & & -1 & 2 \\end{pmatrix}.\\]\n\\(A_n\\) 的谱条件数为 \\(\\kappa_2(A_n) = \\lambda_n / \\lambda_1\\)，其中 \\(\\lambda_1, \\lambda_n\\) 分别为 \\(A_n\\) 的最小与最大特征值。\n1. 证明：\\(A_n\\) 的特征值为 \\(\\lambda_k = 4\\sin^2\\frac{k\\pi}{2(n+1)}\\)，\\(k=1,2,\\dots,n\\)，并证明当 \\(n\\to +\\infty\\) 时，\\(\\kappa_2(A_n) \\sim \\frac{4n^2}{\\pi^2}\\)。\n2. 考虑用 Richardson 迭代求解线性方程组 \\(A_n \\mathbf{x} = \\mathbf{b}\\)：\n\\[\\mathbf{x}^{(m+1)} = \\mathbf{x}^{(m)} - \\alpha(A_n \\mathbf{x}^{(m)} - \\mathbf{b}), \\quad m=0,1,\\dots, \\quad \\alpha > 0.\\]\n求使迭代收敛的 \\(\\alpha\\) 取值范围，并求最优（即使收敛最快）的参数 \\(\\alpha\\)。\n3. 考虑用 Jacobi 迭代求解 \\(A_n \\mathbf{x} = \\mathbf{b}\\)，证明迭代收敛，并分析当 \\(n\\) 充分大时，收敛的快慢。",
+        "steps": [
+          "第（1）问特征值证明：对每个 \\(k \\in \\{1,2,\\dots,n\\}\\)，记 \\(\\theta_k = \\frac{k\\pi}{n+1}\\)，构造非零向量 \\(\\mathbf{v}^{(k)} = (v_1^{(k)}, \\dots, v_n^{(k)})^T \\in \\mathbb{R}^n\\)，其中 \\(v_j^{(k)} = \\sin(j\\theta_k)\\)（\\(j=1,\\dots,n\\)）。补充定义 \\(v_0^{(k)} = \\sin 0 = 0\\) 与 \\(v_{n+1}^{(k)} = \\sin(k\\pi) = 0\\)，则对任意 \\(1 \\le j \\le n\\) 有\n\\[(A_n \\mathbf{v}^{(k)})_j = -v_{j-1}^{(k)} + 2v_j^{(k)} - v_{j+1}^{(k)} = 2\\sin(j\\theta_k) - \\bigl(\\sin((j-1)\\theta_k) + \\sin((j+1)\\theta_k)\\bigr) = 2(1 - \\cos\\theta_k)\\sin(j\\theta_k) = 4\\sin^2\\frac{k\\pi}{2(n+1)}\\,v_j^{(k)}.\\]\n因此 \\(\\lambda_k = 4\\sin^2\\frac{k\\pi}{2(n+1)}\\) 为 \\(A_n\\) 的特征值。由于 \\(0 < \\frac{\\pi}{2(n+1)} < \\dots < \\frac{n\\pi}{2(n+1)} < \\frac{\\pi}{2}\\) 且 \\(\\sin x\\) 在 \\((0,\\frac{\\pi}{2})\\) 上严格递增，这 \\(n\\) 个数满足 \\(0 < \\lambda_1 < \\lambda_2 < \\dots < \\lambda_n\\)，互不相同，故即为 \\(n\\) 阶矩阵 \\(A_n\\) 的全部特征值。",
+          "第（1）问谱条件数渐近估计：由特征值单调性，最小与最大特征值分别为 \\(\\lambda_1 = 4\\sin^2\\frac{\\pi}{2(n+1)}\\) 和 \\(\\lambda_n = 4\\sin^2\\frac{n\\pi}{2(n+1)} = 4\\cos^2\\frac{\\pi}{2(n+1)}\\)，故\n\\[\\kappa_2(A_n) = \\frac{\\lambda_n}{\\lambda_1} = \\cot^2\\frac{\\pi}{2(n+1)}.\\]\n当 \\(n \\to +\\infty\\) 时，\\(\\frac{\\pi}{2(n+1)} \\to 0\\)，从而 \\(\\cos\\frac{\\pi}{2(n+1)} \\to 1\\) 且 \\(\\sin\\frac{\\pi}{2(n+1)} \\sim \\frac{\\pi}{2(n+1)} \\sim \\frac{\\pi}{2n}\\)，因此\n\\[\\kappa_2(A_n) \\sim \\left(\\frac{2n}{\\pi}\\right)^2 = \\frac{4n^2}{\\pi^2}.\\]",
+          "第（2）问 Richardson 迭代收敛范围：因 \\(\\lambda_1 > 0\\)，\\(A_n\\) 正定可逆，设精确解为 \\(\\mathbf{x}^* = A_n^{-1}\\mathbf{b}\\)，误差向量 \\(\\mathbf{e}^{(m)} = \\mathbf{x}^{(m)} - \\mathbf{x}^*\\) 满足\n\\[\\mathbf{e}^{(m+1)} = (I_n - \\alpha A_n)\\mathbf{e}^{(m)}.\\]\n实对称矩阵 \\(B_\\alpha = I_n - \\alpha A_n\\) 的特征值为 \\(\\mu_k(\\alpha) = 1 - \\alpha\\lambda_k\\)（\\(k=1,\\dots,n\\)）。迭代对任意初值 \\(\\mathbf{x}^{(0)}\\) 收敛当且仅当谱半径 \\(\\rho(B_\\alpha) = \\max_{1 \\le k \\le n} |1 - \\alpha\\lambda_k| < 1\\)。因 \\(\\alpha > 0\\) 且 \\(0 < \\lambda_1 \\le \\dots \\le \\lambda_n\\)，这等价于 \\(1 - \\alpha\\lambda_n > -1\\)，即\n\\[0 < \\alpha < \\frac{2}{\\lambda_n} = \\frac{1}{2\\cos^2\\frac{\\pi}{2(n+1)}}.\\]",
+          "第（2）问最优参数：对任意 \\(\\alpha > 0\\)，凸函数 \\(t \\mapsto |1 - \\alpha t|\\) 在 \\([\\lambda_1, \\lambda_n]\\) 上的最大值在端点处取到，故\n\\[\\rho(B_\\alpha) = \\max\\bigl(|1 - \\alpha\\lambda_1|,\\, |1 - \\alpha\\lambda_n|\\bigr).\\]\n当 \\(n = 1\\) 时，\\(\\lambda_1 = \\lambda_n = 2\\)，\\(\\rho(B_\\alpha) = |1 - 2\\alpha|\\) 在 \\(\\alpha^* = \\frac{1}{2}\\) 处取最小值 \\(0\\)。当 \\(n \\ge 2\\) 时，\\(1 - \\alpha\\lambda_1\\) 严格递减而 \\(\\alpha\\lambda_n - 1\\) 严格递增，故 \\(\\rho(B_\\alpha)\\) 在两者相等时取唯一最小值：\n\\[1 - \\alpha^*\\lambda_1 = \\alpha^*\\lambda_n - 1 \\implies \\alpha^* = \\frac{2}{\\lambda_1 + \\lambda_n}.\\]\n又 \\(\\lambda_1 + \\lambda_n = 4\\sin^2\\frac{\\pi}{2(n+1)} + 4\\cos^2\\frac{\\pi}{2(n+1)} = 4\\)，因此对所有 \\(n \\ge 1\\) 最优参数均为 \\(\\alpha^* = \\frac{1}{2}\\)，此时最小谱半径为 \\(\\rho(B_{\\alpha^*}) = 1 - \\frac{1}{2}\\lambda_1 = \\cos\\frac{\\pi}{n+1}\\)。",
+          "第（3）问 Jacobi 迭代收敛性：将 \\(A_n\\) 分裂为 \\(A_n = D - L - U\\)，其中对角阵 \\(D = 2I_n\\)。Jacobi 迭代格式为\n\\[\\mathbf{x}^{(m+1)} = D^{-1}(L + U)\\mathbf{x}^{(m)} + D^{-1}\\mathbf{b} = \\left(I_n - \\frac{1}{2}A_n\\right)\\mathbf{x}^{(m)} + \\frac{1}{2}\\mathbf{b},\\]\n其迭代矩阵 \\(B_J = I_n - \\frac{1}{2}A_n\\) 恰好为 \\(\\alpha = \\frac{1}{2}\\) 时的 Richardson 迭代矩阵。于是 \\(B_J\\) 的特征值为\n\\[\\mu_k = 1 - \\frac{1}{2}\\lambda_k = 1 - 2\\sin^2\\frac{k\\pi}{2(n+1)} = \\cos\\frac{k\\pi}{n+1}, \\qquad k=1,2,\\dots,n.\\]\n从而谱半径 \\(\\rho(B_J) = \\max_{1 \\le k \\le n}\\left|\\cos\\frac{k\\pi}{n+1}\\right| = \\cos\\frac{\\pi}{n+1} < 1\\)（\\(n=1\\) 时 \\(\\rho(B_J) = 0 < 1\\)），因此 Jacobi 迭代必收敛。",
+          "第（3）问大 \\(n\\) 时收敛快慢分析：当 \\(n\\) 充分大时，\n\\[\\rho(B_J) = \\cos\\frac{\\pi}{n+1} = 1 - \\frac{\\pi^2}{2(n+1)^2} + O\\left(\\frac{1}{n^4}\\right) = 1 - \\frac{\\pi^2}{2n^2} + O\\left(\\frac{1}{n^3}\\right),\\]\n非常接近于 \\(1\\)。由于 \\(B_J\\) 对称，最坏情况下 \\(\\|\\mathbf{e}^{(m)}\\|_2 = \\rho(B_J)^m \\|\\mathbf{e}^{(0)}\\|_2\\)，渐近收敛速度为\n\\[R(B_J) = -\\ln\\rho(B_J) \\sim \\frac{\\pi^2}{2n^2} \\quad (n \\to +\\infty).\\]\n若要将误差（2-范数）缩小到原来的 \\(\\varepsilon \\in (0,1)\\) 倍，所需迭代次数 \\(m\\) 满足 \\(m \\ge \\frac{\\ln(1/\\varepsilon)}{-\\ln\\rho(B_J)} \\sim \\frac{2\\ln(1/\\varepsilon)}{\\pi^2}\\,n^2 = O(n^2)\\)，可见当 \\(n\\) 充分大时，Jacobi 迭代收敛非常缓慢。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "用归纳法检验 \\(D_1, D_2\\) 的初值并核对递推符号；对 \\(k=1,\\dots,n\\) 验证 \\(0 < \\frac{k\\pi}{n+1} < \\pi\\) 以确保分母 \\(\\sin\\frac{k\\pi}{n+1} > 0\\)，或改用构造正弦特征向量法来自然避开分母为零的讨论。",
+            "mistake": "在利用 \\(D_n(\\lambda) = (\\lambda-2)D_{n-1}(\\lambda) - D_{n-2}(\\lambda)\\) 求通项时，忽略 \\(\\lambda=0\\) 或 \\(\\lambda=4\\) 的退化情形，或未说明 \\(\\sin\\frac{k\\pi}{n+1} \\neq 0\\)。",
+            "title": "特征多项式递推的退化与分母检查",
+            "why_wrong": "特征方程有重根时通项公式形式不同，且若不说明 \\(\\frac{k\\pi}{n+1}\\in(0,\\pi)\\)，分式通项可能出现分母为零的漏洞。"
+          },
+          {
+            "how_to_avoid": "在求解 \\(\\max_k |1-\\alpha\\lambda_k| < 1\\) 时，先写出双边不等式 \\(-1 < 1-\\alpha\\lambda_k < 1\\)，再分别检验左右两端（\\(1-\\alpha\\lambda_1 < 1\\) 自动成立，\\(1-\\alpha\\lambda_n > -1\\) 给出上界），并用分段单调性确定最优点。",
+            "mistake": "求 Richardson 收敛范围时只考虑 \\(|1-\\alpha\\lambda_1| < 1\\) 而漏掉最大特征值 \\(\\lambda_n\\) 的约束，或在求最优 \\(\\alpha\\) 时误以为 \\(\\rho(I-\\alpha A_n) = 1-\\alpha\\lambda_1\\) 越小越好而取 \\(\\alpha \\to 2/\\lambda_n\\)。",
+            "title": "迭代收敛区间与最优参数的端点混淆",
+            "why_wrong": "当 \\(\\alpha > \\frac{2}{\\lambda_1+\\lambda_n}\\) 时，\\(1-\\alpha\\lambda_n\\) 变为负数且绝对值超过 \\(1-\\alpha\\lambda_1\\)，此时谱半径由 \\(|1-\\alpha\\lambda_n| = \\alpha\\lambda_n - 1\\) 控制，随 \\(\\alpha\\) 增大反而变大，甚至超过 \\(1\\) 导致发散。"
+          },
+          {
+            "how_to_avoid": "紧扣余弦函数的二阶泰勒展开 \\(\\cos x = 1 - \\frac{x^2}{2} + O(x^4)\\)，再计算 \\(-\\ln\\rho(J) \\sim \\frac{\\pi^2}{2n^2}\\)，明确指出误差衰减因子接近 \\(1 - O(n^{-2})\\)，从而需要 \\(O(n^2)\\) 步迭代。",
+            "mistake": "在分析 Jacobi 迭代的收敛快慢时，仅凭 \\(\\rho(J) = \\cos\\frac{\\pi}{n+1} < 1\\) 就笼统地说“收敛”，而没有给出 \\(1 - \\rho(J) = O(n^{-2})\\) 的定量阶估计，或把 \\(\\cos\\frac{\\pi}{n+1}\\) 的二阶项系数漏掉 \\(1/2\\)。",
+            "title": "大 \\(n\\) 收敛速率的定量阶估计缺失或系数出错",
+            "why_wrong": "只说明 \\(\\rho(J) < 1\\) 只能证明收敛性，无法回答“收敛的快慢”；而遗漏 Taylor 展开中的 \\(\\frac{1}{2}\\) 会导致迭代次数的渐近常数错误。"
+          }
+        ],
+        "comparison_summary": "盲解与参考答案的最终结论完全一致。第（1）问参考答案采用特征多项式三项递推 \\(D_n(\\lambda) = (\\lambda-2)D_{n-1}(\\lambda) - D_{n-2}(\\lambda)\\) 结合三角恒等式证明特征值，而盲解采用直接构造正弦特征向量 \\(v_j^{(k)} = \\sin\\frac{jk\\pi}{n+1}\\) 并由特征值互异给出全部特征值，两种方法均严密有效；第（2）、（3）问在思路、公式推导与渐近分析上完全吻合，且盲解进一步利用 \\(\\lambda_1+\\lambda_n=4\\) 化简出了最优参数 \\(\\alpha^* = \\frac{1}{2}\\) 并显式指出了 Jacobi 迭代需要 \\(O(n^2)\\) 步的数量级结论。",
+        "difficulties": [
+          {
+            "detail": "无论是用二阶线性递推 \\(D_n(\\lambda) = (\\lambda-2)D_{n-1}(\\lambda) - D_{n-2}(\\lambda)\\) 还是直接构造特征向量，核心跨越在于将“三对角差分算子”与“三角函数 / Chebyshev 多项式”联系起来，识别出 \\(\\lambda - 2 = -2\\cos\\theta\\) 的代换。",
+            "title": "三对角 Toeplitz 矩阵与三角函数的对应关系"
+          },
+          {
+            "detail": "需要将线性迭代的收敛性与最优参数选择问题，转化为实对称矩阵谱半径的极小化问题 \\(\\min_{\\alpha>0} \\max_{k} |1 - \\alpha\\lambda_k|\\)，并看清最大值只能在谱区间端点 \\(\\lambda_1, \\lambda_n\\) 处取到，从而在 \\(1 - \\alpha\\lambda_1 = \\alpha\\lambda_n - 1\\) 时达到平衡。",
+            "title": "极小化极大（Minimax）思想在最优松弛参数中的应用"
+          },
+          {
+            "detail": "从 \\(\\rho(J) = \\cos\\frac{\\pi}{n+1}\\) 过渡到“当 \\(n\\) 充分大时收敛很慢”，必须借助 Taylor 展开得到 \\(1 - \\rho(J) \\sim \\frac{\\pi^2}{2n^2}\\)，理解谱半径趋近于 \\(1\\) 时误差每步仅衰减 \\(O(n^{-2})\\) 比例，从而需要 \\(O(n^2)\\) 次迭代。",
+            "title": "从谱半径公式到迭代复杂度的渐近转化"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "归纳与递推",
+          "构造与反例",
+          "放缩与估值"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:计算精度与等价替换",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "观察矩阵 \\(A_n\\) 为典型的一维离散 Laplace 算子（对称三对角 Toeplitz 矩阵），所有特征值均正，且题干已给出 \\(\\lambda_k\\) 的显式三角形式，提示可用递推公式代入验证或直接构造正弦型特征向量。",
+            "step": "识别矩阵结构与目标特征值提示"
+          },
+          {
+            "detail": "对于实对称正定矩阵的定常线性迭代 \\(\\mathbf{x}^{(m+1)} = G\\mathbf{x}^{(m)} + \\mathbf{c}\\)，收敛性与收敛快慢完全由迭代矩阵 \\(G\\) 的谱半径 \\(\\rho(G)\\) 决定，应先写出误差传递矩阵 \\(G_\\alpha = I_n - \\alpha A_n\\) 与 \\(J = I_n - D^{-1}A_n\\)。",
+            "step": "将迭代收敛性转化为谱半径估计"
+          },
+          {
+            "detail": "注意到 \\(A_n\\) 的对角元全为 \\(2\\)（\\(D = 2I_n\\)），因此 Jacobi 迭代矩阵 \\(J = I_n - \\frac{1}{2}A_n\\) 恰好是 Richardson 迭代取 \\(\\alpha = \\frac{1}{2}\\) 的特例，可以直接复用第（1）、（2）问的特征值与谱半径表达式来分析大 \\(n\\) 渐近行为。",
+            "step": "建立 Jacobi 迭代与 Richardson 迭代的联系"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(D_n(\\lambda) = \\det(\\lambda I_n - A_n)\\)，按第一行展开得 \\(D_n(\\lambda) = (\\lambda-2)D_{n-1}(\\lambda) - D_{n-2}(\\lambda)\\)。代入 \\(\\lambda_k - 2 = -2\\cos\\frac{k\\pi}{n+1} = 2\\cos\\left(\\pi - \\frac{k\\pi}{n+1}\\right)\\)，利用二阶递推与三角恒等式可得 \\(D_n(\\lambda_k) = \\frac{\\sin((n+1-k)\\pi)}{\\sin\\frac{k\\pi}{n+1}} = 0\\)（\\(k=1,\\dots,n\\)），从而确定全部 \\(n\\) 个特征值（或直接验证 \\(v_j^{(k)}=\\sin\\frac{jk\\pi}{n+1}\\) 为特征向量）。",
+            "motivation": "利用三对角结构求出 \\(A_n\\) 的全部特征值，为后续条件数与迭代谱半径提供基础。",
+            "step": "求解 \\(A_n\\) 的特征值"
+          },
+          {
+            "detail": "由 \\(\\sin x\\) 在 \\((0,\\frac{\\pi}{2})\\) 上的单调性得到 \\(\\lambda_1 = 4\\sin^2\\frac{\\pi}{2(n+1)}\\) 与 \\(\\lambda_n = 4\\cos^2\\frac{\\pi}{2(n+1)}\\)，故 \\(\\kappa_2(A_n) = \\cot^2\\frac{\\pi}{2(n+1)}\\)。利用 \\(x \\to 0\\) 时 \\(\\cot x \\sim \\frac{1}{x}\\)，直接得出 \\(\\kappa_2(A_n) \\sim \\frac{4(n+1)^2}{\\pi^2} \\sim \\frac{4n^2}{\\pi^2}\\)。",
+            "motivation": "通过极值特征值比值给出谱条件数的精确三角形式及其大 \\(n\\) 渐近阶。",
+            "step": "计算并估计谱条件数 \\(\\kappa_2(A_n)\\)"
+          },
+          {
+            "detail": "迭代矩阵 \\(G_\\alpha = I_n - \\alpha A_n\\) 的特征值为 \\(1-\\alpha\\lambda_k\\)。由单调性知 \\(\\rho(G_\\alpha) = \\max\\{|1-\\alpha\\lambda_1|, |1-\\alpha\\lambda_n|\\}\\)。收敛充要条件 \\(\\rho(G_\\alpha) < 1\\) 解得 \\(0 < \\alpha < \\frac{2}{\\lambda_n}\\)。当且仅当两端绝对值相等即 \\(1-\\alpha\\lambda_1 = \\alpha\\lambda_n - 1\\) 时谱半径最小，得 \\(\\alpha_{\\mathrm{opt}} = \\frac{2}{\\lambda_1+\\lambda_n}\\)（对本题恰好为 \\(\\frac{1}{2}\\)），最小谱半径为 \\(\\frac{\\lambda_n-\\lambda_1}{\\lambda_n+\\lambda_1} = \\frac{\\kappa_2-1}{\\kappa_2+1}\\)。",
+            "motivation": "把迭代收敛与最优加速问题化归为区间端点处的谱半径极小化问题。",
+            "step": "分析 Richardson 迭代的收敛区间与最优参数"
+          },
+          {
+            "detail": "由于 \\(D = 2I_n\\)，Jacobi 迭代矩阵 \\(J = I_n - \\frac{1}{2}A_n\\) 的特征值为 \\(\\mu_k = 1 - \\frac{1}{2}\\lambda_k = 1 - 2\\sin^2\\frac{k\\pi}{2(n+1)} = \\cos\\frac{k\\pi}{n+1}\\)，谱半径 \\(\\rho(J) = \\cos\\frac{\\pi}{n+1} < 1\\)，故迭代收敛。当 \\(n\\) 很大时，Taylor 展开给出 \\(\\rho(J) = 1 - \\frac{\\pi^2}{2(n+1)^2} + O\\left(\\frac{1}{n^4}\\right)\\)，说明 \\(\\rho(J)\\) 极为接近 \\(1\\)，每步误差衰减极慢，需要极多次（\\(O(n^2)\\) 次）迭代才能达到所需精度。",
+            "motivation": "证明 Jacobi 迭代的收敛性，并通过渐近展开揭示其在大规模离散问题中的收敛瓶颈。",
+            "step": "分析 Jacobi 迭代收敛性与大 \\(n\\) 渐近速度"
+          }
+        ],
+        "teaching_takeaway": "对于结构化三对角矩阵，既可以通过特征多项式递推也可以通过构造正弦特征向量来求谱；在分析一阶定常迭代法时，把收敛性与最优参数统一转化为迭代矩阵谱半径的极小化与端点平衡，并结合 Taylor 展开量化大 \\(n\\) 下的收敛阶，是解决数值代数竞赛题的标准范式。",
+        "topic_tags": [
+          "三对角矩阵特征值",
+          "迭代法收敛性分析",
+          "数值线性代数"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q2",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "2",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第2题",
+      "blind_attempt": {
+        "approach": "利用直线的参数方程代入椭球面方程，得到关于参数 \\(t\\) 的一元二次方程，发现两个方程的二次项系数与一次项系数完全相同，从而由韦达定理直接证明线段 \\(AB\\) 与 \\(CD\\) 的中点重合；再由中点重合推得向量关系 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\)，进而得出线段 \\(AC\\) 与 \\(DB\\) 长度相等（且不依赖于 \\(C,D\\) 的标注顺序）。也可以先通过线性变换 \\(u=x,\\,v=\\sqrt{2}y,\\,w=\\sqrt{3}z\\) 将两个椭球面化为同心球面，再由平面几何性质与仿射变换保持中点及同一直线上线段长度比的性质得证。以下采用最直接的参数方程法给出完整证明。",
+        "final_answer": "（1）设直线 \\(L\\) 的参数方程为 \\(x=x_0+lt,\\; y=y_0+mt,\\; z=z_0+nt\\)（\\(t\\in\\mathbb{R}\\)，方向向量 \\((l,m,n)\\neq(0,0,0)\\)）。将其代入 \\(x^2+2y^2+3z^2\\) 得二次多项式 \\(\\alpha t^2+2\\beta t+\\gamma\\)，其中 \\(\\alpha=l^2+2m^2+3n^2>0\\)，\\(\\beta=x_0l+2y_0m+3z_0n\\)。于是交点 \\(A,B\\) 对应的参数 \\(t_A,t_B\\) 满足 \\(\\alpha t^2+2\\beta t+\\gamma-4=0\\)，交点 \\(C,D\\) 对应的参数 \\(t_C,t_D\\) 满足 \\(\\alpha t^2+2\\beta t+\\gamma-1=0\\)。由韦达定理得 \\(\\frac{t_A+t_B}{2}=-\\frac{\\beta}{\\alpha}=\\frac{t_C+t_D}{2}\\)，故线段 \\(AB\\) 与 \\(CD\\) 的中点重合。\n\n（2）由（1）知 \\(\\overrightarrow{OA}+\\overrightarrow{OB}=\\overrightarrow{OC}+\\overrightarrow{OD}\\)，移项即得 \\(\\overrightarrow{OC}-\\overrightarrow{OA}=\\overrightarrow{OB}-\\overrightarrow{OD}\\)，即 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\)。两边取模长即得 \\(|AC|=|DB|\\)，即线段 \\(AC\\) 和线段 \\(DB\\) 的长度相等。",
+        "problem_statement_zh": "在空间直角坐标系中，椭球面 \\(S\\) 和 \\(T\\) 的方程为\n\\[S:\\ x^2+2y^2+3z^2=4,\\qquad T:\\ x^2+2y^2+3z^2=1.\\]\n设直线 \\(L\\) 交椭球面 \\(S\\) 于 \\(A\\) 和 \\(B\\)，交椭球面 \\(T\\) 于 \\(C\\) 和 \\(D\\)。证明：\n（1）线段 \\(AB\\) 的中点和线段 \\(CD\\) 的中点重合；\n（2）线段 \\(AC\\) 和线段 \\(DB\\) 的长度相等。",
+        "steps": [
+          "第一步：写出直线 \\(L\\) 的参数方程并代入二次型。在直线 \\(L\\) 上任取一点 \\(P_0(x_0,y_0,z_0)\\)，并设 \\(L\\) 的一个非零方向向量为 \\(\\mathbf{v}=(l,m,n)\\neq(0,0,0)\\)，则 \\(L\\) 的参数方程为\n\\[x=x_0+lt,\\qquad y=y_0+mt,\\qquad z=z_0+nt\\qquad (t\\in\\mathbb{R}).\\]\n记 \\(Q(x,y,z)=x^2+2y^2+3z^2\\)，将直线 \\(L\\) 的参数方程代入得\n\\[Q(x_0+lt,y_0+mt,z_0+nt)=(x_0+lt)^2+2(y_0+mt)^2+3(z_0+nt)^2=\\alpha t^2+2\\beta t+\\gamma,\\]\n其中\n\\[\\alpha=l^2+2m^2+3n^2,\\qquad \\beta=x_0l+2y_0m+3z_0n,\\qquad \\gamma=x_0^2+2y_0^2+3z_0^2.\\]\n因为 \\((l,m,n)\\neq(0,0,0)\\)，所以 \\(\\alpha>0\\)。",
+          "第二步：证明线段 \\(AB\\) 与 \\(CD\\) 的中点重合（第（1）问）。直线 \\(L\\) 与椭球面 \\(S\\) 的交点 \\(A,B\\) 所对应的参数 \\(t_A,t_B\\) 是方程\n\\[\\alpha t^2+2\\beta t+(\\gamma-4)=0\\]\n的两个实根（由于直线 \\(L\\) 与 \\(T\\) 有交点 \\(C\\)，在该点处有 \\(\\alpha t_C^2+2\\beta t_C+\\gamma=1<4\\)，结合 \\(\\alpha>0\\) 可知该方程必有两个不相等的实根）。由韦达定理，线段 \\(AB\\) 的中点 \\(M_{AB}\\) 对应的参数为\n\\[t_{M_{AB}}=\\frac{t_A+t_B}{2}=-\\frac{\\beta}{\\alpha}.\\]\n同理，直线 \\(L\\) 与椭球面 \\(T\\) 的交点 \\(C,D\\) 所对应的参数 \\(t_C,t_D\\) 是方程\n\\[\\alpha t^2+2\\beta t+(\\gamma-1)=0\\]\n的两个实根（若 \\(L\\) 与 \\(T\\) 相切，则 \\(t_C=t_D\\) 为二重实根，对应退化线段 \\(CD\\) 的中点即切点）。由韦达定理，线段 \\(CD\\) 的中点 \\(M_{CD}\\) 对应的参数为\n\\[t_{M_{CD}}=\\frac{t_C+t_D}{2}=-\\frac{\\beta}{\\alpha}.\\]\n由于 \\(t_{M_{AB}}=t_{M_{CD}}\\)，故线段 \\(AB\\) 的中点与线段 \\(CD\\) 的中点为同一点，即两者重合。",
+          "第三步：证明线段 \\(AC\\) 与 \\(DB\\) 的长度相等（第（2）问）。记（1）中公共中点为 \\(M\\)，则有\n\\[\\frac{\\overrightarrow{OA}+\\overrightarrow{OB}}{2}=\\overrightarrow{OM}=\\frac{\\overrightarrow{OC}+\\overrightarrow{OD}}{2},\\]\n即\n\\[\\overrightarrow{OA}+\\overrightarrow{OB}=\\overrightarrow{OC}+\\overrightarrow{OD}.\\]\n移项得\n\\[\\overrightarrow{OC}-\\overrightarrow{OA}=\\overrightarrow{OB}-\\overrightarrow{OD},\\]\n即\n\\[\\overrightarrow{AC}=\\overrightarrow{DB}.\\]\n两边取长度（模长），立即得到\n\\[|AC|=|\\overrightarrow{AC}|=|\\overrightarrow{DB}|=|DB|.\\]\n（注：也可由参数关系 \\(t_A+t_B=t_C+t_D\\) 推出 \\(t_C-t_A=t_B-t_D\\)，从而 \\(|AC|=|t_C-t_A|\\,\\|\\mathbf{v}\\|=|t_B-t_D|\\,\\|\\mathbf{v}\\|=|DB|\\)。）由此证得线段 \\(AC\\) 和线段 \\(DB\\) 的长度相等。"
+        ],
+        "uncertainties": [
+          "题干未显式说明 \\(C,D\\) 是否一定相异（即未排除直线 \\(L\\) 与椭球面 \\(T\\) 相切的情形），也未限定 \\(A,C,D,B\\) 在直线上的排列顺序（即 \\(C\\) 与 \\(D\\) 哪一个更靠近 \\(A\\)）。上述证明对相切情形（此时 \\(t_C=t_D\\) 为重根，\\(C=D\\)）以及 \\(C,D\\) 的任意标注顺序均完全成立。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "显式说明因 \\(T\\) 在 \\(S\\) 内部，\\(C,D\\) 位于线段 \\(AB\\) 之间，四点在 \\(L\\) 上的顺序为 \\(A,C,M,D,B\\) 或 \\(A,D,M,C,B\\)，两种情形下均有 \\(AC=DB\\)；或者直接利用向量等式 \\(\\overrightarrow{OA}+\\overrightarrow{OB}=\\overrightarrow{OC}+\\overrightarrow{OD}\\) 推得 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\)，无需分类即可严格覆盖所有顺序。",
+            "mistake": "在第（2）问中直接写“因为 \\(AM=MB\\)，\\(CM=MD\\)，所以 \\(AC=AM-CM=MB-MD=DB\\)”，未说明或分类讨论四点在直线 \\(L\\) 上的排列顺序。",
+            "title": "忽略直线上四点的排列顺序（本题评分明确扣分点）",
+            "why_wrong": "题干仅说明直线 \\(L\\) 交 \\(T\\) 于 \\(C,D\\) 两点，并未指定 \\(C\\) 更靠近 \\(A\\) 还是更靠近 \\(B\\)。当排列顺序为 \\(A,D,M,C,B\\) 时，\\(AC=AM+MD\\) 而非 \\(AM-CM\\)，直接作差会导致逻辑不严密（本题参考解答专门注明“如果没考虑点的顺序，扣 1 分”）。"
+          },
+          {
+            "how_to_avoid": "设参数方程时明确要求方向向量非零（或取单位方向向量 \\(\\alpha^2+\\beta^2+\\gamma^2=1\\)），并显式指出正定二次型保证了 \\(\\alpha^2+2\\beta^2+3\\gamma^2>0\\)，且由 \\(L\\) 与 \\(T\\) 有交点可立即验证方程（1）判别式为正。",
+            "mistake": "未声明方向向量非零，或未检验二次项系数 \\(\\alpha^2+2\\beta^2+3\\gamma^2\\neq 0\\) 就直接套用韦达定理。",
+            "title": "未检验方向向量非零或二次项系数非零",
+            "why_wrong": "若方向向量为零向量则不能表示直线；且在一般二次曲面问题中，若直线平行于渐近方向，二次项系数可能退化为零，从而不能直接使用一元二次方程的韦达定理。"
+          },
+          {
+            "how_to_avoid": "在论证中将相切视为 \\(t_3=t_4\\) 的重根情形（此时 \\(C=D=M\\)），并确认韦达定理 \\(t_3+t_4=-\\frac{2(a\\alpha+2b\\beta+3c\\gamma)}{\\alpha^2+2\\beta^2+3\\gamma^2}\\) 与向量式 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\) 在 \\(C=D\\) 时依然成立。",
+            "mistake": "隐含假设 \\(C,D\\) 必为相异两点（即默认 \\(t_3<t_4\\)），未考虑直线 \\(L\\) 与内层椭球面 \\(T\\) 相切的退化情形。",
+            "title": "遗漏直线与内层椭球面相切的退化情形",
+            "why_wrong": "题干“交椭球面 \\(T\\) 于 \\(C\\) 和 \\(D\\)”在未注明“相异”时理论上允许相切重根 \\(C=D\\)；若讨论中依赖 \\(C,D\\) 严格位于 \\(M\\) 两侧，会在相切边界处出现漏洞。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲解完全正确，核心思路与参考解答高度一致：第（1）问均采用直线点向式参数方程代入椭球面方程，再由两二次方程二次项与一次项系数相同结合韦达定理证明中点参数相等。细微差异与补充价值在于：Turn 1 显式说明了由 \\(L\\) 与 \\(T\\) 相交可推知 \\(S\\) 对应的二次方程必有两相异实根且二次项系数严格为正；第（2）问中，参考解答通过讨论四点在直线上的两种可能排列（\\(A,C,M,D,B\\) 与 \\(A,D,M,C,B\\)）并附注“没考虑点的顺序扣 1 分”来确保严密性，而 Turn 1 采用向量等式 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\)（及有向参数差 \\(t_C-t_A=t_B-t_D\\)），以更简洁且不依赖点序和相切退化情况的方式严格完成了证明。",
+        "difficulties": [
+          {
+            "detail": "空间解析几何中若使用直线的一般式（两平面交线）或对称式联立曲面方程，消元复杂且难以直接捕捉中点坐标；改用点向式参数方程 \\((x,y,z)=(a,b,c)+(\\alpha,\\beta,\\gamma)t\\) 降维后，两曲面方程二次型相同这一结构立即转化为两个一元二次方程的二次项、一次项系数完全相等。",
+            "title": "选择点向式参数方程实现降维与系数对齐"
+          },
+          {
+            "detail": "由第（1）问中点重合推第（2）问长度相等时，学生极易顺手写出 \\(AC=AM-CM=MB-MD=DB\\)，从而隐含了“\\(C\\) 靠近 \\(A\\)、\\(D\\) 靠近 \\(B\\)”的未证实假设。事实上必须考虑 \\(A,D,M,C,B\\) 这一反序排列（或用有向向量 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\) 绕开顺序分类），这也是官方评分标准明确设置扣分点的地方。",
+            "title": "第（2）问中点序分类讨论（或向量的有序性处理）"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "变量代换与重参数化",
+          "辅助线与几何变换"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "对比两椭球面方程 \\(S: x^2+2y^2+3z^2=4\\) 与 \\(T: x^2+2y^2+3z^2=1\\)，发现二次型部分完全相同，仅常数项不同（几何上为同心位似椭球面，\\(T\\) 位于 \\(S\\) 内部）。这种“仅常数项差一个平移量”的结构提示：直线与两曲面交点的关系将集中在二次方程的一次项与二次项系数上。",
+            "step": "步骤一：观察曲面方程结构，识别“同二次型、异常数项”线索"
+          },
+          {
+            "detail": "围绕“弦中点”这一核心目标，选取点向式参数方程 \\((x,y,z)=(a,b,c)+(\\alpha,\\beta,\\gamma)t\\)。参数 \\(t\\) 的线性性使弦的中点直接对应两根之和的一半 \\(\\frac{t_1+t_2}{2}\\)，从而无需真正解出交点坐标，直接利用韦达定理即可比较两个中点。",
+            "step": "步骤二：确立“参数方程 + 韦达定理”的入口策略"
+          },
+          {
+            "detail": "明确第（1）问共中点 \\(M\\) 后，将第（2）问转化为同一直线上关于中点 \\(M\\) 对称的两对点之间的距离比较；提前意识到点 \\(C,D\\) 的标注没有预设顺序，决定采用分序讨论或有向向量差 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\) 来保证严格性。",
+            "step": "步骤三：预判第（2）问的点序陷阱并确定衔接方式"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设直线 \\(L\\) 的参数方程为 \\((x,y,z)=(a,b,c)+(\\alpha,\\beta,\\gamma)t\\)（\\(t\\in\\mathbb{R}\\)，其中 \\(\\alpha^2+\\beta^2+\\gamma^2=1\\)）。选取单位方向向量既排除了零向量退化，又使直线上点与参数 \\(t\\) 建立等距一一对应，且任意两点对应参数 \\(t_i,t_j\\) 的中点参数即为 \\(\\frac{t_i+t_j}{2}\\)。",
+            "motivation": "将三维空间中的直线与曲面求交问题降维为一维参数 \\(t\\) 的代数方程问题，并使中点坐标与根的和直接挂钩。",
+            "step": "1. 参数化直线 \\(L\\)"
+          },
+          {
+            "detail": "将参数方程分别代入 \\(S\\) 与 \\(T\\) 的方程，得\n\\[(\\alpha^2+2\\beta^2+3\\gamma^2)t^2+2(a\\alpha+2b\\beta+3c\\gamma)t+a^2+2b^2+3c^2-4=0,\\]\n\\[(\\alpha^2+2\\beta^2+3\\gamma^2)t^2+2(a\\alpha+2b\\beta+3c\\gamma)t+a^2+2b^2+3c^2-1=0.\\]\n由于 \\(\\alpha^2+2\\beta^2+3\\gamma^2\\ge\\alpha^2+\\beta^2+\\gamma^2=1>0\\)，两个方程均为真正的二次方程，且二次项系数与一次项系数完全一致。由韦达定理，交点参数之和满足\n\\[t_1+t_2=t_3+t_4=-\\frac{2(a\\alpha+2b\\beta+3c\\gamma)}{\\alpha^2+2\\beta^2+3\\gamma^2},\\]\n因此 \\(AB\\) 与 \\(CD\\) 的中点具有相同的参数 \\(\\frac{t_1+t_2}{2}=\\frac{t_3+t_4}{2}\\)，从而重合于同一点 \\(M\\)。",
+            "motivation": "利用两个椭球面二次型相同的特点，消去求解具体交点坐标的繁琐计算，由韦达定理一步证得中点重合。",
+            "step": "2. 联立方程并用韦达定理证明中点重合"
+          },
+          {
+            "detail": "由（1）得 \\(AM=MB\\) 且 \\(CM=MD\\)。因 \\(T\\) 严格位于 \\(S\\) 内部，\\(C,D\\) 必在 \\(A,B\\) 之间，故四点在直线 \\(L\\) 上的顺序为 \\(A,C,M,D,B\\) 或 \\(A,D,M,C,B\\)（相切时 \\(C=D=M\\)）。在第一种顺序下 \\(AC=AM-CM=MB-MD=DB\\)；在第二种顺序下 \\(AC=AM+MD=MB+CM=DB\\)。两种情形均得 \\(AC=DB\\)。（更简洁地，由共中点直接有向量等式 \\(\\overrightarrow{OA}+\\overrightarrow{OB}=\\overrightarrow{OC}+\\overrightarrow{OD}\\)，即 \\(\\overrightarrow{AC}=\\overrightarrow{DB}\\)，取模立得 \\(AC=DB\\)。）",
+            "motivation": "在共线且同中点的条件下，必须通过确认四点相对顺序（或使用有向向量）才能将“两段中点重合”严格转化为“\\(AC=DB\\)”。",
+            "step": "3. 结合点序（或向量等式）证明线段长度相等"
+          }
+        ],
+        "teaching_takeaway": "求解直线与二次曲面相交的弦中点与对称截距问题时，利用直线的点向式参数方程配合韦达定理，能直击二次方程高次项系数不变的代数本质；同时，从共线中点重合推导线段相等时，务必显式核查点的排列顺序或直接采用有向向量证明，杜绝“看图默认顺序”导致的扣分。",
+        "topic_tags": [
+          "空间解析几何",
+          "二次曲面与椭球面",
+          "直线参数方程"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q3",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "3",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第3题",
+      "blind_attempt": {
+        "approach": "第（1）问直接利用矩阵乘法与转置性质展开左端即可验证恒等式（其中由 \\(BB^T-E>0\\) 可知 \\(E-BB^T\\) 负定从而可逆）。第（2）问的关键在于将第（1）问的右端利用矩阵恒等式 \\(E + B^T(E - BB^T)^{-1}B = (E - B^T B)^{-1}\\) 等关系化简为对称合同形式 \\((A - B)(E - B^T B)^{-1}(A - B)^T\\)，再取相反数得到正定矩阵之和 \\((E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T = (AA^T - E) + (A - B)(B^T B - E)^{-1}(A - B)^T\\)。最后利用正定矩阵对 \\(P, Q > 0\\)（\\(n \\ge 2\\)）满足的严格不等式 \\(\\det(P + Q) > \\det(P) + \\det(Q)\\)，并在两端同乘 \\(\\det(BB^T - E) = \\det(B^T B - E) > 0\\)，结合 \\(\\det(A - B) = 1\\) 即得所证严格不等式。",
+        "final_answer": "### 证明\n\n#### （1）\n因为 \\(BB^T - E > 0\\)（正定），所以 \\(E - BB^T = -(BB^T - E)\\) 负定，从而可逆。利用 \\((E - AB^T)^T = E - BA^T\\) 直接展开左端得：\n\\[\\begin{aligned}\n&(E - AB^T)(E - BB^T)^{-1}(E - AB^T)^T - (E - AA^T) \\\\\n&= (E - AB^T)(E - BB^T)^{-1}(E - BA^T) - E + AA^T \\\\\n&= (E - BB^T)^{-1} - AB^T(E - BB^T)^{-1} - (E - BB^T)^{-1}BA^T + AB^T(E - BB^T)^{-1}BA^T - E + AA^T \\\\\n&= (E - BB^T)^{-1} - E - AB^T(E - BB^T)^{-1} - (E - BB^T)^{-1}BA^T + A\\bigl(E + B^T(E - BB^T)^{-1}B\\bigr)A^T.\n\\end{aligned}\\]\n第（1）问得证。\n\n---\n\n#### （2）\n首先，对任意 \\(n\\) 阶实方阵 \\(B\\)，\\(B^T B\\) 与 \\(BB^T\\) 具有相同的特征多项式（即相同的特征值）。因为 \\(BB^T - E > 0\\)，所以 \\(BB^T\\) 的特征值全部大于 \\(1\\)，从而 \\(B^T B\\) 的特征值也全部大于 \\(1\\)，即 \\(B^T B - E > 0\\)，于是 \\(E - B^T B\\) 也可逆，且\n\\[\\det(B^T B - E) = \\det(BB^T - E) > 0.\\]\n\n其次，我们来化简第（1）问的右端。注意到 \\((E - B^T B)B^T = B^T - B^T BB^T = B^T(E - BB^T)\\)，由此可得以下三个矩阵恒等式：\n1. \\((E - B^T B)\\bigl(E + B^T(E - BB^T)^{-1}B\\bigr) = E - B^T B + B^T(E - BB^T)(E - BB^T)^{-1}B = E\\)，故\n   \\[E + B^T(E - BB^T)^{-1}B = (E - B^T B)^{-1};\\]\n2. 在 \\((E - B^T B)B^T = B^T(E - BB^T)\\) 两端左乘 \\((E - B^T B)^{-1}\\)、右乘 \\((E - BB^T)^{-1}\\)，得\n   \\[(E - B^T B)^{-1}B^T = B^T(E - BB^T)^{-1},\\]\n   两边取转置，得\n   \\[B(E - B^T B)^{-1} = (E - BB^T)^{-1}B;\\]\n3. 利用上一式可得\n   \\[B(E - B^T B)^{-1}B^T = (E - BB^T)^{-1}BB^T = (E - BB^T)^{-1}\\bigl(E - (E - BB^T)\\bigr) = (E - BB^T)^{-1} - E.\\]\n\n将以上三式代入第（1）问的右端，得到：\n\\[\\begin{aligned}\n&(E - BB^T)^{-1} - E - AB^T(E - BB^T)^{-1} - (E - BB^T)^{-1}BA^T + A\\bigl(E + B^T(E - BB^T)^{-1}B\\bigr)A^T \\\\\n&= B(E - B^T B)^{-1}B^T - A(E - B^T B)^{-1}B^T - B(E - B^T B)^{-1}A^T + A(E - B^T B)^{-1}A^T \\\\\n&= (A - B)(E - B^T B)^{-1}(A - B)^T.\n\\end{aligned}\\]\n因此第（1）问的恒等式可改写为：\n\\[(E - AB^T)(E - BB^T)^{-1}(E - AB^T)^T - (E - AA^T) = (A - B)(E - B^T B)^{-1}(A - B)^T.\\]\n两边同乘 \\(-1\\) 并移项，得：\n\\[(E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T = (AA^T - E) + (A - B)(B^T B - E)^{-1}(A - B)^T.\\]\n\n记 \\(P = AA^T - E\\)，\\(Q = (A - B)(B^T B - E)^{-1}(A - B)^T\\)。由已知 \\(AA^T - E > 0\\)，故 \\(P > 0\\)；又因 \\(\\det(A - B) = 1 \\neq 0\\) 且 \\((B^T B - E)^{-1} > 0\\)，\\(Q\\) 与 \\((B^T B - E)^{-1}\\) 合同，故 \\(Q > 0\\)。\n\n由正定矩阵的同时合同对角化定理，存在 \\(n\\) 阶可逆实矩阵 \\(C\\)，使得\n\\[C^T P C = E, \\qquad C^T Q C = \\operatorname{diag}(\\lambda_1, \\lambda_2, \\dots, \\lambda_n),\\]\n其中 \\(\\lambda_1, \\dots, \\lambda_n > 0\\)。因为 \\(n \\ge 2\\) 且 \\(\\lambda_i > 0\\)，所以\n\\[\\frac{\\det(P + Q)}{\\det(P)} = \\det(E + C^T Q C) = \\prod_{i=1}^n (1 + \\lambda_i) > 1 + \\prod_{i=1}^n \\lambda_i = 1 + \\frac{\\det(Q)}{\\det(P)},\\]\n两边同乘 \\(\\det(P) > 0\\)，即得：\n\\[\\det(P + Q) > \\det(P) + \\det(Q).\\]\n\n将此不等式两边同乘 \\(\\det(BB^T - E) > 0\\)：\n- 左端为：\n  \\[\\det\\bigl((E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T\\bigr)\\det(BB^T - E) = \\det(E - AB^T)^2;\\]\n- 右端为：\n  \\[\\begin{aligned}\n  &\\det(AA^T - E)\\det(BB^T - E) + \\det(A - B)^2\\det(B^T B - E)^{-1}\\det(BB^T - E) \\\\\n  &= (-1)^n\\det(E - AA^T) \\cdot (-1)^n\\det(E - BB^T) + 1^2 \\cdot 1 \\\\\n  &= \\det(E - AA^T)\\det(E - BB^T) + 1.\n  \\end{aligned}\\]\n从而有\n\\[\\det(E - AB^T)^2 > \\det(E - AA^T)\\det(E - BB^T) + 1,\\]\n即\n\\[\\det(E - AA^T)\\det(E - BB^T) < \\det(E - AB^T)^2 - 1.\\]\n（注：若按弱不等号书写，显然也成立 \\(\\le\\)。）",
+        "problem_statement_zh": "设 \\(A,B\\) 均为 \\(n\\) 阶实方阵（\\(n\\ge2\\)），\\(E\\) 为 \\(n\\) 阶单位阵，且\n\\[\\det(A-B)=1,\\qquad AA^T-E>0,\\qquad BB^T-E>0.\\]\n这里 \\(>0\\) 表示正定。证明：\n（1）\n\\[\\begin{aligned}\n&(E-AB^T)(E-BB^T)^{-1}(E-AB^T)^T-(E-AA^T)\\\\\n&=(E-BB^T)^{-1}-E-A B^T(E-BB^T)^{-1}\\\\\n&\\quad -(E-BB^T)^{-1}BA^T+A\\bigl(E+B^T(E-BB^T)^{-1}B\\bigr)A^T;\n\\end{aligned}\\]\n（2）\n\\[\\det(E-AA^T)\\det(E-BB^T)<\\det(E-AB^T)^2-1.\\]",
+        "steps": [
+          "直接展开（1）式左端并整理各项，即可验证（1）中的矩阵恒等式（由 \\(BB^T - E > 0\\) 保证 \\(E - BB^T\\) 可逆）。",
+          "利用 \\(B^T B\\) 与 \\(BB^T\\) 特征多项式相同，由 \\(BB^T - E > 0\\) 推出 \\(B^T B - E > 0\\) 且 \\(\\det(B^T B - E) = \\det(BB^T - E) > 0\\)。",
+          "利用 \\((E - B^T B)B^T = B^T(E - BB^T)\\) 及 Woodbury 形式恒等式，将（1）式右端化简为 \\((A - B)(E - B^T B)^{-1}(A - B)^T\\)。",
+          "将恒等式两边同乘 \\(-1\\) 移项，得到正定矩阵之和 \\((E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T = P + Q\\)，其中 \\(P = AA^T - E > 0\\)，\\(Q = (A - B)(B^T B - E)^{-1}(A - B)^T > 0\\)。",
+          "利用同时合同对角化与 \\(n \\ge 2\\) 证明 \\(\\det(P + Q) > \\det(P) + \\det(Q)\\)，两边同乘 \\(\\det(BB^T - E) > 0\\) 并代入 \\(\\det(A - B) = 1\\)，即得 \\(\\det(E - AA^T)\\det(E - BB^T) < \\det(E - AB^T)^2 - 1\\)。"
+        ],
+        "uncertainties": [
+          "原题图片第 2 小问为严格不等号 \\(<\\)（即 \\(|E - AA^T|\\cdot|E - BB^T| < |E - AB^T|^2 - 1\\)），而题目文本转录中写为 \\(\\le\\)；本解答直接证明了原图中的严格不等号 \\(<\\)（当然也蕴含 \\(\\le\\)）。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "先将所有负定矩阵统一乘以 \\(-1\\) 化为正定矩阵（如 \\(M_1 = AA^T - E\\)、\\(BB^T - E\\)），再使用正定矩阵的行列式不等式；最后再通过 \\((-1)^n \\cdot (-1)^n = 1\\) 还原为 \\(E - AA^T\\) 与 \\(E - BB^T\\) 的行列式乘积。",
+            "mistake": "直接对负定矩阵 \\(E - AA^T\\) 或 \\(E - BB^T\\) 套用“矩阵和的行列式大于行列式之和”的结论，或忽视负定矩阵乘以 \\(-1\\) 带来的 \\((-1)^n\\) 符号因子。",
+            "title": "负定与正定矩阵的符号混淆",
+            "why_wrong": "当 \\(n\\) 为奇数时，负定矩阵的行列式为负，\\(\\det(P + Q) > \\det(P) + \\det(Q)\\) 仅对正定矩阵成立；若不先转化为正定矩阵，不等号方向和符号极易出错。"
+          },
+          {
+            "how_to_avoid": "明确写出 \\(B^T B\\) 与 \\(BB^T\\) 具有相同的特征值（或相同的特征多项式），由 \\(BB^T - E > 0\\) 推出 \\(B^T B - E > 0\\)，从而同时保证可逆性、正定性与 \\(\\det(B^T B - E) = \\det(BB^T - E)\\)。",
+            "mistake": "由 \\(BB^T - E > 0\\) 直接默认 \\((B^T B - E)^{-1} > 0\\) 且 \\(\\det(B^T B - E) = \\det(BB^T - E)\\)，未给出证明。",
+            "title": "忽略 \\(B^T B - E\\) 正定性与行列式相等的论证",
+            "why_wrong": "虽然 \\(B^T B\\) 与 \\(BB^T\\) 特征值相同是常用结论，但在竞赛证明中若跳过这一步，则无法严谨说明 \\(M_2 = (A - B)(B^T B - E)^{-1}(A - B)^T\\) 的正定性及最终行列式的化简。"
+          },
+          {
+            "how_to_avoid": "利用同时合同对角化写出 \\(\\prod_{i=1}^n (1 + \\mu_i) = 1 + \\sum_{i=1}^n \\mu_i + \\dots + \\prod_{i=1}^n \\mu_i\\)，显式指出因 \\(n \\ge 2\\) 且 \\(\\mu_i > 0\\)，交叉项 \\(\\sum_{i=1}^n \\mu_i > 0\\) 严格成立，从而得到严格不等号。",
+            "mistake": "在证明 \\(\\det(M_1 + M_2) > \\det(M_1) + \\det(M_2)\\) 时忘记验证严格不等号成立的条件 \\(n \\ge 2\\)。",
+            "title": "忽略 \\(n \\ge 2\\) 对严格不等号的作用",
+            "why_wrong": "当 \\(n = 1\\) 时，\\(\\prod_{i=1}^1 (1 + \\mu_i) = 1 + \\mu_1\\) 只能取等号，第（2）问的严格不等号 \\(<\\) 并不成立；题目专门给出 \\(n \\ge 2\\) 正是为了保证交叉项严格为正。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲做解答与参考解答完全一致，均正确完成了第（1）问的恒等式验证与第（2）问的严格不等式证明。两者的核心思路完全相同：都是将第（1）问右端利用 \\(E + B^T(E - BB^T)^{-1}B = (E - B^T B)^{-1}\\) 与 \\((E - BB^T)^{-1} - E = B(E - B^T B)^{-1}B^T\\) 化简为 \\((A - B)(E - B^T B)^{-1}(A - B)^T\\)，进而转化为两个正定矩阵之和 \\(M_1 + M_2 = (E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T\\)，最后通过同时合同对角化证明 \\(\\det(M_1 + M_2) > \\det(M_1) + \\det(M_2)\\) 并乘以 \\(\\det(BB^T - E)\\) 得出结论。唯一细微差别在于：第（1）问盲做从左端展开到右端，参考解答从右端因式分解回左端，两者等价；第（2）问盲做还从特征值角度补充说明了 \\(B^T B - E > 0\\)（而不仅仅是可逆），使 \\(M_2\\) 正定性的论证更严密。",
+        "difficulties": [
+          {
+            "detail": "第（1）问给出的右端表达式看似杂乱，但必须识别出 \\(E + B^T(E - BB^T)^{-1}B = (E - B^T B)^{-1}\\)（Woodbury 矩阵恒等式）以及 \\((E - BB^T)^{-1} - E = B(E - B^T B)^{-1}B^T\\)，才能将五项合并为简洁的对称合同形式 \\((A - B)(E - B^T B)^{-1}(A - B)^T\\)，从而用上 \\(\\det(A - B) = 1\\) 的条件。",
+            "title": "识别隐含的 Woodbury 恒等式并合并出 \\(A - B\\) 因子"
+          },
+          {
+            "detail": "题目给出的 \\(E - AA^T\\)、\\(E - BB^T\\) 均为负定矩阵，需整体乘以 \\(-1\\) 转化为正定矩阵之和 \\(M_1 + M_2\\)，再利用同时合同对角化与 \\(n \\ge 2\\) 的条件得到严格行列式不等式 \\(\\det(M_1 + M_2) > \\det(M_1) + \\det(M_2)\\)。",
+            "title": "负定到正定的符号转换与正定矩阵和的行列式放缩"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "放缩与估值"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "首先确认已知条件的矩阵定性：\\(AA^T - E > 0\\) 与 \\(BB^T - E > 0\\) 说明 \\(E - AA^T\\) 与 \\(E - BB^T\\) 负定且可逆，同时也说明 \\(B^T B - E > 0\\) 与 \\(A^T A - E > 0\\)；此外 \\(\\det(A - B) = 1\\) 说明 \\(A - B\\) 可逆且在取行列式时会产生常数 \\(1\\)。",
+            "step": "条件解读与定性分析"
+          },
+          {
+            "detail": "观察第（2）问的不等式 \\(\\det(E - AA^T)\\det(E - BB^T) < \\det(E - AB^T)^2 - 1\\)，若将两边同除以 \\(\\det(BB^T - E)\\)，左端对应 \\(\\det(AA^T - E)\\)，右端第一项对应 \\(\\det\\bigl((E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T\\bigr)\\)，恰好就是第（1）问左端的两项（差一个负号）。这提示第（1）问正是为了把两者的差表示为一个“正定/负定可控”的矩阵。",
+            "step": "从结论反推第（1）问的桥梁作用"
+          },
+          {
+            "detail": "观察第（1）问右端含有 \\(A(\\dots)A^T\\)、\\(-AB^T(\\dots)\\)、\\(-(\\dots)BA^T\\) 以及不含 \\(A\\) 的项，这强烈暗示它是关于 \\(A - B\\) 的二次型/合同形式 \\((A - B)X(A - B)^T\\) 的展开。由此锁定需要用 \\(E - B^T B\\) 改写中间矩阵。",
+            "step": "识别右端的合同结构 \\((A - B)(\\cdot)(A - B)^T\\)"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "从（1）式左端（或右端）出发，利用矩阵分配律与 \\((E - AB^T)^T = E - BA^T\\) 直接展开整理即可。之所以能这样写，是因为 \\(BB^T - E > 0\\) 保证了 \\(E - BB^T\\) 可逆。",
+            "motivation": "完成第（1）问，并为第（2）问建立代数恒等式基础。",
+            "step": "直接展开验证第（1）问恒等式"
+          },
+          {
+            "detail": "由 \\(B^T B\\) 与 \\(BB^T\\) 特征多项式相同及 \\(BB^T - E > 0\\)，得 \\(B^T B - E > 0\\) 且 \\(\\det(B^T B - E) = \\det(BB^T - E) > 0\\)。利用 \\((E - B^T B)B^T = B^T(E - BB^T)\\)，可推出 \\(E + B^T(E - BB^T)^{-1}B = (E - B^T B)^{-1}\\)、\\((E - B^T B)^{-1}B^T = B^T(E - BB^T)^{-1}\\) 与 \\((E - BB^T)^{-1} - E = B(E - B^T B)^{-1}B^T\\)，从而将（1）式右端合并为 \\((A - B)(E - B^T B)^{-1}(A - B)^T\\)。这一步将分散的 \\(A, B\\) 交叉项统一到了可控的 \\(A - B\\) 合同结构中。",
+            "motivation": "将（1）式右端化简为利用 \\(\\det(A - B) = 1\\) 的合同形式。",
+            "step": "利用 Woodbury 恒等式化简（1）式右端"
+          },
+          {
+            "detail": "将恒等式两边同乘 \\(-1\\) 并移项，得到 \\((E - AB^T)(BB^T - E)^{-1}(E - AB^T)^T = M_1 + M_2\\)，其中 \\(M_1 = AA^T - E > 0\\)，\\(M_2 = (A - B)(B^T B - E)^{-1}(A - B)^T\\)。由于 \\(\\det(A - B) = 1 \\neq 0\\) 且 \\((B^T B - E)^{-1} > 0\\)，\\(M_2\\) 也是正定矩阵。只有全部转化为正定矩阵，才能使用后续的行列式放缩定理。",
+            "motivation": "消除负定矩阵带来的符号干扰，构造两个正定矩阵之和。",
+            "step": "转化为正定矩阵之和 \\(M_1 + M_2\\)"
+          },
+          {
+            "detail": "对正定矩阵 \\(M_1, M_2\\) 同时合同对角化：存在可逆阵 \\(P\\) 与正交阵 \\(U\\) 使得 \\(UPM_1 P^T U^T = E\\) 且 \\(UPM_2 P^T U^T = \\operatorname{diag}(\\mu_1, \\dots, \\mu_n)\\)（\\(\\mu_i > 0\\)）。由 \\(n \\ge 2\\) 得 \\(\\prod_{i=1}^n (1 + \\mu_i) > 1 + \\prod_{i=1}^n \\mu_i\\)，即 \\(\\det(M_1 + M_2) > \\det(M_1) + \\det(M_2)\\)。最后两边同乘 \\(\\det(BB^T - E) > 0\\)，并利用 \\(\\det(M_2)\\det(BB^T - E) = \\det(A - B)^2 = 1\\) 以及 \\((-1)^{2n} = 1\\)，即得所证严格不等式。",
+            "motivation": "通过同时合同对角化完成核心放缩并还原为原题行列式。",
+            "step": "同时合同对角化与行列式放缩"
+          }
+        ],
+        "teaching_takeaway": "遇到含 \\((E - BB^T)^{-1}\\) 与 \\(A, B\\) 混合项的矩阵行列式不等式时，应敏锐地借助 Woodbury 类恒等式将其收拢为 \\((A - B)(\\cdot)(A - B)^T\\) 的合同形式，并先将负定矩阵统一转为正定矩阵后，再利用同时合同对角化处理和的行列式放缩。",
+        "topic_tags": [
+          "正定矩阵与合同对角化",
+          "矩阵恒等式与Woodbury技巧",
+          "行列式不等式"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q4",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "4",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第4题",
+      "blind_attempt": {
+        "approach": "本题两问均围绕压缩映射与迭代数列收敛性展开。先利用极限存在性与介值定理证明极限方程 \\(x^* = f(x^*) + a\\)（其中 \\(a = \\lim_{n\\to\\infty} a_n\\)）有解 \\(x^*\\)，再借助线性递推不等式 \\(d_{n+1} \\le \\alpha d_n + \\varepsilon_n\\)（\\(\\alpha \\in (0,1),\\ \\varepsilon_n \\to 0\\)）导出 \\(d_n \\to 0\\)。第（1）问全局满足压缩条件，直接应用拉格朗日中值定理即可；第（2）问中 \\(|f'(x)|\\) 虽可随 \\(|x| \\to \\infty\\) 趋于 \\(1\\)，但因 \\(1 - \\frac{|x|+M}{|x|+M+1} = \\frac{1}{|x|+M+1}\\) 在无穷远处不可积，通过构造辅助函数 \\(\\phi(r) = r - \\ln\\frac{r+M+1}{M+1}\\) 并利用导数比较证明 \\(|f(x)-f(0)| \\le \\phi(|x|)\\)，从而证明数列 \\(\\{x_n\\}\\) 有界（落入某个闭区间 \\([-R, R]\\) 内），进而在 \\([-R, R]\\) 上化归为第（1）问的严格压缩情形，故 \\(\\{x_n\\}\\) 仍必收敛。",
+        "final_answer": "（1）\\(\\{x_n\\}\\) 收敛。\n（2）结论成立，\\(\\{x_n\\}\\) 仍然收敛（证明如下）。\n\n**引理**：设非负数列 \\(\\{d_n\\}\\)、\\(\\{\\varepsilon_n\\}\\) 满足 \\(\\lim_{n\\to\\infty} \\varepsilon_n = 0\\)，且存在常数 \\(\\alpha \\in (0, 1)\\) 使得对一切 \\(n \\ge 1\\) 有 \\(d_{n+1} \\le \\alpha d_n + \\varepsilon_n\\)，则 \\(\\lim_{n\\to\\infty} d_n = 0\\)。\n**引理证明**：对任意 \\(\\varepsilon > 0\\)，存在正整数 \\(N\\)，当 \\(n \\ge N\\) 时有 \\(\\varepsilon_n < \\varepsilon\\)。由递推关系归纳可得，对任意 \\(k \\ge 1\\)，\n\\[d_{N+k} \\le \\alpha^k d_N + \\varepsilon \\sum_{j=0}^{k-1} \\alpha^j < \\alpha^k d_N + \\frac{\\varepsilon}{1-\\alpha}.\\]\n由于 \\(\\alpha \\in (0, 1)\\)，有 \\(\\lim_{k\\to\\infty} \\alpha^k d_N = 0\\)，故存在正整数 \\(K\\)，当 \\(k \\ge K\\) 时 \\(\\alpha^k d_N < \\varepsilon\\)。于是对所有 \\(n \\ge N + K\\)，有\n\\[0 \\le d_n < \\left(1 + \\frac{1}{1-\\alpha}\\right)\\varepsilon.\\]\n由 \\(\\varepsilon\\) 的任意性知 \\(\\lim_{n\\to\\infty} d_n = 0\\)。\n\n**（1）的证明**：\n设 \\(\\lim_{n\\to\\infty} a_n = a\\)。考虑连续函数 \\(h(x) = x - f(x) - a\\)。由拉格朗日中值定理，对任意 \\(x \\in \\mathbb{R}\\)，存在 \\(\\xi\\) 介于 \\(0\\) 与 \\(x\\) 之间，使得\n\\[|f(x) - f(0)| = |f'(\\xi)| |x| \\le \\alpha |x|.\\]\n因此当 \\(x > 0\\) 时，\\(h(x) \\ge (1 - \\alpha)x - f(0) - a \\to +\\infty\\ (x \\to +\\infty)\\)；当 \\(x < 0\\) 时，\\(h(x) \\le (1 - \\alpha)x - f(0) - a \\to -\\infty\\ (x \\to -\\infty)\\)。由介值定理，存在 \\(x^* \\in \\mathbb{R}\\) 使得 \\(h(x^*) = 0\\)，即 \\(x^* = f(x^*) + a\\)。\n\n对任意 \\(n \\ge 1\\)，再由拉格朗日中值定理得\n\\[|x_{n+1} - x^*| = |f(x_n) + a_n - f(x^*) - a| \\le |f(x_n) - f(x^*)| + |a_n - a| \\le \\alpha |x_n - x^*| + |a_n - a|.\\]\n令 \\(d_n = |x_n - x^*|\\)，\\(\\varepsilon_n = |a_n - a| \\to 0\\)，由引理即得 \\(\\lim_{n\\to\\infty} |x_n - x^*| = 0\\)，故 \\(\\{x_n\\}\\) 收敛于 \\(x^*\\)。\n\n**（2）的证明**：\n设 \\(\\lim_{n\\to\\infty} a_n = a\\)。由于收敛数列必有界，存在 \\(A > 0\\) 使得对一切 \\(n \\ge 1\\) 有 \\(|a_n| \\le A\\)（从而 \\(|a| \\le A\\)）。\n\n先证对一切 \\(x \\in \\mathbb{R}\\) 有\n\\[|f(x) - f(0)| \\le \\phi(|x|), \\quad \\text{其中 } \\phi(r) = r - \\ln\\frac{r+M+1}{M+1}\\ (r \\ge 0).\\]\n事实上，\\(\\phi'(r) = 1 - \\frac{1}{r+M+1} = \\frac{r+M}{r+M+1}\\)。\n- 当 \\(x \\ge 0\\) 时，令 \\(g_1(x) = \\phi(x) - f(x)\\)，\\(g_2(x) = \\phi(x) + f(x)\\)。由已知条件 \\(|f'(x)| \\le \\frac{x+M}{x+M+1} = \\phi'(x)\\)，故 \\(g_1'(x) = \\phi'(x) - f'(x) \\ge 0\\) 且 \\(g_2'(x) = \\phi'(x) + f'(x) \\ge 0\\)。从而 \\(g_1, g_2\\) 在 \\([0, +\\infty)\\) 上单调不减，于是 \\(g_1(x) \\ge g_1(0) = -f(0)\\) 且 \\(g_2(x) \\ge g_2(0) = f(0)\\)，即 \\(|f(x) - f(0)| \\le \\phi(x)\\)。\n- 当 \\(x < 0\\) 时，令 \\(F(u) = f(-u)\\ (u \\ge 0)\\)，则 \\(|F'(u)| = |f'(-u)| \\le \\frac{u+M}{u+M+1} = \\phi'(u)\\)，同理可得 \\(|f(x) - f(0)| = |F(|x|) - F(0)| \\le \\phi(|x|)\\)。\n\n因为 \\(\\lim_{r\\to+\\infty} \\ln\\frac{r+M+1}{M+1} = +\\infty\\)，可选取充分大的 \\(R > 0\\)，使得\n\\[R \\ge |x_1| \\quad \\text{且} \\quad \\ln\\frac{R+M+1}{M+1} > |f(0)| + A.\\]\n下面用数学归纳法证明对一切 \\(n \\ge 1\\) 均有 \\(|x_n| \\le R\\)：\n- 当 \\(n = 1\\) 时，由 \\(R\\) 的选取有 \\(|x_1| \\le R\\)。\n- 假设 \\(|x_n| \\le R\\)。由于 \\(\\phi'(r) > 0\\ (r \\ge 0)\\)，\\(\\phi(r)\\) 在 \\([0, +\\infty)\\) 上严格单调递增，故 \\(\\phi(|x_n|) \\le \\phi(R)\\)。于是\n\\[|x_{n+1}| = |f(x_n) + a_n| \\le |f(x_n) - f(0)| + |f(0)| + |a_n| \\le \\phi(R) + |f(0)| + A = R - \\ln\\frac{R+M+1}{M+1} + |f(0)| + A < R.\\]\n由归纳法知，对所有 \\(n \\ge 1\\) 有 \\(x_n \\in [-R, R]\\)。\n\n再考虑闭区间 \\([-R, R]\\) 上的连续函数 \\(h(x) = x - f(x) - a\\)。我们有\n\\[h(R) \\ge R - |f(R) - f(0)| - |f(0)| - |a| \\ge R - \\phi(R) - |f(0)| - A = \\ln\\frac{R+M+1}{M+1} - |f(0)| - A > 0,\\]\n\\[h(-R) \\le -R + |f(-R) - f(0)| + |f(0)| + |a| \\le -R + \\phi(R) + |f(0)| + A = -\\left(\\ln\\frac{R+M+1}{M+1} - |f(0)| - A\\right) < 0.\\]\n由零点定理，存在 \\(x^* \\in (-R, R)\\) 使得 \\(h(x^*) = 0\\)，即 \\(x^* = f(x^*) + a\\)。\n\n令 \\(\\alpha = \\frac{R+M}{R+M+1} \\in (0, 1)\\)。对任意 \\(x \\in [-R, R]\\)，均有\n\\[|f'(x)| \\le \\frac{|x|+M}{|x|+M+1} = 1 - \\frac{1}{|x|+M+1} \\le 1 - \\frac{1}{R+M+1} = \\alpha.\\]\n由于 \\(x_n, x^* \\in [-R, R]\\)，由拉格朗日中值定理得\n\\[|x_{n+1} - x^*| \\le |f(x_n) - f(x^*)| + |a_n - a| \\le \\alpha |x_n - x^*| + |a_n - a|.\\]\n由引理即得 \\(\\lim_{n\\to\\infty} x_n = x^*\\)，因此 \\(\\{x_n\\}\\) 收敛。",
+        "problem_statement_zh": "设 \\(f\\) 在 \\((-\\infty,+\\infty)\\) 内可导，数列 \\(\\{a_n\\}\\) 收敛。取 \\(x_1\\in(-\\infty,+\\infty)\\)，归纳定义\n\\[x_{n+1}=f(x_n)+a_n,\\qquad n\\ge1.\\]\n（1）若存在 \\(\\alpha\\in(0,1)\\)，使得 \\(|f'|\\le\\alpha\\)，证明 \\(\\{x_n\\}\\) 收敛。\n（2）若存在 \\(M>0\\)，使得\n\\[|f'(x)|\\le\\frac{|x|+M}{|x|+M+1}\\qquad(x\\in\\mathbb R),\\]\n证明或举例否定：\\(\\{x_n\\}\\) 收敛。",
+        "steps": [
+          "证明引理：若非负数列 \\(\\{d_n\\}\\)、\\(\\{\\varepsilon_n\\}\\) 满足 \\(\\varepsilon_n \\to 0\\) 且 \\(d_{n+1} \\le \\alpha d_n + \\varepsilon_n\\)（其中 \\(\\alpha \\in (0, 1)\\)），则 \\(d_n \\to 0\\)。",
+          "针对第（1）问：设 \\(a_n \\to a\\)，利用拉格朗日中值定理与介值定理证明 \\(h(x) = x - f(x) - a\\) 在 \\(\\mathbb{R}\\) 上存在零点 \\(x^*\\)。",
+          "利用 \\(|f'| \\le \\alpha\\) 与拉格朗日中值定理建立 \\(|x_{n+1} - x^*| \\le \\alpha |x_n - x^*| + |a_n - a|\\)，由引理得出 \\(x_n \\to x^*\\)。",
+          "针对第（2）问：注意到 \\(f\\) 仅假设可导（未必连续可导），避免直接对 \\(f'\\) 积分，而是构造函数 \\(\\phi(r) = r - \\ln\\frac{r+M+1}{M+1}\\) 并通过单调性证明对一切 \\(x \\in \\mathbb{R}\\) 有 \\(|f(x) - f(0)| \\le \\phi(|x|)\\)。",
+          "利用 \\(\\{a_n\\}\\) 的有界性 \\(|a_n| \\le A\\) 以及 \\(\\ln\\frac{r+M+1}{M+1} \\to +\\infty\\)，选取充分大的 \\(R \\ge |x_1|\\) 使得 \\(\\ln\\frac{R+M+1}{M+1} > |f(0)| + A\\)，归纳证明所有 \\(x_n \\in [-R, R]\\)。",
+          "在 \\([-R, R]\\) 上验证 \\(h(R) > 0\\) 与 \\(h(-R) < 0\\)，由零点定理得 \\(x^* \\in (-R, R)\\) 满足 \\(x^* = f(x^*) + a\\)。",
+          "在 \\([-R, R]\\) 上 \\(|f'(x)| \\le \\alpha := \\frac{R+M}{R+M+1} \\in (0, 1)\\)，从而化归为第（1）问情形，由引理得 \\(x_n \\to x^*\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "改用辅助函数单调性法：直接对 \\(f(x) \\pm \\phi(x)\\) 求导判断符号，借助“导数非负则函数单调不减”避开积分；若使用积分，务必注明 \\(f'\\) 局部有界从而在 Lebesgue 积分意义下牛顿-莱布尼茨公式成立。",
+            "mistake": "在第（2）问中直接写出 \\(f(x) - f(0) = \\int_0^x f'(t)\\,dt\\) 并进行 Riemann 积分放缩。",
+            "title": "隐含 \\(f'\\) Riemann 可积的假设",
+            "why_wrong": "题目仅假设 \\(f\\) 在 \\(\\mathbb{R}\\) 上可导，并未假设 \\(f'\\) 连续（\\(C^1\\)），一般可导函数的导数未必 Riemann 可积（参考解答明确指出未声明 Lebesgue 积分意义需扣 2 分）。"
+          },
+          {
+            "how_to_avoid": "先用零点定理证明极限方程 \\(x = f(x) + a\\) 的解存在，再以 \\(|x_n - x^*|\\) 为研究对象证明其趋于 \\(0\\)。",
+            "mistake": "直接对递推式 \\(x_{n+1} = f(x_n) + a_n\\) 两边取极限来引入极限点 \\(x^*\\)。",
+            "title": "未证先用极限存在性",
+            "why_wrong": "\\(\\lim_{n\\to\\infty} x_n\\) 尚未证明存在，直接取极限属于循环论证。"
+          },
+          {
+            "how_to_avoid": "对 \\(x \\ge 0\\) 同时考察 \\(\\phi(x) - f(x)\\) 与 \\(\\phi(x) + f(x)\\) 得出双边估计，再通过 \\(F(u) = f(-u)\\) 将 \\(x < 0\\) 对称化归到非负半轴，从而得到对一切 \\(x \\in \\mathbb{R}\\) 成立的 \\(|f(x) - f(0)| \\le \\phi(|x|)\\)。",
+            "mistake": "只证得 \\(x \\ge 0\\) 时的单边不等式 \\(f(x) - f(0) \\le x - \\ln\\frac{x+M+1}{M+1}\\)，便直接用于 \\(|x_n|\\) 的归纳有界性。",
+            "title": "忽略 \\(f'\\) 的符号与 \\(x < 0\\) 的对称情形",
+            "why_wrong": "若 \\(f(x)\\) 为负或 \\(x_n\\) 跨入负半轴，单边上界无法控制 \\(|f(x_n)|\\)，无法完成 \\(|x_{n+1}| \\le R\\) 的归纳步骤。"
+          }
+        ],
+        "comparison_summary": "盲解与参考解答思路高度一致，结果完全正确。两问均先通过构造 \\(g(x) = x - f(x) - a\\)（参考解答记极限为 \\(A\\)，盲解记为 \\(a\\)）利用介值定理证明极限点存在；第（1）问参考解答通过证明 \\(\\{|x_n - \\xi|\\}\\) 有界后对上极限 \\(L = \\limsup |x_n - \\xi|\\) 放缩得到 \\(L \\le \\alpha L \\implies L = 0\\)，盲解则通过 \\(\\varepsilon\\)-\\(N\\) 归纳引理直接证明 \\(|x_n - x^*| \\to 0\\)，两者等价且均严谨。第（2）问盲解精准避开了“直接对 \\(f'\\) 积分未声明 Lebesgue 积分”这一参考解答明确标注的扣分点，同样采用辅助函数 \\(\\phi(r) = r - \\ln\\frac{r+M+1}{M+1}\\) 的单调性导出 \\(|f(x)-f(0)| \\le \\phi(|x|)\\)，进而归纳证明 \\(\\{x_n\\}\\) 有界并化归到闭区间 \\([-R, R]\\) 上的第（1）问情形。",
+        "difficulties": [
+          {
+            "detail": "第（2）问中 \\(|f'(x)|\\) 的上界 \\(\\frac{|x|+M}{|x|+M+1}\\) 在 \\(|x| \\to \\infty\\) 时趋于 \\(1\\)，并非全局严格压缩。能否收敛的关键在于识别 \\(1 - \\frac{|x|+M}{|x|+M+1} = \\frac{1}{|x|+M+1}\\) 在无穷远处不可积，从而推断 \\(|x| - |f(x)| \\to +\\infty\\)，强制数列 \\(\\{x_n\\}\\) 必须有界。",
+            "title": "识别非全局压缩下的有界性机制"
+          },
+          {
+            "detail": "在仅知 \\(f\\) 可导（未知 \\(f'\\) 连续）的条件下，不能直接用 Riemann 积分写 \\(f(x) - f(0) = \\int_0^x f'(t)\\,dt\\)，必须借助辅助函数 \\(\\phi(x) \\pm f(x)\\) 的导数非负性来严格导出 \\(|f(x) - f(0)| \\le \\phi(|x|)\\)。",
+            "title": "无 \\(C^1\\) 条件下的导数积分替代技巧"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "放缩与估值",
+          "归纳与递推",
+          "局部-整体转化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "递推式 \\(x_{n+1} = f(x_n) + a_n\\) 是带扰动项 \\(a_n\\) 的不动点迭代。因为 \\(a_n \\to A\\)，若 \\(x_n\\) 收敛，极限必满足 \\(x = f(x) + A\\)，因此第一步应先独立于 \\(\\{x_n\\}\\) 证明方程 \\(g(x) = x - f(x) - A = 0\\) 有解 \\(\\xi\\)。",
+            "step": "识别扰动不动点迭代结构，先锚定极限点"
+          },
+          {
+            "detail": "第（1）问给出全局一致压缩常数 \\(\\alpha \\in (0, 1)\\)，利用中值定理可得 \\(|x_{n+1} - \\xi| \\le \\alpha |x_n - \\xi| + |a_n - A|\\)，核心在于处理含趋零扰动的线性递推不等式。",
+            "step": "第（1）问建立压缩递推不等式"
+          },
+          {
+            "detail": "第（2）问中 \\(|f'(x)| < 1\\) 但上界随 \\(|x| \\to \\infty\\) 趋于 \\(1\\)。若能证明 \\(\\{x_n\\}\\) 有界（即 \\(\\{x_n\\} \\subset [-\\beta, \\beta]\\)），则在该闭区间上 \\(|f'(x)| \\le \\frac{\\beta+M}{\\beta+M+1} < 1\\)，问题立即化归为第（1）问。为此需积分（或用原函数）检验 \\(1 - \\frac{t+M}{t+M+1} = \\frac{1}{t+M+1}\\) 的发散性。",
+            "step": "第（2）问判断命题真伪：局部化归思路"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(A = \\lim_{n\\to\\infty} a_n\\)，令 \\(g(x) = x - f(x) - A\\)。由 \\(|f'| \\le \\alpha < 1\\) 与中值定理知当 \\(x \\to \\pm\\infty\\) 时 \\(g(x) \\to \\pm\\infty\\)，由介值定理存在 \\(\\xi \\in \\mathbb{R}\\) 使 \\(g(\\xi) = 0\\)。再由 \\(|x_{n+1} - \\xi| \\le \\alpha |x_n - \\xi| + |a_n - A|\\)，先归纳证明 \\(|x_n - \\xi|\\) 有界（上界可取 \\(\\frac{1}{1-\\alpha}(|x_1-\\xi| + \\frac{1}{1-\\alpha}\\sup_{n\\ge 1}|a_n-A|)\\) 或直接 \\(\\varepsilon\\)-\\(N\\) 放缩），再对 \\(L = \\limsup_{n\\to\\infty} |x_n - \\xi|\\) 取上极限得 \\(L \\le \\alpha L\\)，从而 \\(L = 0\\)，即 \\(x_n \\to \\xi\\)。",
+            "motivation": "第（1）问：先找极限候选点，再通过压缩不等式消去距离。",
+            "step": "步骤一：存在不动点与上极限（或 \\(\\varepsilon\\)-\\(N\\)）收尾"
+          },
+          {
+            "detail": "注意到 \\(\\left(x - \\ln\\frac{M+1+x}{M+1}\\right)' = \\frac{M+x}{M+1+x}\\)。对 \\(x \\ge 0\\) 考察 \\(f(x) \\pm \\left(x - \\ln\\frac{M+1+x}{M+1}\\right)\\) 的导数符号，结合 \\(x < 0\\) 的对称替换 \\(F(u) = f(-u)\\)，得到全局估计 \\(|f(x) - f(0)| \\le |x| - \\ln\\frac{M+1+|x|}{M+1}\\)。该式不仅保证了 \\(g(\\pm\\infty) = \\pm\\infty\\)（从而极限点 \\(\\xi\\) 仍存在），更给出了 \\(f\\) 在无穷远处相对于恒等映射的“严格收缩余量” \\(\\ln\\frac{M+1+|x|}{M+1}\\)。",
+            "motivation": "第（2）问：构造对数原函数，在不假定 \\(f \\in C^1\\) 的前提下建立全局增长估计。",
+            "step": "步骤二：用辅助函数单调性导出增长上界"
+          },
+          {
+            "detail": "因 \\(\\{a_n\\}\\) 收敛故有界，可选取 \\(\\beta \\ge |x_1|\\) 使得 \\(\\ln\\frac{M+1+\\beta}{M+1} \\ge \\sup_{n\\ge 1} |a_n - f(0)|\\)。利用函数 \\(r \\mapsto r - \\ln\\frac{M+1+r}{M+1}\\) 在 \\([0, +\\infty)\\) 上的单调递增性，若 \\(|x_n| \\le \\beta\\)，则 \\(|x_{n+1}| \\le |f(x_n) - f(0)| + |a_n - f(0)| \\le \\beta - \\ln\\frac{M+1+\\beta}{M+1} + |a_n - f(0)| \\le \\beta\\)，由归纳法得 \\(|x_n| \\le \\beta\\) 恒成立。于是对所有 \\(n \\ge 1\\)，\\(x_n\\) 与 \\(\\xi\\) 间的拉格朗日中值点均落在 \\([-\\max(\\beta, |\\xi|), \\max(\\beta, |\\xi|)]\\) 内（若取 \\(\\beta\\) 时已保证 \\(\\xi \\in (-\\beta, \\beta)\\)，中值点就在 \\([-\\beta, \\beta]\\) 内），从而得到统一压缩系数 \\(\\alpha' < 1\\)，完全化归至第（1）问。",
+            "motivation": "利用对数项趋于无穷的性质构造不变闭区间 \\([-\\beta, \\beta]\\)，实现局部压缩化归。",
+            "step": "步骤三：归纳证明数列有界并化归至第（1）问"
+          }
+        ],
+        "teaching_takeaway": "当迭代映射的导数模长仅满足 \\(|f'(x)| < 1\\) 且在无穷远处趋于 \\(1\\) 时，判定迭代数列是否收敛的关键在于检验 \\(\\int_0^\\infty (1 - |f'(t)|)\\,dt\\) 是否发散：若发散，则 \\(\\{x_n\\}\\) 必落入某不变有界闭区间内，从而局部化归为严格压缩映射；同时在仅已知可导、未给出 \\(f'\\) 连续时，应通过构造原函数并比较导数符号来代替直接积分，避免严谨性漏洞。",
+        "topic_tags": [
+          "数列极限",
+          "微分中值定理",
+          "压缩迭代"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q5",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "5",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第5题",
+      "blind_attempt": {
+        "approach": "首先利用基本不等式 \\((1+t^3)^{1/3} \\le 1+t\\)（\\(t \\ge 0\\)）同时解决被积函数的 Lebesgue 可积性与右端不等式；随后验证函数 \\(f(t) = (1+t^3)^{1/3}\\) 在 \\([0,+\\infty)\\) 上的二阶导数非负，从而 \\(f\\) 为凸函数，结合概率测度空间上的 Jensen 不等式（或切线放缩法）直接得到左端不等式。",
+        "final_answer": "证明如下：\n\n1. **右端不等式与可积性**：\n   对任意 \\(t \\ge 0\\)，有\n   \\[1 + t^3 \\le 1 + 3t + 3t^2 + t^3 = (1 + t)^3.\\]\n   两边同时取 \\(\\frac{1}{3}\\) 次幂（由函数 \\(u \\mapsto u^{1/3}\\) 在 \\([0, +\\infty)\\) 上单调递增），得\n   \\[(1 + t^3)^{1/3} \\le 1 + t.\\]\n   因为 \\(h\\) 在 \\([0,1]\\) 上非负且 Lebesgue 可积，故 \\(h(x) < +\\infty\\) 在 \\([0,1]\\) 上几乎处处成立，从而几乎处处有\n   \\[0 \\le \\bigl(1 + h^3(x)\\bigr)^{1/3} \\le 1 + h(x).\\]\n   由于 \\(1 + h(x)\\) 在 \\([0,1]\\) 上 Lebesgue 可积，且 \\(\\bigl(1 + h^3(x)\\bigr)^{1/3}\\) Lebesgue 可测，因此 \\(\\bigl(1 + h^3(x)\\bigr)^{1/3}\\) 在 \\([0,1]\\) 上 Lebesgue 可积。在 \\([0,1]\\) 上积分即得\n   \\[\\int_0^1 \\bigl(1 + h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x \\le \\int_0^1 \\bigl(1 + h(x)\\bigr)\\,\\mathrm{d}x = 1 + A.\\]\n\n2. **左端不等式**：\n   考虑函数 \\(f(t) = (1 + t^3)^{1/3}\\)（\\(t \\ge 0\\)）。求导得\n   \\[f'(t) = t^2 (1 + t^3)^{-2/3},\\]\n   \\[f''(t) = 2t(1 + t^3)^{-2/3} - 2t^4(1 + t^3)^{-5/3} = 2t(1 + t^3)^{-5/3} \\ge 0 \\quad (\\forall\\, t \\ge 0).\\]\n   因此 \\(f\\) 在 \\([0, +\\infty)\\) 上是凸函数。\n\n   由凸函数在点 \\(A = \\int_0^1 h(x)\\,\\mathrm{d}x \\ge 0\\) 处的切线支撑不等式，对所有 \\(t \\ge 0\\) 有\n   \\[(1 + t^3)^{1/3} = f(t) \\ge f(A) + f'(A)(t - A) = (1 + A^3)^{1/3} + A^2(1 + A^3)^{-2/3}(t - A).\\]\n   将 \\(t = h(x)\\) 代入（对几乎处处的 \\(x \\in [0,1]\\) 成立）并在 \\([0,1]\\) 上积分，利用 \\(\\int_0^1 h(x)\\,\\mathrm{d}x = A\\)，可得\n   \\[\\int_0^1 \\bigl(1 + h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x \\ge \\int_0^1 \\Bigl[(1 + A^3)^{1/3} + A^2(1 + A^3)^{-2/3}\\bigl(h(x) - A\\bigr)\\Bigr]\\,\\mathrm{d}x = (1 + A^3)^{1/3}.\\]\n\n综上，原不等式\n\\[(1 + A^3)^{1/3} \\le \\int_0^1 \\bigl(1 + h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x \\le 1 + A\\]\n得证。",
+        "problem_statement_zh": "设 \\(h\\) 是 \\([0,1]\\) 上非负的 Lebesgue 可积函数，\\(A=\\displaystyle\\int_0^1 h(x)\\,\\mathrm{d}x\\)。证明：\n\\[(1+A^3)^{1/3}\\le \\int_0^1\\bigl(1+h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x\\le 1+A.\\]",
+        "steps": [
+          "核对题目图片与转录文本，确认条件为 \\(h\\) 是 \\([0,1]\\) 上非负的 Lebesgue 可积函数，\\(A = \\int_0^1 h(x)\\,\\mathrm{d}x\\)，待证不等式为 \\((1+A^3)^{1/3} \\le \\int_0^1 (1+h^3(x))^{1/3}\\,\\mathrm{d}x \\le 1+A\\)。",
+          "对 \\(t \\ge 0\\) 建立不等式 \\((1+t^3)^{1/3} \\le 1+t\\)，由此同时说明 \\(\\bigl(1+h^3(x)\\bigr)^{1/3}\\) 在 \\([0,1]\\) 上的 Lebesgue 可积性，并积分得到右端不等式 \\(\\int_0^1 \\bigl(1+h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x \\le 1+A\\)。",
+          "计算 \\(f(t) = (1+t^3)^{1/3}\\) 在 \\([0,+\\infty)\\) 上的一阶与二阶导数：\\(f'(t) = t^2(1+t^3)^{-2/3}\\)，\\(f''(t) = 2t(1+t^3)^{-5/3} \\ge 0\\)，确认 \\(f\\) 为 \\([0,+\\infty)\\) 上的凸函数。",
+          "利用凸函数的切线支撑不等式（等价于在测度为 \\(1\\) 的空间 \\([0,1]\\) 上应用 Jensen 不等式）在 \\(t = A\\) 处展开，代入 \\(t = h(x)\\) 并在 \\([0,1]\\) 上积分，得到左端不等式 \\((1+A^3)^{1/3} \\le \\int_0^1 \\bigl(1+h^3(x)\\bigr)^{1/3}\\,\\mathrm{d}x\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "先证明逐点不等式 \\(0 \\le (1+h^3(x))^{1/3} \\le 1+h(x)\\)，既能直接积分得到右端不等式，又由 \\(1+h \\in L^1([0,1])\\) 保证被积函数在 \\([0,1]\\) 上 Lebesgue 可积且几乎处处有限。",
+            "mistake": "忽略被积函数 \\((1+h^3(x))^{1/3}\\) 的 Lebesgue 可积性验证，或误将 \\(h\\) 当作连续函数／Riemann 可积函数处理（例如假设 \\(h\\) 有界）。",
+            "title": "忽略 Lebesgue 可积性与函数有界性隐含假设",
+            "why_wrong": "题目仅假设 \\(h\\) 是非负 Lebesgue 可积函数，\\(h\\) 可以无界甚至在零测集上取 \\(+\\infty\\)；若不先证明 \\((1+h^3)^{1/3} \\in L^1([0,1])\\)，则积分本身的存在性以及应用 Jensen 不等式的前提均未交代清楚。"
+          },
+          {
+            "how_to_avoid": "利用 \\(t \\ge 0\\) 时 \\(f''(t) = 2t(1+t^3)^{-5/3} \\ge 0\\) 确认 \\(f\\) 为凸函数；或通过具体数值（如取 \\(h\\) 为两点分布）快速检验不等号方向，并用切线不等式 \\(f(t) \\ge f(A) + f'(A)(t-A)\\) 显式写出证明过程。",
+            "mistake": "求导计算 \\(f''(t)\\) 时符号出错，或混淆凸函数与凹函数对应的 Jensen 不等式方向。",
+            "title": "二阶导数计算错误或不等号方向混淆",
+            "why_wrong": "形如 \\((1+t^p)^{1/p}\\) 的函数在 \\(p > 1\\) 时是凸函数（\\(f''(t) \\ge 0\\)），而形如 \\(t^{1/p}\\) 的幂函数才是凹函数；若直觉误判为凹函数或求导漏掉链式法则因子，就会把左端不等号的方向搞反。"
+          },
+          {
+            "how_to_avoid": "切线法只需用到一阶导数 \\(f'(A) = A^2(1+A^3)^{-2/3}\\)，对 \\(A=0\\) 自然成立；避免在证明中除以 \\(t\\) 或 \\(A\\)。",
+            "mistake": "在分析或放缩过程中除以 \\(h(x)\\) 或 \\(A\\)，未考虑 \\(h(x)=0\\) 或 \\(A=0\\) 的退化情形。",
+            "title": "未处理 \\(A=0\\) 或 \\(h(x)=0\\) 的退化情形",
+            "why_wrong": "\\(h\\) 仅要求非负，允许在正测集乃至几乎处处取 \\(0\\)（此时 \\(A=0\\)），任何涉及 \\(1/h(x)\\) 或 \\(1/A\\) 的变形都会出现分母为零的问题。"
+          }
+        ],
+        "comparison_summary": "盲解完全正确，且证明路径与参考答案的“法 I”高度一致：均通过初等不等式 \\((1+t^3)^{1/3} \\le 1+t\\) 证得右端不等式，并通过验证 \\(\\varphi(t) = (1+t^3)^{1/3}\\) 在 \\([0,+\\infty)\\) 上二阶导数非负（凸性），利用点 \\(A\\) 处的切线支撑不等式 \\(\\varphi(h(x)) \\ge \\varphi(A) + \\varphi'(A)(h(x)-A)\\) 积分得到左端不等式。此外，盲解中还显式说明了 \\((1+h^3(x))^{1/3}\\) 的 Lebesgue 可积性与几乎处处有限性，细节更加严密。参考答案的“法 II”另辟蹊径，通过在 \\([0,1] \\times [0,2]\\) 上构造分段二元函数并直接应用 Minkowski 积分不等式给出左端不等式的极简证明，思路非常值得借鉴。",
+        "difficulties": [
+          {
+            "detail": "许多学生容易把 \\((1+x^3)^{1/3}\\) 与凹函数 \\(x^{1/3}\\) 混淆。实际上 \\(\\varphi(x) = (1+x^3)^{1/3}\\) 在 \\([0,+\\infty)\\) 上是凸函数（\\(L^3\\) 范数 \\(\\|(1,x)\\|_3\\) 关于 \\(x\\) 是凸的），因此适用凸函数的 Jensen 不等式而非凹函数的 Jensen 不等式。",
+            "title": "识别 \\(\\varphi(x) = (1+x^3)^{1/3}\\) 的凸性方向"
+          },
+          {
+            "detail": "对仅知 Lebesgue 可积的非负函数 \\(h\\)，需先用右端放缩 \\(0 \\le (1+h^3(x))^{1/3} \\le 1+h(x)\\) 保证被积函数的可积性；且在证明左端不等式时，用切线支撑不等式 \\(\\varphi(h(x)) \\ge \\varphi(A) + \\varphi'(A)(h(x)-A)\\) 直接替代抽象引用 Jensen 不等式，可使论证完全自洽且避开对 Jensen 不等式适用条件的额外验证。",
+            "title": "Lebesgue 可积条件下的严密性处理"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "放缩与估值",
+          "构造与反例"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "注意到区间 \\([0,1]\\) 的 Lebesgue 测度为 \\(1\\)，从而 \\(A = \\int_0^1 h(x)\\,\\mathrm{d}x\\) 恰好是 \\(h\\) 在概率空间 \\(([0,1], \\mathrm{d}x)\\) 上的平均值；待证左端不等式恰好具有 \\(\\varphi\\left(\\int_0^1 h(x)\\,\\mathrm{d}x\\right) \\le \\int_0^1 \\varphi(h(x))\\,\\mathrm{d}x\\) 的形式，其中 \\(\\varphi(x) = (1+x^3)^{1/3}\\)。",
+            "step": "识别积分平均值与 Jensen 不等式结构"
+          },
+          {
+            "detail": "观察右端不等式 \\(\\int_0^1 (1+h^3(x))^{1/3}\\,\\mathrm{d}x \\le 1 + \\int_0^1 h(x)\\,\\mathrm{d}x\\)，其被积函数与上界在 \\([0,1]\\) 上逐点满足 \\((1+t^3)^{1/3} \\le 1+t\\)（对 \\(t \\ge 0\\)）。这一逐点放缩不仅能直接积分得出右端不等式，还能顺便保证 \\((1+h^3(x))^{1/3}\\) 的 Lebesgue 可积性。",
+            "step": "分离右端不等式与可积性验证"
+          },
+          {
+            "detail": "除直接验证 \\(\\varphi(x) = (1+x^3)^{1/3}\\) 的凸性外，还可从“\\(L^3\\) 范数”视角把 \\((1+A^3)^{1/3}\\) 看作向量 \\((1, A)\\) 的 \\(L^3\\) 模，或构造二维函数 \\(f(x,y)\\) 把 \\(1\\) 与 \\(h(x)\\) 并置在两个长度为 \\(1\\) 的区间上，从而联想到 Minkowski 积分不等式。",
+            "step": "从范数与高维构造视角寻找替代路径"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(\\varphi(x) = (1+x^3)^{1/3}\\)（\\(x \\ge 0\\)），计算得 \\(\\varphi'(x) = x^2(1+x^3)^{-2/3}\\)，\\(\\varphi''(x) = \\frac{2x}{(1+x^3)^{5/3}} \\ge 0\\)。由于 \\(\\varphi''(x) \\ge 0\\)，\\(\\varphi\\) 在 \\([0,+\\infty)\\) 上为凸函数。由凸函数图像位于任意切线上方的性质，对任意 \\(x \\ge 0\\) 有 \\(\\varphi(x) - \\varphi(A) \\ge \\varphi'(A)(x-A)\\)。之所以采用切线法而非直接套用 Jensen 不等式，是因为这样无需额外说明无限值或测度论版本的 Jensen 条件，只需令 \\(x = h(x)\\)（几乎处处有限）并在 \\([0,1]\\) 上积分即可消去 \\(\\varphi'(A)\\int_0^1 (h(x)-A)\\,\\mathrm{d}x = 0\\)，直接得到左端不等式。",
+            "motivation": "法 I（左端）：通过二阶导数判定凸性并利用切线支撑放缩",
+            "step": "步骤 1：验证 \\(\\varphi\\) 的凸性与切线不等式"
+          },
+          {
+            "detail": "对 \\(x \\in [0,1]\\)，由 \\(1 + h^3(x) \\le (1 + h(x))^3\\)（或 \\(\\mathbb{R}^2\\) 上的 Minkowski 不等式 \\(\\|(1,h(x))\\|_3 \\le \\|(1,0)\\|_3 + \\|(0,h(x))\\|_3 = 1 + h(x)\\)）得 \\(0 \\le \\varphi(h(x)) \\le 1 + h(x)\\)。因为 \\(h \\in L^1([0,1])\\)，这既保证了 \\(\\varphi(h(x))\\) 的 Lebesgue 可积性，两边在 \\([0,1]\\) 上积分后又直接给出右端不等式 \\(\\int_0^1 \\varphi(h(x))\\,\\mathrm{d}x \\le 1 + A\\)。",
+            "motivation": "法 I（右端）：利用逐点代数放缩（或 Minkowski 不等式）同时解决可积性与上界",
+            "step": "步骤 2：逐点放缩并积分得右端不等式"
+          },
+          {
+            "detail": "在 \\([0,1] \\times [0,2]\\) 上构造 \\(f(x,y) = h(x)\\)（\\(y \\in [0,1]\\)）与 \\(f(x,y) = 1\\)（\\(y \\in (1,2]\\)）。此时 \\(\\int_0^1 f(x,y)\\,\\mathrm{d}x\\) 在 \\(y \\in [0,1]\\) 时为 \\(A\\)、在 \\(y \\in (1,2]\\) 时为 \\(1\\)，故 \\(\\left(\\int_0^2 \\left|\\int_0^1 f(x,y)\\,\\mathrm{d}x\\right|^3 \\mathrm{d}y\\right)^{1/3} = (1+A^3)^{1/3}\\)；而内层关于 \\(y\\) 的积分 \\(\\left(\\int_0^2 |f(x,y)|^3\\,\\mathrm{d}y\\right)^{1/3} = (1+h^3(x))^{1/3}\\)。因此对 \\(p=3\\) 应用 Minkowski 积分不等式 \\(\\|\\int f(\\cdot, y)\\,\\mathrm{d}x\\|_{L^3_y} \\le \\int \\|f(x,\\cdot)\\|_{L^3_y}\\,\\mathrm{d}x\\) 便一步到位得出左端不等式。这一构造的巧妙之处在于把常数项 \\(1\\) 吸收为另一个区间 \\((1,2]\\) 上的函数值，使 \\(\\bigl(1+h^3(x)\\bigr)^{1/3}\\) 成为标准的 \\(L^3\\) 范数。",
+            "motivation": "法 II（左端）：构造二元函数把 \\((1+A^3)^{1/3}\\) 转化为 \\(L^3\\) 范数，应用 Minkowski 积分不等式",
+            "step": "步骤 3：拓展思路——二维构造与 Minkowski 积分不等式"
+          }
+        ],
+        "teaching_takeaway": "遇到形如 \\((1+A^p)^{1/p} \\le \\int_0^1 (1+h^p(x))^{1/p}\\,\\mathrm{d}x\\) 的积分不等式时，既可以从凸性视角（验证 \\(\\varphi(t)=(1+t^p)^{1/p}\\) 凸性并用切线支撑放缩）正面突破，也可以从范数视角把常数 \\(1\\) 延拓到辅助区间上从而直接调用 Minkowski 积分不等式。",
+        "topic_tags": [
+          "积分不等式",
+          "凸函数与Jensen不等式",
+          "Lebesgue可积函数"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q6",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "6",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第6题",
+      "blind_attempt": {
+        "approach": "第（1）问利用连续函数在紧集上的最值存在性、最大模原理以及刘维尔定理证明 \\(M(r)\\) 严格单增且趋于正无穷；第（2）问先将 \\(z=0\\) 处的零点重数分离，再通过构造 Blaschke 乘积函数并应用最大模原理建立零点计数函数 \\(n(r)\\) 与 \\(\\ln M(2r)\\) 的上界估计，最后结合函数阶 \\(\\rho\\) 的定义与 \\(p\\)-级数比较判别法证明级数收敛。",
+        "final_answer": "第（1）问与第（2）问均已完整证明。核心思路为：\n1. 由最大模原理与非常数性，对任意 \\(0 \\le r_1 < r_2\\)，\\(|f(z)|\\) 在 \\(\\overline{D(0,r_2)}\\) 上的最大值必在边界 \\(|z|=r_2\\) 处取得而不在内点取得，故 \\(M(r_1) < M(r_2)\\)；若 \\(M(r)\\) 有界则 \\(f\\) 为全平面有界解析函数，由刘维尔定理知 \\(f\\) 为常数，矛盾，故 \\(\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。\n2. 设 \\(f(z)=z^m h(z)\\)（\\(h(0)\\ne 0\\)），对 \\(R=2r\\) 构造 \\(g(z)=h(z)\\prod_{k=1}^{n(r)}\\frac{R^2-\\overline{a_k}z}{R(z-a_k)}\\)，在 \\(|z|=R\\) 上有 \\(|g(z)|=|h(z)|\\)，由最大模原理得 \\(|h(0)|\\cdot 2^{n(r)}\\le |g(0)|\\le M_h(2r)\\le M(2r)\\)（\\(r\\ge 1/2\\)）。结合 \\(\\lim_{r\\to+\\infty}\\frac{\\ln\\ln M(r)}{\\ln r}=\\rho\\) 可得 \\(n(r)\\le K r^{\\rho+\\varepsilon/2}\\)，令 \\(r=|a_n|\\) 得 \\(n\\le K|a_n|^{\\rho+\\varepsilon/2}\\)，从而 \\(\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\le K^{\\frac{\\rho+\\varepsilon}{\\rho+\\varepsilon/2}}n^{-\\frac{\\rho+\\varepsilon}{\\rho+\\varepsilon/2}}\\)，由 \\(\\frac{\\rho+\\varepsilon}{\\rho+\\varepsilon/2}>1\\) 知级数收敛。",
+        "problem_statement_zh": "设 \\(f\\) 是全平面上的非常数解析函数，\n\\[M(r):=\\max_{|z|=r}|f(z)|\\qquad(r\\ge 0).\\]\n（1）证明 \\(M(\\cdot)\\) 在 \\([0,+\\infty)\\) 上严格单增，且 \\(\\displaystyle\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。\n（2）设 \\(a_n\\ne 0\\)（\\(n=1,2,\\ldots\\)）是 \\(f\\) 的零点（同一零点出现的次数不超过其重数），满足\n\\[|a_1|\\le|a_2|\\le\\cdots.\\]\n如果 \\(\\displaystyle\\lim_{r\\to+\\infty}\\frac{\\ln\\ln M(r)}{\\ln r}=\\rho\\)（\\(0<\\rho<+\\infty\\)），证明对于任何 \\(\\varepsilon>0\\)，级数\n\\[\\sum_{n=1}^{\\infty}\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\]\n收敛。",
+        "steps": [
+          "【第（1）问：严格单增性】任取 \\(0\\le r_1<r_2\\)。由于 \\(|f(z)|\\) 在紧集 \\(\\{z\\in\\mathbb{C}:|z|=r_1\\}\\) 上连续，故存在 \\(z_1\\) 满足 \\(|z_1|=r_1\\) 且 \\(|f(z_1)|=M(r_1)\\)。考虑闭圆盘 \\(\\overline{D(0,r_2)}=\\{z\\in\\mathbb{C}:|z|\\le r_2\\}\\)，点 \\(z_1\\) 是开圆盘 \\(D(0,r_2)\\) 的内点。因为 \\(f\\) 是全平面上的非常数解析函数，由最大模原理可知，\\(|f(z)|\\) 在 \\(\\overline{D(0,r_2)}\\) 上的最大值不能在 \\(D(0,r_2)\\) 的任何内点处取得，只能在边界 \\(|z|=r_2\\) 上取得。因此\n\\[M(r_1)=|f(z_1)|<\\max_{|z|\\le r_2}|f(z)|=\\max_{|z|=r_2}|f(z)|=M(r_2).\\]\n故 \\(M(\\cdot)\\) 在 \\([0,+\\infty)\\) 上严格单增。",
+          "【第（1）问：无穷远极限】由 \\(M(r)\\) 在 \\([0,+\\infty)\\) 上严格单增，极限 \\(\\lim_{r\\to+\\infty}M(r)\\) 存在（或为 \\(+\\infty\\)）。假设 \\(\\lim_{r\\to+\\infty}M(r)=L<+\\infty\\)，则对任意 \\(z\\in\\mathbb{C}\\)，有 \\(|f(z)|\\le M(|z|)\\le L\\)，即 \\(f\\) 是全平面上的有界解析函数。由刘维尔定理，\\(f\\) 必为常数，这与题设 \\(f\\) 为非常数矛盾。因此 \\(\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。",
+          "【第（2）问：零点趋于无穷与分离原点零点】因为 \\(f\\) 是非常数整函数，其零点在 \\(\\mathbb{C}\\) 上无有限聚点，且每个零点重数有限；又同一零点在 \\((a_n)\\) 中出现次数不超过其重数，故对任意 \\(r>0\\)，满足 \\(|a_k|\\le r\\) 的项数 \\(n(r):=\\#\\{k\\ge 1:|a_k|\\le r\\}\\) 有限，从而 \\(\\lim_{n\\to\\infty}|a_n|=+\\infty\\)。设 \\(z=0\\) 是 \\(f\\) 的 \\(m\\) 阶零点（\\(m\\ge 0\\)，若 \\(f(0)\\ne 0\\) 则 \\(m=0\\)），则可写为 \\(f(z)=z^m h(z)\\)，其中 \\(h\\) 为整函数且 \\(h(0)\\ne 0\\)，记 \\(M_h(r)=\\max_{|z|=r}|h(z)|\\)。对 \\(r\\ge 1\\)，在 \\(|z|=r\\) 上有 \\(|h(z)|=r^{-m}|f(z)|\\le |f(z)|\\)，故 \\(M_h(r)\\le M(r)\\)。此外，由于 \\(a_n\\ne 0\\)，每个 \\(a_n\\) 也是 \\(h\\) 的零点且出现次数不超过其在 \\(h\\) 中的重数。",
+          "【第（2）问：构造 Blaschke 乘积估计 \\(n(r)\\)】对任意 \\(r\\ge \\frac{1}{2}\\)，令 \\(R=2r\\ge 1\\)，构造函数\n\\[g(z)=h(z)\\prod_{k=1}^{n(r)}\\frac{R^2-\\overline{a_k}z}{R(z-a_k)}\\]\n（当 \\(n(r)=0\\) 时空乘积取 \\(1\\)）。因每个 \\(a_k\\) 在乘积中出现次数不超过其作为 \\(h\\) 零点的重数，\\(g(z)\\) 在 \\(a_1,\\ldots,a_{n(r)}\\) 处均为可去奇点，从而可延拓为整函数。在圆周 \\(|z|=R\\) 上，由 \\(|a_k|\\le r<R\\) 及 \\(z\\overline{z}=R^2\\)，有\n\\[\\left|\\frac{R^2-\\overline{a_k}z}{R(z-a_k)}\\right|=\\frac{|z\\overline{z}-\\overline{a_k}z|}{R|z-a_k|}=\\frac{|z|\\cdot|\\overline{z-a_k}|}{R|z-a_k|}=1,\\]\n故对 \\(|z|=R\\) 有 \\(|g(z)|=|h(z)|\\le M_h(R)=M_h(2r)\\le M(2r)\\)。由最大模原理得\n\\[|g(0)|\\le \\max_{|z|=R}|g(z)|\\le M(2r).\\]\n另一方面，由于 \\(|a_k|\\le r\\)，有 \\(\\frac{2r}{|a_k|}\\ge 2\\)，于是\n\\[|g(0)|=|h(0)|\\prod_{k=1}^{n(r)}\\frac{R^2}{R|a_k|}=|h(0)|\\prod_{k=1}^{n(r)}\\frac{2r}{|a_k|}\\ge |h(0)|\\cdot 2^{n(r)}.\\]\n结合 \\(|h(0)|>0\\)，两边取对数得\n\\[n(r)\\ln 2\\le \\ln M(2r)-\\ln|h(0)|\\qquad\\left(r\\ge \\frac{1}{2}\\right).\\]",
+          "【第（2）问：利用阶 \\(\\rho\\) 估计并证明级数收敛】任取 \\(\\varepsilon>0\\)，令 \\(\\delta=\\frac{\\varepsilon}{2}>0\\)。由 \\(\\lim_{u\\to+\\infty}\\frac{\\ln\\ln M(u)}{\\ln u}=\\rho\\)，存在 \\(R_0>1\\) 使得当 \\(u\\ge R_0\\) 时，\\(\\frac{\\ln\\ln M(u)}{\\ln u}<\\rho+\\delta\\)，即 \\(\\ln M(u)<u^{\\rho+\\delta}\\)。从而当 \\(r\\ge \\frac{R_0}{2}\\) 时，\n\\[n(r)\\ln 2\\le (2r)^{\\rho+\\delta}-\\ln|h(0)|.\\]\n因为 \\(\\rho+\\delta>0\\)，当 \\(r\\) 充分大（比如 \\(r\\ge R_1\\ge \\frac{R_0}{2}\\)）时，有 \\(-\\ln|h(0)|\\le (2r)^{\\rho+\\delta}\\)，于是\n\\[n(r)\\le K r^{\\rho+\\delta},\\qquad\\text{其中 }K=\\frac{2^{\\rho+\\delta+1}}{\\ln 2}>0.\\]\n由于 \\(\\lim_{n\\to\\infty}|a_n|=+\\infty\\)，存在正整数 \\(N_0\\) 使得当 \\(n\\ge N_0\\) 时 \\(|a_n|\\ge R_1\\)。由 \\(|a_1|\\le|a_2|\\le\\cdots\\le|a_n|\\) 可知 \\(n\\le n(|a_n|)\\)，因此对所有 \\(n\\ge N_0\\) 有\n\\[n\\le n(|a_n|)\\le K|a_n|^{\\rho+\\delta},\\]\n即\n\\[\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\le K^{\\frac{\\rho+\\varepsilon}{\\rho+\\delta}}\\cdot\\frac{1}{n^{\\frac{\\rho+\\varepsilon}{\\rho+\\delta}}}.\\]\n因为 \\(\\rho>0\\) 且 \\(\\varepsilon>\\delta=\\frac{\\varepsilon}{2}>0\\)，指数 \\(p:=\\frac{\\rho+\\varepsilon}{\\rho+\\delta}>1\\)，故 \\(p\\)-级数 \\(\\sum_{n=N_0}^{\\infty}\\frac{1}{n^p}\\) 收敛。由正项级数的比较判别法，级数 \\(\\sum_{n=1}^{\\infty}\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\) 收敛。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在构造除以 \\(f(0)\\) 或提取 \\(\\frac{1}{a_1\\cdots a_n}\\) 的表达式前，先分类讨论 \\(z=0\\) 是否为零点：设 \\(0\\) 为 \\(f\\) 的 \\(k\\) 阶零点（\\(k\\ge 0\\)），令 \\(F(z)=\\frac{f(z)}{z^k}\\)，并简要验证 \\(M_F(r)=r^{-k}M(r)\\) 不改变增长阶 \\(\\rho\\)。",
+            "mistake": "忽略 \\(f(0)=0\\) 的情形，直接假设 \\(f(0)\\ne 0\\) 并取 \\(f(0)=1\\)。",
+            "title": "未处理 \\(z=0\\) 处的零点退化情形",
+            "why_wrong": "若 \\(f(0)=0\\)，则 \\(\\frac{f(0)}{P_n(0)}=0\\)，参考解答中的等式 (1) 只能给出 \\(0=0\\)，无法得到 \\(\\frac{1}{a_1\\cdots a_n}\\) 的上界；且在 Blaschke 乘积法中 \\(\\ln|f(0)|\\) 无意义。"
+          },
+          {
+            "how_to_avoid": "明确指出：因 \\(f\\) 为非常数整函数，由解析函数零点的孤立性，任意有界闭圆盘内至多只有有限个零点，且每个零点重数有限，再结合“同一零点出现次数不超过其重数”，推得 \\(\\lim_{n\\to\\infty}|a_n|=+\\infty\\)，且 \\(f/P_n\\) 在全平面解析（可去奇点）。",
+            "mistake": "直接默认 \\(|a_n|\\to +\\infty\\) 且 \\(f/P_n\\) 解析，未结合“非常数整函数”与“出现次数不超过重数”作说明。",
+            "title": "未论证 \\(|a_n|\\to +\\infty\\) 与 \\(f/P_n\\) 的解析性",
+            "why_wrong": "若出现次数超过重数，\\(f/P_n\\) 在零点处仍有极点，Cauchy 积分公式不再成立；若不说明零点孤立性，无法保证对充分大的 \\(n\\) 有 \\(3|a_n|>R_0\\)。"
+          },
+          {
+            "how_to_avoid": "在 \\(\\Gamma_n:|z|=3|a_n|\\) 上，由 \\(|a_k|\\le|a_n|\\) 直接得 \\(|\\zeta - a_k|\\ge 3|a_n|-|a_k|\\ge 2|a_n|\\)，与分子上的 \\(|a_n|^n\\) 配合即可得到 \\(2^n\\le e^{(3|a_n|)^\\alpha}\\)，避免取 \\(R=|a_n|\\) 导致分母为零或界不够强。",
+            "mistake": "在取积分围道半径时直接取 \\(R=|a_n|\\) 或 \\(R=2|a_n|\\)，导致围道经过零点或估算 \\(|P_n(\\zeta)|\\) 时出现 \\(|a_n|^n\\) 无法消去或因子小于 \\(1\\)。",
+            "title": "围道半径选取不当导致估算失效",
+            "why_wrong": "若围道经过 \\(|z|=|a_n|\\)，则 \\(P_n(\\zeta)\\) 在围道上可能有零点使积分发散；若用 \\(|z|=2|a_n|\\)，则 \\(|\\zeta-a_k|\\ge |a_n|\\)，乘积只有 \\(|a_n|^n\\)，消去后仅得 \\(1\\le e^{(2|a_n|)^\\alpha}\\)，无法产生 \\(2^n\\) 因子。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲解与参考解答均完整、严谨地证明了两问，核心结论完全一致，属于 `different_valid_method`（不同但均有效的解法）：\n1. **第（1）问**：Turn 1 盲解与参考解答思路完全一致，均利用最大模原理证明 \\(M(r)\\) 严格单增，再利用反证法与刘维尔定理证明 \\(\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。Turn 1 额外补充了紧集上最大值点存在性的细节，表述更为完整。\n2. **第（2）问**：\n   - **参考解答**采用**多项式除商 + Cauchy 积分公式**：设 \\(P_n(z)=\\prod_{k=1}^n(a_k-z)\\)，在圆周 \\(\\Gamma_n:|z|=3|a_n|\\) 上对 \\(\\frac{f(\\zeta)}{\\zeta P_n(\\zeta)}\\) 应用 Cauchy 公式，直接得到 \\(\\frac{1}{|a_n|^n}\\le\\left|\\frac{1}{a_1\\cdots a_n}\\right|\\le \\frac{e^{(3|a_n|)^\\alpha}}{2^n|a_n|^n}\\)，两边消去 \\(|a_n|^n\\) 后立即解得 \\(\\frac{1}{|a_n|}\\le \\frac{3}{(n\\ln 2)^{1/\\alpha}}\\)，进而与 \\(p\\)-级数比较判别收敛性。该方法极为精炼。\n   - **Turn 1 盲解**采用**Blaschke 乘积 + 最大模原理**（等价于 Jensen 公式的初等化处理）：先给出零点计数函数 \\(n(r)\\) 的上界 \\(n(r)\\ln 2\\le \\ln M(2r)-\\ln|h(0)|\\)，再令 \\(r=|a_n|\\) 利用 \\(n\\le n(|a_n|)\\) 得到 \\(|a_n|\\) 的下界，从而证明级数收敛。该方法同样完全严谨且自洽。\n   - 两者均正确处理了 \\(f(0)=0\\) 的退化情形以及零点孤立性。",
+        "difficulties": [
+          {
+            "detail": "面对抽象的整函数零点序列 \\((a_n)\\) 与最大模 \\(M(r)\\)，初学者容易想到 Jensen 公式，但竞赛中若不直接引用或担心记错公式系数，如何从基础的 Cauchy 积分公式或最大模原理出发，通过构造 \\(P_n(z)=\\prod_{k=1}^n(a_k-z)\\)（或 Blaschke 因子）将零点信息转化为函数模的上界估计，是本题最核心的技巧跨越。",
+            "title": "不直接套用 Jensen 公式而自行建立零点与最大模的联系"
+          },
+          {
+            "detail": "在估算 \\(\\left|\\frac{1}{a_1\\cdots a_n}\\right|\\) 时，不仅需要 \\(|a_1|\\le\\cdots\\le|a_n|\\) 来将其下界放缩为 \\(\\frac{1}{|a_n|^n}\\)，还需要选取半径为 \\(3|a_n|\\) 的圆周，使得分母上的 \\(|P_n(\\zeta)|\\ge 2^n|a_n|^n\\) 与左端同阶的 \\(|a_n|^n\\) 恰好抵消，从而暴露出指数因子 \\(2^n\\)，最终导出 \\(|a_n|\\) 关于 \\(n\\) 的幂次下界。",
+            "title": "围道半径 \\(3|a_n|\\) 的精巧选取与同阶项消去"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "构造与反例",
+          "放缩与估值",
+          "反证与分类讨论"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "第（1）问要求证明非常数整函数的最大模 \\(M(r)\\) 严格单增且趋于 \\(+\\infty\\)。看到“全平面解析”“非常数”“圆周上最大值”，应立即联想到复分析中控制模长的两大基本定理：最大模原理（负责单调性）与刘维尔定理（负责无界性）。",
+            "step": "识别第（1）问的标准复分析工具"
+          },
+          {
+            "detail": "条件 \\(\\lim_{r\\to+\\infty}\\frac{\\ln\\ln M(r)}{\\ln r}=\\rho\\) 表明 \\(M(r)\\) 的增长阶为 \\(\\rho\\)，即对任意 \\(\\alpha>\\rho\\)，当 \\(r\\) 充分大时有 \\(M(r)<e^{r^\\alpha}\\)。目标 \\(\\sum |a_n|^{-(\\rho+\\varepsilon)}<\\infty\\) 相当于要证明 \\(|a_n|\\) 至少以 \\(n^{1/\\alpha}\\)（\\(\\alpha\\in(\\rho,\\rho+\\varepsilon)\\)）的速率增长，即建立 \\(n\\) 与 \\(|a_n|\\) 之间的定量不等式。",
+            "step": "翻译第（2）问中的增长阶条件与目标级数"
+          },
+          {
+            "detail": "要由上界 \\(M(r)<e^{r^\\alpha}\\) 控制零点模长 \\(|a_n|\\) 的下界，关键在于消除前 \\(n\\) 个零点并保留 \\(|f|\\) 的信息：既可以构造多项式 \\(P_n(z)=\\prod_{k=1}^n(a_k-z)\\) 并对 \\(\\frac{f(z)}{z P_n(z)}\\) 使用 Cauchy 积分公式，也可以构造 Blaschke 乘积使用最大模原理。",
+            "step": "寻找连接零点与最大模的桥梁"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "对任意 \\(0\\le r<s\\)，由最大模原理与 \\(f\\) 的非常数性，\\(|f(z)|\\) 在 \\(\\overline{D(0,s)}\\) 上的最大值不能在内点取得，故对一切 \\(|z|\\le r\\) 有 \\(|f(z)|<M(s)\\)，从而 \\(M(r)<M(s)\\)。若 \\(\\lim_{r\\to+\\infty}M(r)<+\\infty\\)，则 \\(f\\) 在全平面有界，由刘维尔定理知 \\(f\\) 为常数，矛盾，故 \\(\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。",
+            "motivation": "利用最大模原理和刘维尔定理直接刻画非常数整函数最大模的单调性与无界性。",
+            "step": "第（1）问：最大模原理与刘维尔定理"
+          },
+          {
+            "detail": "若 \\(0\\) 是 \\(f\\) 的 \\(k\\) 阶零点，令 \\(F(z)=\\frac{f(z)}{z^k}\\)，再归一化使 \\(F(0)=1\\)。由于 \\(M_F(r)=r^{-k}M(r)\\)，\\(F\\) 与 \\(f\\) 具有相同的增长阶 \\(\\rho\\) 且非零零点不变，从而不妨设 \\(f(0)=1\\)。",
+            "motivation": "后续构造的积分在 \\(z=0\\) 处取留数需要 \\(f(0)\\ne 0\\)，先分离原点零点可消除退化情形。",
+            "step": "第（2）问第一步：原点零点归一化"
+          },
+          {
+            "detail": "记 \\(P_n(z)=\\prod_{k=1}^n(a_k-z)\\)。由零点重数条件知 \\(f/P_n\\) 为整函数，在圆周 \\(\\Gamma_n:|z|=3|a_n|\\) 上应用 Cauchy 积分公式得\n\\[\\frac{1}{2\\pi i}\\oint_{\\Gamma_n}\\frac{f(\\zeta)}{\\zeta P_n(\\zeta)}\\,d\\zeta=\\frac{f(0)}{P_n(0)}=\\frac{1}{a_1a_2\\cdots a_n}.\\]",
+            "motivation": "通过将 \\(P_n(z)\\) 置于分母，利用 \\(z=0\\) 处的 Cauchy 积分公式把 \\(f\\) 在大圆周上的积分与零点乘积的倒数联系起来。",
+            "step": "第（2）问第二步：构造 \\(P_n(z)\\) 与 Cauchy 积分公式"
+          },
+          {
+            "detail": "取 \\(\\alpha\\in(\\rho,\\rho+\\varepsilon)\\)。由零点孤立性知 \\(|a_n|\\to+\\infty\\)，故当 \\(n\\) 充分大时 \\(M(3|a_n|)<e^{(3|a_n|)^\\alpha}\\)。同时在 \\(\\Gamma_n\\) 上 \\(|\\zeta-a_k|\\ge 3|a_n|-|a_k|\\ge 2|a_n|\\)，故 \\(|P_n(\\zeta)|\\ge 2^n|a_n|^n\\)。结合 \\(|a_1|\\le\\cdots\\le|a_n|\\) 对积分取模放缩得\n\\[\\frac{1}{|a_n|^n}\\le\\left|\\frac{1}{a_1\\cdots a_n}\\right|\\le\\frac{e^{(3|a_n|)^\\alpha}}{2^n|a_n|^n}.\\]\n消去 \\(|a_n|^n\\) 并取对数即得 \\(\\frac{1}{|a_n|}\\le\\frac{3}{(n\\ln 2)^{1/\\alpha}}\\)。因 \\(\\frac{\\rho+\\varepsilon}{\\alpha}>1\\)，由 \\(p\\)-级数判别法即知 \\(\\sum_{n=1}^{\\infty}\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\) 收敛。",
+            "motivation": "用大圆周半径 \\(3|a_n|\\) 使分母出现 \\(2^n|a_n|^n\\)，恰好与左端 \\(|a_n|^n\\) 抵消，直接导出 \\(|a_n|^{-1}\\) 的渐近上界。",
+            "step": "第（2）问第三步：围道放缩与级数收敛性判定"
+          }
+        ],
+        "teaching_takeaway": "本题实质是整函数零点收敛指数不超过其增长阶（\\(\\lambda\\le\\rho\\)）的经典定理；在竞赛中处理整函数零点与最大模的定量关系时，构造多项式除商 \\(f(z)/(zP_n(z))\\) 配以合适半径的 Cauchy 积分公式（或构造 Blaschke 乘积用最大模原理），是比死记硬背 Jensen 公式更稳妥且极具通用性的工具。",
+        "topic_tags": [
+          "复变函数",
+          "整函数的增长性与零点",
+          "最大模原理与Cauchy公式"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q7",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "7",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第7题",
+      "blind_attempt": {
+        "approach": "本题三个小题层层递进，体现了利用群元素的阶来证明域上单位根群为循环群的经典思路：\n1. 第（1）问利用交换群中幂运算的分配律以及互素整除性质，分别证明 \\(ab\\) 的阶既整除 \\(m_1m_2\\) 又被 \\(m_1m_2\\) 整除。\n2. 第（2）问采用反证法与素因子分解：若存在元素 \\(y\\) 的阶不整除最大阶 \\(n\\)，则可在某个素数 \\(p\\) 上取到比 \\(n\\) 更高的 \\(p\\)-幂次，再结合第（1）问构造出阶严格大于 \\(n\\) 的元素，从而产生矛盾。\n3. 第（3）问先验证 \\(U_N(F)\\) 是 \\(F^\\times\\) 的有限交换子群（由域上 \\(N\\) 次多项式 \\(t^N-1\\) 至多有 \\(N\\) 个根保证有限性），再由第（2）问及最大阶 \\(n\\) 满足的多项式 \\(t^n-1\\) 至多有 \\(n\\) 个根，得出 \\(|U_N(F)| \\le n\\)，结合 Lagrange 定理 \\(n \\mid |U_N(F)|\\) 即得 \\(n = |U_N(F)|\\)，从而 \\(U_N(F)\\) 为循环群。",
+        "final_answer": "### 证明\n\n#### （1）证明 \\(ab\\) 的阶为 \\(m_1m_2\\)\n设 \\(ab\\) 的阶为 \\(k\\)（\\(k \\ge 1\\)）。\n\n首先，因为 \\(G\\) 是交换群，所以\n\\[(ab)^{m_1m_2} = a^{m_1m_2}b^{m_1m_2} = (a^{m_1})^{m_2}(b^{m_2})^{m_1} = 1^{m_2}\\cdot 1^{m_1} = 1,\\]\n由此可知 \\(k \\mid m_1m_2\\)。\n\n另一方面，由 \\((ab)^k = 1\\) 两边同时取 \\(m_2\\) 次方，利用交换性得\n\\[1 = (ab)^{km_2} = a^{km_2}(b^{m_2})^k = a^{km_2}.\\]\n因为 \\(a\\) 的阶为 \\(m_1\\)，所以 \\(m_1 \\mid km_2\\)。又因为 \\(\\gcd(m_1, m_2) = 1\\)，故 \\(m_1 \\mid k\\)。\n\n同理，由 \\((ab)^k = 1\\) 两边同时取 \\(m_1\\) 次方可得 \\(b^{km_1} = 1\\)，从而 \\(m_2 \\mid km_1\\)，结合 \\(\\gcd(m_1, m_2) = 1\\) 得 \\(m_2 \\mid k\\)。\n\n因为 \\(m_1 \\mid k\\)、\\(m_2 \\mid k\\) 且 \\(\\gcd(m_1, m_2) = 1\\)，所以 \\(m_1m_2 \\mid k\\)。结合 \\(k \\mid m_1m_2\\)（且 \\(k, m_1m_2 > 0\\)），即证得 \\(k = m_1m_2\\)。\n\n---\n\n#### （2）证明对任意 \\(y \\in G\\)，都有 \\(y^n = 1\\)\n设 \\(y \\in G\\) 的阶为 \\(m\\)（因 \\(G\\) 有限，\\(m\\) 为正整数）。要证 \\(y^n = 1\\)，只需证明 \\(m \\mid n\\)。\n\n假设 \\(m \\nmid n\\)，则存在素数 \\(p\\)，使得 \\(p\\) 在 \\(m\\) 的标准素因数分解中的指数严格大于在 \\(n\\) 中的指数。具体地，记\n\\[n = p^s n_0,\\quad m = p^r m_0,\\]\n其中 \\(r > s \\ge 0\\)，且 \\(\\gcd(p, n_0) = \\gcd(p, m_0) = 1\\)。\n\n考虑元素 \\(a = x^{p^s}\\) 与 \\(b = y^{m_0}\\)：\n- 对任意正整数 \\(k\\)，\\(a^k = x^{p^s k} = 1 \\iff p^s n_0 \\mid p^s k \\iff n_0 \\mid k\\)，故 \\(a\\) 的阶为 \\(n_0\\)；\n- 对任意正整数 \\(k\\)，\\(b^k = y^{m_0 k} = 1 \\iff p^r m_0 \\mid m_0 k \\iff p^r \\mid k\\)，故 \\(b\\) 的阶为 \\(p^r\\)。\n\n由于 \\(\\gcd(p, n_0) = 1\\)，可知 \\(\\gcd(n_0, p^r) = 1\\)。由第（1）问，\\(ab \\in G\\) 的阶为\n\\[n_0 p^r = p^{r-s}(p^s n_0) = p^{r-s} n.\\]\n因为 \\(r > s\\)，所以 \\(p^{r-s} \\ge p \\ge 2\\)，从而 \\(ab\\) 的阶严格大于 \\(n\\)，这与 \\(x\\) 是 \\(G\\) 中最大阶元矛盾。因此必有 \\(m \\mid n\\)，即 \\(y^n = 1\\)。\n\n---\n\n#### （3）证明 \\(U_N(F)\\) 关于 \\(F\\) 的乘法构成循环群\n第一步，验证 \\(U_N(F)\\) 是有限交换群：\n- 若 \\(\\alpha \\in U_N(F)\\)，则 \\(\\alpha^N = 1 \\neq 0\\)，故 \\(\\alpha \\neq 0\\)，即 \\(U_N(F) \\subseteq F^\\times = F \\setminus \\{0\\}\\)。\n- \\(1^N = 1\\)，故 \\(1 \\in U_N(F)\\)，集合非空。\n- 对任意 \\(\\alpha, \\beta \\in U_N(F)\\)，有 \\((\\alpha\\beta)^N = \\alpha^N \\beta^N = 1\\) 且 \\((\\alpha^{-1})^N = (\\alpha^N)^{-1} = 1\\)，故 \\(\\alpha\\beta \\in U_N(F)\\) 且 \\(\\alpha^{-1} \\in U_N(F)\\)。\n因此 \\(U_N(F)\\) 是乘法群 \\(F^\\times\\) 的子群；又因为域的乘法交换，所以 \\(U_N(F)\\) 是交换群。\n- \\(U_N(F)\\) 中的每个元素都是域 \\(F\\) 上 \\(N\\) 次多项式 \\(f(t) = t^N - 1 \\in F[t]\\) 的根。因为 \\(F\\) 是域且 \\(N \\ge 1\\)，\\(f(t)\\) 在 \\(F\\) 中至多有 \\(N\\) 个不同的根，所以 \\(|U_N(F)| \\le N < \\infty\\)。综上，\\(U_N(F)\\) 是有限交换群。\n\n第二步，证明 \\(U_N(F)\\) 是循环群：\n记 \\(G = U_N(F)\\)，\\(M = |G|\\)。取 \\(x \\in G\\) 为 \\(G\\) 中阶最大的元素，设 \\(x\\) 的阶为 \\(n\\)。\n- 由 Lagrange 定理，\\(n \\mid M\\)。\n- 由第（2）问，对任意 \\(y \\in G\\) 都有 \\(y^n = 1\\)，即 \\(G\\) 中所有 \\(M\\) 个元素都是多项式 \\(g(t) = t^n - 1 \\in F[t]\\) 在 \\(F\\) 中的根。\n- 因为 \\(F\\) 是域且 \\(n \\ge 1\\)，\\(g(t)\\) 在 \\(F\\) 中至多有 \\(n\\) 个根，所以 \\(M \\le n\\)。\n\n由 \\(n \\mid M\\) 与 \\(M \\le n\\)（且 \\(M, n > 0\\)）可得 \\(n = M = |U_N(F)|\\)。因此 \\(x\\) 生成的子群 \\(\\langle x \\rangle\\) 等于整个 \\(U_N(F)\\)，故 \\(U_N(F)\\) 是一个循环群。",
+        "problem_statement_zh": "设 \\(G\\) 是有限交换群，\\(x\\in G\\) 是 \\(G\\) 中最大阶元，\\(n\\) 表示 \\(x\\) 的阶。试证明下列结论：\n（1）设 \\(a,b\\) 的阶分别是 \\(m_1,m_2\\) 且 \\(m_1\\) 和 \\(m_2\\) 互素，则 \\(ab\\) 的阶必为 \\(m_1m_2\\)；\n（2）对任意 \\(y\\in G\\)，必有 \\(y^n=1\\)；\n（3）设 \\(F\\) 是一个域，\\(N>0\\) 是任意整数，则 \\(U_N(F):=\\{\\alpha\\in F\\mid \\alpha^N=1\\}\\) 关于 \\(F\\) 的乘法是一个循环群。",
+        "steps": [
+          "核对题目图片与文字转录：确认原题为第17届全国大学生数学竞赛决赛高年级第7题，三个小问的表述清晰完整。",
+          "证明第（1）问：利用 \\(G\\) 的交换性验证 \\((ab)^{m_1m_2}=1\\) 得到 \\(\\operatorname{ord}(ab) \\mid m_1m_2\\)；再将 \\((ab)^k=1\\) 分别取 \\(m_2\\) 次方和 \\(m_1\\) 次方，结合 \\(\\gcd(m_1,m_2)=1\\) 推出 \\(m_1\\mid k\\) 与 \\(m_2\\mid k\\)，从而 \\(m_1m_2\\mid k\\)，证得 \\(\\operatorname{ord}(ab)=m_1m_2\\)。",
+          "证明第（2）问：设 \\(y\\in G\\) 的阶为 \\(m\\)，反设 \\(m\\nmid n\\)，取素数 \\(p\\) 使 \\(v_p(m)=r > s=v_p(n)\\)，令 \\(n=p^s n_0, m=p^r m_0\\)（\\(n_0,m_0\\) 与 \\(p\\) 互素），构造 \\(a=x^{p^s}\\)（阶为 \\(n_0\\)）和 \\(b=y^{m_0}\\)（阶为 \\(p^r\\)），由（1）得 \\(ab\\) 的阶为 \\(p^{r-s}n > n\\)，与 \\(x\\) 阶最大矛盾，故 \\(m\\mid n\\) 即 \\(y^n=1\\)。",
+          "证明第（3）问：先证明 \\(U_N(F)\\) 是 \\(F^\\times\\) 的子群且为 \\(t^N-1\\) 的根集，故为有限交换群；再设其最大阶元 \\(x\\) 的阶为 \\(n\\)，由 Lagrange 定理有 \\(n \\mid |U_N(F)|\\)，又由（2）知所有元素均为 \\(t^n-1\\) 的根，故 \\(|U_N(F)| \\le n\\)，从而 \\(n=|U_N(F)|\\)，即 \\(U_N(F)=\\langle x\\rangle\\) 为循环群。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "牢记“元素 \\(g\\) 的阶为 \\(k\\)”包含两层含义：\\(g^k = 1\\) 且对任意正整数 \\(N\\)，若 \\(g^N = 1\\) 则 \\(k \\mid N\\)。证明阶的等式必须双向验证整除关系。",
+            "mistake": "在证明第（1）问时，仅验证 \\((ab)^{m_1 m_2} = 1\\) 就直接断言 \\(ab\\) 的阶为 \\(m_1 m_2\\)。",
+            "title": "只证幂次为 \\(1\\) 而未证最小性",
+            "why_wrong": "\\((ab)^{m_1 m_2} = 1\\) 只能说明 \\(ab\\) 的阶整除 \\(m_1 m_2\\)，不能排除其阶是 \\(m_1 m_2\\) 的真因子的可能（例如当 \\(m_1, m_2\\) 不互素时就可能严格更小）。"
+          },
+          {
+            "how_to_avoid": "在将群论结论应用到具体集合时，先显式验证群公理（封闭性、单位元、逆元）、交换性与有限性（由 \\(t^N - 1\\) 在域 \\(F\\) 上至多有 \\(N\\) 个根保证），并明确指出“域上非零 \\(n\\) 次多项式至多有 \\(n\\) 个根”。",
+            "mistake": "在第（3）问中直接对 \\(U_N(F)\\) 套用第（2）问，未说明为何 \\(U_N(F)\\) 是有限交换群，或忽略了“域”这一条件在限制多项式根个数中的作用。",
+            "title": "遗漏有限交换群前提与域的条件",
+            "why_wrong": "若未说明 \\(U_N(F)\\) 对乘法封闭且有限，则第（2）问的适用条件不完备；而在一般非整环（如 \\(\\mathbb{Z}/8\\mathbb{Z}\\)）中，\\(t^2 - 1\\) 可以有超过 \\(2\\) 个根，有限乘法子群也未必循环。"
+          },
+          {
+            "how_to_avoid": "利用 \\(g^d\\) 的阶公式 \\(\\operatorname{ord}(g^d) = \\frac{\\operatorname{ord}(g)}{\\gcd(d, \\operatorname{ord}(g))}\\) 进行精确化简，或直接按单一素数 \\(p\\) 的 \\(p\\)-进赋值 \\(v_p(m) > v_p(n)\\) 拆分阶，使构造出的两个元素的阶明确互素。",
+            "mistake": "在第（2）问中假设 \\(m \\nmid n\\) 后，试图直接取 \\(x\\) 与 \\(y\\) 的幂次乘积，却未正确剥离公共素因子，导致构造出的两个元素的阶不互素，无法应用第（1）问。",
+            "title": "第（2）问构造新元素时阶未真正互素",
+            "why_wrong": "第（1）问严格依赖 \\(\\gcd(m_1, m_2) = 1\\)；若新构造的两个元素的阶仍有公因子，其乘积的阶可能小于两者阶之积，甚至不超过 \\(n\\)。"
+          }
+        ],
+        "comparison_summary": "盲做解答完全正确且严谨：第（1）问与参考解答几乎完全一致；第（2）问参考解答通过将 \\(d=\\gcd(m,n)\\) 的所有素因子按是否整除 \\(m/d\\) 一分为二，直接构造出阶为 \\(\\operatorname{lcm}(m,n)=nm/d>n\\) 的元素 \\(x^{d_2}y^{d_1}\\)，而盲做解答选取单个满足 \\(v_p(m)>v_p(n)\\) 的素数 \\(p\\) 构造出阶为 \\(p^{r-s}n>n\\) 的元素 \\(x^{p^s}y^{m_0}\\)，两者本质相同且盲做写法更简洁；第（3）问盲做解答在利用 Lagrange 定理与 \\(t^n-1\\) 根个数上界得出 \\(n=m\\) 的同时，还显式补充验证了 \\(U_N(F)\\) 是 \\(F^\\times\\) 的有限交换子群，论证比参考解答更为完整。",
+        "difficulties": [
+          {
+            "detail": "如果直接取 \\(xy\\)，由于 \\(\\operatorname{ord}(x)=n\\) 与 \\(\\operatorname{ord}(y)=m\\) 未必互素，无法保证 \\(\\operatorname{ord}(xy) = \\operatorname{lcm}(m,n)\\)。关键在于利用 \\(x, y\\) 的适当幂次“过滤”掉重合的素因子，构造出阶互素且乘积阶超过 \\(n\\) 的两个元素。",
+            "title": "第（2）问如何从 \\(m \\nmid n\\) 构造出阶严格大于 \\(n\\) 的元素"
+          },
+          {
+            "detail": "仅靠群论本身无法证明有限交换群是循环群（反例：Klein 四元群）。必须引入域 \\(F\\) 的代数结构：域上 \\(n\\) 次多项式至多有 \\(n\\) 个根，从而把第（2）问的群论性质 \\(y^n=1\\) 转化为群阶的上界 \\(|U_N(F)| \\le n\\)，与 Lagrange 定理的 \\(n \\mid |U_N(F)|\\) 夹逼出 \\(n = |U_N(F)|\\)。",
+            "title": "第（3）问如何把“最大阶元”转化为“生成元”"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "极端原理",
+          "构造与反例",
+          "反证与分类讨论"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:充分性与必要性混淆"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "三个小问呈明显的递进结构：第（1）问给出交换群中互素阶元素乘积的阶公式；第（2）问要求用最大阶元 \\(x\\) 的阶 \\(n\\) 统御全群元素；第（3）问则是“域上有限乘法子群必为循环群”这一经典定理在单位根群上的具体呈现。",
+            "step": "通读全题，识别递进链条"
+          },
+          {
+            "detail": "面对抽象交换群的元素阶问题，第（1）问抓住“阶即最小正周期”的定义，用互素整除性双向夹逼；第（2）问看到“最大阶元”立即联想到极端原理与反证法，思考若 \\(m \\nmid n\\) 如何利用第（1）问造出更大阶元。",
+            "step": "锁定核心工具与切入点"
+          },
+          {
+            "detail": "第（3）问从集合 \\(U_N(F)\\) 出发，先确认它满足第（2）问的前提（有限交换群），再寻找连接“所有元素满足 \\(y^n=1\\)”与“域 \\(F\\)”的桥梁——多项式 \\(t^n-1\\) 在域上的根数上界。",
+            "step": "衔接群论结论与域的代数性质"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "先由交换性得 \\((ab)^{m_1 m_2} = (a^{m_1})^{m_2}(b^{m_2})^{m_1} = 1\\)。再设 \\((ab)^N = 1\\)，分别取 \\(m_2\\) 次方与 \\(m_1\\) 次方消去其中一个因子，得 \\(a^{m_2 N} = 1\\) 与 \\(b^{m_1 N} = 1\\)，从而 \\(m_1 \\mid m_2 N\\) 且 \\(m_2 \\mid m_1 N\\)。利用 \\(\\gcd(m_1, m_2) = 1\\) 推出 \\(m_1 \\mid N\\) 与 \\(m_2 \\mid N\\)，进而 \\(m_1 m_2 \\mid N\\)，故 \\(m_1 m_2\\) 为 \\(ab\\) 的最小正指数（即阶）。",
+            "motivation": "确定交换群中两元素乘积的阶，需同时证明 \\(m_1 m_2\\) 是使 \\((ab)^k=1\\) 成立的指数，且任何使 \\((ab)^N=1\\) 成立的指数都必须是 \\(m_1 m_2\\) 的倍数。",
+            "step": "第（1）问：双向整除确定乘积的阶"
+          },
+          {
+            "detail": "设 \\(y\\) 的阶为 \\(m\\)，反设 \\(y^n \\neq 1\\) 即 \\(m \\nmid n\\)，令 \\(d = \\gcd(m, n) < m\\)。将 \\(d\\) 素因数分解，把满足 \\(p_i \\mid (m/d)\\) 的素幂因子归入 \\(d_1\\)，其余归入 \\(d_2 = d/d_1\\)。此时 \\(\\gcd(m/d_1, n/d_2) = 1\\)，且 \\(y^{d_1}\\) 的阶为 \\(m/d_1\\)，\\(x^{d_2}\\) 的阶为 \\(n/d_2\\)。由第（1）问，\\(x^{d_2} y^{d_1}\\) 的阶为 \\(\\frac{n}{d_2}\\cdot\\frac{m}{d_1} = n\\cdot\\frac{m}{d} > n\\)，与 \\(x\\) 阶最大矛盾。（也可直接取单个满足 \\(v_p(m)>v_p(n)\\) 的素数 \\(p\\) 进行剥离，效果相同。）",
+            "motivation": "在有限交换群中，若能利用最大阶元 \\(x\\) 与反例 \\(y\\) 拼出一个阶为 \\(\\operatorname{lcm}(m,n)\\) 的元素，则因 \\(m \\nmid n\\) 必有 \\(\\operatorname{lcm}(m,n) > n\\)，立即与极端性矛盾。",
+            "step": "第（2）问：素因子剥离与反证法"
+          },
+          {
+            "detail": "首先验证 \\(U_N(F)\\) 对乘法封闭、含单位元与逆元且元素个数不超过 \\(t^N-1\\) 的根数 \\(N\\)，故为有限交换群。设 \\(|U_N(F)| = m\\)，取其最大阶元 \\(\\alpha\\)，阶为 \\(n\\)。一方面由 Lagrange 定理得 \\(n \\mid m\\)；另一方面由第（2）问，\\(U_N(F)\\) 中所有 \\(m\\) 个元都是 \\(t^n - 1 \\in F[t]\\) 的根，而域上 \\(n\\) 次多项式至多有 \\(n\\) 个根，故 \\(m \\le n\\)。从而 \\(n = m\\)，即 \\(U_N(F) = \\langle \\alpha \\rangle\\) 是循环群。",
+            "motivation": "要证明有限交换群是循环群，只需证明其最大阶元 \\(\\alpha\\) 的阶 \\(n\\) 等于群的阶 \\(m\\)；已由 Lagrange 定理知 \\(n \\mid m\\)，只需再给出 \\(m \\le n\\) 的反向不等式。",
+            "step": "第（3）问：夹逼群阶与多项式根数上界"
+          }
+        ],
+        "teaching_takeaway": "证明“域的有限乘法子群必为循环群”的标准策略是：在有限交换群中取最大阶元 \\(x\\)（阶为 \\(n\\)），利用素幂拆分与互素乘积公式证出全群满足 \\(y^n=1\\)，再借助“域上 \\(n\\) 次多项式至多有 \\(n\\) 个根”与 Lagrange 定理夹逼得出群阶恰好等于 \\(n\\)。",
+        "topic_tags": [
+          "有限交换群",
+          "元素的阶",
+          "域上单位根群"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q8",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "8",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第8题",
+      "blind_attempt": {
+        "approach": "建立圆环面 \\(T^2\\) 的标准参数方程，计算第一基本形式与第二基本形式，进而求出两条曲率线方向对应的主曲率 \\(\\kappa_1, \\kappa_2\\) 与 Gauss 曲率 \\(K\\)，再分别讨论 \\(\\kappa_1 = \\kappa_2\\) 是否成立以及 \\(K = 0\\) 的解集。",
+        "final_answer": "（1）通过计算可得圆环面 \\(T^2\\) 上任意一点的两个主曲率分别为 \\(\\kappa_1 = \\frac{1}{b}\\) 与 \\(\\kappa_2 = \\frac{\\cos u}{a + b\\cos u}\\)，从而 \\(\\kappa_1 - \\kappa_2 = \\frac{a}{b(a + b\\cos u)} > 0\\) 恒成立，故 \\(T^2\\) 上没有脐点。\n\n（2）\\(T^2\\) 上 Gauss 曲率 \\(K = \\frac{\\cos u}{b(a + b\\cos u)}\\)，令 \\(K = 0\\) 得 \\(\\cos u = 0\\)，即所求点集为两个平行圆周：\n\\[\n\\left\\{(x, y, z) \\in \\mathbb{R}^3 \\;\\middle|\\; x^2 + y^2 = a^2,\\; z = \\pm b\\right\\}\\]。\n",
+        "problem_statement_zh": "设 \\(T^2\\) 为 \\(\\mathbb{R}^3\\) 中的圆环面，在直角坐标系 \\(O-xyz\\) 中，它由 \\(yz\\) 平面上的圆（圆心在 \\((0,a,0)\\)，半径为 \\(b\\)，\\(a > b > 0\\)）绕 \\(z\\) 轴旋转一周而成。\n（1）证明：\\(T^2\\) 上没有脐点；\n（2）求 \\(T^2\\) 上 Gauss 曲率为零的点集。",
+        "steps": [
+          "1. **参数化圆环面**：\\(yz\\) 平面上圆心为 \\((0, a, 0)\\)、半径为 \\(b\\) 的圆可参数化为 \\((0, a + b\\cos u, b\\sin u)\\)（\\(u \\in [0, 2\\pi)\\)）。绕 \\(z\\) 轴旋转一周后，\\(T^2\\) 的参数方程为\n\\[\n\\mathbf{r}(u, v) = \\big((a + b\\cos u)\\cos v,\\; (a + b\\cos u)\\sin v,\\; b\\sin u\\big),\\quad (u, v) \\in [0, 2\\pi) \\times [0, 2\\pi)\\]。\n",
+          "2. **计算第一基本形式**：求一阶偏导得\n\\[\n\\mathbf{r}_u = (-b\\sin u\\cos v,\\; -b\\sin u\\sin v,\\; b\\cos u),\\qquad \\mathbf{r}_v = \\big(-(a+b\\cos u)\\sin v,\\; (a+b\\cos u)\\cos v,\\; 0\\big)\\]。\n\n由此得到第一基本量：\n\\[\nE = \\mathbf{r}_u \\cdot \\mathbf{r}_u = b^2,\\qquad F = \\mathbf{r}_u \\cdot \\mathbf{r}_v = 0,\\qquad G = \\mathbf{r}_v \\cdot \\mathbf{r}_v = (a + b\\cos u)^2\\]。\n\n由于 \\(a > b > 0\\)，恒有 \\(a + b\\cos u \\ge a - b > 0\\)，故 \\(EG - F^2 = b^2(a + b\\cos u)^2 > 0\\)，参数化处处正则。",
+          "3. **计算单位法向量与第二基本形式**：计算叉积\n\\[\n\\mathbf{r}_u \\times \\mathbf{r}_v = -b(a + b\\cos u)(\\cos u\\cos v,\\; \\cos u\\sin v,\\; \\sin u),\n\\]\n取单位法向量 \\(\\mathbf{n} = \\frac{\\mathbf{r}_u \\times \\mathbf{r}_v}{\\|\\mathbf{r}_u \\times \\mathbf{r}_v\\|} = -(\\cos u\\cos v,\\; \\cos u\\sin v,\\; \\sin u)\\)。再求二阶偏导：\n\\[\n\\mathbf{r}_{uu} = (-b\\cos u\\cos v,\\; -b\\cos u\\sin v,\\; -b\\sin u),\\quad \\mathbf{r}_{uv} = (b\\sin u\\sin v,\\; -b\\sin u\\cos v,\\; 0),\\quad \\mathbf{r}_{vv} = \\big(-(a+b\\cos u)\\cos v,\\; -(a+b\\cos u)\\sin v,\\; 0\\big)\\]。\n\n从而第二基本量为\n\\[\nL = \\mathbf{r}_{uu} \\cdot \\mathbf{n} = b,\\qquad M = \\mathbf{r}_{uv} \\cdot \\mathbf{n} = 0,\\qquad N = \\mathbf{r}_{vv} \\cdot \\mathbf{n} = (a + b\\cos u)\\cos u\\]。\n",
+          "4. **证明（1）无脐点**：因为 \\(F = M = 0\\)，\\(u\\)-曲线与 \\(v\\)-曲线均为曲率线，两个主曲率分别为\n\\[\n\\kappa_1 = \\frac{L}{E} = \\frac{1}{b},\\qquad \\kappa_2 = \\frac{N}{G} = \\frac{\\cos u}{a + b\\cos u}\\]。\n\n曲面上的点为脐点当且仅当 \\(\\kappa_1 = \\kappa_2\\)。计算两主曲率之差：\n\\[\n\\kappa_1 - \\kappa_2 = \\frac{1}{b} - \\frac{\\cos u}{a + b\\cos u} = \\frac{a}{b(a + b\\cos u)}\\]。\n\n由 \\(a > b > 0\\) 可知 \\(a > 0\\) 且 \\(b(a + b\\cos u) \\ge b(a - b) > 0\\)，故在 \\(T^2\\) 上处处有 \\(\\kappa_1 - \\kappa_2 > 0\\)，即 \\(\\kappa_1 \\ne \\kappa_2\\)。因此 \\(T^2\\) 上没有脐点。",
+          "5. **求解（2）Gauss 曲率为零的点集**：\\(T^2\\) 上的 Gauss 曲率为\n\\[\nK = \\kappa_1 \\kappa_2 = \\frac{\\cos u}{b(a + b\\cos u)}\\]。\n\n由于分母 \\(b(a + b\\cos u) > 0\\)，故 \\(K = 0 \\iff \\cos u = 0\\)。在 \\(u \\in [0, 2\\pi)\\) 内解得 \\(u = \\frac{\\pi}{2}\\) 或 \\(u = \\frac{3\\pi}{2}\\)。代回参数方程 \\(\\mathbf{r}(u, v)\\)：\n- 当 \\(u = \\frac{\\pi}{2}\\) 时，\\(\\mathbf{r}\\left(\\frac{\\pi}{2}, v\\right) = (a\\cos v,\\; a\\sin v,\\; b)\\)，对应圆周 \\(x^2 + y^2 = a^2,\\; z = b\\)；\n- 当 \\(u = \\frac{3\\pi}{2}\\) 时，\\(\\mathbf{r}\\left(\\frac{3\\pi}{2}, v\\right) = (a\\cos v,\\; a\\sin v,\\; -b)\\)，对应圆周 \\(x^2 + y^2 = a^2,\\; z = -b\\)。\n\n因此，\\(T^2\\) 上 Gauss 曲率为零的点集为 \\(\\left\\{(x, y, z) \\in \\mathbb{R}^3 \\;\\middle|\\; x^2 + y^2 = a^2,\\; z = \\pm b\\right\\}\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在正式计算前先写出 \\(a > b > 0 \\implies a + b\\cos v \\ge a - b > 0\\)，借此一次性说明曲面正则性（\\(EG - F^2 > 0\\)）、主曲率分母非零以及 \\(K = 0 \\iff \\cos v = 0\\)。",
+            "mistake": "未说明 \\(a + b\\cos v > 0\\)（即未利用 \\(a > b > 0\\) 这一条件），直接约去分母或默认曲面处处正则。",
+            "title": "忽略 \\(a > b > 0\\) 的正则性与非零条件",
+            "why_wrong": "若没有 \\(a > b > 0\\)，当 \\(a \\le b\\) 时 \\(a + b\\cos v\\) 可以取零，导致参数化出现奇点、分母为零，甚至“没有脐点”的结论也会受奇点影响。"
+          },
+          {
+            "how_to_avoid": "算完 \\(L, M, N\\) 后用几何直观复核：沿经线圆（半径 \\(b\\)）的主曲率绝对值应为 \\(\\frac{1}{b}\\)，且当单位法向量指向外侧（如参考解答）时 \\(k_1, k_2\\) 在外侧圆周 \\(v=0\\) 处均应为负。",
+            "mistake": "计算叉积 \\(\\mathbf{r}_u \\times \\mathbf{r}_v\\) 或二阶导点积时出现正负号错误，导致 \\(L\\) 与 \\(N\\) 的相对符号出错。",
+            "title": "法向量与第二基本量符号出错",
+            "why_wrong": "虽然整体反号不影响脐点判定和 \\(K = k_1 k_2\\)，但如果 \\(L\\) 与 \\(N\\) 之间只错了一个符号，就会把 \\(a = 0\\) 误算成 \\(a + 2b\\cos v = 0\\)，从而得出存在脐点的错误结论。"
+          },
+          {
+            "how_to_avoid": "先写明参数方程对应关系，再将 \\(v = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\) 代回 \\(\\mathbf{r}(u, v)\\)，最后消去参数 \\(u\\) 写成直角坐标下的方程 \\(x^2 + y^2 = a^2,\\; z = \\pm b\\)。",
+            "mistake": "第（2）问只写出参数条件 \\(\\cos v = 0\\) 或 \\(v = \\frac{\\pi}{2}, \\frac{3\\pi}{2}\\)，没有代回 \\(\\mathbf{r}(u, v)\\) 给出 \\(\\mathbb{R}^3\\) 中的几何点集。",
+            "title": "只给出参数解而未还原为空间点集",
+            "why_wrong": "题目要求的是“\\(T^2\\) 上 Gauss 曲率为零的点集”，仅给出参数值不能直接体现空间中的两个圆周。"
+          }
+        ],
+        "comparison_summary": "盲解与参考解答思路、步骤及最终结论完全一致。两者均采用圆环面的标准正交参数化，利用 \\(F = M = 0\\) 直接读出曲率线与主曲率，再通过反证法证明无脐点，并由 \\(K = 0\\) 解出两个平行圆周；唯一差异仅在于两个参数 \\(u, v\\) 的命名互换以及单位法向量 \\(\\mathbf{n}\\) 取向相反（参考解答取外法向，盲解取内法向），这对结果均无实质影响。",
+        "difficulties": [
+          {
+            "detail": "在未直接套用一般旋转面曲率公式的情况下，需要耐心准确地完成一阶导、叉积归一化、二阶导及点积运算，确保 \\(L, N\\) 的符号与系数无误。",
+            "title": "基本量与法向量的准确计算"
+          },
+          {
+            "detail": "识别出 \\(F = M = 0\\) 时坐标曲线即为曲率线，从而省去求解二次特征方程（Weingarten 矩阵特征值）的步骤，直接用 \\(\\frac{L}{E}\\) 和 \\(\\frac{N}{G}\\) 写出主曲率。",
+            "title": "利用正交曲率线简化主曲率求解"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "变量代换与重参数化",
+          "反证与分类讨论"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:定义域与分母为零",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "识别曲面类型为绕 \\(z\\) 轴生成的旋转曲面（圆环面），条件 \\(a > b > 0\\) 保证了旋转半径 \\(a + b\\cos v \\ge a - b > 0\\) 处处为正，从而整个圆环面是光滑正则曲面。",
+            "step": "1. 识别旋转面结构与正则条件"
+          },
+          {
+            "detail": "为 \\(yz\\) 平面上的圆选取角参数 \\(v\\)，再引入绕 \\(z\\) 轴的旋转角参数 \\(u\\)，写出简洁的双参数方程 \\(\\mathbf{r}(u, v)\\)。",
+            "step": "2. 建立正交参数方程"
+          },
+          {
+            "detail": "“无脐点”等价于两个主曲率 \\(k_1, k_2\\) 处处不相等；“Gauss 曲率为零”等价于 \\(K = k_1 k_2 = 0\\)。二者都归结为计算第一、第二基本形式并求主曲率。",
+            "step": "3. 将几何问题转化为基本量与主曲率计算"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "写出参数方程 \\(\\mathbf{r}(u, v) = ((a + b\\cos v)\\cos u, (a + b\\cos v)\\sin u, b\\sin v)\\)，\\(u, v \\in [0, 2\\pi)\\)。这样选取使得 \\(u\\)-曲线为纬圆、\\(v\\)-曲线为经圆，彼此正交。",
+            "motivation": "建立圆环面的标准参数化，利用旋转对称性使后续基本量自然对角化。",
+            "step": "1. 参数化圆环面"
+          },
+          {
+            "detail": "求偏导 \\(\\mathbf{r}_u, \\mathbf{r}_v\\) 得 \\(E = (a + b\\cos v)^2,\\; F = 0,\\; G = b^2\\)；再由 \\(\\mathbf{n} = \\frac{\\mathbf{r}_u \\times \\mathbf{r}_v}{|\\mathbf{r}_u \\times \\mathbf{r}_v|} = (\\cos u\\cos v, \\sin u\\cos v, \\sin v)\\) 及二阶偏导求得 \\(L = -(a + b\\cos v)\\cos v,\\; M = 0,\\; N = -b\\)。",
+            "motivation": "第一、第二基本形式完整刻画曲面的局部内蕴与外蕴几何性质。",
+            "step": "2. 计算第一与第二基本形式"
+          },
+          {
+            "detail": "由于 \\(F = M = 0\\)，坐标曲线即曲率线，直接有 \\(k_1 = \\frac{L}{E} = -\\frac{\\cos v}{a + b\\cos v}\\)，\\(k_2 = \\frac{N}{G} = -\\frac{1}{b}\\)。若存在脐点，则 \\(k_1 = k_2\\)，化简得 \\(a = 0\\)，与已知 \\(a > b > 0\\) 矛盾，故 \\(T^2\\) 上没有脐点。",
+            "motivation": "避免展开复杂的 Weingarten 特征多项式，直接验证两主曲率不可能相等。",
+            "step": "3. 求主曲率并反证无脐点"
+          },
+          {
+            "detail": "计算 \\(K = k_1 k_2 = \\frac{\\cos v}{b(a + b\\cos v)}\\)。因 \\(a + b\\cos v > 0\\)，\\(K = 0 \\iff \\cos v = 0 \\iff v = \\frac{\\pi}{2}\\) 或 \\(v = \\frac{3\\pi}{2}\\)。代回 \\(\\mathbf{r}(u, v)\\) 即得两个水平圆周 \\(\\{(x, y, z) \\in T^2 \\mid x^2 + y^2 = a^2,\\; z = \\pm b\\}\\)。",
+            "motivation": "由 Gauss 曲率公式解出参数条件，并还原为三维空间中的具体几何点集。",
+            "step": "4. 求解 Gauss 曲率零点集"
+          }
+        ],
+        "teaching_takeaway": "对于旋转曲面，采用“母线参数 + 旋转角”的正交参数化总能得到 \\(F = M = 0\\)，从而经线与纬线必为曲率线，可直接写出主曲率 \\(\\frac{L}{E}\\) 与 \\(\\frac{N}{G}\\)；同时在化简分式或判别正则性时，务必显式使用 \\(a > b > 0\\) 带来的不等式 \\(a + b\\cos v > 0\\)。",
+        "topic_tags": [
+          "微分几何",
+          "曲面的基本形式",
+          "主曲率与Gauss曲率"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2026-images-2c0689e373-combined-q9",
+      "resource_id": "cmc-2026-images-2c0689e373-combined",
+      "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "solution_resource_id": "cmc-2026-images-2c0689e373-combined",
+      "solution_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+      "contest": "CMC",
+      "year": 2026,
+      "number": "9",
+      "level": "本科",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第9题",
+      "blind_attempt": {
+        "approach": "将所有求和限制在正概率支集 \\(\\mathcal{S}=\\{(x,y)\\in\\mathcal{X}\\times\\mathcal{Y}: p(x,y)>0\\}\\) 上以严格处理零概率项：第（1）问利用条件概率公式 \\(p(x,y)=p(x)p(y\\mid x)\\) 将对数拆项并求边缘和；第（2）问将 \\(H(X\\mid Y)-H(X)\\) 化为 \\(\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln\\frac{p(x)p(y)}{p(x,y)}\\)，结合基本不等式 \\(\\ln t\\le t-1\\)（当且仅当 \\(t=1\\) 取等）以及非负项在 \\(\\mathcal{S}\\) 上求和不超过全集求和的性质完成不等式证明，并同时导出等号成立当且仅当对所有 \\((x,y)\\in\\mathcal{X}\\times\\mathcal{Y}\\) 均有 \\(p(x,y)=p(x)p(y)\\)。",
+        "final_answer": "**证明：**\n\n记正概率支集为 \\(\\mathcal{S}=\\{(x,y)\\in\\mathcal{X}\\times\\mathcal{Y}: p(x,y)>0\\}\\)，\\(\\mathcal{X}_+=\\{x\\in\\mathcal{X}: p(x)>0\\}\\)。由约定 \\(0\\ln 0=0\\)（以及当 \\(p(x,y)=0\\) 时对应项 \\(p(x,y)\\ln p(x\\mid y)\\) 与 \\(p(x,y)\\ln p(y\\mid x)\\) 均视为 \\(0\\)），各熵的求和均可限制在正概率集合上进行。\n\n### （1）链式法则：\\(H(X,Y)=H(X)+H(Y\\mid X)\\)\n\n对任意 \\((x,y)\\in\\mathcal{S}\\)，有 \\(p(x)=\\sum_{y'\\in\\mathcal{Y}} p(x,y')\\ge p(x,y)>0\\)，故 \\(x\\in\\mathcal{X}_+\\)，且 \\(p(y\\mid x)=\\frac{p(x,y)}{p(x)}>0\\)，即\n\\[p(x,y)=p(x)\\,p(y\\mid x).\\]\n两边取自然对数得 \\(\\ln p(x,y)=\\ln p(x)+\\ln p(y\\mid x)\\)。代入联合熵定义：\n\\[\\begin{aligned}\nH(X,Y) &= -\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(x,y) \\\\\n&= -\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(x) - \\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(y\\mid x).\n\\end{aligned}\\]\n对第一项，按 \\(x\\in\\mathcal{X}_+\\) 合并求和（若 \\(p(x)=0\\) 则对一切 \\(y\\) 有 \\(p(x,y)=0\\)）：\n\\[-\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(x) = -\\sum_{x\\in\\mathcal{X}_+}\\Bigl(\\sum_{y\\in\\mathcal{Y}} p(x,y)\\Bigr)\\ln p(x) = -\\sum_{x\\in\\mathcal{X}_+} p(x)\\ln p(x) = H(X).\\]\n第二项即为 \\(H(Y\\mid X)\\)。因此\n\\[H(X,Y)=H(X)+H(Y\\mid X).\\]\n\n### （2）条件熵递减：\\(H(X\\mid Y)\\le H(X)\\)，且等号成立当且仅当 \\(X\\) 与 \\(Y\\) 独立\n\n类似地，将 \\(H(X)\\) 写成在 \\(\\mathcal{S}\\) 上的求和：\n\\[H(X) = -\\sum_{x\\in\\mathcal{X}_+} p(x)\\ln p(x) = -\\sum_{x\\in\\mathcal{X}_+}\\sum_{y\\in\\mathcal{Y}} p(x,y)\\ln p(x) = -\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(x).\\]\n而\n\\[H(X\\mid Y) = -\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln p(x\\mid y).\\]\n对任意 \\((x,y)\\in\\mathcal{S}\\)，均有 \\(p(x)>0\\)、\\(p(y)>0\\) 及 \\(p(x\\mid y)=\\frac{p(x,y)}{p(y)}>0\\)，故\n\\[H(X\\mid Y)-H(X) = \\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln\\frac{p(x)}{p(x\\mid y)} = \\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln\\frac{p(x)p(y)}{p(x,y)}.\\]\n利用基本不等式 \\(\\ln t\\le t-1\\)（\\(t>0\\)，当且仅当 \\(t=1\\) 时等号成立），可得\n\\[\\begin{aligned}\nH(X\\mid Y)-H(X) &\\le \\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\left(\\frac{p(x)p(y)}{p(x,y)}-1\\right) \\\\\n&= \\sum_{(x,y)\\in\\mathcal{S}} p(x)p(y) - \\sum_{(x,y)\\in\\mathcal{S}} p(x,y).\n\\end{aligned}\\]\n由于 \\(\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)=1\\)，且对所有 \\((x,y)\\in\\mathcal{X}\\times\\mathcal{Y}\\) 有 \\(p(x)p(y)\\ge 0\\)，故\n\\[\\sum_{(x,y)\\in\\mathcal{S}} p(x)p(y) \\le \\sum_{x\\in\\mathcal{X}}\\sum_{y\\in\\mathcal{Y}} p(x)p(y) = \\Bigl(\\sum_{x\\in\\mathcal{X}} p(x)\\Bigr)\\Bigl(\\sum_{y\\in\\mathcal{Y}} p(y)\\Bigr) = 1.\\]\n于是\n\\[H(X\\mid Y)-H(X) \\le 1-1 = 0,\\]\n即 \\(H(X\\mid Y)\\le H(X)\\)。\n\n**等号成立条件：**\n\\(H(X\\mid Y)=H(X)\\) 当且仅当上述两步不等式同时取等号：\n1. 第一步取等号：因对一切 \\((x,y)\\in\\mathcal{S}\\) 均有 \\(p(x,y)>0\\)，故必有 \\(\\frac{p(x)p(y)}{p(x,y)}=1\\)，即对所有 \\((x,y)\\in\\mathcal{S}\\) 成立 \\(p(x,y)=p(x)p(y)\\)。\n2. 第二步取等号：\\(\\sum_{(x,y)\\notin\\mathcal{S}} p(x)p(y)=0\\)；因 \\(p(x)p(y)\\ge 0\\)，这等价于对所有 \\((x,y)\\notin\\mathcal{S}\\)（即 \\(p(x,y)=0\\)）均有 \\(p(x)p(y)=0=p(x,y)\\)。\n\n综合 1 与 2，等号成立当且仅当对一切 \\((x,y)\\in\\mathcal{X}\\times\\mathcal{Y}\\) 均有 \\(p(x,y)=p(x)p(y)\\)，即 \\(X\\) 与 \\(Y\\) 相互独立。",
+        "problem_statement_zh": "设 \\(X,Y\\) 是离散随机变量，取值于有限集 \\(\\mathcal{X},\\mathcal{Y}\\)。其概率分布为 \\(p(x)=P(X=x)\\)，\\(p(y)=P(Y=y)\\)，联合分布为 \\(p(x,y)=P(X=x,Y=y)\\)，条件分布为 \\(p(x\\mid y)=P(X=x\\mid Y=y)\\)（当 \\(p(y)>0\\) 时）。熵、联合熵和条件熵的定义如下：\n\\[H(X):=-\\sum_{x\\in\\mathcal{X}}p(x)\\ln p(x),\\quad H(X,Y):=-\\sum_{x\\in\\mathcal{X}}\\sum_{y\\in\\mathcal{Y}}p(x,y)\\ln p(x,y),\\]\n\\[H(X\\mid Y):=-\\sum_{x,y}p(x,y)\\ln p(x\\mid y).\\]\n约定 \\(0\\ln 0=0\\)。证明：\n1. 链式法则：\\(H(X,Y)=H(X)+H(Y\\mid X)\\)。\n2. 条件熵递减：\\(H(X\\mid Y)\\le H(X)\\)，且等号成立当且仅当 \\(X\\) 与 \\(Y\\) 独立。",
+        "steps": [
+          "引入正概率支集 \\(\\mathcal{S}=\\{(x,y)\\in\\mathcal{X}\\times\\mathcal{Y}: p(x,y)>0\\}\\) 与 \\(\\mathcal{X}_+=\\{x\\in\\mathcal{X}: p(x)>0\\}\\)，说明在 \\(0\\ln 0=0\\) 约定下所有熵的求和只需在正概率项上进行。",
+          "对（1）：在 \\(\\mathcal{S}\\) 上利用 \\(p(x,y)=p(x)p(y\\mid x)\\) 展开 \\(\\ln p(x,y)=\\ln p(x)+\\ln p(y\\mid x)\\)，并将第一项按 \\(x\\in\\mathcal{X}_+\\) 对 \\(y\\) 求边缘和得到 \\(H(X)\\)，第二项即为 \\(H(Y\\mid X)\\)，证得 \\(H(X,Y)=H(X)+H(Y\\mid X)\\)。",
+          "对（2）：将 \\(H(X)\\) 改写为在 \\(\\mathcal{S}\\) 上的求和，作差得到 \\(H(X\\mid Y)-H(X)=\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)\\ln\\frac{p(x)p(y)}{p(x,y)}\\)。",
+          "对每个 \\((x,y)\\in\\mathcal{S}\\) 应用 \\(\\ln t\\le t-1\\)（\\(t=\\frac{p(x)p(y)}{p(x,y)}>0\\)），再利用 \\(\\sum_{(x,y)\\in\\mathcal{S}} p(x)p(y)\\le \\sum_{x,y} p(x)p(y)=1\\) 与 \\(\\sum_{(x,y)\\in\\mathcal{S}} p(x,y)=1\\) 证得 \\(H(X\\mid Y)\\le H(X)\\)。",
+          "逐一检验两步不等式的取等条件：第一步取等给出对 \\((x,y)\\in\\mathcal{S}\\) 有 \\(p(x,y)=p(x)p(y)\\)，第二步取等给出对 \\((x,y)\\notin\\mathcal{S}\\) 有 \\(p(x)p(y)=0=p(x,y)\\)，从而等号成立当且仅当 \\(X\\) 与 \\(Y\\) 独立。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在求和前先明确将求和指标限制在正概率支集上（如只对 \\(p(y)>0\\) 或 \\(p(x,y)>0\\) 的项展开），并说明零概率项按 \\(0\\ln 0=0\\) 约定不贡献任何值。",
+            "mistake": "直接对所有 \\(x,y\\) 写 \\(\\ln p(x,y)=\\ln p(x)+\\ln p(y\\mid x)\\) 或直接对 \\(p(x\\mid y)\\) 应用公式，忽略 \\(p(x)=0\\) 或 \\(p(y)=0\\) 时条件概率与对数无定义的情形。",
+            "title": "忽略零概率与分母为零的边界情形",
+            "why_wrong": "当 \\(p(y)=0\\) 时 \\(p(x\\mid y)\\) 没有定义；当 \\(p(x,y)=0\\) 时 \\(\\ln p(x,y)\\) 无定义，直接代换会导致表达式失去意义。"
+          },
+          {
+            "how_to_avoid": "先显式写出 \\(f(t)=-t\\ln t\\) 并求二阶导 \\(f''(t)=-1/t<0\\) 确认严格凹性，再用凹函数的 Jensen 不等式方向 \\(f(\\sum p_i t_i)\\ge \\sum p_i f(t_i)\\) 进行放缩。",
+            "mistake": "因熵的定义中带有负号，误以为 \\(t\\ln t\\) 也是凹函数，或者在套用 Jensen 不等式时把不等号方向写反。",
+            "title": "对熵函数的凹凸性与不等号方向判断出错",
+            "why_wrong": "\\(g(t)=t\\ln t\\) 是严格凸函数，而 \\(f(t)=-t\\ln t\\) 才是严格凹函数；方向搞反会直接得到与结论相反的不等式。"
+          },
+          {
+            "how_to_avoid": "在得到各 \\(x\\) 的 \\(p(x\\mid y)=c_x\\) 后，代入全概率公式 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 确定 \\(c_x=p(x)\\)，并补充说明若 \\(p(y)=0\\) 则 \\(p(x,y)=0=p(x)p(y)\\)，同时显式写出充分性（独立性推出等号）以完成双向论证。",
+            "mistake": "在证明等号成立条件时，只说明了“存在常数 \\(c_x\\) 使 \\(p(x\\mid y)=c_x\\)”就草率下结论独立，或者只证了必要性而漏掉充分性。",
+            "title": "等号成立的充要条件论证不完整",
+            "why_wrong": "仅由 \\(p(x\\mid y)\\) 与 \\(y\\) 无关尚不能直接看出该常数就是 \\(p(x)\\)，且“当且仅当”命题必须同时包含必要性与充分性两个方向。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲做与参考解答在核心结论上完全一致，第（1）问方法相同，第（2）问采用了另一种同样严格有效的等价方法（`different_valid_method`）。具体对比如下：\n1. **第（1）问（链式法则）**：Turn 1 与参考解答思路一致，均利用 \\(p(x,y)=p(x)p(y\\mid x)\\) 将对数拆项后对边缘概率求和。Turn 1 额外显式引入正概率支集 \\(\\mathcal{S}\\)，对零概率项的处理更为严谨。\n2. **第（2）问（条件熵递减及等号条件）**：参考解答通过构造严格凹函数 \\(f(t)=-t\\ln t\\)，将全概率公式 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 视为凸组合后直接应用 Jensen 不等式，并由严格凹性的取等条件导出 \\(p(x\\mid y)=c_x=p(x)\\)；Turn 1 则将 \\(H(X\\mid Y)-H(X)\\) 改写为 \\(\\sum_{\\mathcal{S}} p(x,y)\\ln\\frac{p(x)p(y)}{p(x,y)}\\)（即负的 KL 散度），利用基本不等式 \\(\\ln t\\le t-1\\) 与总概率不超 \\(1\\) 的性质完成证明，并将取等条件细化到 \\(\\mathcal{S}\\) 内外两部分。两种方法均完全严格且各有教学价值。",
+        "difficulties": [
+          {
+            "detail": "全概率公式 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 实际上把边缘分布 \\(p(x)\\) 表示成了各条件分布 \\(p(x\\mid y)\\) 以 \\(p(y)\\) 为权重的凸组合，将此结构与 \\(f(t)=-t\\ln t\\) 的严格凹性结合，是第（2）问最自然的突破口。",
+            "title": "识别全概率公式作为凸组合的结构"
+          },
+          {
+            "detail": "在多变量求和中处理 \\(p(x)=0\\)、\\(p(y)=0\\) 或 \\(p(x,y)=0\\) 的情形，既要保证对数和条件概率有意义，又要在证明等号成立时不能遗漏 \\(p(y)=0\\) 的情形（此时 \\(p(x\\mid y)\\) 未定义，但 \\(p(x,y)=0=p(x)p(y)\\) 仍满足独立性）。",
+            "title": "零概率项与等号充要条件的严格处理"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "放缩与估值",
+          "局部-整体转化"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:定义域与分母为零",
+          "易错:符号与方向",
+          "易错:充分性与必要性混淆"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "第（1）问待证 \\(H(X,Y)=H(X)+H(Y\\mid X)\\)，其中同时出现联合分布 \\(p(x,y)\\)、边缘分布 \\(p(x)\\) 和条件分布 \\(p(y\\mid x)\\)，因此最直接的切入点就是概率乘法公式 \\(p(x,y)=p(x)p(y\\mid x)\\)。",
+            "step": "从乘法公式连接联合分布与条件分布"
+          },
+          {
+            "detail": "第（2）问要比较 \\(H(X\\mid Y)\\) 与 \\(H(X)\\) 的大小。观察两者的定义：\\(H(X)\\) 是对 \\(-p(x)\\ln p(x)\\) 求和，而 \\(H(X\\mid Y)=\\sum_y p(y)\\sum_x (-p(x\\mid y)\\ln p(x\\mid y))\\) 是对各条件下熵的期望，且两者通过全概率公式 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 联系。",
+            "step": "将条件熵改写为关于 \\(Y\\) 的期望形式"
+          },
+          {
+            "detail": "注意到函数 \\(f(t)=-t\\ln t\\) 的凹凸性（或利用 KL 散度非负性/不等式 \\(\\ln t\\le t-1\\)），即可把“期望在函数外”与“期望在函数内”联系起来，并顺势利用严格凹凸性（或取等条件）刻画独立性。",
+            "step": "匹配函数凹凸性或信息散度不等式"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "由 \\(p(x,y)=p(x)p(y\\mid x)\\) 得 \\(\\ln p(x,y)=\\ln p(x)+\\ln p(y\\mid x)\\)（在正概率项上成立，零概率项按 \\(0\\ln 0=0\\) 贡献为 \\(0\\)），从而 \\(H(X,Y)=-\\sum_{x,y} p(x,y)\\ln p(x) - \\sum_{x,y} p(x,y)\\ln p(y\\mid x)\\)。对第一项先对 \\(y\\) 求和得 \\(\\sum_y p(x,y)=p(x)\\)，化为 \\(H(X)\\)；第二项即为 \\(H(Y\\mid X)\\)。",
+            "motivation": "利用对数把乘积拆成加法，再通过交换有限求和次序消去其中一个变量，得到边缘熵。",
+            "step": "第（1）问：对数拆项与边缘求和"
+          },
+          {
+            "detail": "令 \\(f(t)=-t\\ln t\\ (t\\in[0,1])\\)，计算 \\(f''(t)=-\\frac{1}{t}<0\\ (t\\in(0,1])\\)，故 \\(f\\) 在 \\([0,1]\\) 上严格凹。由全概率公式 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 且 \\(\\sum_y p(y)=1\\)，应用 Jensen 不等式得 \\(-p(x)\\ln p(x)\\ge \\sum_y p(y)(-p(x\\mid y)\\ln p(x\\mid y))\\)。",
+            "motivation": "对每个固定的 \\(x\\)，把 \\(p(x)\\) 看作条件概率 \\(p(x\\mid y)\\) 的凸组合，从而利用 \\(f(t)=-t\\ln t\\) 的凹性建立逐点不等式。",
+            "step": "第（2）问前半：构造严格凹函数并逐点应用 Jensen 不等式"
+          },
+          {
+            "detail": "将上述逐点不等式对所有 \\(x\\in\\mathcal{X}\\) 求和，左端即为 \\(H(X)\\)，右端交换有限求和次序得到 \\(\\sum_y p(y)\\sum_x (-p(x\\mid y)\\ln p(x\\mid y))=H(X\\mid Y)\\)，故 \\(H(X\\mid Y)\\le H(X)\\)。",
+            "motivation": "从逐点（局部）不等式累加得到整体熵的不等式。",
+            "step": "第（2）问中段：对 \\(x\\) 求和得到条件熵递减"
+          },
+          {
+            "detail": "若 \\(H(X\\mid Y)=H(X)\\)，则对每个 \\(x\\) 的 Jensen 不等式均取等。由 \\(f\\) 的严格凹性，对每个 \\(x\\)，所有满足 \\(p(y)>0\\) 的 \\(p(x\\mid y)\\) 必相等，记为 \\(c_x\\)；代回 \\(p(x)=\\sum_y p(y)p(x\\mid y)\\) 得 \\(c_x=p(x)\\)，即对一切 \\(p(y)>0\\) 有 \\(p(x\\mid y)=p(x)\\)（从而对所有 \\(x,y\\) 有 \\(p(x,y)=p(x)p(y)\\)），故 \\(X,Y\\) 独立。反之若 \\(X,Y\\) 独立，则 \\(p(x\\mid y)=p(x)\\)，代入即得 \\(H(X\\mid Y)=H(X)\\)。",
+            "motivation": "利用严格凹函数取等的充要条件（所有非零权重的点取值相同）来刻画条件分布与 \\(y\\) 无关，进而确定该常数就是边缘概率 \\(p(x)\\)。",
+            "step": "第（2）问后半：利用严格凹性论证等号充要条件"
+          }
+        ],
+        "teaching_takeaway": "处理涉及“分布的非线性泛函（如熵 \\(-\\sum p\\ln p\\)）”的不等式时，既可以把全概率公式看作凸组合直接对 \\(f(t)=-t\\ln t\\) 使用 Jensen 不等式，也可以将差值化为 KL 散度形式再用 \\(\\ln t\\le t-1\\) 放缩；同时务必在正概率支集上讨论以严防零概率与分母为零的漏洞。",
+        "topic_tags": [
+          "信息熵与条件熵",
+          "概率论与数理统计",
+          "凸函数与Jensen不等式"
+        ]
+      }
+    }
+  ]
+}

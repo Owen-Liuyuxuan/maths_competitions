@@ -1,0 +1,224 @@
+{
+  "resource_id": "yau-2021-7cea0b0696-questions",
+  "source_sha256": "efabfac7f1a58a5a337606ada95b8f69cfcababb5bbc6b779fd1c7e7e6ae43ef",
+  "solution_resource_id": "yau-2021-7f9ca7cd87-solutions",
+  "solution_sha256": "2ceb8c0593b6698139a37da4553e4feb5a85f79371ff3cec068a09e21dc590ac",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2021-7cea0b0696-questions-q1",
+      "resource_id": "yau-2021-7cea0b0696-questions",
+      "source_sha256": "efabfac7f1a58a5a337606ada95b8f69cfcababb5bbc6b779fd1c7e7e6ae43ef",
+      "solution_resource_id": "yau-2021-7f9ca7cd87-solutions",
+      "solution_sha256": "2ceb8c0593b6698139a37da4553e4feb5a85f79371ff3cec068a09e21dc590ac",
+      "contest": "YAU",
+      "year": 2021,
+      "number": "1",
+      "level": "本科",
+      "title": "algebra and numbertheory 21s.pdf · 1",
+      "blind_attempt": {
+        "approach": "首先计算多项式 \\(A(x)\\) 的形式导数，证明其与 \\(A(x)\\) 互素，从而得到 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上可分；接着取 \\(A(x)\\) 在代数闭包中的任一根 \\(\\alpha\\)，利用特征 \\(p\\) 下 Frobenius 映射的性质求出 \\(A(x)\\) 的全部 \\(p\\) 个相异根 \\(\\alpha + c\\)（\\(c \\in \\mathbf{F}_p\\)），最后通过考察 \\(\\alpha\\) 在 \\(\\mathbf{F}_p\\) 上的极小多项式的次高次项系数（或利用 Frobenius 自同构的轨道长度）证明极小多项式的次数必为 \\(p\\)，从而证得 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上不可约。",
+        "final_answer": "**证明：**\n\n**1. 可分性：**\n在 \\(\\mathbf{F}_p[x]\\) 中对 \\(A(x) = x^p - x - a\\) 求形式导数，由于 \\(\\mathbf{F}_p\\) 的特征为 \\(p\\)，有\n\\[A'(x) = px^{p-1} - 1 = -1.\\]\n因为 \\(A'(x) = -1\\) 为非零常数，所以 \\(\\gcd(A(x), A'(x)) = 1\\)，即 \\(A(x)\\) 在其分裂域（或 \\(\\overline{\\mathbf{F}_p}\\)）中没有重根，故 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上可分。\n\n**2. 不可约性：**\n设 \\(\\alpha \\in \\overline{\\mathbf{F}_p}\\) 是 \\(A(x)\\) 的一个根，即 \\(\\alpha^p - \\alpha - a = 0\\)。对任意 \\(c \\in \\mathbf{F}_p\\)，由 Fermat 小定理有 \\(c^p = c\\)。利用特征 \\(p\\) 域上的 Frobenius 恒等式 \\((u+v)^p = u^p + v^p\\)，可得\n\\[A(\\alpha + c) = (\\alpha + c)^p - (\\alpha + c) - a = \\alpha^p + c^p - \\alpha - c - a = (\\alpha^p - \\alpha - a) + (c^p - c) = 0.\\]\n由于 \\(\\mathbf{F}_p\\) 中有 \\(p\\) 个互不相同的元素 \\(c\\)，故 \\(\\{\\alpha + c : c \\in \\mathbf{F}_p\\}\\) 给出了 \\(A(x)\\) 的 \\(p\\) 个互不相同的根。因为 \\(\\deg A = p\\)，这就是 \\(A(x)\\) 的全部根，从而\n\\[A(x) = \\prod_{c \\in \\mathbf{F}_p} \\bigl(x - (\\alpha + c)\\bigr).\\]\n\n设 \\(f(x) \\in \\mathbf{F}_p[x]\\) 是 \\(\\alpha\\) 在 \\(\\mathbf{F}_p\\) 上的极小多项式，记 \\(d = \\deg f\\)，则 \\(1 \\le d \\le p\\) 且 \\(f(x) \\mid A(x)\\)。从而存在子集 \\(S \\subseteq \\mathbf{F}_p\\)（\\(|S| = d\\)）使得\n\\[f(x) = \\prod_{c \\in S} \\bigl(x - (\\alpha + c)\\bigr).\\]\n考察 \\(f(x)\\) 中 \\(x^{d-1}\\) 的系数，它等于\n\\[-\\sum_{c \\in S} (\\alpha + c) = -d\\alpha - \\sum_{c \\in S} c.\\]\n由于 \\(f(x) \\in \\mathbf{F}_p[x]\\) 且 \\(\\sum_{c \\in S} c \\in \\mathbf{F}_p\\)，必有 \\(d\\alpha \\in \\mathbf{F}_p\\)。若 \\(1 \\le d < p\\)，则 \\(d \\not\\equiv 0 \\pmod p\\)，即 \\(d\\) 在 \\(\\mathbf{F}_p\\) 中可逆，于是 \\(\\alpha \\in \\mathbf{F}_p\\)。但若 \\(\\alpha \\in \\mathbf{F}_p\\)，则 \\(\\alpha^p = \\alpha\\)，从而 \\(A(\\alpha) = \\alpha^p - \\alpha - a = -a \\neq 0\\)（因 \\(a \\neq 0\\)），与 \\(A(\\alpha) = 0\\) 矛盾。\n\n因此只能有 \\(d = p\\)，即 \\(f(x) = A(x)\\)。这表明 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上不可约。\n\n（注：亦可用 Frobenius 自同构 \\(\\sigma(y) = y^p\\) 证明不可约性：因为 \\(\\sigma(\\alpha) = \\alpha^p = \\alpha + a\\)，归纳可得 \\(\\sigma^k(\\alpha) = \\alpha + ka\\)，由 \\(a \\neq 0\\) 知 \\(\\alpha\\) 在 \\(\\mathbf{F}_p\\) 上至少有 \\(p\\) 个不同的共轭根，故 \\([\\mathbf{F}_p(\\alpha) : \\mathbf{F}_p] = p\\)，从而 \\(A(x)\\) 不可约。）",
+        "problem_statement_zh": "对任意素数 \\(p\\) 及非零元素 \\(a \\in \\mathbf{F}_p\\)，证明多项式 \\(A(x) = x^p - x - a\\) 在 \\(\\mathbf{F}_p\\) 上既不可约又可分。",
+        "steps": [
+          "计算形式导数 \\(A'(x) = px^{p-1} - 1 = -1 \\in \\mathbf{F}_p[x]\\)，由 \\(\\gcd(A(x), A'(x)) = 1\\) 证得 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上可分。",
+          "设 \\(\\alpha \\in \\overline{\\mathbf{F}_p}\\) 为 \\(A(x)\\) 的一个根，对任意 \\(c \\in \\mathbf{F}_p\\) 验证 \\(A(\\alpha + c) = (\\alpha^p - \\alpha - a) + (c^p - c) = 0\\)，从而得到 \\(A(x)\\) 的全部 \\(p\\) 个相异根 \\(\\alpha + c\\)（\\(c \\in \\mathbf{F}_p\\)）。",
+          "设 \\(f(x) \\in \\mathbf{F}_p[x]\\) 为 \\(\\alpha\\) 的极小多项式，次数为 \\(d\\)（\\(1 \\le d \\le p\\)），将 \\(f(x)\\) 写为 \\(\\prod_{c \\in S}(x - \\alpha - c)\\)，其中 \\(S \\subseteq \\mathbf{F}_p\\) 且 \\(|S| = d\\)。",
+          "比较 \\(f(x)\\) 的 \\(x^{d-1}\\) 项系数 \\(-d\\alpha - \\sum_{c \\in S} c \\in \\mathbf{F}_p\\)，推出 \\(d\\alpha \\in \\mathbf{F}_p\\)。若 \\(1 \\le d < p\\)，则 \\(\\alpha \\in \\mathbf{F}_p\\)，从而 \\(A(\\alpha) = -a \\neq 0\\)，矛盾。故 \\(d = p\\)，即 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上不可约。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在利用“无有理根”时，务必检查多项式次数是否 \\(\\le 3\\)；对于一般素数 \\(p \\ge 5\\)，无 \\(\\mathbf{F}_p\\) 中的根只说明无一次因子，仍需排除 \\(2 \\le d \\le p-2\\) 次因子的存在。",
+            "mistake": "证明了 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 中无根后，直接断言 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上不可约。",
+            "title": "混淆“无一次根”与“不可约”",
+            "why_wrong": "只有次数为 \\(2\\) 或 \\(3\\) 的多项式才满足“无根等价于不可约”。本题中 \\(\\deg A = p\\) 可以任意大（如 \\(p=5\\)），无根仅排除了 \\(d=1\\) 和 \\(d=p-1\\) 的因子，不能排除 \\(2\\) 次或 \\(3\\) 次因子。"
+          },
+          {
+            "how_to_avoid": "在有限域 \\(\\mathbf{F}_p\\) 中作除法或消去因子 \\(d\\) 时，必须显式写出 \\(0 < d < p \\implies d \\not\\equiv 0 \\pmod p\\)，即 \\(d \\in \\mathbf{F}_p^\\times\\) 可逆。",
+            "mistake": "从 \\(d\\alpha \\in \\mathbf{F}_p\\) 直接得出 \\(\\alpha \\in \\mathbf{F}_p\\)，未说明为什么可以除以 \\(d\\)。",
+            "title": "特征 \\(p\\) 下忽视除数非零条件",
+            "why_wrong": "在特征 \\(p\\) 的域中，整数 \\(d\\) 视作 \\(\\mathbf{F}_p\\) 的元素时，只有当 \\(p \\nmid d\\) 时才可逆。若 \\(d\\) 是 \\(p\\) 的倍数，则 \\(d\\alpha = 0 \\in \\mathbf{F}_p\\) 恒成立，无法推出 \\(\\alpha \\in \\mathbf{F}_p\\)。"
+          },
+          {
+            "how_to_avoid": "设根时应使用与题目参数不同的符号（如用 \\(\\alpha\\) 表示根，保留 \\(a\\) 表示常数项），避免符号冲突。",
+            "mistake": "在证明中将根与多项式常数项混用同一字母（如同时用 \\(a\\) 表示根与常数项），导致逻辑表述混乱。",
+            "title": "符号混用导致逻辑不清",
+            "why_wrong": "根 \\(\\alpha \\notin \\mathbf{F}_p\\) 与常数项 \\(a \\in \\mathbf{F}_p\\) 属于不同的域层次，混用同一字母容易在后续推导“\\(\\alpha \\in \\mathbf{F}_p\\) 矛盾”时引起误解。"
+          }
+        ],
+        "comparison_summary": "盲解结果完全正确，与参考解答的核心思路高度一致：均先通过求形式导数 \\(A'(x) = -1\\) 证明可分性，再借助特征 \\(p\\) 下的平移不变性确定 \\(A(x)\\) 的全部 \\(p\\) 个根为 \\(\\alpha + c\\)（\\(c \\in \\mathbf{F}_p\\)），最后假设存在真因式（或取极小多项式）并考察次高次项系数，利用 \\(0 < d < p\\) 在 \\(\\mathbf{F}_p\\) 中可逆推出 \\(\\alpha \\in \\mathbf{F}_p\\) 从而得出矛盾。此外，盲解中用 \\(\\alpha\\) 区分于常数项 \\(a\\)，避免了参考解答后半部分将根也记作 \\(a\\) 的符号笔误。",
+        "difficulties": [
+          {
+            "detail": "在特征 \\(p\\) 下，Frobenius 映射 \\(y \\mapsto y^p\\) 是域同态（满足 \\((u+v)^p = u^p + v^p\\)）且在 \\(\\mathbf{F}_p\\) 上为恒等映射，由此才能将“已知一个根 \\(\\alpha\\)”转化为“写出全部 \\(p\\) 个相异根 \\(\\alpha + c\\)”。",
+            "title": "利用特征 \\(p\\) 的 Frobenius 性质刻画全部根"
+          },
+          {
+            "detail": "在 \\(\\mathbf{F}_p[x]\\) 中直接验证不可约性较困难，关键在于转到分裂域中，利用真因式 \\(r(x)\\) 的根结构与次高次项（\\(x^{d-1}\\) 项）系数属于基域 \\(\\mathbf{F}_p\\)，将“高次不可约性”降维为“单个元素 \\(\\alpha \\notin \\mathbf{F}_p\\)”的简单检验。",
+            "title": "通过因式的次高次项系数建立与基域的矛盾"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "生成函数与多项式",
+          "反证与分类讨论"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:定义域与分母为零"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目要求在有限域 \\(\\mathbf{F}_p\\) 上证明两个性质：可分性与不可约性。可分性最直接的判别法是考察 \\(\\gcd(A(x), A'(x))\\)。",
+            "step": "拆解目标：先可分、后不可约"
+          },
+          {
+            "detail": "多项式 \\(x^p - x - a\\) 具有典型的 Artin-Schreier 形式。在特征 \\(p\\) 下，\\(p\\) 次幂具有可加性 \\((x+c)^p = x^p + c^p\\)，且 \\(\\mathbf{F}_p\\) 中元素满足 \\(c^p = c\\)，这意味着 \\(x \\mapsto x+c\\) 是 \\(A(x)\\) 的对称变换（保持 \\(A(x)\\) 不变）。",
+            "step": "识别结构：特征 \\(p\\) 下的平移对称性"
+          },
+          {
+            "detail": "由于 \\(A(x)\\) 次数为 \\(p\\)，若能由一个根 \\(\\alpha\\) 生成全部 \\(p\\) 个根 \\(\\alpha + c\\)，就可以在分裂域中完全分解 \\(A(x)\\)，进而利用反证法考察任意非平凡因式的系数。",
+            "step": "寻找切入点：分裂域中的根结构与反证法"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "在 \\(\\mathbf{F}_p[x]\\) 中求导得 \\(A'(x) = px^{p-1} - 1 = -1 \\neq 0\\)。由于导数为非零常数，\\(\\gcd(A(x), A'(x)) = 1\\)，故 \\(A(x)\\) 无重根，在 \\(\\mathbf{F}_p\\) 上可分。",
+            "motivation": "利用多项式在任意域上可分的充要条件（与自身形式导数互素），直接一步完成可分性证明。",
+            "step": "利用形式导数证明可分性"
+          },
+          {
+            "detail": "对任意 \\(b \\in \\mathbf{F}_p\\)，由 Fermat 小定理有 \\(b^p = b\\)，于是 \\(A(b) = b^p - b - a = -a \\neq 0\\)（因 \\(a \\neq 0\\)），故 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 中没有根。",
+            "motivation": "为后续反证法准备矛盾的终点：任何根都不可能落入基域 \\(\\mathbf{F}_p\\)。",
+            "step": "验证 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 中无根"
+          },
+          {
+            "detail": "在 \\(\\mathbf{F}_p\\) 的代数闭包中取 \\(A(x)\\) 的一个根 \\(\\alpha\\)。对任意 \\(c \\in \\mathbf{F}_p\\)，因 \\((u+v)^p = u^p + v^p\\) 且 \\(c^p = c\\)，有 \\(A(\\alpha + c) = (\\alpha^p - \\alpha - a) + (c^p - c) = 0\\)。因 \\(\\mathbf{F}_p\\) 恰有 \\(p\\) 个元素且 \\(\\deg A = p\\)，故 \\(A(x) = \\prod_{c \\in \\mathbf{F}_p}(x - \\alpha - c)\\)。",
+            "motivation": "借助特征 \\(p\\) 下的加法平移不变性，将单一根扩张为全部 \\(p\\) 个互异根，完全掌握 \\(A(x)\\) 的一次因式分解。",
+            "step": "确定 \\(A(x)\\) 在分裂域中的全部 \\(p\\) 个根"
+          },
+          {
+            "detail": "反设 \\(A(x)\\) 在 \\(\\mathbf{F}_p\\) 上可约，则存在 \\(r(x) \\in \\mathbf{F}_p[x]\\) 整除 \\(A(x)\\) 且 \\(0 < d = \\deg r < p\\)。由唯一分解性，\\(r(x) = \\prod_{c \\in S}(x - \\alpha - c)\\)，其中 \\(S \\subseteq \\mathbf{F}_p\\) 且 \\(|S| = d\\)。其 \\(x^{d-1}\\) 项系数为 \\(-\\sum_{c \\in S}(\\alpha + c) = -d\\alpha - \\sum_{c \\in S} c \\in \\mathbf{F}_p\\)，从而 \\(d\\alpha \\in \\mathbf{F}_p\\)。因 \\(0 < d < p\\)，\\(d\\) 在 \\(\\mathbf{F}_p\\) 中可逆，推出 \\(\\alpha \\in \\mathbf{F}_p\\)，与上一步矛盾。",
+            "motivation": "利用韦达定理中“所有根之和”与 \\(\\alpha\\) 呈线性关系的特点，将真因式的存在性转化为 \\(d\\alpha \\in \\mathbf{F}_p\\)，再用特征 \\(p\\) 下 \\(0 < d < p\\) 的可逆性导出 \\(\\alpha \\in \\mathbf{F}_p\\) 的矛盾。",
+            "step": "考察真因式的次高次项系数导出矛盾"
+          }
+        ],
+        "teaching_takeaway": "对于特征 \\(p\\) 下的 Artin-Schreier 多项式 \\(x^p - x - a\\)（\\(a \\neq 0\\)），核心抓手是 Frobenius 映射下的加法平移不变性 \\(x \\mapsto x + c\\)，它将全部根关联为等差平移簇 \\(\\{\\alpha + c : c \\in \\mathbf{F}_p\\}\\)，从而把高次不可约性问题化归为一次根之和与特征 \\(p\\) 下的可除性检验。",
+        "topic_tags": [
+          "有限域与伽罗瓦理论",
+          "多项式不可约性",
+          "Artin-Schreier 多项式"
+        ]
+      }
+    },
+    {
+      "id": "yau-2021-7cea0b0696-questions-q2",
+      "resource_id": "yau-2021-7cea0b0696-questions",
+      "source_sha256": "efabfac7f1a58a5a337606ada95b8f69cfcababb5bbc6b779fd1c7e7e6ae43ef",
+      "solution_resource_id": "yau-2021-7f9ca7cd87-solutions",
+      "solution_sha256": "2ceb8c0593b6698139a37da4553e4feb5a85f79371ff3cec068a09e21dc590ac",
+      "contest": "YAU",
+      "year": 2021,
+      "number": "2",
+      "level": "本科",
+      "title": "algebra and numbertheory 21s.pdf · 2",
+      "blind_attempt": {
+        "approach": "首先通过有理根定理证明三次多项式 \\(f(x)=x^3-3x+1\\) 在 \\(\\mathbf{Q}\\) 上不可约，从而其分裂域 \\(K\\) 是 \\(\\mathbf{Q}\\) 上的伽罗瓦扩张且 \\(\\operatorname{Aut}(K)=\\operatorname{Gal}(K/\\mathbf{Q})\\) 可嵌入 \\(S_3\\) 中成为传递子群；接着计算判别式 \\(\\Delta=81=9^2\\) 为有理数的平方，由此判断伽罗瓦群包含于交错群 \\(A_3\\)，结合群阶被 \\(3\\) 整除得出自同构群同构于 \\(A_3 \\cong \\mathbf{Z}/3\\mathbf{Z}\\)。",
+        "final_answer": "\\(f(x)=x^3-3x+1\\) 在 \\(\\mathbf{Q}\\) 上的分裂域的自同构群同构于 \\(3\\) 阶循环群 \\(\\mathbf{Z}/3\\mathbf{Z}\\)（即交错群 \\(A_3\\)）。",
+        "problem_statement_zh": "求多项式 \\(f(x) = x^3 - 3x + 1\\) 在有理数域 \\(\\mathbf{Q}\\) 上的分裂域的自同构群。",
+        "steps": [
+          "判断 \\(f(x)=x^3-3x+1\\) 在 \\(\\mathbf{Q}\\) 上的不可约性：由于 \\(\\deg f = 3\\)，\\(f(x)\\) 在 \\(\\mathbf{Q}\\) 上可约当且仅当它有有理根。由有理根定理，可能的有理根只能是 \\(\\pm 1\\)。代入检验得 \\(f(1)=1-3+1=-1\\neq 0\\) 且 \\(f(-1)=-1+3+1=3\\neq 0\\)，故 \\(f(x)\\) 在 \\(\\mathbf{Q}\\) 上无有理根，从而在 \\(\\mathbf{Q}\\) 上不可约。",
+          "设 \\(K\\) 为 \\(f(x)\\) 在 \\(\\mathbf{Q}\\) 上的分裂域。因为 \\(\\operatorname{char}(\\mathbf{Q})=0\\)，\\(f(x)\\) 可分，所以 \\(K/\\mathbf{Q}\\) 是伽罗瓦扩张。又因任何域自同构必逐点固定素域 \\(\\mathbf{Q}\\)，故分裂域的自同构群满足 \\(\\operatorname{Aut}(K) = \\operatorname{Aut}(K/\\mathbf{Q}) = \\operatorname{Gal}(K/\\mathbf{Q})\\)。",
+          "由于 \\(f(x)\\) 在 \\(\\mathbf{Q}\\) 上不可约且次数为 \\(3\\)，\\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 作用在 \\(f(x)\\) 的三个互异根 \\(\\alpha_1,\\alpha_2,\\alpha_3\\) 上是传递的，从而 \\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 同构于对称群 \\(S_3\\) 的一个传递子群。因此 \\(3 \\mid |\\operatorname{Gal}(K/\\mathbf{Q})|\\)，\\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 只能同构于 \\(A_3\\) 或 \\(S_3\\)。",
+          "计算 \\(f(x)=x^3+px+q\\)（其中 \\(p=-3, q=1\\)）的判别式：\\[\\Delta = -4p^3 - 27q^2 = -4(-3)^3 - 27\\cdot 1^2 = 108 - 27 = 81 = 9^2.\\]记 \\(\\delta = \\prod_{1\\le i < j \\le 3}(\\alpha_i - \\alpha_j)\\)，则 \\(\\delta^2 = \\Delta = 81\\)，于是 \\(\\delta = \\pm 9 \\in \\mathbf{Q}\\)。因为 \\(\\operatorname{char}(\\mathbf{Q})\\neq 2\\)，\\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 中的偶置换固定 \\(\\delta\\)，奇置换将 \\(\\delta\\) 变为 \\(-\\delta\\)；由于 \\(\\delta \\in \\mathbf{Q}\\) 被所有伽罗瓦自同构固定，故 \\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 中不含奇置换，即 \\(\\operatorname{Gal}(K/\\mathbf{Q}) \\subseteq A_3\\)。",
+          "结合 \\(3 \\mid |\\operatorname{Gal}(K/\\mathbf{Q})|\\) 与 \\(\\operatorname{Gal}(K/\\mathbf{Q}) \\subseteq A_3\\)，可得 \\(\\operatorname{Aut}(K) = \\operatorname{Gal}(K/\\mathbf{Q}) \\cong A_3 \\cong \\mathbf{Z}/3\\mathbf{Z}\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在讨论三次多项式的伽罗瓦群之前，务必先用有理根定理或模 \\(p\\) 约化（如模 \\(2\\)）严格证明其在 \\(\\mathbf{Q}\\) 上不可约。",
+            "mistake": "未验证 \\(f(x)\\) 在 \\(\\mathbf{Q}\\) 上不可约，直接认定 \\(\\operatorname{Gal}(K/\\mathbf{Q})\\) 只能是 \\(A_3\\) 或 \\(S_3\\)。",
+            "title": "跳过不可约性检验直接套用分类结论",
+            "why_wrong": "若三次多项式在 \\(\\mathbf{Q}\\) 上可约，其分裂域次数为 \\(1\\) 或 \\(2\\)，伽罗瓦群可能是平凡群或 \\(\\mathbf{Z}/2\\mathbf{Z}\\)，并非只有 \\(A_3\\) 和 \\(S_3\\) 两种可能。"
+          },
+          {
+            "how_to_avoid": "直接记忆并使用标准判别式公式 \\(\\Delta = -4p^3 - 27q^2\\)，或借助 \\(\\prod_{i=1}^3 f'(a_i) = (-1)^{3(3-1)/2}\\Delta = -\\Delta\\) 来核对符号。",
+            "mistake": "由 \\(\\prod_{i=1}^3 f'(a_i)\\) 推导 \\(\\prod_{1\\le i<j\\le 3}(a_i-a_j)^2\\) 时漏掉负号，误以为 \\(\\Delta = -81\\) 从而得出 \\(\\sqrt{\\Delta} \\notin \\mathbf{Q}\\) 的错误结论。",
+            "title": "导数乘积与判别式的符号混淆",
+            "why_wrong": "因为 \\(\\prod_{i=1}^3 f'(a_i) = (a_1-a_2)(a_1-a_3)(a_2-a_1)(a_2-a_3)(a_3-a_1)(a_3-a_2) = -\\prod_{1\\le i<j\\le 3}(a_i-a_j)^2 = -\\Delta\\)，且 \\(f(1)=-1, f(-1)=3\\)，故 \\(\\prod f'(a_i) = 27 f(1)f(-1) = -81\\)，从而 \\(\\Delta = 81 > 0\\)，而非 \\(-81\\)。"
+          },
+          {
+            "how_to_avoid": "在描述群结构时，应写出同构类（如 \\(\\mathbf{Z}/3\\mathbf{Z}\\) 或 \\(A_3\\)）并说明其作用方式（轮换三个根），同时指出在特征 \\(0\\) 域上 \\(\\operatorname{Aut}(K) = \\operatorname{Aut}_{\\mathbf{Q}}(K)\\)。",
+            "mistake": "只求出扩张次数 \\([K:\\mathbf{Q}]=3\\) 却未说明自同构群的群结构，或混淆“域自同构群 \\(\\operatorname{Aut}(K)\\)”与“\\(\\mathbf{Q}\\)-自同构群 \\(\\operatorname{Aut}_{\\mathbf{Q}}(K)\\)”。",
+            "title": "仅给出扩张次数或混淆绝对自同构群与相对自同构群",
+            "why_wrong": "题目要求的是“自同构群”而非仅仅扩张次数；虽然 \\(\\operatorname{char}(\\mathbf{Q})=0\\) 时任何域自同构自动固定素域 \\(\\mathbf{Q}\\)，但在解答中明确说明 \\(\\operatorname{Aut}(K)=\\operatorname{Aut}_{\\mathbf{Q}}(K)\\) 才算推理完整。"
+          }
+        ],
+        "comparison_summary": "盲解结果与参考解答结论完全一致，均得出分裂域的自同构群同构于 \\(3\\) 阶循环群 \\(\\mathbf{Z}/3\\mathbf{Z}\\)（即 \\(A_3\\)）。差异在于实现细节：盲解使用有理根定理检验 \\(f(\\pm 1)\\neq 0\\) 证明不可约，并直接引用三次多项式判别式公式 \\(\\Delta = -4p^3 - 27q^2 = 81\\)；参考解答则采用模 \\(2\\) 约化证明不可约，并通过对 \\(f(x)=(x-a_1)(x-a_2)(x-a_3)\\) 求导代入根 \\(a_i\\)、连乘开方得到 \\(\\prod_{1\\le i<j\\le 3}(a_i-a_j)=\\pm 9\\)，再结合对换 \\(\\sigma\\) 的反证法排除 \\(S_3\\)。两者均完全严谨（注：参考解答中“\\(f(1)=1\\)”为笔误，实际 \\(f(1)=-1\\)，但不影响有三个实根及最终结论）。",
+        "difficulties": [
+          {
+            "detail": "当 \\([K:\\mathbf{Q}]\\) 可能是 \\(3\\) 或 \\(6\\) 时，如何不通过显式求根就把 \\(S_3\\) 排除掉。关键是构造在 \\(A_3\\) 下不变、在奇置换下变号的不变量 \\(\\delta = \\prod_{1\\le i<j\\le 3}(a_i-a_j)\\)，并验证其平方（判别式 \\(\\Delta\\)）是有理数的平方。",
+            "title": "区分伽罗瓦群是 \\(A_3\\) 还是 \\(S_3\\) 的不变量思想"
+          },
+          {
+            "detail": "如果记不清判别式公式 \\(\\Delta=-4p^3-27q^2\\)，参考解答展示了如何用 \\(f'(a_i)\\) 的乘积直接算出 \\(\\Delta\\)（本质上是结式 \\(\\operatorname{Res}(f, f')\\) 的思想），同时需要注意 \\(\\prod f'(a_i) = -\\Delta\\) 的符号关系。",
+            "title": "从第一性原理计算判别式 \\(\\Delta\\)"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "奇偶与同余",
+          "对称与轮换",
+          "反证与分类讨论"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目要求三次多项式 \\(f(x)=x^3-3x+1\\) 在 \\(\\mathbf{Q}\\) 上分裂域 \\(K\\) 的自同构群。由于 \\(\\operatorname{char}(\\mathbf{Q})=0\\)，任何域自同构必固定 \\(\\mathbf{Q}\\)，因此问题等价于求伽罗瓦群 \\(\\operatorname{Gal}(K/\\mathbf{Q})\\)。",
+            "step": "第一步：将“分裂域的自同构群”转化为“伽罗瓦群”"
+          },
+          {
+            "detail": "三次多项式在 \\(\\mathbf{Q}\\) 上可约当且仅当有有理根（或模某个素数 \\(p\\) 无根）。一旦确定 \\(f(x)\\) 不可约，其在 \\(\\mathbf{Q}\\) 上添加单个根即得 \\(3\\) 次扩张，从而分裂域次数 \\([K:\\mathbf{Q}]\\) 只能是 \\(3\\) 或 \\(6\\)，对应群只能是 \\(A_3 \\cong \\mathbf{Z}/3\\mathbf{Z}\\) 或 \\(S_3\\)。",
+            "step": "第二步：确定多项式的不可约性与可能的群阶"
+          },
+          {
+            "detail": "要区分 \\(A_3\\) 和 \\(S_3\\)，核心在于判断是否存在奇置换（对换），这等价于判断根的差积 \\(\\delta = \\prod_{1\\le i<j\\le 3}(a_i-a_j)\\) 是否属于 \\(\\mathbf{Q}\\)，即判别式 \\(\\Delta = \\delta^2\\) 是否为有理数的平方。",
+            "step": "第三步：利用判别式（根的差积）区分 \\(A_3\\) 与 \\(S_3\\)"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "在 \\(\\mathbf{Z}/2\\mathbf{Z}\\) 中计算 \\(f(0)=1\\neq 0\\) 且 \\(f(1)=1\\neq 0\\)，说明 \\(f(x)\\) 模 \\(2\\) 无根；因为 \\(\\deg f = 3\\)，所以 \\(f(x)\\) 在 \\(\\mathbf{F}_2\\) 上不可约，进而在 \\(\\mathbf{Z}\\) 和 \\(\\mathbf{Q}\\) 上不可约。由此得单个根生成的域满足 \\([\\mathbf{Q}(a_i):\\mathbf{Q}]=3\\)，分裂域次数 \\([K:\\mathbf{Q}]\\) 只能是 \\(3\\) 或 \\(6\\)。",
+            "motivation": "先确定多项式不可约，才能保证伽罗瓦群作为 \\(S_3\\) 的子群是传递的（阶被 \\(3\\) 整除）。",
+            "step": "1. 模 \\(2\\) 约化证明不可约并框定扩张次数"
+          },
+          {
+            "detail": "若 \\([K:\\mathbf{Q}]=6\\)，则 \\(G=\\operatorname{Aut}_{\\mathbf{Q}}(K)=S_3\\)，必含对换 \\(\\sigma=(a_1\\;a_3)\\)。将 \\(f(x)=(x-a_1)(x-a_2)(x-a_3)\\) 求导并代入 \\(a_1,a_2,a_3\\)，得到 \\(f'(a_i) = \\prod_{j\\neq i}(a_i-a_j) = 3a_i^2-3\\)。将三式相乘并开方，可得 \\(\\delta = \\prod_{1\\le i<j\\le 3}(a_i-a_j) = \\pm 9 \\in \\mathbf{Q}\\)。",
+            "motivation": "通过构造在奇置换下反号、在偶置换下不变的根的差积 \\(\\delta\\)，把群论问题转化为代数计算。",
+            "step": "2. 反设存在对换并利用导数计算根的差积"
+          },
+          {
+            "detail": "将对换 \\(\\sigma\\) 作用在等式 \\(\\prod_{1\\le i<j\\le 3}(a_i-a_j) = 9\\) 上，左边变为其相反数 \\(-9\\)，而右边 \\(9\\in\\mathbf{Q}\\) 必须被 \\(\\sigma\\) 固定，产生矛盾。因此 \\(G\\) 中不含对换，只能是 \\(3\\) 阶循环群 \\(\\mathbf{Z}/3\\mathbf{Z}\\)，且此时 \\(K = \\mathbf{Q}(a_1)\\)。",
+            "motivation": "利用伽罗瓦群固定有理数这一基本性质得出矛盾，从而唯一确定自同构群。",
+            "step": "3. 导出矛盾并确定自同构群结构"
+          }
+        ],
+        "teaching_takeaway": "判定不可约三次多项式 \\(x^3+px+q\\) 在 \\(\\mathbf{Q}\\) 上的伽罗瓦群时，“不可约性 + 判别式 \\(\\Delta = -4p^3-27q^2\\) 是否为有理平方”是标准二步法；若忘记判别式公式，也可通过连乘 \\(f'(a_i)\\) 从第一性原理现场算出 \\(\\Delta\\)。",
+        "topic_tags": [
+          "伽罗瓦理论",
+          "分裂域与自同构群",
+          "多项式不可约性与判别式"
+        ]
+      }
+    }
+  ]
+}

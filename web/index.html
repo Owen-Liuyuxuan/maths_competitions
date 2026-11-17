@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2020–2026 数学竞赛资料、整卷与单题训练教学平台。">
+  <title>Math Atlas · 数学竞赛资料库</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <script src="vendor/katex/katex.min.js" defer></script>
+  <script src="vendor/katex/contrib/auto-render.min.js" defer></script>
+  <script src="data.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header><a href="#" class="brand" aria-label="Math Atlas 首页"><span class="mark">∑</span> MATH ATLAS <small>数学竞赛资料库</small></a><span class="edition">TEACHING &amp; TRAINING EDITION / 2020–2026</span></header>
+<main>
+<section class="hero"><div><p class="eyebrow">THE MATHEMATICS COMPETITION ARCHIVE</p><h1>从一张试卷，<br>走进数学的版图<span>。</span></h1><p class="intro">连接高中奥林匹克与本科数学竞赛。整卷归档、单题盲练、解答对照，并提供面向竞赛生的教学标签、问题与答案拆解及易错点剖析。</p><div class="hero-links"><a href="#explore">开始单题训练 ↗</a><span>含逐题盲解复盘 · 教学标签与易错分析</span></div></div><div class="math-art" aria-hidden="true"><div class="orbit one"></div><div class="orbit two"></div><div class="orbit three"></div><span class="formula">∀ ε &gt; 0, ∃ δ &gt; 0</span><span class="formula second">a² + b² = c²</span><span class="center-symbol">ℳ</span><span class="art-label">STRUCTURE · PROOF · DISCOVERY</span></div></section>
+<section id="stats" class="stats" aria-label="归档统计"></section>
+<section id="explore" class="workspace"><div class="section-title"><div><p class="eyebrow">EXPLORE &amp; TRAIN</p><h2>数学竞赛索引与单题训练</h2></div><p id="mode-note"></p></div>
+<nav class="tabs" aria-label="资料视图"><button data-view="papers" class="active">整卷资料</button><button data-view="questions">单题训练</button><button data-view="coverage">年份覆盖</button><button data-view="sources">赛事与来源</button></nav>
+<div class="filters"><label class="search">检索<input id="search" type="search" placeholder="搜索竞赛、题号、专题、教学标签、易错点…"></label><label>竞赛<select id="contest"><option value="">全部竞赛</option></select></label><label>年份<select id="year"><option value="">2020–2026</option></select></label><label>阶段<select id="level"><option value="">全部学段</option><option>高中</option><option>本科</option></select></label><label>主题<select id="tag"><option value="">全部主题</option></select></label><label>教学标签<select id="teaching-tag"><option value="">全部教学标签</option></select></label><label>进度<select id="edition"><option value="">全部资料</option><option value="teaching">已配教学拆解与易错分析</option><option value="ready">已整理中文正文</option><option value="pending">正文整理中</option></select></label><button id="reset" class="quiet">重置</button></div>
+<div class="results-header"><p id="result-count" role="status" aria-live="polite"></p><span id="page-info"></span></div>
+<div id="results"></div><div id="pagination"></div>
+</section>
+<section class="collection-note"><span>01 / 整理与教学原则</span><div><h3>先盲解，再对照拆解。</h3><p>教学记录坚持在只看原题的条件下先行尝试解答，再对照官方或标准解答复盘：定位真正的思维跨度（难点）与常见失分陷阱（易错点），为高中及本科竞赛生提炼可迁移的解题骨架。</p></div><div><h3>中文正文，原图对照。</h3><p>逐题读图重排数学公式，题目、参考解答与教学拆解分层呈现，默认折叠引导提示与复盘细节以支持独立盲练。年份覆盖展示“已下载 / 仅线索 / 未收集”，缺卷与待核验项目持续列入清单。</p></div></section>
+</main>
+<footer><span>∑ MATH ATLAS</span><p>竞赛题目与解答版权归主办方及原作者。公开构建仅含索引元数据；完整阅读与教学版供本地研究。</p><span>2026 · TEACHING EDITION</span></footer>
+<dialog id="reader"><div class="reader-top"><div><p class="eyebrow" id="reader-kicker"></p><h2 id="reader-title"></h2></div><div class="reader-actions"><button id="blind-toggle" class="quiet-btn" type="button" title="开启后将在题目页隐藏方法与易错标签，避免剧透">盲练遮罩：关</button><button id="close-reader" aria-label="关闭阅读器">✕</button></div></div><div class="reader-tabs"><button data-panel="question" class="active">题目</button><button data-panel="solution">参考解答</button><button data-panel="teaching">教学拆解与易错分析</button><button data-panel="provenance">来源与标注</button></div><div id="reader-body"></div></dialog>
+</body></html>

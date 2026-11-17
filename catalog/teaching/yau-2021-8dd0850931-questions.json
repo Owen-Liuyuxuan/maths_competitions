@@ -1,0 +1,120 @@
+{
+  "resource_id": "yau-2021-8dd0850931-questions",
+  "source_sha256": "e4b7eeec09e90c516551e69692206b0f52468a3183317a57db3860aecbf31555",
+  "solution_resource_id": "yau-2021-4ffdbac5d6-solutions",
+  "solution_sha256": "2925539f2f7a2b60fe2c1ce81383862ac84a8c4f93f1b9158e784f3a08b23c54",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2021-8dd0850931-questions-q1",
+      "resource_id": "yau-2021-8dd0850931-questions",
+      "source_sha256": "e4b7eeec09e90c516551e69692206b0f52468a3183317a57db3860aecbf31555",
+      "solution_resource_id": "yau-2021-4ffdbac5d6-solutions",
+      "solution_sha256": "2925539f2f7a2b60fe2c1ce81383862ac84a8c4f93f1b9158e784f3a08b23c54",
+      "contest": "YAU",
+      "year": 2021,
+      "number": "1",
+      "level": "本科",
+      "title": "analysis and differential 21s.pdf · 1",
+      "blind_attempt": {
+        "approach": "给出两种严格证明：方法一利用缓增广义函数上的 Fourier 变换与 Plancherel 定理，直接对弱解（含经典解）证明 \\(\\hat{f} = 0\\) 几乎处处成立，从而 \\(f = 0\\)；方法二利用磨光化（mollification）将分布意义下的调和函数转化为光滑调和函数，再结合调和函数的平均值性质与 Cauchy-Schwarz 不等式，令球半径 \\(R \\to \\infty\\) 证得 \\(f \\equiv 0\\)。",
+        "final_answer": "若 \\(f \\in L^2(\\mathbb{R}^n)\\) 满足 \\(\\triangle f = 0\\)（无论是经典 \\(C^2\\) 解还是分布意义下的弱解），都有 \\(f = 0\\) 几乎处处成立（若 \\(f\\) 连续，则 \\(f(x) \\equiv 0\\) 处处成立）。\n\n下面给出两种证明方法。\n\n---\n\n### 方法一：平均值性质与磨光化（适用于经典解与弱解）\n\n**1. 经典解情形（\\(f \\in C^2(\\mathbb{R}^n) \\cap L^2(\\mathbb{R}^n)\\)）**\n\n由调和函数的平均值性质，对任意 \\(x \\in \\mathbb{R}^n\\) 和任意 \\(r > 0\\)，有\n\\[\nf(x) = \\frac{1}{|B(x, r)|} \\int_{B(x, r)} f(y)\\,dy,\n\\]\n其中 \\(B(x, r)\\) 是以 \\(x\\) 为中心、\\(r\\) 为半径的开球，体积为 \\(|B(x, r)| = \\omega_n r^n\\)（\\(\\omega_n = |B(0, 1)| > 0\\) 为 \\(n\\) 维单位球体积）。\n\n由 Cauchy-Schwarz 不等式，\n\\[\n|f(x)| \\le \\frac{1}{|B(x, r)|} \\left( \\int_{B(x, r)} 1^2\\,dy \\right)^{1/2} \\left( \\int_{B(x, r)} |f(y)|^2\\,dy \\right)^{1/2} = \\frac{\\|f\\|_{L^2(B(x, r))}}{(\\omega_n r^n)^{1/2}} \\le \\frac{\\|f\\|_{L^2(\\mathbb{R}^n)}}{(\\omega_n r^n)^{1/2}}.\n\\]\n由于 \\(\\|f\\|_{L^2(\\mathbb{R}^n)} < \\infty\\)，令 \\(r \\to +\\infty\\)（对任意 \\(n \\ge 1\\) 均有 \\(\\omega_n r^n \\to +\\infty\\)），右端趋于 \\(0\\)，故 \\(f(x) = 0\\)。由 \\(x \\in \\mathbb{R}^n\\) 的任意性，得 \\(f(x) \\equiv 0\\)。\n\n**2. 分布意义下的弱解情形（\\(f \\in L^2(\\mathbb{R}^n)\\)）**\n\n设 \\(\\eta \\in C_c^\\infty(\\mathbb{R}^n)\\) 为标准磨光子，满足 \\(\\eta \\ge 0\\) 且 \\(\\int_{\\mathbb{R}^n} \\eta(x)\\,dx = 1\\)，令 \\(\\eta_\\varepsilon(x) = \\varepsilon^{-n}\\eta(x/\\varepsilon)\\)（\\(\\varepsilon > 0\\)），定义磨光函数 \\(f_\\varepsilon = f * \\eta_\\varepsilon\\)。则：\n- \\(f_\\varepsilon \\in C^\\infty(\\mathbb{R}^n)\\)；\n- 由 Young 卷积不等式，\\(\\|f_\\varepsilon\\|_{L^2(\\mathbb{R}^n)} \\le \\|\\eta_\\varepsilon\\|_{L^1(\\mathbb{R}^n)} \\|f\\|_{L^2(\\mathbb{R}^n)} = \\|f\\|_{L^2(\\mathbb{R}^n)} < \\infty\\)，故 \\(f_\\varepsilon \\in L^2(\\mathbb{R}^n)\\)；\n- 对任意 \\(x \\in \\mathbb{R}^n\\)，函数 \\(y \\mapsto \\eta_\\varepsilon(x - y)\\) 属于 \\(C_c^\\infty(\\mathbb{R}^n)\\)，于是由 \\(\\triangle f = 0\\) 的分布定义有\n\\[\n\\triangle f_\\varepsilon(x) = \\int_{\\mathbb{R}^n} f(y)\\,\\triangle_x \\eta_\\varepsilon(x - y)\\,dy = \\int_{\\mathbb{R}^n} f(y)\\,\\triangle_y \\eta_\\varepsilon(x - y)\\,dy = 0.\n\\]\n因此 \\(f_\\varepsilon \\in C^\\infty(\\mathbb{R}^n) \\cap L^2(\\mathbb{R}^n)\\) 是经典调和函数。由第 1 步结论可知，对所有 \\(\\varepsilon > 0\\) 均有 \\(f_\\varepsilon \\equiv 0\\)。又因为当 \\(\\varepsilon \\to 0^+\\) 时 \\(f_\\varepsilon \\to f\\) 在 \\(L^2(\\mathbb{R}^n)\\) 中收敛，故 \\(\\|f\\|_{L^2(\\mathbb{R}^n)} = 0\\)，即 \\(f = 0\\) 几乎处处成立。\n\n---\n\n### 方法二：Fourier 变换（直接处理分布解）\n\n由于 \\(f \\in L^2(\\mathbb{R}^n)\\)，\\(f\\) 可视为缓增广义函数 \\(f \\in \\mathcal{S}'(\\mathbb{R}^n)\\)，且由 Plancherel 定理，其 Fourier 变换 \\(\\hat{f}\\) 也属于 \\(L^2(\\mathbb{R}^n)\\)。\n\n在 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 中对 \\(\\triangle f = 0\\) 取 Fourier 变换（采用 \\(\\hat{\\varphi}(\\xi) = \\int_{\\mathbb{R}^n} e^{-i x \\cdot \\xi} \\varphi(x)\\,dx\\)），可得\n\\[\n-|\\xi|^2 \\hat{f}(\\xi) = 0 \\quad \\text{在 } \\mathcal{S}'(\\mathbb{R}^n) \\text{ 中成立}\\]。\n\n即对任意检验函数 \\(\\varphi \\in \\mathcal{S}(\\mathbb{R}^n)\\)，有\n\\[\n\\int_{\\mathbb{R}^n} |\\xi|^2 \\hat{f}(\\xi) \\varphi(\\xi)\\,d\\xi = 0.\n\\]\n特别地，取遍所有 \\(\\varphi \\in C_c^\\infty(\\mathbb{R}^n \\setminus \\{0\\})\\)，可知 \\(|\\xi|^2 \\hat{f}(\\xi) = 0\\) 在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上几乎处处成立。由于在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上 \\(|\\xi|^2 > 0\\)，必有 \\(\\hat{f}(\\xi) = 0\\) 在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上几乎处处成立。\n\n又因为单点集 \\(\\{0\\}\\) 在 \\(\\mathbb{R}^n\\)（\\(n \\ge 1\\)）中的 Lebesgue 测度为 \\(0\\)，所以 \\(\\hat{f}(\\xi) = 0\\) 在整个 \\(\\mathbb{R}^n\\) 上几乎处处成立，从而 \\(\\|\\hat{f}\\|_{L^2(\\mathbb{R}^n)} = 0\\)。再由 Plancherel 定理，\\(\\|f\\|_{L^2(\\mathbb{R}^n)} = (2\\pi)^{-n/2} \\|\\hat{f}\\|_{L^2(\\mathbb{R}^n)} = 0\\)，故 \\(f = 0\\) 几乎处处成立（若 \\(f\\) 为经典连续解，则 \\(f(x) \\equiv 0\\)）。",
+        "problem_statement_zh": "证明：在 \\(L^2(\\mathbb{R}^n)\\) 中，\\(f(x) \\equiv 0\\) 是满足 \\(\\triangle f = 0\\) 的唯一解。",
+        "steps": [
+          "明确题目中 \\(\\triangle f = 0\\) 的含义：涵盖经典 \\(C^2\\) 解与分布意义下的弱解（在 \\(L^2(\\mathbb{R}^n)\\) 中二者在几乎处处意义下等价）。",
+          "方法一（经典解）：利用调和函数的平均值公式 \\(f(x) = |B(x, r)|^{-1} \\int_{B(x, r)} f(y)\\,dy\\) 与 Cauchy-Schwarz 不等式，得到 \\(|f(x)| \\le \\|f\\|_{L^2(\\mathbb{R}^n)} / (\\omega_n r^n)^{1/2}\\)，令 \\(r \\to +\\infty\\) 证得 \\(f(x) \\equiv 0\\)。",
+          "方法一（推广到弱解）：取标准磨光子 \\(\\eta_\\varepsilon\\) 作卷积 \\(f_\\varepsilon = f * \\eta_\\varepsilon\\)，验证 \\(f_\\varepsilon \\in C^\\infty(\\mathbb{R}^n) \\cap L^2(\\mathbb{R}^n)\\) 且经典满足 \\(\\triangle f_\\varepsilon = 0\\)，从而 \\(f_\\varepsilon \\equiv 0\\)；再由 \\(f_\\varepsilon \\to f\\) 于 \\(L^2(\\mathbb{R}^n)\\) 推出 \\(f = 0\\) 几乎处处成立。",
+          "方法二（Fourier 变换）：将 \\(f \\in L^2(\\mathbb{R}^n)\\) 视为 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 中的缓增广义函数，取 Fourier 变换得 \\(|\\xi|^2 \\hat{f}(\\xi) = 0\\)；在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上推得 \\(\\hat{f} = 0\\) a.e.，结合单点集 \\(\\{0\\}\\) 测度为零及 Plancherel 定理得出 \\(\\|f\\|_{L^2(\\mathbb{R}^n)} = 0\\)。"
+        ],
+        "uncertainties": [
+          "原题未显式说明 \\(\\triangle f = 0\\) 是指经典 \\(C^2\\) 解还是广义函数（弱）解，但所给的两种方法均已完整覆盖这两种理解（在 \\(L^2\\) 中唯一性为几乎处处意义下的 \\(0\\)，若 \\(f\\) 光滑或连续则处处为 \\(0\\)）。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 缓增广义函数框架下取 Fourier 变换，并利用 Plancherel 定理先确认 \\(\\hat{f} \\in L^2(\\mathbb{R}^n)\\)，再说明由 \\(|\\xi|^2 \\hat{f} = 0\\) 可推得 \\(\\operatorname{supp}(\\hat{f}) \\subset \\{0\\}\\)。",
+            "mistake": "直接写 \\(\\hat{f}(\\xi) = \\int_{\\mathbb{R}^n} f(x)e^{-ix\\cdot\\xi}\\,dx\\) 并做分部积分，忽略 \\(f\\) 未必属于 \\(L^1(\\mathbb{R}^n)\\) 也未必经典可微。",
+            "title": "混淆经典 Fourier 变换与 L2/广义函数 Fourier 变换",
+            "why_wrong": "\\(L^2(\\mathbb{R}^n)\\) 中的函数一般不在 \\(L^1(\\mathbb{R}^n)\\) 中，经典积分未必绝对收敛；且 \\(\\triangle f = 0\\) 可能是分布意义下的弱解，不能直接对 \\(f\\) 做经典分部积分。"
+          },
+          {
+            "how_to_avoid": "先在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上由 \\(|\\xi|^2 > 0\\) 得出 \\(\\hat{f} = 0\\) 几乎处处成立，再指出单点集 \\(\\{0\\}\\) 的 Lebesgue 测度为 \\(0\\) 且 \\(\\hat{f} \\in L^2(\\mathbb{R}^n)\\)（不含 \\(\\delta\\) 函数等奇异测度），故 \\(\\|\\hat{f}\\|_{L^2} = 0\\)。",
+            "mistake": "从 \\(-|\\xi|^2 \\hat{f}(\\xi) = 0\\) 直接两边除以 \\(|\\xi|^2\\) 得到 \\(\\hat{f} \\equiv 0\\)，未处理 \\(\\xi = 0\\) 的奇点（或忽视了广义函数意义下可能出现 \\(\\delta(\\xi)\\)）。",
+            "title": "忽略频率原点处的奇异性与 Dirac 分布可能性",
+            "why_wrong": "在广义函数空间 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 中，方程 \\(|\\xi|^2 u = 0\\) 的一般解是 \\(u = c\\,\\delta_0\\)（甚至在更高阶时包含 \\(\\delta_0\\) 的导数），并非只有 \\(u = 0\\)；只是由于 \\(\\hat{f} \\in L^2(\\mathbb{R}^n)\\) 排除了 \\(\\delta_0\\) 这样的奇异分布。"
+          },
+          {
+            "how_to_avoid": "先严谨证明 \\(f = 0\\) 在 \\(L^2(\\mathbb{R}^n)\\) 中成立（即几乎处处为 \\(0\\)），再引用椭圆正则性 / Weyl 引理说明调和函数光滑，从而得到处处 \\(f(x) \\equiv 0\\)。",
+            "mistake": "直接由 \\(\\|f\\|_{L^2} = 0\\) 写出 \\(f(x) \\equiv 0\\)，未说明为什么几乎处处为 \\(0\\) 可以提升为处处为 \\(0\\)。",
+            "title": "混同几乎处处为零与逐点恒为零",
+            "why_wrong": "\\(L^2\\) 空间中的元素是几乎处处相等的等价类，仅由 \\(\\|f\\|_{L^2} = 0\\) 只能推出 \\(f = 0\\) a.e.；要得到题目要求的 \\(f(x) \\equiv 0\\)（若理解为逐点恒等），需要调和函数的光滑性（Weyl 引理）或连续性保证。"
+          }
+        ],
+        "comparison_summary": "盲解完全正确且覆盖了参考解答的思路。参考解答采用的是 Fourier 变换与 Plancherel 定理（即盲解中的方法二）：由 \\(\\triangle f = 0\\) 得 \\(-|\\xi|^2 \\widehat{f}(\\xi) = 0\\)，结合 Plancherel 定理知 \\(\\widehat{f} \\in L^2(\\mathbb{R}^n)\\) 且 \\(\\operatorname{supp}(\\widehat{f}) \\subset \\{0\\}\\)，从而 \\(\\widehat{f} = 0\\)（\\(L^2\\) 意义下）、\\(f = 0\\)（\\(L^2\\) 意义下），最后由调和函数的光滑性得出 \\(f \\equiv 0\\)。盲解的方法二不仅给出了完全一致的核心推导，还补充了 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 广义函数框架下的严格验证；盲解额外给出的方法一（平均值性质 + 磨光化 + Cauchy-Schwarz 不等式）也是实分析/PDE 中同样经典的初等证法。",
+        "difficulties": [
+          {
+            "detail": "在分布意义下，\\(|\\xi|^2 \\widehat{f} = 0\\) 只说明 \\(\\operatorname{supp}(\\widehat{f}) \\subset \\{0\\}\\)，其广义函数解通常包含 Dirac \\(\\delta\\) 分布。本题最关键的转折是利用 \\(f \\in L^2(\\mathbb{R}^n)\\) 配合 Plancherel 定理得到 \\(\\widehat{f} \\in L^2(\\mathbb{R}^n)\\)，而 \\(L^2\\) 函数在单点集 \\(\\{0\\}\\)（测度为 \\(0\\)）上的支集无法承载非零质量，从而一举排除 \\(\\delta\\) 分布。",
+            "title": "利用 L2 空间性质排除支集在原点的广义函数解"
+          },
+          {
+            "detail": "\\(L^2(\\mathbb{R}^n)\\) 中的等式是“几乎处处”意义下的，需要借助调和函数的光滑性（Weyl 引理：分布调和函数必在修改零测集后光滑）或直接说明连续性，才能从 \\(\\|f\\|_{L^2} = 0\\) 过渡到逐点恒等式 \\(f(x) \\equiv 0\\)。",
+            "title": "从 L2 几乎处处为零提升到逐点恒为零"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "算子与线性化",
+          "放缩与估值"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:定义域与分母为零"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目在全空间 \\(\\mathbb{R}^n\\) 上给出常系数线性偏微分方程 \\(\\triangle f = 0\\) 与全局可积性条件 \\(f \\in L^2(\\mathbb{R}^n)\\)。全空间、常系数微分算子与 \\(L^2\\) 空间三者同时出现，是最强烈的 Fourier 变换信号。",
+            "step": "识别算子与空间结构"
+          },
+          {
+            "detail": "对于全空间上的 \\(\\triangle f = 0\\)，常规 Liouville 定理需要“有界”或“非负”条件，而此处给的是 \\(L^2(\\mathbb{R}^n)\\)。一方面可用 Fourier 变换将微分方程代数化，另一方面也可联想调和函数的平均值性质配合 Cauchy-Schwarz 不等式控制无穷远处的衰减。",
+            "step": "对比全局条件与经典 Liouville 定理"
+          },
+          {
+            "detail": "在 \\(L^2(\\mathbb{R}^n)\\) 中讨论 \\(\\triangle f = 0\\) 时，需先在缓增广义函数 \\(\\mathcal{S}'(\\mathbb{R}^n)\\) 意义下建立方程，再利用 Plancherel 定理回到 \\(L^2\\) 函数空间完成证明。",
+            "step": "确定严格化的数学框架"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "由于 \\(f \\in L^2(\\mathbb{R}^n) \\subset \\mathcal{S}'(\\mathbb{R}^n)\\)，在缓增广义函数空间中对 \\(\\triangle f = 0\\) 两边作 Fourier 变换，利用微分与乘法的对应关系得到 \\(-|\\xi|^2 \\widehat{f}(\\xi) = 0\\)。",
+            "motivation": "Fourier 变换能把常系数微分算子 \\(\\triangle\\) 对角化为频率空间中的乘法算子 \\(-|\\xi|^2\\)，从而将 PDE 转化为代数方程。",
+            "step": "在频率空间将方程代数化"
+          },
+          {
+            "detail": "在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上 \\(|\\xi|^2 \\neq 0\\)，因此 \\(\\widehat{f}\\) 在 \\(\\mathbb{R}^n \\setminus \\{0\\}\\) 上为零，即 \\(\\operatorname{supp}(\\widehat{f}) \\subset \\{0\\}\\)。",
+            "motivation": "确定 \\(\\widehat{f}\\) 的支集位置，将全局问题压缩到单个频率点 \\(\\xi = 0\\)。",
+            "step": "刻画 Fourier 变换的支集"
+          },
+          {
+            "detail": "由 Plancherel 定理，\\(f \\in L^2(\\mathbb{R}^n)\\) 蕴含 \\(\\widehat{f} \\in L^2(\\mathbb{R}^n)\\)。因为单点集 \\(\\{0\\}\\) 的 Lebesgue 测度为 \\(0\\)，且 \\(L^2\\) 函数不存在集中在零测集上的质量，故 \\(\\widehat{f} = 0\\) 在 \\(L^2(\\mathbb{R}^n)\\) 中成立；再次应用 Plancherel 定理即得 \\(f = 0\\) 在 \\(L^2(\\mathbb{R}^n)\\) 中成立。",
+            "motivation": "一般广义函数在 \\(\\{0\\}\\) 处可以有 \\(\\delta\\) 分布，必须借助 \\(\\widehat{f} \\in L^2\\) 才能把支集在 \\(\\{0\\}\\) 的分布判为零。",
+            "step": "结合 Plancherel 定理得到 L2 意义下的零解"
+          },
+          {
+            "detail": "调和函数具有光滑性（若 \\(f\\) 本身是经典解则自动连续；若是弱解，由 Weyl 引理其代表元光滑），结合几乎处处为零可知 \\(f(x) \\equiv 0\\)。",
+            "motivation": "弥补 \\(L^2\\) 等价类与逐点函数 \\(f(x) \\equiv 0\\) 之间的最后一步差距。",
+            "step": "由光滑性提升至逐点恒为零"
+          }
+        ],
+        "teaching_takeaway": "遇到全空间 \\(\\mathbb{R}^n\\) 上的常系数线性偏微分方程与 \\(L^2\\) 条件时，优先考虑使用 Fourier 变换将微分算子转化为多项式乘法，并利用 Plancherel 定理排除支集落在零测集上的广义函数奇异解；同时也可掌握“磨光化 + 平均值性质 + Cauchy-Schwarz”这一不依赖 Fourier 变换的实分析替代路线。",
+        "topic_tags": [
+          "调和函数",
+          "Fourier变换",
+          "L2空间与分布"
+        ]
+      }
+    }
+  ]
+}

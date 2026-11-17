@@ -1,0 +1,40 @@
+{
+  "resource_id": "egmo-2024-day2-ChineseSimplified-questions",
+  "source_sha256": "80b59f9312500726af0a474fb41bf46286729b132576d9ff22608d31eacb9c21",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "4",
+      "title": "EGMO 2024 · 第4题",
+      "body_zh": "对于整数数列 \\(a_1<a_2<\\cdots<a_n\\)，若存在另一个数对 \\((a_k,a_\\ell)\\)（\\(1\\le k<\\ell\\le n\\)），使\n\\[\\frac{a_\\ell-a_k}{a_j-a_i}=2,\\]\n则称数对 \\((a_i,a_j)\\)（\\(1\\le i<j\\le n\\)）是有趣的。\n固定整数 \\(n\\ge3\\)，求一个 \\(n\\) 项整数数列中有趣数对个数的最大可能值。",
+      "tags": [
+        "组合",
+        "整数数列",
+        "差集",
+        "极值"
+      ]
+    },
+    {
+      "number": "5",
+      "title": "EGMO 2024 · 第5题",
+      "body_zh": "设 \\(\\mathbb N_+\\) 为正整数集合。求所有函数 \\(f:\\mathbb N_+\\to\\mathbb N_+\\)，使每对正整数 \\(x,y\\) 都满足：\n（1）\\(x\\) 与 \\(f(x)\\) 的正因子个数相同；\n（2）若 \\(x\\nmid y\\) 且 \\(y\\nmid x\\)，则\n\\[\\gcd(f(x),f(y))>f(\\gcd(x,y)).\\]",
+      "tags": [
+        "数论",
+        "函数方程",
+        "约数个数",
+        "最大公因数"
+      ]
+    },
+    {
+      "number": "6",
+      "title": "EGMO 2024 · 第6题",
+      "body_zh": "求所有正整数 \\(d\\)，使存在一个 \\(d\\) 次实系数多项式 \\(P\\)，满足\n\\[P(0),P(1),P(2),\\ldots,P(d^2-d)\\]\n中至多有 \\(d\\) 个不同的值。",
+      "tags": [
+        "代数",
+        "多项式",
+        "函数值",
+        "次数"
+      ]
+    }
+  ]
+}

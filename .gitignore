@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+tmp/
+dist/
+*.log
+originals/
+derived/
+catalog/ocr/
+catalog/questions.json

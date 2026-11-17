@@ -1,0 +1,109 @@
+{
+  "resource_id": "yau-2020-c0bbac0e21-questions",
+  "source_sha256": "3bcc1564baa16511adcf918e9bc88428dbd995a86c81c8c769400c945c47e77e",
+  "solution_resource_id": "yau-2020-095f507c8d-solutions",
+  "solution_sha256": "c3e1e365e14c254ab6cf2ef069cf2077c1c803bd1ecf063a40442e25a3631d82",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2020-c0bbac0e21-questions-q1",
+      "resource_id": "yau-2020-c0bbac0e21-questions",
+      "source_sha256": "3bcc1564baa16511adcf918e9bc88428dbd995a86c81c8c769400c945c47e77e",
+      "solution_resource_id": "yau-2020-095f507c8d-solutions",
+      "solution_sha256": "c3e1e365e14c254ab6cf2ef069cf2077c1c803bd1ecf063a40442e25a3631d82",
+      "contest": "YAU",
+      "year": 2020,
+      "number": "1",
+      "level": "本科",
+      "title": "analysis and differential 20.pdf · 1",
+      "blind_attempt": {
+        "approach": "利用紧支集光滑函数 \\(\\chi\\) 的有界性与紧支集性质，将卷积差 \\((\\chi_\\varepsilon * f)(x) - f(x)\\) 用以 \\(x\\) 为中心的小区间上的平均振荡 \\(\\frac{1}{2\\varepsilon R}\\int_{x-\\varepsilon R}^{x+\\varepsilon R}|f(t)-f(x)|\\,dt\\) 控制，再结合 \\(L^1(\\mathbb{R})\\) 函数的 Lebesgue 微分定理（几乎处处为 Lebesgue 点）即可直接得证。",
+        "final_answer": "**证明：**\n\n首先，因为 \\(\\chi \\in C_c^\\infty(\\mathbb{R})\\)，故 \\(\\chi\\) 有紧支集且有界。设存在 \\(R > 0\\) 使得 \\(\\operatorname{supp}(\\chi) \\subset [-R, R]\\)，并记\n\\[\nM := \\sup_{y \\in \\mathbb{R}} |\\chi(y)| < \\infty.\n\\]\n由于 \\(f \\in L^1(\\mathbb{R})\\) 且 \\(\\chi_\\varepsilon \\in L^\\infty(\\mathbb{R})\\)（对每个 \\(\\varepsilon > 0\\)），对任意 \\(x \\in \\mathbb{R}\\)，函数 \\(y \\mapsto \\chi_\\varepsilon(y) f(x-y)\\) 在 \\(\\mathbb{R}\\) 上绝对可积，因此卷积 \\((\\chi_\\varepsilon * f)(x)\\) 处处良定义。同时，由于 \\(f \\in L^1(\\mathbb{R})\\)，对几乎处处的 \\(x \\in \\mathbb{R}\\) 有 \\(|f(x)| < \\infty\\)。\n\n对任意 \\(\\varepsilon > 0\\)，作变量代换 \\(u = \\frac{y}{\\varepsilon}\\)，可得\n\\[\n\\int_{\\mathbb{R}} \\chi_\\varepsilon(y)\\,dy = \\int_{\\mathbb{R}} \\frac{1}{\\varepsilon}\\chi\\!\\left(\\frac{y}{\\varepsilon}\\right)dy = \\int_{\\mathbb{R}} \\chi(u)\\,du = 1.\n\\]\n又因为 \\(\\operatorname{supp}(\\chi) \\subset [-R, R]\\)，当 \\(|y| > \\varepsilon R\\) 时有 \\(\\chi_\\varepsilon(y) = 0\\)。于是对任意使 \\(|f(x)| < \\infty\\) 的 \\(x \\in \\mathbb{R}\\)，有\n\\[\n\\begin{aligned}\n(\\chi_\\varepsilon * f)(x) - f(x) &= \\int_{\\mathbb{R}} \\chi_\\varepsilon(y) f(x-y)\\,dy - f(x)\\int_{\\mathbb{R}} \\chi_\\varepsilon(y)\\,dy \\\\\n&= \\int_{-\\varepsilon R}^{\\varepsilon R} \\frac{1}{\\varepsilon}\\chi\\!\\left(\\frac{y}{\\varepsilon}\\right) \\bigl(f(x-y) - f(x)\\bigr)\\,dy.\n\\end{aligned}\n\\]\n两边取绝对值，并作变量代换 \\(t = x - y\\)，得到\n\\[\n\\begin{aligned}\n|(\\chi_\\varepsilon * f)(x) - f(x)| &\\le \\frac{M}{\\varepsilon} \\int_{-\\varepsilon R}^{\\varepsilon R} |f(x-y) - f(x)|\\,dy \\\\\n&= 2MR \\cdot \\frac{1}{2\\varepsilon R} \\int_{x-\\varepsilon R}^{x+\\varepsilon R} |f(t) - f(x)|\\,dt.\n\\end{aligned}\n\\]\n\n由 Lebesgue 微分定理，对任意 \\(f \\in L^1(\\mathbb{R})\\)，几乎处处的 \\(x \\in \\mathbb{R}\\) 都是 \\(f\\) 的 Lebesgue 点，即对几乎处处的 \\(x \\in \\mathbb{R}\\) 都有 \\(|f(x)| < \\infty\\) 且\n\\[\n\\lim_{r \\to 0^+} \\frac{1}{2r} \\int_{x-r}^{x+r} |f(t) - f(x)|\\,dt = 0.\n\\]\n令 \\(r = \\varepsilon R\\)，当 \\(\\varepsilon \\to 0^+\\) 时 \\(r \\to 0^+\\)，故对几乎处处的 \\(x \\in \\mathbb{R}\\)，上述不等式右端趋于 \\(0\\)。因此，对几乎处处的 \\(x \\in \\mathbb{R}\\)，有\n\\[\n\\lim_{\\varepsilon \\to 0^+} (\\chi_\\varepsilon * f)(x) = f(x).\n\\]\n（注：由于 \\(\\chi_\\varepsilon\\) 仅对 \\(\\varepsilon > 0\\) 定义，题中的 \\(\\lim_{\\varepsilon \\to 0}\\) 即指 \\(\\lim_{\\varepsilon \\to 0^+}\\)。）\\(\\blacksquare\\)",
+        "problem_statement_zh": "设 \\(\\chi\\) 是 \\(\\mathbb{R}\\) 上的实值紧支集光滑函数，且满足\n\\[\n\\int_{\\mathbb{R}^1} \\chi(x)\\,dx = 1.\n\\]\n对所有 \\(\\varepsilon > 0\\)，定义\n\\[\n\\chi_\\varepsilon(x) = \\frac{1}{\\varepsilon} \\chi\\!\\left(\\frac{x}{\\varepsilon}\\right).\n\\]\n证明：对任意给定的 \\(f \\in L^1(\\mathbb{R})\\)，对几乎处处的 \\(x \\in \\mathbb{R}\\)，有\n\\[\n\\lim_{\\varepsilon \\to 0} (\\chi_\\varepsilon * f)(x) = f(x).\n\\]",
+        "steps": [
+          "说明卷积良定义及 \\(\\chi\\) 的有界性与紧支集：取 \\(R > 0\\) 使 \\(\\operatorname{supp}(\\chi) \\subset [-R, R]\\)，记 \\(M = \\sup_{\\mathbb{R}} |\\chi| < \\infty\\)。",
+          "利用变量代换验证 \\(\\int_{\\mathbb{R}} \\chi_\\varepsilon(y)\\,dy = 1\\)，从而将 \\((\\chi_\\varepsilon * f)(x) - f(x)\\) 写为 \\(\\int_{-\\varepsilon R}^{\\varepsilon R} \\chi_\\varepsilon(y)(f(x-y)-f(x))\\,dy\\)。",
+          "用 \\(M\\) 和支集半径 \\(\\varepsilon R\\) 放缩积分，得到 \\(|(\\chi_\\varepsilon * f)(x) - f(x)| \\le 2MR \\cdot \\frac{1}{2\\varepsilon R}\\int_{x-\\varepsilon R}^{x+\\varepsilon R} |f(t)-f(x)|\\,dt\\)。",
+          "应用 \\(L^1(\\mathbb{R})\\) 的 Lebesgue 微分定理（几乎处处的点为 Lebesgue 点），令 \\(r = \\varepsilon R \\to 0^+\\) 得出 \\(\\lim_{\\varepsilon \\to 0^+} (\\chi_\\varepsilon * f)(x) = f(x)\\) 几乎处处成立。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "时刻检查是否能用“取绝对值 + \\(L^\\infty\\) 界”替代对核函数符号的依赖，只在确实需要单调性或保号性时才使用非负假设。",
+            "mistake": "默认核函数 \\(\\chi \\ge 0\\)，试图直接利用平均值或保号性来估计。",
+            "title": "隐含假设核函数非负",
+            "why_wrong": "题设仅给出 \\(\\chi\\) 实值光滑紧支集且 \\(\\int \\chi = 1\\)，并未假设 \\(\\chi \\ge 0\\)。若不先取绝对值再放缩，直接把 \\(\\chi_\\varepsilon\\) 当成概率密度使用会导致推理不严谨。"
+          },
+          {
+            "how_to_avoid": "对一般 \\(L^1\\) 函数做点态极限时，先减去目标值 \\(f(x_0)\\) 并利用 Lebesgue 点的积分平均条件控制误差，避免直接对点值取极限。",
+            "mistake": "作代换 \\(u = y/\\varepsilon\\) 写成 \\(\\int_{\\mathbb{R}} \\chi(u) f(x_0 - \\varepsilon u)\\,du\\) 后，直接令 \\(\\varepsilon \\to 0\\) 并将极限符号放进积分号内，声称由控制收敛定理得到 \\(f(x_0)\\int \\chi(u)\\,du\\)。",
+            "title": "非法交换极限与积分",
+            "why_wrong": "一般 \\(f \\in L^1(\\mathbb{R})\\) 在 \\(x_0\\) 处未必连续，因此 \\(\\lim_{\\varepsilon \\to 0} f(x_0 - \\varepsilon u) = f(x_0)\\) 对每个 \\(u\\) 并不一定成立，且控制函数也未必存在，不能直接交换极限与积分。"
+          },
+          {
+            "how_to_avoid": "在写 \\(\\chi_\\varepsilon(y)\\) 的支集和积分区间时，明确写出变量代换 \\(|y/\\varepsilon| \\le M \\iff |y| \\le \\varepsilon M\\)，并事先说明 \\(f(x_0)\\) 几乎处处有限。",
+            "mistake": "忽略伸缩变换对支集半径的影响（误把积分域仍写成 \\(|y| \\le M\\)），或未说明 \\(f(x_0)\\) 几乎处处有限就直接做减法 \\(f(x_0 - y) - f(x_0)\\)。",
+            "title": "支集伸缩半径或函数有限性遗漏",
+            "why_wrong": "若积分半径不随 \\(\\varepsilon\\) 缩放到 \\(\\varepsilon M\\)，则无法触发 Lebesgue 点的 \\(o(\\varepsilon M)\\) 估计；而 \\(f \\in L^1(\\mathbb{R})\\) 在零测集上可能取无穷值，必须先限定在 \\(|f(x_0)| < \\infty\\) 的 Lebesgue 点上讨论。"
+          }
+        ],
+        "comparison_summary": "盲解与参考解答完全一致，均采用 \\(L^1(\\mathbb{R})\\) 的 Lebesgue 微分定理（几乎处处为 Lebesgue 点），先利用 \\(\\int_{\\mathbb{R}} \\chi_\\varepsilon = 1\\) 将卷积差改写为差商积分，再结合 \\(\\chi\\) 的紧支集与 \\(L^\\infty\\) 有界性将其控制为 \\(o(1)\\)。盲解在论证 \\(\\chi_\\varepsilon * f\\) 的良定义性以及变量代换细节上比参考解答更完整，也避免了参考解答中极限下标与中间行积分域的笔误。",
+        "difficulties": [
+          {
+            "detail": "由于 \\(f\\) 仅属于 \\(L^1(\\mathbb{R})\\) 而非连续函数，点态意义下的连续性不成立，不能直接将 \\(\\varepsilon \\to 0\\) 放入积分号内；必须识别出“几乎处处点态收敛”应当锚定在 \\(f\\) 的 Lebesgue 点上，将局部平均振荡 \\(\\int_{|y|\\le r} |f(x_0-y)-f(x_0)|\\,dy = o(r)\\) 作为桥梁。",
+            "title": "从连续函数直觉跨越到 \\(L^1\\) 函数的 Lebesgue 点刻画"
+          },
+          {
+            "detail": "核函数 \\(\\chi\\) 不一定非负，但光滑紧支集条件蕴含了 \\(\\operatorname{supp}(\\chi) \\subset [-M, M]\\) 与 \\(\\|\\chi\\|_{L^\\infty} < \\infty\\)，从而通过先取绝对值再放缩即可摆脱对 \\(\\chi\\) 符号的依赖。",
+            "title": "非负性缺失下的统一估值处理"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "放缩与估值",
+          "变量代换与重参数化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:极限与积分交换"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目要求证明对 \\(f \\in L^1(\\mathbb{R})\\)，\\((\\chi_\\varepsilon * f)(x)\\) 几乎处处点态收敛到 \\(f(x)\\)。核心结构线索是 \\(\\chi_\\varepsilon(x) = \\varepsilon^{-1}\\chi(x/\\varepsilon)\\) 构成一族逼近恒等式（approximate identity），且 \\(\\chi\\) 具有紧支集与光滑性（从而有界）。",
+            "step": "识别卷积核结构与收敛类型"
+          },
+          {
+            "detail": "对于一般的 \\(L^1(\\mathbb{R})\\) 函数，点态性质由 Lebesgue 微分定理刻画：几乎处处的 \\(x_0 \\in \\mathbb{R}\\) 都是 \\(f\\) 的 Lebesgue 点，即当 \\(t \\to 0^+\\) 时有 \\(\\int_{|y|\\le t} |f(x_0+y)-f(x_0)|\\,dy = o(t)\\)。这就提示我们把 \\((\\chi_\\varepsilon * f)(x_0) - f(x_0)\\) 转化为中心在 \\(x_0\\)、半径为 \\(O(\\varepsilon)\\) 的局部积分平均。",
+            "step": "将“几乎处处”转化为 Lebesgue 点条件"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "由 Lebesgue 微分定理，\\(f \\in L^1(\\mathbb{R})\\) 的几乎所有点都是其 Lebesgue 点。任取一个 Lebesgue 点 \\(x_0\\)，则 \\(|f(x_0)| < \\infty\\) 且当 \\(t \\to 0^+\\) 时 \\(\\int_{|y|\\le t} |f(x_0+y)-f(x_0)|\\,dy = o(t)\\)。只需证明在这些点处均有 \\(\\lim_{\\varepsilon \\to 0^+} (\\chi_\\varepsilon * f)(x_0) = f(x_0)\\)。",
+            "motivation": "锁定证明目标点集，把“几乎处处”落到可操作的积分小量条件上。",
+            "step": "第一步：选取 \\(f\\) 的 Lebesgue 点 \\(x_0\\)"
+          },
+          {
+            "detail": "通过变量代换 \\(u = y/\\varepsilon\\) 验证 \\(\\int_{\\mathbb{R}} \\chi_\\varepsilon(y)\\,dy = \\int_{\\mathbb{R}} \\chi(u)\\,du = 1\\)。由此将 \\(f(x_0)\\) 写为 \\(f(x_0)\\int_{\\mathbb{R}} \\chi_\\varepsilon(y)\\,dy\\)，合并积分得到 \\((\\chi_\\varepsilon * f)(x_0) - f(x_0) = \\int_{\\mathbb{R}} \\bigl(f(x_0 - y) - f(x_0)\\bigr)\\chi_\\varepsilon(y)\\,dy\\)。",
+            "motivation": "利用总积分为 \\(1\\) 的归一化条件，将卷积误差表示为纯振荡项的加权积分。",
+            "step": "第二步：利用归一化条件改写卷积差"
+          },
+          {
+            "detail": "设 \\(\\operatorname{supp}(\\chi) \\subset [-M, M]\\)，则 \\(\\operatorname{supp}(\\chi_\\varepsilon) \\subset [-\\varepsilon M, \\varepsilon M]\\)；又 \\(\\chi\\) 光滑紧支，故 \\(\\|\\chi\\|_{L^\\infty} < \\infty\\)。取绝对值并放缩：\n\\[\n|(\\chi_\\varepsilon * f)(x_0) - f(x_0)| \\le \\varepsilon^{-1}\\|\\chi\\|_{L^\\infty} \\int_{|y| \\le \\varepsilon M} |f(x_0 - y) - f(x_0)|\\,dy.\n\\]\n利用 \\(x_0\\) 为 Lebesgue 点的性质，上式右端等于 \\(\\|\\chi\\|_{L^\\infty}\\varepsilon^{-1}\\cdot o(\\varepsilon M) = o(1)\\)，即当 \\(\\varepsilon \\to 0^+\\) 时趋于 \\(0\\)。",
+            "motivation": "借助紧支集将积分域压缩到尺度 \\(O(\\varepsilon)\\) 上，与 Lebesgue 点的 \\(o(\\varepsilon)\\) 估计精确匹配。",
+            "step": "第三步：利用紧支集与 \\(L^\\infty\\) 界完成放缩估值"
+          }
+        ],
+        "teaching_takeaway": "处理紧支集逼近恒等式对 \\(L^1\\) 函数的几乎处处收敛问题时，标准路径是“归一化改写差值 \\(\\to\\) 紧支集压缩积分半径 \\(\\to\\) \\(L^\\infty\\) 放缩接上 Lebesgue 点条件”；即使核函数不非负，这一套路依然直接有效。",
+        "topic_tags": [
+          "实分析",
+          "卷积与逼近恒等式",
+          "Lebesgue点"
+        ]
+      }
+    }
+  ]
+}

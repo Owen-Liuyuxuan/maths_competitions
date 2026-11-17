@@ -1,0 +1,222 @@
+{
+  "resource_id": "imc-2020-day1-questions",
+  "source_sha256": "7ecde80f76cf0f2b322b5be4626f2bdf3dd0dcc1050bf5df34c999c76418071c",
+  "solution_resource_id": "imc-2020-day1-solutions",
+  "solution_sha256": "dd24f11dee8f688947ebb5be5e5f262427df0779532ef7c1e968ac19d0ba9138",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "imc-2020-day1-questions-q1",
+      "resource_id": "imc-2020-day1-questions",
+      "source_sha256": "7ecde80f76cf0f2b322b5be4626f2bdf3dd0dcc1050bf5df34c999c76418071c",
+      "solution_resource_id": "imc-2020-day1-solutions",
+      "solution_sha256": "dd24f11dee8f688947ebb5be5e5f262427df0779532ef7c1e968ac19d0ba9138",
+      "contest": "IMC",
+      "year": 2020,
+      "number": "1",
+      "level": "本科",
+      "title": "IMC 2020 day1 · 1",
+      "blind_attempt": {
+        "approach": "利用奇偶性计数与双射（或等价地使用特征函数／指数型生成函数）。将长度为 \\(n\\) 的单词按字母 \\(\\mathrm{a}\\) 和 \\(\\mathrm{b}\\) 的个数的奇偶性分为四类，通过两个显式的对合双射建立（偶 \\(\\mathrm{a}\\)、偶 \\(\\mathrm{b}\\)）与（奇 \\(\\mathrm{a}\\)、奇 \\(\\mathrm{b}\\)）之间的和差关系，即可直接求出答案 \\(4^{n-1} + 2^{n-1}\\)。",
+        "final_answer": "满足条件的单词总数为 \\(4^{n-1} + 2^{n-1}\\)（也可写作 \\(2^{n-1}(2^{n-1} + 1)\\) 或 \\(2^{2n-2} + 2^{n-1}\\)）。",
+        "problem_statement_zh": "设 \\(n\\) 为正整数。求满足以下全部三条性质的单词 \\(w\\)（有限字母序列）的个数：（1）\\(w\\) 由 \\(n\\) 个字母组成，所有字母均取自字母表 \\(\\{\\mathrm{a}, \\mathrm{b}, \\mathrm{c}, \\mathrm{d}\\}\\)；（2）\\(w\\) 中包含偶数个字母 \\(\\mathrm{a}\\)；（3）\\(w\\) 中包含偶数个字母 \\(\\mathrm{b}\\)。（例如，当 \\(n = 2\\) 时，共有 \\(6\\) 个这样的单词：\\(\\mathrm{aa}\\)、\\(\\mathrm{bb}\\)、\\(\\mathrm{cc}\\)、\\(\\mathrm{dd}\\)、\\(\\mathrm{cd}\\) 和 \\(\\mathrm{dc}\\)。）",
+        "steps": [
+          "设 \\(W_n = \\{\\mathrm{a}, \\mathrm{b}, \\mathrm{c}, \\mathrm{d}\\}^n\\) 为所有长度为 \\(n\\) 的单词集合，共有 \\(|W_n| = 4^n\\) 个单词。对任意单词 \\(w \\in W_n\\)，记 \\(A(w)\\) 和 \\(B(w)\\) 分别为 \\(w\\) 中字母 \\(\\mathrm{a}\\) 和 \\(\\mathrm{b}\\) 的出现次数。",
+          "定义 \\(E_n\\) 为 \\(A(w)\\) 与 \\(B(w)\\) 均为偶数的单词集合（即所求集合），\\(O_n\\) 为 \\(A(w)\\) 与 \\(B(w)\\) 均为奇数的单词集合。注意到 \\(w \\in E_n \\cup O_n\\) 当且仅当 \\(A(w) + B(w)\\) 为偶数。",
+          "求 \\(|E_n| + |O_n|\\)：由于 \\(n \\ge 1\\)，将单词 \\(w\\) 的第 \\(1\\) 个字母按规则 \\(\\mathrm{a} \\leftrightarrow \\mathrm{c}\\)、\\(\\mathrm{b} \\leftrightarrow \\mathrm{d}\\) 进行替换（其余位置不变）。该操作是 \\(W_n\\) 上的一个对合，且每次操作恰好使 \\(A(w) + B(w)\\) 改变 \\(1\\)（因而改变其奇偶性）。因此 \\(A(w) + B(w)\\) 为偶数与为奇数的单词数量相等，即 \\[|E_n| + |O_n| = \\frac{1}{2}|W_n| = \\frac{4^n}{2} = 2 \\cdot 4^{n-1}.\\]",
+          "求 \\(|E_n| - |O_n|\\)：考虑所有至少包含一个 \\(\\mathrm{a}\\) 或 \\(\\mathrm{b}\\) 的单词构成的集合 \\(S = W_n \\setminus \\{\\mathrm{c}, \\mathrm{d}\\}^n\\)。对任意 \\(w \\in S\\)，将其从左到右出现的第一个 \\(\\mathrm{a}\\) 或 \\(\\mathrm{b}\\) 按 \\(\\mathrm{a} \\leftrightarrow \\mathrm{b}\\) 互换（其余字母不变）。该操作是 \\(S\\) 上的对合，且同时改变 \\(A(w)\\) 与 \\(B(w)\\) 的奇偶性，从而在 \\(E_n \\cap S\\) 与 \\(O_n \\cap S\\) 之间建立了一一对应。因为 \\(O_n\\) 中的单词必含至少一个 \\(\\mathrm{a}\\)（奇数至少为 \\(1\\)），故 \\(O_n \\subseteq S\\)；而 \\(E_n \\setminus S = \\{\\mathrm{c}, \\mathrm{d}\\}^n\\)，其元素个数为 \\(2^n\\)。由此可得 \\[|E_n| - |O_n| = |E_n \\setminus S| = 2^n.\\]",
+          "联立两式相加除以 \\(2\\)，得到满足条件的单词个数为 \\[|E_n| = \\frac{2 \\cdot 4^{n-1} + 2^n}{2} = 4^{n-1} + 2^{n-1} = 2^{2n-2} + 2^{n-1}.\\]",
+          "小规模验证：当 \\(n=1\\) 时，\\(4^0 + 2^0 = 2\\)（即 \\(\\mathrm{c}, \\mathrm{d}\\)）；当 \\(n=2\\) 时，\\(4^1 + 2^1 = 6\\)，与题目所给例子完全一致。另注：本题亦可用指数型生成函数 \\(F(x) = \\left(\\frac{e^x + e^{-x}}{2}\\right)^2 e^{2x} = \\frac{e^{4x} + 2e^{2x} + 1}{4}\\) 直接提取 \\(\\frac{x^n}{n!}\\)（\\(n \\ge 1\\)）的系数得到同样结果。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在使用公式 \\(2^{k-1}\\) 前先检查 \\(k \\ge 1\\) 的适用范围，对 \\(k = 0\\)（即 \\(S = \\emptyset\\)）单独核算，并用 \\(n = 1, 2\\) 的小样例验算结果。",
+            "mistake": "在参考解法一中，不加区分地对包括空集在内的所有偶子集 \\(S\\) 都套用 \\(2^{n-k} \\cdot 2^{k-1} = 2^{n-1}\\) 种选法，从而算出错误答案 \\(2^{n-1} \\cdot 2^{n-1} = 4^{n-1}\\)。",
+            "title": "忽略空集 \\(S = \\emptyset\\) 的退化边界",
+            "why_wrong": "“\\(k\\) 元集有 \\(2^{k-1}\\) 个偶子集”仅在 \\(k \\ge 1\\) 时成立；当 \\(k = 0\\) 时，空集只有 \\(1\\) 个偶子集（即自身），而非 \\(2^{-1} = \\frac{1}{2}\\) 个。此时 \\(C \\subset N\\) 有 \\(2^n\\) 种选法，贡献 \\(2^n\\) 而非 \\(2^{n-1}\\)。"
+          },
+          {
+            "how_to_avoid": "先明确“偶数”包含 \\(0\\)，且对 \\(n=0\\) 与 \\(n \\ge 1\\) 分界敏感的操作（如 \\(0^n\\) 化简或首字母对换）显式标注 \\(n \\ge 1\\)。",
+            "mistake": "遗漏 \\(0\\) 也是偶数（漏算不含 \\(\\mathrm{a}\\) 或 \\(\\mathrm{b}\\) 的单词），或在代数滤波法中对 \\((-1 - 1 + 1 + 1)^n = 0^n\\) 未确认 \\(n \\ge 1\\) 就做代数化简。",
+            "title": "漏算零次出现或忽视 \\(n \\ge 1\\) 条件",
+            "why_wrong": "字母 \\(\\mathrm{a}\\) 或 \\(\\mathrm{b}\\) 出现 \\(0\\) 次满足偶数条件；若漏掉全由 \\(\\mathrm{c}, \\mathrm{d}\\) 构成的 \\(2^n\\) 个单词，会少算 \\(2^{n-1}\\) 等项。同时在 \\(n = 0\\) 时公式 \\(4^{n-1} + 2^{n-1} = \\frac{3}{4}\\) 不成立，因为 \\(0^0 = 1\\) 导致常数为 \\(\\frac{1}{4}(1+1+1+1) = 1\\)。"
+          },
+          {
+            "how_to_avoid": "按全部 \\(2 \\times 2\\) 奇偶状态完整列出转移矩阵，再利用字母互换的对称性（\\(b_n = c_n\\)）与总和恒等式（\\(a_n + b_n + c_n + d_n = 4^n\\)）消元化简。",
+            "mistake": "尝试直接对目标计数 \\(a_n\\) 列单变量递推式（如误以为 \\(a_n = 2a_{n-1} + \\cdots\\) 中后两项可直接用 \\(4^{n-1} - a_{n-1}\\) 代替）。",
+            "title": "递推建模时未区分其余奇偶状态导致漏项或错配",
+            "why_wrong": "前缀去掉首字母 \\(\\mathrm{a}\\) 后，剩余部分并非“任意不合法单词”，而必须精确落在“奇 \\(\\mathrm{a}\\)、偶 \\(\\mathrm{b}\\)”这一状态（\\(b_{n-1}\\)）中；三种不合法状态向合法状态的转移系数并不相同，不能混为一谈。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲做得到的最终答案 \\(4^{n-1} + 2^{n-1}\\)（及等价形式 \\(2^{n-1}(2^{n-1}+1)\\)、\\(2^{2n-2}+2^{n-1}\\)）完全正确，且在 \\(n=1,2,3\\) 上验证无误。方法上，Turn 1 主体采用了一对显式的对合双射（利用首字母 \\(\\mathrm{a}\\leftrightarrow\\mathrm{c}, \\mathrm{b}\\leftrightarrow\\mathrm{d}\\) 求和 \\(|E_n|+|O_n|\\)，利用首个 \\(\\mathrm{a}/\\mathrm{b}\\) 互换求差 \\(|E_n|-|O_n|\\)），并附注了指数型生成函数解法；官方参考解答则给出了三种不同视角：解法一按位置集合划分（先选 \\(S = A \\cup B\\)），解法二建立四状态耦合递推并利用对称性化简，解法三使用多元多项式展开与 \\(\\pm 1\\) 符号滤波。Turn 1 的对合双射法与解法二共享“四类奇偶状态”划分，与解法三在组合与代数层面互为对偶，均为独立成立的完整证明。",
+        "difficulties": [
+          {
+            "detail": "在位置集合划分思路（解法一）中，只要 \\(S = A \\cup B\\) 非空，偶子集 \\(A \\subset S\\) 的选择数恒为 \\(2^{k-1}\\)，与 \\(C \\subset N \\setminus S\\) 的 \\(2^{n-k}\\) 种选择相乘恰好消去 \\(k\\) 得到常数 \\(2^{n-1}\\)；但当 \\(S = \\emptyset\\)（\\(k=0\\)）时，\\(2^{k-1}\\) 公式失效，必须单独算出贡献 \\(2^n\\)，这是初学组合计数最易掉入的陷阱。",
+            "title": "非空子集偶划分的消元规律与空集边界的断裂"
+          },
+          {
+            "detail": "题目同时约束 \\(\\mathrm{a}\\) 和 \\(\\mathrm{b}\\) 的奇偶性，直接展开二项／多项式系数求和会遭遇双重约束。能否利用对称性（解法二中 \\(b_k = c_k\\) 使 \\(b_n\\) 直接闭式解出为 \\(4^{n-1}\\)）或代数恒等式 \\(\\frac{(1+(-1)^A)(1+(-1)^B)}{4}\\)（解法三）将双条件解耦，是迅速拿分的关键跃迁。",
+            "title": "双重奇偶约束的解耦技巧"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "奇偶与同余",
+          "归纳与递推",
+          "生成函数与多项式"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:计数重复与漏算"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "字母表中的 \\(\\mathrm{c}\\) 和 \\(\\mathrm{d}\\) 没有奇偶次数限制，且单词是长度固定为 \\(n\\) 的位置序列。因此，问题本质上等价于将位置集合 \\(N = \\{1, \\dots, n\\}\\) 划分为四部分 \\(A \\sqcup B \\sqcup C \\sqcup D = N\\)，其中仅要求 \\(|A|\\) 和 \\(|B|\\) 为偶数。",
+            "step": "识别受限字母与自由字母，将序列转为位置划分"
+          },
+          {
+            "detail": "由于单个字母的奇偶性具有局部转移性质（每增加一个字符只翻转对应字母的奇偶性），同时具有“加负号替换”的代数特征，自然引导出三条切入路径：按 \\(S = A \\cup B\\) 先合并受限位置直接计数（解法一）；按四类奇偶状态建立关于长度 \\(n\\) 的递推（解法二）；或用 \\(\\frac{1+(-1)^k}{2}\\) 构造多项式符号滤波器（解法三）。",
+            "step": "捕捉奇偶约束的结构线索，匹配计数工具"
+          },
+          {
+            "detail": "先用题目给出的 \\(n=2\\)（答案为 \\(6\\)）以及极小情形 \\(n=1\\)（只有 \\(\\mathrm{c}, \\mathrm{d}\\) 共 \\(2\\) 个）测试猜想公式，重点检查空集或全零次出现是否破坏一般规律。",
+            "step": "利用小样例锚定边界条件"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "记 \\(N = \\{1,\\dots,n\\}\\)，\\(A,B,C,D\\) 为各字母的位置集。先选定受限字母的总位置集 \\(S = A \\cup B\\)；因 \\(|S| = |A| + |B|\\) 必为偶数且 \\(n \\ge 1\\)，\\(S\\) 有 \\(2^{n-1}\\) 种选法。当 \\(S = \\emptyset\\) 时，仅需任选 \\(C \\subset N\\)，有 \\(2^n\\) 个单词；当 \\(|S| = k > 0\\) 时，任选 \\(C \\subset N \\setminus S\\)（\\(2^{n-k}\\) 种）与偶子集 \\(A \\subset S\\)（\\(2^{k-1}\\) 种），即可唯一确定 \\(B, D\\)，故每个非空偶集 \\(S\\) 对应 \\(2^{n-k} \\cdot 2^{k-1} = 2^{n-1}\\) 个单词。求和得 \\(2^n + (2^{n-1}-1)2^{n-1} = 4^{n-1} + 2^{n-1}\\)。之所以可行，在于 \\(S\\) 的大小 \\(k\\) 在乘积 \\(2^{n-k}\\cdot 2^{k-1}\\) 中完美消去，唯一例外是 \\(k=0\\) 时偶子集数为 \\(1\\) 而非 \\(2^{-1}\\)。",
+            "motivation": "参考解法一（集合划分直接计数）：先聚合再分解，避免分别枚举 \\(|A|\\) 和 \\(|B|\\) 的组合数二重求和。",
+            "step": "解法一：先定 \\(S = A \\cup B\\)，再分类讨论 \\(S = \\emptyset\\) 与 \\(S \\neq \\emptyset\\)"
+          },
+          {
+            "detail": "按 \\((A,B)\\) 奇偶性设 \\(a_n\\)（偶偶）、\\(b_n\\)（奇偶）、\\(c_n\\)（偶奇）、\\(d_n\\)（奇奇），满足 \\(a_n + b_n + c_n + d_n = 4^n\\)。按首字母分类转移得 \\(a_n = 2a_{n-1} + b_{n-1} + c_{n-1}\\) 与 \\(b_n = 2b_{n-1} + a_{n-1} + d_{n-1} = b_{n-1} + 4^{n-1} - c_{n-1}\\)。关键一步是利用 \\(\\mathrm{a} \\leftrightarrow \\mathrm{b}\\) 的对称性看出 \\(b_k = c_k\\) 对所有 \\(k\\) 成立，从而 \\(b_n = c_n = 4^{n-1}\\) 立即解出，原方程退化为一阶线性递推 \\(a_n = 2a_{n-1} + 2 \\cdot 4^{n-2}\\)。两边同除 \\(2^n\\) 裂项求和（并代入初值 \\(a_1 = 2\\)）即得 \\(a_n = 4^{n-1} + 2^{n-1}\\)。",
+            "motivation": "参考解法二（四状态递推与对称消元）：用有限自动机式的状态转移刻画奇偶变化。",
+            "step": "解法二：建立奇偶四状态递推并利用对称性解耦"
+          },
+          {
+            "detail": "考察和式 \\(\\frac{(a+b+c+d)^n + (-a-b+c+d)^n + (-a+b+c+d)^n + (a-b+c+d)^n}{4}\\)。将每一项按乘法分配律展开为长度为 \\(n\\) 的乘积 \\(x_1\\dots x_n\\)，则含 \\(A\\) 个 \\(\\mathrm{a}\\) 与 \\(B\\) 个 \\(\\mathrm{b}\\) 的单项式 \\(a^A b^B c^C d^D\\) 的总系数为 \\(\\frac{1 + (-1)^{A+B} + (-1)^A + (-1)^B}{4} = \\frac{1+(-1)^A}{2}\\cdot\\frac{1+(-1)^B}{2}\\)。该系数在 \\(A,B\\) 同为偶数时恰好为 \\(1\\)，否则为 \\(0\\)，相当于在多项式层面实现了精确筛选。最后令 \\(a=b=c=d=1\\)，且由 \\(n \\ge 1\\) 知 \\(0^n = 0\\)，直接算出 \\(\\frac{4^n + 0 + 2^n + 2^n}{4} = 4^{n-1} + 2^{n-1}\\)。",
+            "motivation": "参考解法三（单位根／符号滤波法）：将组合条件代数化为示性函数乘积，消除繁琐的分类讨论。",
+            "step": "解法三：利用多元多项式符号翻转进行奇偶滤波"
+          }
+        ],
+        "teaching_takeaway": "遇到“若干字母出现次数为偶数（或同余条件）”的序列计数问题时，符号滤波法 \\(\\frac{1+(-1)^A}{2}\\)（即单位根滤波／生成函数奇偶分解）是最通透且不易遗漏边界的工具；若用集合划分或递推，务必单独检验空集与 \\(n=1\\) 等退化情形。",
+        "topic_tags": [
+          "组合计数",
+          "递推关系",
+          "生成函数"
+        ]
+      }
+    },
+    {
+      "id": "imc-2020-day1-questions-q2",
+      "resource_id": "imc-2020-day1-questions",
+      "source_sha256": "7ecde80f76cf0f2b322b5be4626f2bdf3dd0dcc1050bf5df34c999c76418071c",
+      "solution_resource_id": "imc-2020-day1-solutions",
+      "solution_sha256": "dd24f11dee8f688947ebb5be5e5f262427df0779532ef7c1e968ac19d0ba9138",
+      "contest": "IMC",
+      "year": 2020,
+      "number": "2",
+      "level": "本科",
+      "title": "IMC 2020 day1 · 2",
+      "blind_attempt": {
+        "approach": "令 \\(C = AB - BA + I\\)。利用迹的线性性与循环不变性 \\(\\operatorname{trace}(XY) = \\operatorname{trace}(YX)\\) 可知 \\(\\operatorname{trace}(C) = n\\)。由 \\(\\operatorname{rk}(C) = 1\\)，可将 \\(C\\) 分解为两个非零列向量的外积 \\(C = uv^T\\)，从而直接算出 \\(C^2 = (v^T u) C = nC\\)，进而得到 \\(\\operatorname{trace}(C^2) = n^2\\)。接着用两种方式计算 \\(\\operatorname{trace}((AB - BA)^2)\\)：一方面由 \\(AB - BA = C - I\\) 直接利用 \\(\\operatorname{trace}(C^2)\\)、\\(\\operatorname{trace}(C)\\) 与 \\(\\operatorname{trace}(I)\\) 求值；另一方面将 \\((AB - BA)^2\\) 展开并反复应用迹的循环不变性，化简为 \\(2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2 B^2)\\bigr)\\)，对比两边即得所证等式。",
+        "final_answer": "证明如下：\n\n令 \\(C = AB - BA + I\\)。由迹的线性性及性质 \\(\\operatorname{trace}(XY) = \\operatorname{trace}(YX)\\)，有\n\\[\\operatorname{trace}(C) = \\operatorname{trace}(AB) - \\operatorname{trace}(BA) + \\operatorname{trace}(I) = 0 + n = n.\\]\n\n因为 \\(\\operatorname{rk}(C) = 1\\)，所以 \\(C\\) 的列空间是一维的，存在非零列向量 \\(u \\in \\mathbb{R}^n\\) 与列向量 \\(v \\in \\mathbb{R}^n\\)，使得\n\\[C = uv^T.\\]\n由此可得\n\\[\\operatorname{trace}(C) = \\sum_{i=1}^n u_i v_i = v^T u,\\]\n因此 \\(v^T u = n\\)。于是\n\\[C^2 = (uv^T)(uv^T) = u(v^T u)v^T = n(uv^T) = nC,\\]\n两边取迹得\n\\[\\operatorname{trace}(C^2) = n\\operatorname{trace}(C) = n^2.\\]\n\n现在从两个角度计算 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr)\\)：\n\n一方面，由于 \\(AB - BA = C - I\\)，有\n\\[(AB - BA)^2 = (C - I)^2 = C^2 - 2C + I.\\]\n取迹得\n\\[\\operatorname{trace}\\bigl((AB - BA)^2\\bigr) = \\operatorname{trace}(C^2) - 2\\operatorname{trace}(C) + \\operatorname{trace}(I) = n^2 - 2n + n = n(n - 1).\\]\n\n另一方面，直接展开可得\n\\[(AB - BA)^2 = ABAB - AB^2A - BA^2B + BABA.\\]\n利用迹的线性性及循环不变性 \\(\\operatorname{trace}(XYZ) = \\operatorname{trace}(ZXY)\\)：\n- \\(\\operatorname{trace}(BABA) = \\operatorname{trace}(B(ABA)) = \\operatorname{trace}((ABA)B) = \\operatorname{trace}(ABAB)\\)，\n- \\(\\operatorname{trace}(AB^2A) = \\operatorname{trace}(A(B^2A)) = \\operatorname{trace}((B^2A)A) = \\operatorname{trace}(B^2A^2) = \\operatorname{trace}(A^2B^2)\\)，\n- \\(\\operatorname{trace}(BA^2B) = \\operatorname{trace}(B(A^2B)) = \\operatorname{trace}((A^2B)B) = \\operatorname{trace}(A^2B^2)\\)。\n\n因此，\n\\[\\operatorname{trace}\\bigl((AB - BA)^2\\bigr) = 2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr).\\]\n\n比较上述两个结果，即得\n\\[2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr) = n(n - 1),\\]\n故\n\\[\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2) = \\frac{1}{2}n(n - 1).\\]\n证毕。",
+        "problem_statement_zh": "设 \\(A\\) 和 \\(B\\) 是 \\(n \\times n\\) 实矩阵，满足\n\\[\\operatorname{rk}(AB - BA + I) = 1,\\]\n其中 \\(I\\) 是 \\(n \\times n\\) 单位矩阵。证明：\n\\[\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2 B^2) = \\frac{1}{2}n(n-1).\\]\n（\\(\\operatorname{rk}(M)\\) 表示矩阵 \\(M\\) 的秩，即 \\(M\\) 中线性无关列向量的最大个数；\\(\\operatorname{trace}(M)\\) 表示矩阵 \\(M\\) 的迹，即 \\(M\\) 的对角线元素之和。）",
+        "steps": [
+          "记 \\(C = AB - BA + I\\)，利用 \\(\\operatorname{trace}(AB) = \\operatorname{trace}(BA)\\) 计算 \\(\\operatorname{trace}(C) = n\\)。",
+          "利用 \\(\\operatorname{rk}(C) = 1\\)，将 \\(C\\) 写成列向量的外积 \\(C = uv^T\\)，由 \\(\\operatorname{trace}(C) = v^T u = n\\) 推出 \\(C^2 = nC\\)，从而 \\(\\operatorname{trace}(C^2) = n^2\\)。",
+          "由 \\(AB - BA = C - I\\) 计算 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr) = \\operatorname{trace}(C^2 - 2C + I) = n^2 - 2n + n = n(n - 1)\\)。",
+          "将 \\((AB - BA)^2\\) 展开为 \\(ABAB - AB^2A - BA^2B + BABA\\)，借助迹的循环不变性化简得 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr) = 2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr)\\)。",
+          "联立两种计算结果，两边除以 \\(2\\) 即证得 \\(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2) = \\frac{1}{2}n(n - 1)\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "每次变形只将乘积中最左或最右的矩阵块循环移到另一端，例如 \\(\\operatorname{trace}(A(B^2A)) = \\operatorname{trace}((B^2A)A) = \\operatorname{trace}(B^2A^2) = \\operatorname{trace}(A^2B^2)\\)，切勿直接对换中间相邻矩阵。",
+            "mistake": "误以为矩阵的迹对所有乘法排列都不变，例如错认 \\(\\operatorname{trace}(ABAB) = \\operatorname{trace}(A^2B^2)\\)，或展开 \\((AB - BA)^2\\) 时无法正确合并交叉项。",
+            "title": "误用迹的交换律导致合并出错",
+            "why_wrong": "矩阵的迹仅满足循环不变性 \\(\\operatorname{trace}(M_1 M_2 \\cdots M_k) = \\operatorname{trace}(M_2 \\cdots M_k M_1)\\)，任意调换内部因子顺序一般会改变迹的值（若真能任意调换，则待证式左边将恒为 \\(0\\)）。"
+          },
+          {
+            "how_to_avoid": "先由 \\(\\dim\\ker(X+I) = n - 1\\) 得到 \\(0\\) 的几何重数为 \\(n - 1\\)（故代数重数 \\(\\ge n - 1\\)），进而在复数域 \\(\\mathbb{C}\\) 上设 \\(X\\) 的全部 \\(n\\) 个特征值为 \\(-1, \\dots, -1, \\lambda\\)，直接用 \\(\\operatorname{trace}(X) = \\sum \\lambda_i\\) 与 \\(\\operatorname{trace}(X^2) = \\sum \\lambda_i^2\\)，从而完全绕开可对角化问题。",
+            "mistake": "在特征值做法中直接断言“秩一矩阵必可对角化”或未区分几何重数与代数重数，直接写 \\(X+I\\) 恰有 \\(n-1\\) 个零特征值和 \\(1\\) 个非零特征值 \\(n\\)。",
+            "title": "特征值解法中忽略重数区分或隐含假设可对角化",
+            "why_wrong": "一般而言，秩一矩阵可以是幂零矩阵（如 \\(\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}\\)），其所有特征值全为 \\(0\\) 且不可对角化；本题虽因 \\(\\operatorname{trace}(X+I)=n \\ge 1 \\neq 0\\) 使得 \\(X+I\\) 恰有单根 \\(n\\) 与 \\(n-1\\) 重根 \\(0\\)，但论证中必须显式利用零空间维数与迹之和来确定全部 \\(n\\) 个特征值。"
+          },
+          {
+            "how_to_avoid": "明确设定 \\(u, v\\) 为 \\(n \\times 1\\) 列向量，核对乘积维度 \\((n \\times 1)(1 \\times n)(n \\times 1)(1 \\times n)\\)，从而自然结合出中间的标量内积 \\(v^T u = \\operatorname{trace}(u v^T)\\)，并用 \\(n = 1\\)（退化情形）或 \\(n = 2\\) 的具体矩阵代入检验公式。",
+            "mistake": "在写外积分解 \\(X + I = u v^T\\) 时弄反行/列向量转置位置，或计算 \\(X^2 = (u v^T - I)^2\\) 时将减号写成加号。",
+            "title": "外积分解的维数、转置与展开符号混淆",
+            "why_wrong": "矩阵乘法结合律要求 \\((u v^T)(u v^T) = u(v^T u)v^T\\)，夹在中间的标量是 \\(v^T u\\)；此外注意当 \\(n = 1\\) 时，\\(-1\\) 作为特征值的重数为 \\(n - 1 = 0\\)，仅剩一个特征值 \\(n - 1 = 0\\)，此时式子依然成立但退化为 \\(0 = 0\\)，符号错误会直接导致结果偏离 \\(n(n-1)\\)。"
+          }
+        ],
+        "comparison_summary": "盲解结果完全正确，思路与参考解答的主解法完全一致。盲解记 \\(C = AB - BA + I\\)，利用秩一分解 \\(C = u v^T\\) 与 \\(\\operatorname{trace}(C) = n\\) 推出 \\(C^2 = nC\\)，进而通过两种方式计算 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr)\\) 得出结论；参考解答记 \\(X = AB - BA\\)，同样使用秩一分解 \\(X + I = v^t w\\)（行向量记法）计算 \\(\\operatorname{trace}(X^2)\\)，并额外给出了一种利用特征值重数与迹关系的替代解法。",
+        "difficulties": [
+          {
+            "detail": "直接面对四次乘积的迹差 \\(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\) 时，很难直接把 \\(\\operatorname{rk}(AB - BA + I) = 1\\) 代入。关键跃迁在于识别出 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr) = 2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr)\\)，从而把双矩阵问题彻底化归为单矩阵 \\(X = AB - BA\\) 的二次迹问题。",
+            "title": "将四次乘积迹差识别为交换子平方的迹"
+          },
+          {
+            "detail": "容易只盯着显性条件 \\(\\operatorname{rk}(X + I) = 1\\)，而忘记交换子天然带有 \\(\\operatorname{trace}(X) = 0\\) 这一隐藏约束。正是 \\(\\operatorname{trace}(X + I) = n\\) 把秩一矩阵中原本未知的非零特征值（或外积中的标量内积 \\(v^T u\\)）唯一锁定为 \\(n\\)。",
+            "title": "联立“秩一”与“交换子迹为零”两项约束"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "变量代换与重参数化",
+          "不变量与单调量"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:符号与方向",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "观察条件中的整体 \\(AB - BA\\) 与待证式中的 \\(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\)。引入记号 \\(X = AB - BA\\)，尝试展开 \\(X^2\\) 并取迹，利用迹的循环不变性发现 \\(\\operatorname{trace}(X^2) = 2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr)\\)，从而将原命题等价转化为证明 \\(\\operatorname{trace}(X^2) = n(n - 1)\\)。",
+            "step": "一、以交换子为媒介转化待证目标"
+          },
+          {
+            "detail": "由交换子结构立刻提取出固定不变量 \\(\\operatorname{trace}(X) = \\operatorname{trace}(AB) - \\operatorname{trace}(BA) = 0\\)，因而 \\(\\operatorname{trace}(X + I) = n\\)。这一隐含条件将在后续唯一确定秩一矩阵的尺度参数。",
+            "step": "二、挖掘交换子的隐藏迹约束"
+          },
+          {
+            "detail": "面对 \\(\\operatorname{rk}(X + I) = 1\\)，既可以从代数角度写成外积 \\(X + I = u v^T\\) 将矩阵幂化为标量内积，也可以从谱角度由核空间维数 \\(n - 1\\) 确定 \\(X + I\\) 的特征值重数，再配合 \\(\\operatorname{trace}(X) = 0\\) 求得全部特征值。",
+            "step": "三、选择合适工具翻译秩一条件"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "令 \\(X = AB - BA\\)，展开得 \\(X^2 = ABAB - AB^2A - BA^2B + BABA\\)。利用迹的线性性与循环不变性 \\(\\operatorname{trace}(PQ) = \\operatorname{trace}(QP)\\)，有 \\(\\operatorname{trace}(BABA) = \\operatorname{trace}(ABAB)\\) 且 \\(\\operatorname{trace}(AB^2A) = \\operatorname{trace}(BA^2B) = \\operatorname{trace}(A^2B^2)\\)，于是 \\(\\operatorname{trace}(X^2) = 2\\bigl(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\bigr)\\)。待证等式等价于 \\(\\operatorname{trace}(X^2) = n(n - 1)\\)。",
+            "motivation": "将分散的四次乘积迹差打包成一个矩阵平方的迹，使问题完全围绕单个矩阵 \\(X\\) 展开。",
+            "step": "第一步：把待证式化归为 \\(\\operatorname{trace}(X^2)\\)"
+          },
+          {
+            "detail": "因为 \\(\\operatorname{rk}(X + I) = 1\\)，可将其分解为 \\(X + I = u v^T\\)（其中 \\(u, v \\in \\mathbb{R}^n\\) 为列向量）。由 \\(\\operatorname{trace}(X) = 0\\) 得 \\(v^T u = \\operatorname{trace}(u v^T) = \\operatorname{trace}(X + I) = n\\)。于是 \\(X^2 = (u v^T - I)^2 = I - 2u v^T + u(v^T u)v^T = I + (n - 2)u v^T\\)。两边取迹得 \\(\\operatorname{trace}(X^2) = n + (n - 2)n = n(n - 1)\\)。",
+            "motivation": "秩一矩阵总能写成一对向量的外积，使得矩阵平方中的交叉乘积自动塌缩为标量内积。",
+            "step": "第二步（主解法）：外积分解计算 \\(\\operatorname{trace}(X^2)\\)"
+          },
+          {
+            "detail": "由 \\(\\operatorname{rk}(X + I) = 1\\) 知 \\(\\dim\\ker(X + I) = n - 1\\)，故 \\(0\\) 是 \\(X + I\\) 的至少 \\(n - 1\\) 重特征值，即 \\(-1\\) 是 \\(X\\) 的至少 \\(n - 1\\) 重特征值。在复数域 \\(\\mathbb{C}\\) 上设 \\(X\\) 的第 \\(n\\) 个特征值为 \\(\\lambda\\)，由 \\(\\operatorname{trace}(X) = 0\\) 得 \\((n - 1)(-1) + \\lambda = 0\\)，从而 \\(\\lambda = n - 1\\)。进而 \\(\\operatorname{trace}(X^2) = (n - 1)(-1)^2 + (n - 1)^2 = n(n - 1)\\)。",
+            "motivation": "从线性算子谱的角度出发，利用秩一带来的大维数零空间与迹的不变性，无需展开矩阵乘积即可直接算出 \\(\\operatorname{trace}(X^2)\\)。",
+            "step": "第二步（替代解法）：特征值分布计算 \\(\\operatorname{trace}(X^2)\\)"
+          }
+        ],
+        "teaching_takeaway": "处理含交换子 \\(AB - BA\\) 与四次乘积迹差（如 \\(\\operatorname{trace}(ABAB) - \\operatorname{trace}(A^2B^2)\\)）的线性代数竞赛题时，应优先检验 \\(\\operatorname{trace}\\bigl((AB - BA)^2\\bigr)\\) 的展开式；而面对“秩一矩阵”条件，外积分解 \\(u v^T\\) 与“零空间维数确定重数 + 迹定其余特征值”是最通用且严密的两套工具。",
+        "topic_tags": [
+          "矩阵的迹",
+          "秩一矩阵",
+          "矩阵特征值"
+        ]
+      }
+    }
+  ]
+}

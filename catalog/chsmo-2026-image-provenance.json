@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/f3c8686e801c246d17db7cba3f067cab.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-1.jpg",
+    "sha256": "439af99f30589b0048bd570597c458e44731d46cbbabe3331c97878c723631bf"
+  },
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/26c892bb1e0465769e40acdacf905a6a.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-2.jpg",
+    "sha256": "32c3884952e3acb15c2dd1eccbbe83e46761e04d7ad989acec39ec94b4e8cb4d"
+  },
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/6ab3cc0936d99120e613e9958fc99be2.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-3.jpg",
+    "sha256": "e9b05d90108d5628e95c64ae76260fbe901be8d4bd4498ca5cf9549cf07db675"
+  },
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/05628a93ac65310136e50794e33d1a32.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-4.jpg",
+    "sha256": "ab877bd8d5824e53103a2887a829754e41ea324208c62515026d2f52b4034690"
+  },
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/ed2f457330ac3420a58ceb492da1f1c8.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-5.jpg",
+    "sha256": "746cf2ea6cbb245ba4afa8e4da511a0ed34aeca919eadb0162e33b1ef3fa29cb"
+  },
+  {
+    "url": "https://pics.latexstudio.net/uploads/20260915/cac98c08d8388f73c9fadbbe4ecba1d6.jpg?imageView2/2/w/800/",
+    "local_path": "originals/chsmo/2026/page-6.jpg",
+    "sha256": "af0925cf33c272b337a83319a7fd8224017b553a2fc915fb577319275c6254ab"
+  }
+]

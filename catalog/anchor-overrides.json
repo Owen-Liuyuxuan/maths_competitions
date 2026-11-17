@@ -1,0 +1,55 @@
+{
+  "chsmo-2026-images-6383343cd3-combined": {
+    "reason":"人工对照来源九图；第2页为加试B卷四题，后附一试不作为加试题。保留旧题目ID。",
+    "anchors":[{"number":"1","page":1,"y":8,"x":180},{"number":"2","page":1,"y":291,"x":180},{"number":"3","page":1,"y":402,"x":180},{"number":"4","page":1,"y":464,"x":180}]
+  },
+  "chsmo-2026-scoped-B-additional-solutions": {
+    "reason":"人工核对第3–6页各对应加试B卷一题解答。",
+    "anchors":[{"number":"1","page":2,"y":7,"x":175},{"number":"2","page":3,"y":9,"x":175},{"number":"3","page":4,"y":8,"x":175},{"number":"4","page":5,"y":8,"x":168}]
+  },
+  "chsmo-2025-scoped-A-round1-solutions": {
+    "reason":"人工按16图原卷及OCR坐标核对11个参考答案起点，排除评分说明和公式伪题号。",
+    "anchors":[{"number":"1","page":2,"y":188,"x":10},{"number":"2","page":2,"y":258,"x":10},{"number":"3","page":2,"y":355,"x":10},{"number":"4","page":2,"y":492,"x":10},{"number":"5","page":3,"y":38,"x":10},{"number":"6","page":3,"y":220,"x":10},{"number":"7","page":3,"y":414,"x":10},{"number":"8","page":4,"y":124,"x":10},{"number":"9","page":4,"y":404,"x":10},{"number":"10","page":5,"y":87,"x":10},{"number":"11","page":6,"y":213,"x":10}]
+  },
+  "chsmo-2025-scoped-A-additional-solutions": {
+    "reason":"人工核对加试四道参考答案起点。",
+    "anchors":[{"number":"1","page":8,"y":147,"x":10},{"number":"2","page":10,"y":20,"x":10},{"number":"3","page":12,"y":17,"x":10},{"number":"4","page":14,"y":11,"x":10}]
+  },
+  "cmo-2023-images-db13680339-combined": {
+    "reason":"人工核对第一天回忆图三个题号；排除来源页面广告图。",
+    "anchors":[{"number":"1","page":0,"y":10,"x":40},{"number":"2","page":0,"y":112,"x":40},{"number":"3","page":0,"y":216,"x":40}],
+    "terminal":{"page":0,"y":370.5}
+  },
+  "chsmo-2025-scoped-A-round1-questions": {
+    "reason":"对照两张一试原题扫描图，手动保留第3/5题分式顶部及第10题立体图。",
+    "anchors":[{"number":"1","page":0,"y":120,"x":20},{"number":"2","page":0,"y":139,"x":20},{"number":"3","page":0,"y":169,"x":20},{"number":"4","page":0,"y":247,"x":20},{"number":"5","page":0,"y":280,"x":20},{"number":"6","page":0,"y":328,"x":20},{"number":"7","page":0,"y":371,"x":20},{"number":"8","page":0,"y":411,"x":20},{"number":"9","page":1,"y":45,"x":10},{"number":"10","page":1,"y":137,"x":10},{"number":"11","page":1,"y":358,"x":10}],
+    "terminal":{"page":1,"y":406}
+  },
+  "chsmo-2025-scoped-A-additional-questions": {
+    "reason":"对照单张加试原题扫描图的四个中文大题，第一题保留圆几何图。",
+    "anchors":[{"number":"1","page":7,"y":103,"x":35},{"number":"2","page":7,"y":310,"x":35},{"number":"3","page":7,"y":408,"x":35},{"number":"4","page":7,"y":487,"x":35}],
+    "terminal":{"page":7,"y":613}
+  },
+  "cmo-2025-images-ba37a1fa50-combined": {
+    "reason":"逐张核对31张题解评分标准图，六道题面的蓝色框位于PDF第1/4/8/17/21/25页；明确题解分界，不以重复页眉作题号。",
+    "anchors":[{"number":"1","page":0,"y":93,"x":70,"answer_start":{"page":0,"y":358}},{"number":"2","page":3,"y":70,"x":70,"answer_start":{"page":3,"y":265}},{"number":"3","page":7,"y":87,"x":70,"answer_start":{"page":7,"y":275}},{"number":"4","page":16,"y":155,"x":60,"answer_start":{"page":16,"y":383}},{"number":"5","page":20,"y":104,"x":60,"answer_start":{"page":20,"y":302}},{"number":"6","page":24,"y":106,"x":60,"answer_start":{"page":24,"y":330}}]
+  },
+  "chsmo-2024-images-ab69f49935-combined": {
+    "reason":"视觉对照四页评分标准，排除卷首1/2两条评卷说明；手动标注中文四道加试题和前三题题解分界。",
+    "anchors":[{"number":"1","page":0,"y":188,"x":99,"answer_start":{"page":0,"y":239}},{"number":"2","page":1,"y":132,"x":99,"answer_start":{"page":1,"y":392}},{"number":"3","page":1,"y":615,"x":99,"answer_start":{"page":2,"y":120}},{"number":"4","page":2,"y":611,"x":99}]
+  },
+  "chsmo-2026-scoped-A-round1-questions": {
+    "reason":"逐页对照LaTeX工作室重排图第1页，纠正OCR漏2/8/11。",
+    "anchors":[{"number":"1","page":0,"y":192,"x":82},{"number":"2","page":0,"y":217,"x":82},{"number":"3","page":0,"y":242,"x":82},{"number":"4","page":0,"y":267,"x":82},{"number":"5","page":0,"y":307,"x":82},{"number":"6","page":0,"y":371,"x":82},{"number":"7","page":0,"y":397,"x":82},{"number":"8","page":0,"y":439,"x":82},{"number":"9","page":0,"y":509,"x":82},{"number":"10","page":0,"y":580,"x":78},{"number":"11","page":0,"y":640,"x":78}],
+    "terminal":{"page":0,"y":742}
+  },
+  "chsmo-2026-scoped-A-additional-questions": {
+    "reason":"逐页视觉核定重排图第2页四道加试题，保留第2题和第4题几何示意图。",
+    "anchors":[{"number":"1","page":1,"y":174,"x":68},{"number":"2","page":1,"y":233,"x":68},{"number":"3","page":1,"y":456,"x":68},{"number":"4","page":1,"y":577,"x":68}],
+    "terminal":{"page":1,"y":731}
+  },
+  "chsmo-2026-scoped-A-round1-solutions": {
+    "reason":"对照第3–6页一试参考答案；原六图没有加试解答，禁止把一试10/11答案错配加试。",
+    "anchors":[{"number":"1","page":2,"y":175,"x":83},{"number":"2","page":2,"y":223,"x":82},{"number":"3","page":2,"y":298,"x":82},{"number":"4","page":2,"y":375,"x":82},{"number":"5","page":2,"y":459,"x":82},{"number":"6","page":2,"y":617,"x":82},{"number":"7","page":3,"y":70,"x":82},{"number":"8","page":3,"y":274,"x":82},{"number":"9","page":3,"y":585,"x":82},{"number":"10","page":4,"y":70,"x":78},{"number":"11","page":4,"y":576,"x":78}]
+  }
+}

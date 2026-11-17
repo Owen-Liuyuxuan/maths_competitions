@@ -1,0 +1,2355 @@
+[
+  {
+    "resource_id": "chsmo-2020-B-round1-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2020-images-01a0295f88-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2020-images-3540b54fb7-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2020-images-caee89abcb-combined",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2021-images-56c694447d-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2021-images-7b1fdef7db-combined",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2021-images-b016f52da7-combined",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-0dc02b9475-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-2babc5fb73-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-6f05e4f299-combined",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-7b42f7df23-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-a6617b7ae0-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-d711dc5d61-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-d8ad2065dd-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2022-images-db5bb1b9f0-combined",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2023-images-38003b909e-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2023-images-a2d4e369ee-combined",
+    "count": 8,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2023-images-b2138d1272-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2023-images-b2ea5f5392-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2024-images-0736d4193f-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2024-images-19e252a311-combined",
+    "count": 1,
+    "numbers": [
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2024-images-7bc04952c9-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2024-images-ab69f49935-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2025-scoped-A-additional-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2025-scoped-A-additional-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2025-scoped-A-round1-questions",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2025-scoped-A-round1-solutions",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2026-images-6383343cd3-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2026-scoped-A-additional-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2026-scoped-A-round1-questions",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2026-scoped-A-round1-solutions",
+    "count": 11,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "resource_id": "chsmo-2026-scoped-B-additional-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "cmc-2020-preliminary-9342153a9c-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "cmc-2020-preliminary-bcc18d0edd-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "cmc-2020-preliminary-fcd821a53c-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-11-math-high-combined-combined",
+    "count": 1,
+    "numbers": [
+      "4"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-11-math-low-combined-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-12-math-high-combined-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-12-math-low-combined-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-final-12-nonmath-combined-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-28f0fde0f6-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-8776f93994-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-95e8ed4a91-combined",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-ab8c7c3317-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-d52fad8ee5-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2021-preliminary-fd897ca1e5-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-1c9ff24d67-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-1ec360e9bf-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-2ad9e2146b-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-aed404353d-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-c31ac52e7c-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2022-preliminary-ef5bcd0dd4-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-13-math-high-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-13-math-low-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-13-nonmath-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-14-math-high-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-14-math-low-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-final-14-nonmath-combined-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-preliminary-08d3fb6d32-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-preliminary-2e7dbb6080-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-preliminary-3a6d6007d5-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2023-preliminary-50db065592-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-final-15-math-high-combined-combined",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-final-15-math-low-combined-combined",
+    "count": 2,
+    "numbers": [
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-final-15-nonmath-combined-combined",
+    "count": 7,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-preliminary-606c4494c2-combined",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-preliminary-ac5ff8877d-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-preliminary-b1bed6c3ae-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2024-preliminary-f433d9f6d1-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-final-16-math-high-combined-combined",
+    "count": 9,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-final-16-math-low-combined-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-final-16-nonmath-a-combined-combined",
+    "count": 2,
+    "numbers": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-final-16-nonmath-b-combined-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-preliminary-01cc8a9422-combined",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-preliminary-109df208ec-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-preliminary-578f22a079-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2025-preliminary-a7d2ec96d3-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmc-2026-images-2c0689e373-combined",
+    "count": 1,
+    "numbers": [
+      "5"
+    ]
+  },
+  {
+    "resource_id": "cmc-2026-images-ab9ae6745e-combined",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "cmo-2020-compilation-extract-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmo-2021-compilation-extract-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmo-2022-compilation-extract-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmo-2023-images-db13680339-combined",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "cmo-2024-both-days-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "cmo-2025-images-ba37a1fa50-combined",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2020-both-days-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2020-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2020-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2021-both-days-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "egmo-2021-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2021-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2022-both-days-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2022-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2022-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2023-both-days-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2023-day1-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2023-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2023-day2-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2023-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2024-both-days-solutions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2024-day1-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2024-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2024-day2-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2024-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2025-both-days-solutions",
+    "count": 1,
+    "numbers": [
+      "1"
+    ]
+  },
+  {
+    "resource_id": "egmo-2025-day1-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2025-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2025-day2-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2025-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2026-both-days-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2026-day1-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2026-day1-English-questions",
+    "count": 3,
+    "numbers": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  {
+    "resource_id": "egmo-2026-day2-ChineseSimplified-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "egmo-2026-day2-English-questions",
+    "count": 3,
+    "numbers": [
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imc-2020-day1-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2020-day1-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2020-day2-questions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2020-day2-solutions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2021-day1-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2021-day1-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2021-day2-questions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2021-day2-solutions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2022-day1-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2022-day1-solutions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "imc-2022-day2-questions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2022-day2-solutions",
+    "count": 4,
+    "numbers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "resource_id": "imc-2023-day1-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2023-day1-solutions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2023-day2-questions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2023-day2-solutions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2024-day1-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2024-day1-solutions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2024-day2-questions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2024-day2-solutions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2025-day1-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2025-day1-solutions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2025-day2-questions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2025-day2-solutions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2026-day1-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2026-day1-solutions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "imc-2026-day2-questions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imc-2026-day2-solutions",
+    "count": 5,
+    "numbers": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ]
+  },
+  {
+    "resource_id": "imo-2020-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2021-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2022-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2023-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2024-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2025-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "imo-2026-main-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2020-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2020-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2021-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2021-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2022-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2022-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2023-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2023-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2024-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2024-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2025-AB-questions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "putnam-2025-AB-solutions",
+    "count": 12,
+    "numbers": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-095f507c8d-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-251122f66b-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-37496cc485-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-428ea38d58-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-60843921ed-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-9bf4620b98-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-a8f2a27193-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-adfb907703-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-c0bbac0e21-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2020-fd20a59d3e-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-34c90c3071-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-4c9bc8f4f4-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-4ffdbac5d6-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-65c0a10ae2-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-6a3a98e219-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-7cea0b0696-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-7f9ca7cd87-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-8dd0850931-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-d85a0bf927-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2021-e151da4718-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-105bebec8b-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-2c28a9e65f-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-347cd8c83f-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-3ac15d3d44-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-3eed1cca72-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-42c1ff948f-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-78a74a9461-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-9300e8e073-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-efdbf8bf89-solutions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2022-fac62f87f1-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-15d80a91a8-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-1f028e076b-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-61bdc8877e-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-ab35ce8530-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-d9ffea6ef0-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2023-eea9e345b0-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2024-6065e967cc-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2024-9cfddcb831-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "yau-2024-cddbde7b63-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2024-dfd8c3c115-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-2c2b919482-questions",
+    "count": 4,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-8f2d5f8b50-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-a6d3c36a1c-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-a82831f450-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-d052945875-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2025-fc2d238965-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-21df46ae7b-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-65229d08be-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-7b2baac385-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-a9f675236c-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-cad5af6705-questions",
+    "count": 6,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "resource_id": "yau-2026-cd5b0f6f31-questions",
+    "count": 5,
+    "numbers": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  }
+]

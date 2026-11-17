@@ -1,0 +1,114 @@
+{
+  "resource_id": "yau-2020-a8f2a27193-questions",
+  "source_sha256": "9762a7ac3fafa005d6a5b9084e1a8f97ebae976a2dc0d5d13b4e6156f280190e",
+  "solution_resource_id": "yau-2020-251122f66b-solutions",
+  "solution_sha256": "791710f13228ca33ccd601d34311ec469f87a5d2f13f3f1094319638d413bca5",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2020-a8f2a27193-questions-q1",
+      "resource_id": "yau-2020-a8f2a27193-questions",
+      "source_sha256": "9762a7ac3fafa005d6a5b9084e1a8f97ebae976a2dc0d5d13b4e6156f280190e",
+      "solution_resource_id": "yau-2020-251122f66b-solutions",
+      "solution_sha256": "791710f13228ca33ccd601d34311ec469f87a5d2f13f3f1094319638d413bca5",
+      "contest": "YAU",
+      "year": 2020,
+      "number": "1",
+      "level": "本科",
+      "title": "algebra and numbertheory 20.pdf · 1",
+      "blind_attempt": {
+        "approach": "第一问利用形式幂级数环中的生成函数 \\(E(t) = \\prod_{i=1}^n (1 + x_i t)\\)，对 \\(t\\) 求导并展开 \\(\\frac{E'(t)}{E(t)}\\)，比较两边 \\(t^{k-1}\\) 的系数即可证明牛顿恒等式。第二问和第三问在 \\(F\\) 的代数闭包 \\(\\overline{F}\\) 上考虑矩阵的特征值，将 \\(\\operatorname{tr}(A^k)\\) 表示为特征值的幂和对称多项式 \\(p_k\\)，将特征多项式的系数表示为初等对称多项式 \\(e_k\\)，再利用第一问的牛顿恒等式及 \\(\\operatorname{char}(F) = 0\\)（从而 \\(1, 2, \\dots, n\\) 均可逆）在 \\(p_k\\) 与 \\(e_k\\) 之间进行归纳转化，最后结合 Cayley–Hamilton 定理完成证明。",
+        "final_answer": "三小问均已完整证明：\n(a) 通过生成函数 \\(E(t) = \\prod_{i=1}^n (1 + x_i t) = \\sum_{k=0}^{\\infty} e_k t^k\\) 与形式对数求导恒等式 \\(E'(t) = E(t) \\sum_{m=0}^{\\infty} (-1)^m p_{m+1} t^m\\)，比较 \\(t^{k-1}\\) 系数即得牛顿恒等式\n\\[p_k - p_{k-1}e_1 + \\cdots + (-1)^{k-1}p_1 e_{k-1} + (-1)^k k e_k = 0 \\quad (k \\ge 1).\\]\n(b) 设 \\(A\\) 在 \\(\\overline{F}\\) 中的特征值为 \\(\\lambda_1, \\dots, \\lambda_n\\)。若 \\(A\\) 幂零，则所有 \\(\\lambda_i = 0\\)，故 \\(\\operatorname{tr}(A^k) = \\sum_{i=1}^n \\lambda_i^k = 0\\)。反之，若对所有 \\(k \\ge 1\\) 有 \\(\\operatorname{tr}(A^k) = p_k(\\lambda_1,\\dots,\\lambda_n) = 0\\)，由牛顿恒等式及 \\(\\operatorname{char}(F) = 0\\) 得 \\(e_k(\\lambda_1,\\dots,\\lambda_n) = 0\\)（\\(1 \\le k \\le n\\)），从而特征多项式为 \\(t^n\\)，由 Cayley–Hamilton 定理得 \\(A^n = 0\\)，即 \\(A\\) 幂零。\n(c) 设 \\(A, B\\) 在 \\(\\overline{F}\\) 中的特征值分别为 \\(\\lambda_1,\\dots,\\lambda_n\\) 与 \\(\\mu_1,\\dots,\\mu_n\\)。两者特征多项式相同当且仅当 \\(e_k(\\lambda) = e_k(\\mu)\\) 对所有 \\(k = 1, \\dots, n\\) 成立。由牛顿恒等式及 \\(\\operatorname{char}(F) = 0\\)，对 \\(k\\) 归纳可得这等价于 \\(p_k(\\lambda) = p_k(\\mu)\\) 对所有 \\(k \\ge 1\\) 成立，即 \\(\\operatorname{tr}(A^k) = \\operatorname{tr}(B^k)\\) 对所有 \\(k \\ge 1\\) 成立。",
+        "problem_statement_zh": "设 \\(F\\) 为特征为零的域，考虑多项式环 \\(F[x_1, \\dots, x_n]\\)。\n(a) 证明域 \\(F\\) 上的牛顿恒等式：\n\\[p_k - p_{k-1}e_1 + \\cdots + (-1)^{k-1} p_1 e_{k-1} + (-1)^k k e_k = 0,\\]\n其中当 \\(1 \\le k \\le n\\) 时，\n\\[e_k(x_1, \\dots, x_n) = \\sum_{1 \\le i_1 < \\cdots < i_k \\le n} x_{i_1} \\cdots x_{i_k},\\]\n（注：原题图中下标末项印为 \\(\\beta_k\\)，应为 \\(i_k\\)），\\(e_0 = 1\\)，当 \\(k > n\\) 时 \\(e_k = 0\\)，且\n\\[p_k(x_1, \\dots, x_n) = x_1^k + \\cdots + x_n^k.\\]\n(b) 证明：在特征为零的域 \\(F\\) 上，一个 \\(n \\times n\\) 矩阵 \\(A\\) 是幂零矩阵，当且仅当对所有 \\(k = 1, 2, \\dots\\) 都有 \\(\\operatorname{tr}(A^k) = 0\\)。提示：使用 (a)。\n(c) 证明：在特征为零的域 \\(F\\) 上，两个 \\(n \\times n\\) 矩阵 \\(A\\) 和 \\(B\\) 具有相同的特征多项式，当且仅当对所有 \\(k = 1, 2, \\dots\\) 都有 \\(\\operatorname{tr}(A^k) = \\operatorname{tr}(B^k)\\)。提示：使用 (a)。",
+        "steps": [
+          "**证明 (a)：** 在形式幂级数环 \\(F[x_1, \\dots, x_n][[t]]\\) 中考虑多项式\n\\[E(t) = \\prod_{i=1}^n (1 + x_i t) = \\sum_{k=0}^n e_k t^k = \\sum_{k=0}^\\infty e_k t^k,\\]\n其中利用了 \\(e_0 = 1\\) 及 \\(k > n\\) 时 \\(e_k = 0\\)。对 \\(t\\) 取形式导数，一方面有\n\\[E'(t) = \\sum_{k=1}^\\infty k e_k t^{k-1}.\\]\n另一方面，由乘法求导法则，\n\\[E'(t) = \\sum_{i=1}^n x_i \\prod_{j \\ne i} (1 + x_j t) = E(t) \\sum_{i=1}^n \\frac{x_i}{1 + x_i t}.\\]\n在 \\(F[x_1, \\dots, x_n][[t]]\\) 中展开 \\(\\frac{x_i}{1 + x_i t} = \\sum_{m=0}^\\infty (-1)^m x_i^{m+1} t^m\\)，对 \\(i = 1, \\dots, n\\) 求和得\n\\[E'(t) = E(t) \\sum_{m=0}^\\infty (-1)^m p_{m+1} t^m = \\left(\\sum_{j=0}^\\infty e_j t^j\\right) \\left(\\sum_{m=0}^\\infty (-1)^m p_{m+1} t^m\\right).\\]\n对任意 \\(k \\ge 1\\)，比较等式两边 \\(t^{k-1}\\) 的系数（右边令 \\(j + m = k - 1\\)，即 \\(m = k - 1 - j\\)，\\(0 \\le j \\le k - 1\\)），得\n\\[k e_k = \\sum_{j=0}^{k-1} (-1)^{k-1-j} p_{k-j} e_j.\\]\n两边同乘 \\((-1)^k\\) 并移项，即得\n\\[\\sum_{j=0}^{k-1} (-1)^j p_{k-j} e_j + (-1)^k k e_k = p_k - p_{k-1}e_1 + \\cdots + (-1)^{k-1}p_1 e_{k-1} + (-1)^k k e_k = 0.\\]",
+          "**证明 (b)：** 设 \\(\\overline{F}\\) 为 \\(F\\) 的代数闭包，则 \\(\\operatorname{char}(\\overline{F}) = 0\\)。设 \\(A\\) 在 \\(\\overline{F}\\) 中的全部特征值（计入代数重数）为 \\(\\lambda_1, \\dots, \\lambda_n\\)。则 \\(A\\) 的特征多项式为\n\\[\\chi_A(t) = \\det(tI - A) = \\prod_{i=1}^n (t - \\lambda_i) = \\sum_{k=0}^n (-1)^k e_k(\\lambda_1, \\dots, \\lambda_n) t^{n-k}.\\]\n由于 \\(A\\) 在 \\(\\overline{F}\\) 上可上三角化，\\(A^k\\) 的特征值为 \\(\\lambda_1^k, \\dots, \\lambda_n^k\\)，故对一切 \\(k \\ge 1\\) 有\n\\[\\operatorname{tr}(A^k) = \\sum_{i=1}^n \\lambda_i^k = p_k(\\lambda_1, \\dots, \\lambda_n).\\]\n\\((\\Rightarrow)\\) 若 \\(A\\) 幂零，则存在正整数 \\(m\\) 使得 \\(A^m = 0\\)。于是对每个特征值 \\(\\lambda_i\\) 有 \\(\\lambda_i^m = 0\\)，从而 \\(\\lambda_i = 0\\)。因此对所有 \\(k \\ge 1\\)，\\(\\operatorname{tr}(A^k) = \\sum_{i=1}^n \\lambda_i^k = 0\\)。\n\\((\\Leftarrow)\\) 若对所有 \\(k \\ge 1\\) 有 \\(\\operatorname{tr}(A^k) = 0\\)，则对 \\(k = 1, \\dots, n\\) 有 \\(p_k(\\lambda_1, \\dots, \\lambda_n) = 0\\)。将 \\((x_1, \\dots, x_n) = (\\lambda_1, \\dots, \\lambda_n)\\) 代入 (a) 的牛顿恒等式，对每个 \\(1 \\le k \\le n\\) 得到\n\\[(-1)^k k e_k(\\lambda_1, \\dots, \\lambda_n) = 0.\\]\n因为 \\(\\operatorname{char}(F) = 0\\)，所以 \\(k \\ne 0\\)，故 \\(e_k(\\lambda_1, \\dots, \\lambda_n) = 0\\) 对所有 \\(1 \\le k \\le n\\) 成立。由此得 \\(\\chi_A(t) = t^n\\)。根据 Cayley–Hamilton 定理，\\(A^n = \\chi_A(A) = 0\\)，即 \\(A\\) 是幂零矩阵。",
+          "**证明 (c)：** 设 \\(A, B\\) 在 \\(\\overline{F}\\) 中的特征值（计入代数重数）分别为 \\(\\lambda_1, \\dots, \\lambda_n\\) 和 \\(\\mu_1, \\dots, \\mu_n\\)。记 \\(\\lambda = (\\lambda_1, \\dots, \\lambda_n)\\)，\\(\\mu = (\\mu_1, \\dots, \\mu_n)\\)。由于\n\\[\\chi_A(t) = \\sum_{k=0}^n (-1)^k e_k(\\lambda) t^{n-k}, \\qquad \\chi_B(t) = \\sum_{k=0}^n (-1)^k e_k(\\mu) t^{n-k},\\]\n故 \\(\\chi_A(t) = \\chi_B(t)\\) 当且仅当 \\(e_k(\\lambda) = e_k(\\mu)\\) 对所有 \\(k = 1, \\dots, n\\) 成立（且对 \\(k > n\\) 恒有 \\(e_k(\\lambda) = e_k(\\mu) = 0\\)）。同时，对所有 \\(k \\ge 1\\) 有 \\(\\operatorname{tr}(A^k) = p_k(\\lambda)\\) 及 \\(\\operatorname{tr}(B^k) = p_k(\\mu)\\)。\n\\((\\Rightarrow)\\) 若 \\(\\chi_A(t) = \\chi_B(t)\\)，则对一切 \\(j \\ge 1\\) 有 \\(e_j(\\lambda) = e_j(\\mu)\\)。对 \\(k \\ge 1\\) 施归纳：当 \\(k = 1\\) 时，\\(p_1(\\lambda) = e_1(\\lambda) = e_1(\\mu) = p_1(\\mu)\\)。若对所有 \\(1 \\le j < k\\) 有 \\(p_j(\\lambda) = p_j(\\mu)\\)，由 (a) 的牛顿恒等式\n\\[p_k = \\sum_{j=1}^{k-1} (-1)^{j-1} p_{k-j} e_j + (-1)^{k-1} k e_k,\\]\n立得 \\(p_k(\\lambda) = p_k(\\mu)\\)。因此 \\(\\operatorname{tr}(A^k) = \\operatorname{tr}(B^k)\\) 对所有 \\(k \\ge 1\\) 成立。\n\\((\\Leftarrow)\\) 若对所有 \\(k \\ge 1\\) 有 \\(\\operatorname{tr}(A^k) = \\operatorname{tr}(B^k)\\)，即 \\(p_k(\\lambda) = p_k(\\mu)\\)。对 \\(k = 1, \\dots, n\\) 施归纳证明 \\(e_k(\\lambda) = e_k(\\mu)\\)：当 \\(k = 1\\) 时，\\(e_1(\\lambda) = p_1(\\lambda) = p_1(\\mu) = e_1(\\mu)\\)。设对所有 \\(1 \\le j < k\\)（其中 \\(1 \\le k \\le n\\)）已有 \\(e_j(\\lambda) = e_j(\\mu)\\)，由牛顿恒等式\n\\[(-1)^{k-1} k e_k = p_k - p_{k-1} e_1 + \\cdots + (-1)^{k-1} p_1 e_{k-1},\\]\n右端在 \\(\\lambda\\) 与 \\(\\mu\\) 处取值相等，故 \\((-1)^{k-1} k e_k(\\lambda) = (-1)^{k-1} k e_k(\\mu)\\)。因为 \\(\\operatorname{char}(F) = 0\\)，\\(k\\) 在 \\(F\\) 中可逆，两边消去 \\((-1)^{k-1} k\\) 即得 \\(e_k(\\lambda) = e_k(\\mu)\\)。从而 \\(e_k(\\lambda) = e_k(\\mu)\\) 对所有 \\(1 \\le k \\le n\\) 成立，即 \\(\\chi_A(t) = \\chi_B(t)\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在从 \\((-1)^k k e_k = 0\\) 推出 \\(e_k = 0\\) 或由 \\(p_1,\\dots,p_n\\) 反解 \\(e_k\\) 时，务必显式写出“因为 \\(\\operatorname{char}(F) = 0\\)，故 \\(1, 2, \\dots, n\\) 在 \\(F\\) 中均非零（可逆）”。",
+            "mistake": "忽略特征为零的条件 \\(\\operatorname{char}(F) = 0\\)，直接将 \\(k e_k = 0\\) 两边除以 \\(k\\)。",
+            "title": "忽略基域特征为零的必要性",
+            "why_wrong": "在正特征域 \\(\\mathbb{F}_p\\) 上，单位矩阵 \\(I_p\\) 满足对一切 \\(k \\ge 1\\) 有 \\(\\operatorname{tr}(I_p^k) = p = 0\\)，但 \\(I_p\\) 并非幂零矩阵，且 \\(I_p\\) 与 \\(0\\) 矩阵迹全相等但特征多项式不同。问题根源在于 \\(p \\mid k\\) 时无法除以 \\(k\\)。"
+          },
+          {
+            "how_to_avoid": "使用生成函数时先代入 \\(k = 1, 2\\) 检验符号（如 \\(p_1 - e_1 = 0\\)，\\(p_2 - p_1 e_1 + 2 e_2 = 0\\)）；写出特征多项式时明确 \\(\\det(tI - A) = \\sum_{k=0}^n (-1)^k e_k(\\lambda) t^{n-k}\\)。",
+            "mistake": "在生成函数 \\(E(y) = \\prod_{i=1}^n (1 - x_i y)\\) 或 \\(\\prod_{i=1}^n (1 + x_i y)\\) 的展开与对数求导中混淆正负号，导致牛顿恒等式各项符号出错。",
+            "title": "生成函数与牛顿恒等式的正负号混淆",
+            "why_wrong": "\\(E(y) = \\prod(1 - x_i y)\\) 的系数为 \\((-1)^k e_k\\)，而 \\(\\ln(1 - x_i y)\\) 展开全为负号，若求导或乘以 \\((-1)^k\\) 时少写一个负号，就会与目标恒等式相差符号。"
+          },
+          {
+            "how_to_avoid": "在写证明前先声明“取 \\(F\\) 的代数闭包 \\(\\overline{F}\\)，\\(A\\) 在 \\(\\overline{F}\\) 上可上三角化，其对角元即特征值 \\(\\lambda_1, \\dots, \\lambda_n\\)”，由此直接得到 \\(\\operatorname{tr}(A^k) = \\sum \\lambda_i^k\\)。",
+            "mistake": "未引入代数闭包 \\(\\overline{F}\\)，直接假设矩阵 \\(A\\) 在基域 \\(F\\) 上有 \\(n\\) 个特征值甚至可以对角化。",
+            "title": "默认矩阵在基域上可对角化或特征值全在 \\(F\\) 中",
+            "why_wrong": "一般的域 \\(F\\) 未必代数封闭，且幂零矩阵（非零时）恰恰不可对角化；不通过 \\(\\overline{F}\\) 上的上三角化（或 Schur/Jordan 标准形）直接谈论特征值及 \\(\\operatorname{tr}(A^k) = \\sum \\lambda_i^k\\) 缺乏严格性。"
+          }
+        ],
+        "comparison_summary": "盲解与参考解答思路完全一致且结论正确。第 (a) 问均采用生成函数与对数求导法：参考解答通过 \\(\\ln E(y)\\)（其中 \\(E(y) = \\prod_{i=1}^n (1 - x_i y)\\)）展开再求导，盲解直接在形式幂级数环中对 \\(E(t) = \\prod_{i=1}^n (1 + x_i t)\\) 求导并计算 \\(E'(t)/E(t)\\)，两者本质等价（盲解还顺带避免了使用对数级数时对特征零的依赖）。第 (b)、(c) 问两者均通过代数闭包上的特征值将 \\(\\operatorname{tr}(A^k)\\) 转化为幂和对称多项式 \\(p_k\\)，借助牛顿恒等式及 \\(\\operatorname{char}(F)=0\\) 与特征多项式系数 \\(e_k\\) 相互转化，最后结合 Cayley–Hamilton 定理完成证明；盲解在归纳步骤和代数闭包、特征零的显式说明上更为细致。",
+        "difficulties": [
+          {
+            "detail": "将 \\(e_k\\) 与 \\(p_k\\) 的有限和恒等式转化为单一生成函数 \\(E(y) = \\prod_{i=1}^n (1 - x_i y)\\) 的形式对数求导恒等式 \\(\\frac{E'(y)}{E(y)} = -\\sum_{j=1}^\\infty p_j y^{j-1}\\)，从而一次性通过比较系数得到所有阶的牛顿恒等式。",
+            "title": "生成函数的构造与形式对数求导"
+          },
+          {
+            "detail": "在一般特征零域 \\(F\\) 上，矩阵不一定能对角化且特征值不一定属于 \\(F\\)。需要取代数闭包 \\(\\overline{F}\\)，利用 \\(\\overline{F}\\) 上的上三角化说明 \\(A^k\\) 的迹等于特征值的 \\(k\\) 次幂和，并注意到 \\(\\operatorname{char}(F) = 0\\) 保证了 \\(k\\)（\\(1 \\le k \\le n\\)）可逆，从而由 \\(p_1,\\dots,p_n\\) 唯一确定 \\(e_1,\\dots,e_n\\)。",
+            "title": "跨越域的代数封闭性与特征零条件的应用"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "生成函数与多项式",
+          "对称与轮换",
+          "归纳与递推"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:符号与方向",
+          "易错:充分性与必要性混淆"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "观察目标等式 \\(p_k - p_{k-1}e_1 + \\cdots + (-1)^k k e_k = 0\\)：它同时包含初等对称多项式 \\(e_k\\) 与幂和对称多项式 \\(p_k\\)，且形式上是两者乘积的卷积（类似乘积求导或幂级数乘法系数），提示使用生成函数 \\(E(y) = \\prod_{i=1}^n (1 - x_i y)\\)。",
+            "step": "第一步：识别 (a) 的卷积结构，锁定生成函数方法"
+          },
+          {
+            "detail": "注意到题目在 (b)(c) 中反复强调“特征为零的域 \\(F\\)”和“使用 (a)”。特征多项式的系数恰好是（带符号的）特征值的初等对称多项式 \\(e_k(\\lambda)\\)，而 \\(\\operatorname{tr}(A^k)\\) 恰好是特征值的幂和 \\(p_k(\\lambda)\\)。这直接把矩阵问题翻译成了对称多项式问题。",
+            "step": "第二步：建立矩阵迹、特征多项式与 \\(p_k, e_k\\) 的桥梁"
+          },
+          {
+            "detail": "从 (a) 的递推关系看，只要 \\(1, 2, \\dots, n\\) 可逆（这正是 \\(\\operatorname{char}(F) = 0\\) 的作用），前 \\(n\\) 个 \\(p_k\\) 与前 \\(n\\) 个 \\(e_k\\) 可以互相唯一决定。再结合 Cayley–Hamilton 定理（\\(\\chi_A(t) = t^n \\implies A^n = 0\\)）即可打通 (b) 与 (c)。",
+            "step": "第三步：利用特征零条件实现 \\(p_k\\) 与 \\(e_k\\) 的互推"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "构造多项式 \\(E(y) = \\prod_{i=1}^n (1 - x_i y) = \\sum_{k=0}^n (-1)^k e_k y^k\\)。在形式幂级数环中利用 \\(-\\ln(1 - t) = \\sum_{j=1}^\\infty t^j/j\\)，得到 \\(\\ln E(y) = -\\sum_{j=1}^\\infty p_j y^j/j\\)。对其求导得 \\(E'(y)/E(y) = -\\sum_{j=1}^\\infty p_j y^{j-1}\\)，即 \\(-E'(y) = E(y) \\sum_{j=1}^\\infty p_j y^{j-1}\\)。比较两边 \\(y^{k-1}\\) 系数即得牛顿恒等式。这里之所以用 \\(\\ln E(y)\\)，是因为对数把乘积变成了和，求导则消去了 \\(1/j\\) 并把 \\(e_k\\) 中的系数 \\(k\\) 提了出来。",
+            "motivation": "需要一个能同时把乘积形式的 \\(e_k\\) 与和形式的 \\(p_k\\) 联系起来的工具。",
+            "step": "第一步：对数求导法证明牛顿恒等式 (a)"
+          },
+          {
+            "detail": "若 \\(A\\) 幂零，则其极小多项式为 \\(x^r\\)，特征多项式为 \\(x^n\\)，故 \\(\\operatorname{tr}(A) = 0\\)；同理 \\(A^k\\) 也幂零，故 \\(\\operatorname{tr}(A^k) = 0\\)。反之，在 \\(\\overline{F}\\) 上，设 \\(A\\) 的特征值为 \\(\\lambda_1, \\dots, \\lambda_n\\)，则 \\(p_k(\\lambda) = \\operatorname{tr}(A^k) = 0\\)。由 (a) 及 \\(\\operatorname{char}(F) = 0\\) 依次（或归纳）推出 \\(e_k(\\lambda) = 0\\)（\\(1 \\le k \\le n\\)），于是特征多项式 \\(f(t) = t^n\\)，由 Cayley–Hamilton 定理得 \\(A^n = 0\\)。",
+            "motivation": "将“幂零”刻画为“特征多项式为 \\(t^n\\)”，再通过 (a) 把“所有迹为零”转化为“特征多项式系数全为零”。",
+            "step": "第二步：利用牛顿恒等式证明幂零判别法 (b)"
+          },
+          {
+            "detail": "\\(A\\) 与 \\(B\\) 有相同特征多项式等价于两者特征值的初等对称多项式 \\(e_k(\\lambda_A) = e_k(\\lambda_B)\\) 对 \\(0 \\le k \\le n\\)（从而对所有 \\(k \\ge 0\\)）成立。借助 (a) 的牛顿恒等式与归纳法（以及 \\(\\operatorname{char}(F) = 0\\) 保证除以 \\(k\\) 合法），\\(e_k(\\lambda_A) = e_k(\\lambda_B)\\)（\\(\\forall k \\ge 0\\)）等价于 \\(p_k(\\lambda_A) = p_k(\\lambda_B)\\)（\\(\\forall k \\ge 1\\)），即 \\(\\operatorname{tr}(A^k) = \\operatorname{tr}(B^k)\\) 对所有 \\(k \\ge 1\\) 成立。",
+            "motivation": "特征多项式由 \\(e_1, \\dots, e_n\\) 决定，而幂迹序列由 \\(p_1, p_2, \\dots\\) 决定，牛顿恒等式正是两者之间的双射桥梁。",
+            "step": "第三步：通过 \\(e_k\\) 与 \\(p_k\\) 的等价性证明 (c)"
+          }
+        ],
+        "teaching_takeaway": "在特征为零的域上，矩阵前 \\(n\\) 阶幂的迹 \\(\\operatorname{tr}(A), \\dots, \\operatorname{tr}(A^n)\\) 与特征多项式通过牛顿恒等式相互唯一决定；遇到“幂和 \\(p_k\\)”与“初等对称多项式 \\(e_k\\)”的关系时，对生成函数 \\(\\prod(1 \\pm x_i t)\\) 取对数求导（或直接求导）是最简洁标准的武器。",
+        "topic_tags": [
+          "对称多项式",
+          "牛顿恒等式",
+          "矩阵特征多项式与迹"
+        ]
+      }
+    }
+  ]
+}

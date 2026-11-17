@@ -1,0 +1,41 @@
+{
+  "resource_id": "egmo-2021-day2-English-questions",
+  "source_sha256": "ad1ec71e920a6af2dff035d6cf05d292f0024c8055b622c51c0a1acd49267b04",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "4",
+      "title": "EGMO 2021 · 第4题",
+      "body_zh": "三角形 \\(ABC\\) 的内心为 \\(I\\)，\\(D\\) 为边 \\(BC\\) 上任意一点。过 \\(D\\) 且垂直于 \\(BI\\) 的直线交 \\(CI\\) 于 \\(E\\)，过 \\(D\\) 且垂直于 \\(CI\\) 的直线交 \\(BI\\) 于 \\(F\\)。\n证明：点 \\(A\\) 关于直线 \\(EF\\) 的对称点位于直线 \\(BC\\) 上。",
+      "tags": [
+        "平面几何",
+        "内心",
+        "垂直",
+        "轴对称"
+      ]
+    },
+    {
+      "number": "5",
+      "title": "EGMO 2021 · 第5题",
+      "body_zh": "平面上固定一点 \\(O\\)，称为原点。点集 \\(\\mathcal P\\) 含有 \\(2021\\) 个点，满足：\n（1）其中任意三点不共线；\n（2）其中任意两点所在的直线都不经过 \\(O\\)。\n若以 \\(\\mathcal P\\) 中的点为顶点的三角形将 \\(O\\) 严格包含在内部，则称它为胖三角形。求胖三角形个数的最大值。",
+      "tags": [
+        "组合几何",
+        "点集",
+        "三角形计数",
+        "极值"
+      ]
+    },
+    {
+      "number": "6",
+      "title": "EGMO 2021 · 第6题",
+      "body_zh": "是否存在非负整数 \\(a\\)，使方程\n\\[\\left\\lfloor\\frac m1\\right\\rfloor+\\left\\lfloor\\frac m2\\right\\rfloor+\\cdots+\\left\\lfloor\\frac mm\\right\\rfloor=n^2+a\\]\n有超过一百万组不同的正整数解 \\((m,n)\\)？\n这里 \\(\\lfloor x\\rfloor\\) 表示不超过实数 \\(x\\) 的最大整数。",
+      "tags": [
+        "数论",
+        "取整函数",
+        "约数和",
+        "完全平方数",
+        "解的个数"
+      ]
+    }
+  ]
+}

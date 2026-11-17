@@ -1,0 +1,18 @@
+{
+ "resource_id":"chsmo-2025-scoped-A-round1-questions",
+ "source_sha256":"0e8995302e9a15181c28b60555643db1bc2f4bc0d3947635670b8f5e4ac73f57",
+ "read_method":"model-visual",
+ "questions":[
+  {"number":"1","title":"CHSMO 2025 · A卷一试 · 第1题","body_zh":"若 \\(\\log_3(9x),\\log_9(27x),\\log_{27}(3x)\\) 成等差数列，求正数 \\(x\\) 的值。","tags":["代数","对数","等差数列"]},
+  {"number":"2","title":"CHSMO 2025 · A卷一试 · 第2题","body_zh":"设集合 \\(A=\\{1,2,3,\\ldots,100\\}\\)，\\(B=\\{a^2+2^a\\mid a\\in A\\}\\)。求 \\(A\\cup B\\) 的元素个数。","tags":["代数","集合","计数","单调性"]},
+  {"number":"3","title":"CHSMO 2025 · A卷一试 · 第3题","body_zh":"设点 \\(P\\) 在椭圆\n\\[\\Gamma_1:\\frac{x^2}{20}+\\frac{y^2}{25}=1\\]\n上，\\(F_1,F_2\\) 为 \\(\\Gamma_1\\) 的两个焦点。线段 \\(F_1P\\) 交椭圆\n\\[\\Gamma_2:\\frac{x^2}{9}+\\frac{y^2}{14}=1\\]\n于点 \\(Q\\)。若三角形 \\(F_2PQ\\) 的周长为 \\(8\\)，求线段 \\(F_1Q\\) 的长度。","tags":["解析几何","椭圆","共焦椭圆","周长"]},
+  {"number":"4","title":"CHSMO 2025 · A卷一试 · 第4题","body_zh":"设函数 \\(f(x)\\) 的定义域为 \\(\\mathbb R\\)，\\(g(x)=(x-1)f(x)\\)，\\(h(x)=f(x)+x\\)。若 \\(g(x)\\) 为奇函数、\\(h(x)\\) 为偶函数，求 \\(f(x)\\) 的最大值。","tags":["代数","函数","奇偶性","最值"]},
+  {"number":"5","title":"CHSMO 2025 · A卷一试 · 第5题","body_zh":"若正整数 \\(k\\) 满足\n\\[\\left(\\frac{\\sin20^\\circ}{\\cos25^\\circ}+\\frac{\\sin25^\\circ}{\\cos20^\\circ}i\\right)^k\\in\\mathbb R,\\]\n其中 \\(i\\) 为虚数单位，求 \\(k\\) 的最小值。","tags":["代数","复数","三角恒等式","复数的幂"]},
+  {"number":"6","title":"CHSMO 2025 · A卷一试 · 第6题","body_zh":"设 \\(\\Gamma\\) 为任意四棱柱。在 \\(\\Gamma\\) 的 \\(12\\) 条棱中随机选取两条不同的棱 \\(l_1,l_2\\)，将事件“\\(l_1\\) 所在直线与 \\(l_2\\) 所在直线平行”发生的概率记为 \\(P(\\Gamma)\\)。求 \\(P(\\Gamma)\\) 所有可能的值。","tags":["空间几何","棱柱","平行关系","古典概率"]},
+  {"number":"7","title":"CHSMO 2025 · A卷一试 · 第7题","body_zh":"平面中的三个单位向量 \\(\\vec a,\\vec b,\\vec c\\) 满足\n\\[\\vec a\\cdot\\vec b=\\lfloor\\vec a\\cdot\\vec c\\rfloor+\\lfloor\\vec b\\cdot\\vec c\\rfloor,\\]\n其中 \\(\\lfloor x\\rfloor\\) 表示不超过实数 \\(x\\) 的最大整数。求 \\(\\lvert\\vec a+\\vec b+\\vec c\\rvert\\) 的取值范围。","tags":["平面向量","数量积","取整函数","取值范围"]},
+  {"number":"8","title":"CHSMO 2025 · A卷一试 · 第8题","body_zh":"将 \\(1,2,3,\\ldots,9\\) 排列为 \\(a,b,c,d,e,f,g,h,i\\)，使三个三位数 \\(\\overline{abc},\\overline{def},\\overline{ghi}\\) 之和等于 \\(2025\\)。求不同排列方法的个数。","tags":["组合","排列计数","十进制","数位和"]},
+  {"number":"9","title":"CHSMO 2025 · A卷一试 · 第9题","body_zh":"在平面直角坐标系 \\(xOy\\) 中，点集\n\\[\\Gamma=\\{(x,y)\\mid y^2=2x+2|x|\\}.\\]\n若 \\(\\Gamma\\) 中三个不同的点 \\(M,P,Q\\) 满足：\\(M\\) 为 \\(PQ\\) 的中点，且 \\(\\overrightarrow{OP}\\cdot\\overrightarrow{OQ}=-2\\)，求点 \\(M\\) 的坐标。","tags":["解析几何","绝对值","点集","中点","数量积"]},
+  {"number":"10","title":"CHSMO 2025 · A卷一试 · 第10题","body_zh":"设正四面体 \\(ABCD\\) 各棱长均为 \\(2\\)。\\(P,Q\\) 分别为棱 \\(AB,AC\\) 上的动点，允许位于棱的端点，且 \\(AP+AQ=2\\)。\\(M\\) 为棱 \\(AD\\) 的中点。在三角形 \\(MPQ\\) 中，\\(MH\\) 为 \\(PQ\\) 边上的高。求 \\(MH\\) 长度的最小值。","tags":["空间几何","正四面体","动点","距离最值"]},
+  {"number":"11","title":"CHSMO 2025 · A卷一试 · 第11题","body_zh":"设 \\(\\alpha\\) 为实数，\\(m,n\\) 为正整数，且 \\(\\sin(m\\alpha)\\sin(n\\alpha)\\ne0\\)。证明\n\\[\\frac1{|\\sin(m\\alpha)|}+\\frac1{|\\sin(n\\alpha)|}>\\frac1{m|\\sin(m\\alpha)\\sin(n\\alpha)|+|\\sin(mn\\alpha)|}.\\]","tags":["三角函数","不等式","倍角","绝对值"]}
+ ]
+}

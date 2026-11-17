@@ -1,0 +1,113 @@
+{
+  "resource_id": "yau-2021-e151da4718-questions",
+  "source_sha256": "60982ac1afa134bae63ca0c458ab9e9c98572b244cfc1d24e3f3b1b64f1e1470",
+  "solution_resource_id": "yau-2021-34c90c3071-solutions",
+  "solution_sha256": "906dedb2a0d25542f11dc69bfb0fcb656004e42a9a5fa18d0e2677aa0578d6f1",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2021-e151da4718-questions-q1",
+      "resource_id": "yau-2021-e151da4718-questions",
+      "source_sha256": "60982ac1afa134bae63ca0c458ab9e9c98572b244cfc1d24e3f3b1b64f1e1470",
+      "solution_resource_id": "yau-2021-34c90c3071-solutions",
+      "solution_sha256": "906dedb2a0d25542f11dc69bfb0fcb656004e42a9a5fa18d0e2677aa0578d6f1",
+      "contest": "YAU",
+      "year": 2021,
+      "number": "1",
+      "level": "本科",
+      "title": "probability and statistics 21s.pdf · 1",
+      "blind_attempt": {
+        "approach": "采用截断法（配合有界连续函数的分布收敛性质）与尾部一致控制。对任意截断阈值 \\(K > 0\\)，构造有界连续函数 \\(g_K(x) = \\min(|x|^s, K)\\)（以及 \\(\\min(|x|^r, K)\\)）。先利用分布收敛的等价刻画与单调收敛定理证明极限随机变量也满足 \\(\\mathbb{E}|X|^r \\le C\\)，再借助 \\(0 < s < r\\) 给出 \\(|X_n|^s\\) 与 \\(|X|^s\\) 超过 \\(K\\) 的尾部期望的一致上界 \\(C K^{-(r-s)/s}\\)，最后通过三角不等式完成证明。",
+        "final_answer": "对任意 \\(0 < s < r\\)，均成立 \\(\\lim_{n\\to\\infty} \\mathbb{E}|X_n|^s = \\mathbb{E}|X|^s\\)（且极限值有限）。证明核心在于：一方面由分布收敛保证截断矩 \\(\\mathbb{E}[\\min(|X_n|^s, K)] \\to \\mathbb{E}[\\min(|X|^s, K)]\\)，另一方面由 \\(\\mathbb{E}|X_n|^r \\le C\\) 与 \\(\\mathbb{E}|X|^r \\le C\\) 保证截断误差一致不超过 \\(C K^{-(r-s)/s}\\)，令 \\(K\\) 充分大再令 \\(n \\to \\infty\\) 即可得证。",
+        "problem_statement_zh": "设实值随机变量序列 \\(\\{X_n\\}\\) 依分布收敛于 \\(X\\)，且存在正常数 \\(r\\) 和 \\(C\\) 使得对所有 \\(n\\) 均有 \\(\\mathbb{E}|X_n|^r \\le C\\)。证明：对所有 \\(0 < s < r\\)，均有\n\\[\\lim_{n\\to\\infty} \\mathbb{E}|X_n|^s = \\mathbb{E}|X|^s.\\]",
+        "steps": [
+          "第一步（证明 \\(\\mathbb{E}|X|^r \\le C\\)）：对任意 \\(K > 0\\)，函数 \\(x \\mapsto \\min(|x|^r, K)\\) 在 \\(\\mathbb{R}\\) 上有界且连续（因 \\(r > 0\\)）。由 \\(X_n\\) 依分布收敛于 \\(X\\)，有\n\\[\\mathbb{E}[\\min(|X|^r, K)] = \\lim_{n\\to\\infty} \\mathbb{E}[\\min(|X_n|^r, K)] \\le \\limsup_{n\\to\\infty} \\mathbb{E}|X_n|^r \\le C.\\]\n令 \\(K \\to \\infty\\)，由于 \\(0 \\le \\min(|X|^r, K) \\uparrow |X|^r\\)，由单调收敛定理（MCT）可得 \\(\\mathbb{E}|X|^r \\le C < \\infty\\)。特别地，因 \\(0 < s < r\\)，有 \\(|X|^s \\le 1 + |X|^r\\)，故 \\(\\mathbb{E}|X|^s < \\infty\\)。",
+          "第二步（截断矩的收敛性）：同样地，对任意 \\(K > 0\\)，函数 \\(x \\mapsto \\min(|x|^s, K)\\) 在 \\(\\mathbb{R}\\) 上有界且连续（因 \\(s > 0\\)）。由分布收敛的定义（Portmanteau 定理 / Helly-Bray 定理）得\n\\[\\lim_{n\\to\\infty} \\mathbb{E}[\\min(|X_n|^s, K)] = \\mathbb{E}[\\min(|X|^s, K)].\\]",
+          "第三步（尾部截断误差的一致估计）：对任意随机变量 \\(Y\\) 满足 \\(\\mathbb{E}|Y|^r \\le C\\)（即取 \\(Y = X_n\\) 或 \\(Y = X\\)），在事件 \\(\\{|Y|^s > K\\}\\) 上有 \\(|Y| > K^{1/s}\\)。由于 \\(s - r < 0\\)，在该事件上成立\n\\[|Y|^s = |Y|^r \\cdot |Y|^{s-r} \\le |Y|^r \\cdot K^{-(r-s)/s}.\\]\n因此，\n\\[0 \\le \\mathbb{E}|Y|^s - \\mathbb{E}[\\min(|Y|^s, K)] = \\mathbb{E}\\big[(|Y|^s - K)\\mathbf{1}_{\\{|Y|^s > K\\}}\\big] \\le \\mathbb{E}\\big[|Y|^s \\mathbf{1}_{\\{|Y|^s > K\\}}\\big] \\le K^{-(r-s)/s}\\mathbb{E}|Y|^r \\le C K^{-(r-s)/s}.\\]\n此上界对所有 \\(n\\)（取 \\(Y = X_n\\)）及极限变量 \\(X\\)（取 \\(Y = X\\)）一致成立。",
+          "第四步（三角不等式收尾）：任取 \\(\\varepsilon > 0\\)。因 \\((r-s)/s > 0\\)，可选取充分大的 \\(K > 0\\) 使得 \\(C K^{-(r-s)/s} < \\varepsilon / 3\\)。固定该 \\(K\\)，由第二步存在 \\(N \\in \\mathbb{N}\\)，使得对所有 \\(n \\ge N\\) 有\n\\[\\big|\\mathbb{E}[\\min(|X_n|^s, K)] - \\mathbb{E}[\\min(|X|^s, K)]\\big| < \\frac{\\varepsilon}{3}.\\]\n于是对所有 \\(n \\ge N\\)，由三角不等式得\n\\[\\big|\\mathbb{E}|X_n|^s - \\mathbb{E}|X|^s\\big| \\le \\big|\\mathbb{E}|X_n|^s - \\mathbb{E}[\\min(|X_n|^s, K)]\\big| + \\big|\\mathbb{E}[\\min(|X_n|^s, K)] - \\mathbb{E}[\\min(|X|^s, K)]\\big| + \\big|\\mathbb{E}[\\min(|X|^s, K)] - \\mathbb{E}|X|^s\\big| < \\frac{\\varepsilon}{3} + \\frac{\\varepsilon}{3} + \\frac{\\varepsilon}{3} = \\varepsilon.\\]\n从而 \\(\\lim_{n\\to\\infty} \\mathbb{E}|X_n|^s = \\mathbb{E}|X|^s\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "牢记依分布收敛等价于所有**有界**连续函数期望收敛；遇到无界函数 \\(|x|^s\\) 时，必须先截断为有界连续函数 \\(f_M(x) = \\min(|x|^s, M^s)\\)，再控制尾部误差。",
+            "mistake": "直接由 \\(X_n \\xrightarrow{d} X\\) 推出 \\(\\mathbb{E}|X_n|^s \\to \\mathbb{E}|X|^s\\)，忽略 \\(|x|^s\\) 的无界性。",
+            "title": "误将依分布收敛用于无界连续函数",
+            "why_wrong": "依分布收敛只保证有界连续函数的期望收敛；若无 \\(r > s\\) 阶矩一致有界条件，概率质量可能“逃逸到无穷远”使高阶矩发散或严格变大（例如 \\(P(X_n = n^{1/s}) = 1/n,\\; P(X_n = 0) = 1 - 1/n\\)，此时 \\(X_n \\xrightarrow{d} 0\\) 但 \\(\\mathbb{E}|X_n|^s = 1 \\not\\to 0\\)）。"
+          },
+          {
+            "how_to_avoid": "利用 \\(\\liminf_{n\\to\\infty}\\) 与 \\(\\limsup_{n\\to\\infty}\\) 夹逼，先固定 \\(M\\) 让 \\(n \\to \\infty\\)，最后再让 \\(M \\to \\infty\\)；或在做 \\(\\varepsilon/3\\) 估计时明确写出先取 \\(M\\) 再取 \\(N\\) 的逻辑顺序。",
+            "mistake": "在双极限 \\(\\lim_{M\\to\\infty}\\lim_{n\\to\\infty}\\) 中混淆取极限次序，或未说明截断误差关于 \\(n\\) 的一致性。",
+            "title": "忽视对 \\(n\\) 的一致性或极限次序错误",
+            "why_wrong": "若截断误差界依赖于 \\(n\\)，则先令 \\(n\\to\\infty\\) 再令 \\(M\\to\\infty\\) 无法消去误差；本题正因为 \\(\\mathbb{E}|X_n|^r \\le C\\) 对所有 \\(n\\) 一致成立，才得到不依赖 \\(n\\) 的尾部界 \\(C / M^{r-s}\\)。"
+          },
+          {
+            "how_to_avoid": "解题后检验临界情形 \\(s = r\\)：若 \\(s = r\\)，则 \\(M^{r-s} = 1\\)，尾部控制失效；事实上反例 \\(P(X_n = n^{1/r}) = 1/n,\\; P(X_n = 0) = 1 - 1/n\\) 满足 \\(\\mathbb{E}|X_n|^r = 1\\) 且 \\(X_n \\xrightarrow{d} 0\\)，但 \\(\\mathbb{E}|X_n|^r = 1 \\neq 0 = \\mathbb{E}|X|^r\\)。",
+            "mistake": "认为结论对 \\(s = r\\) 也成立，或未注意到条件 \\(s < r\\) 的本质作用。",
+            "title": "忽略边界情形 \\(s = r\\) 的反例",
+            "why_wrong": "尾部估计 \\(\\mathbb{E}[|X_n|^s \\mathbf{1}_{\\{|X_n| \\ge M\\}}] \\le M^{-(r-s)} \\mathbb{E}|X_n|^r\\) 只有在 \\(r - s > 0\\) 时才会随 \\(M \\to \\infty\\) 趋于 \\(0\\)。"
+          }
+        ],
+        "comparison_summary": "盲解与参考答案均采用截断法，核心思路与结论完全一致（outcome: correct）。差异仅在收尾细节：参考答案直接取 \\(f_M(x) = \\min(|x|^s, M^s)\\)，通过上下极限夹逼先令 \\(n \\to \\infty\\) 再令 \\(M \\uparrow \\infty\\) 并用单调收敛定理直接得到结果；盲解则先单独证明了 \\(\\mathbb{E}|X|^r \\le C\\)，再通过三角不等式与 \\(\\varepsilon/3\\) 语言完成收尾。参考答案的写法更为凝练。",
+        "difficulties": [
+          {
+            "detail": "依分布收敛只提供有界连续函数期望的收敛性，而目标函数 \\(|x|^s\\) 无界。必须想到用截断函数 \\(f_M(x) = \\min(|x|^s, M^s)\\) 将问题拆分为“有界主体”与“大值尾部”两部分。",
+            "title": "从无界函数到有界截断的转化"
+          },
+          {
+            "detail": "如何利用高阶矩一致有界 \\(\\mathbb{E}|X_n|^r \\le C\\)（\\(r > s\\)）给出尾部期望 \\(\\mathbb{E}[|X_n|^s \\mathbf{1}_{\\{|X_n| \\ge M\\}}]\\) 关于 \\(n\\) 一致趋于 \\(0\\) 的定量估计。",
+            "title": "尾部期望关于 \\(n\\) 的一致控制"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "放缩与估值",
+          "局部-整体转化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:极限与积分交换",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "目标 \\(\\lim_{n\\to\\infty}\\mathbb{E}|X_n|^s = \\mathbb{E}|X|^s\\) 涉及极限与期望交换，但已知条件仅为最弱的依分布收敛 \\(X_n \\xrightarrow{d} X\\)，不能直接对无界函数 \\(|x|^s\\) 换序。",
+            "step": "识别核心障碍"
+          },
+          {
+            "detail": "条件给出更强的高阶矩一致有界 \\(\\mathbb{E}|X_n|^r \\le C\\) 且 \\(r > s > 0\\)。高阶矩控制低阶矩的尾部，这提示我们利用“截断法”把 \\(|X_n|^s\\) 拆成有界部分与尾部。",
+            "step": "发掘关键条件 \\(r > s\\) 的作用"
+          },
+          {
+            "detail": "依分布收敛等价于所有有界连续函数期望收敛，故只需构造有界连续截断 \\(f_M(x) = \\min(|x|^s, M^s)\\) 即可直接应用依分布收敛。",
+            "step": "确定切入点"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "对固定 \\(M > 0\\)，定义 \\(f_M(x) = \\min(|x|^s, M^s)\\)。因为 \\(s > 0\\)，\\(f_M\\) 在 \\(\\mathbb{R}\\) 上有界且连续，且当 \\(M \\uparrow \\infty\\) 时 \\(0 \\le f_M(x) \\uparrow |x|^s\\)。由依分布收敛的等价刻画得 \\(\\lim_{n\\to\\infty} \\mathbb{E} f_M(X_n) = \\mathbb{E} f_M(X)\\)。",
+            "motivation": "将无界函数 \\(|x|^s\\) 替换为有界连续函数，从而激活依分布收敛条件。",
+            "step": "构造有界连续截断并取极限"
+          },
+          {
+            "detail": "利用 \\(f_M(x) \\le |x|^s\\) 且仅在 \\(|x| \\ge M\\) 时两者不等，有\n\\[0 \\le \\mathbb{E}|X_n|^s - \\mathbb{E} f_M(X_n) \\le \\mathbb{E}\\big[|X_n|^s;\\, |X_n| \\ge M\\big] \\le \\frac{1}{M^{r-s}}\\mathbb{E}\\big[|X_n|^r;\\, |X_n| \\ge M\\big] \\le \\frac{C}{M^{r-s}}.\\]\n由此得到对所有 \\(n\\) 成立的双边不等式 \\(\\mathbb{E} f_M(X_n) \\le \\mathbb{E}|X_n|^s \\le \\mathbb{E} f_M(X_n) + \\frac{C}{M^{r-s}}\\)。",
+            "motivation": "在 \\(|X_n| \\ge M\\) 上利用 \\(r > s\\) 将 \\(|X_n|^s\\) 放缩为 \\(M^{-(r-s)}|X_n|^r\\)，得到不依赖 \\(n\\) 的一致误差界。",
+            "step": "估计尾部截断误差"
+          },
+          {
+            "detail": "在双边不等式中固定 \\(M\\) 先令 \\(n \\to \\infty\\)（取下极限与上极限），得\n\\[\\mathbb{E} f_M(X) \\le \\liminf_{n\\to\\infty} \\mathbb{E}|X_n|^s \\le \\limsup_{n\\to\\infty} \\mathbb{E}|X_n|^s \\le \\mathbb{E} f_M(X) + \\frac{C}{M^{r-s}}.\\]\n再令 \\(M \\uparrow \\infty\\)，因 \\(0 \\le f_M(X) \\uparrow |X|^s\\) 且 \\(C / M^{r-s} \\to 0\\)，由单调收敛定理即得 \\(\\lim_{n\\to\\infty} \\mathbb{E}|X_n|^s = \\mathbb{E}|X|^s\\)。",
+            "motivation": "通过先 \\(n \\to \\infty\\) 后 \\(M \\uparrow \\infty\\) 的夹逼与单调收敛定理，无需额外预先证明 \\(\\mathbb{E}|X|^r \\le C\\) 即可一步收尾。",
+            "step": "两次取极限完成夹逼"
+          }
+        ],
+        "teaching_takeaway": "处理“依分布收敛 + 更高阶矩一致有界 \\(\\Rightarrow\\) 低阶矩收敛”的标准通法是“有界连续截断 + 尾部高阶矩控制”：用截断把无界函数拉回依分布收敛的适用范围，再用 \\(r > s\\) 给出关于 \\(n\\) 一致的尾部衰减。",
+        "topic_tags": [
+          "概率论",
+          "依分布收敛",
+          "一致可积性与矩收敛"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "resource_id": "egmo-2022-day1-English-questions",
+  "source_sha256": "b5a90b505b157c1dca58605b83d0bd56d422b91dd55b925ce3955cbf8eb9f3db",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "1",
+      "title": "EGMO 2022 · 第1题",
+      "body_zh": "在锐角三角形 \\(ABC\\) 中，\\(BC<AB\\) 且 \\(BC<CA\\)。点 \\(P,Q\\) 分别在线段 \\(AB,AC\\) 上，\\(P\\ne B,Q\\ne C\\)，且 \\(BQ=BC=CP\\)。设 \\(T\\) 为三角形 \\(APQ\\) 的外心，\\(H\\) 为三角形 \\(ABC\\) 的垂心，\\(S\\) 为直线 \\(BQ,CP\\) 的交点。\n证明 \\(T,H,S\\) 共线。",
+      "tags": [
+        "平面几何",
+        "外心",
+        "垂心",
+        "共线"
+      ]
+    },
+    {
+      "number": "2",
+      "title": "EGMO 2022 · 第2题",
+      "body_zh": "记 \\(\\mathbb N=\\{1,2,3,\\ldots\\}\\)。求所有函数 \\(f:\\mathbb N\\to\\mathbb N\\)，使任意正整数 \\(a,b\\) 都满足：\n（1）\\(f(ab)=f(a)f(b)\\)；\n（2）\\(f(a),f(b),f(a+b)\\) 中至少两个相等。",
+      "tags": [
+        "数论",
+        "函数方程",
+        "完全积性函数"
+      ]
+    },
+    {
+      "number": "3",
+      "title": "EGMO 2022 · 第3题",
+      "body_zh": "称正整数无穷数列 \\(a_1,a_2,\\ldots\\) 为好数列，如果 \\(a_1\\) 是完全平方数，且对每个整数 \\(n\\ge2\\)，\\(a_n\\) 是使\n\\[na_1+(n-1)a_2+\\cdots+2a_{n-1}+a_n\\]\n为完全平方数的最小正整数。\n证明：任意好数列都存在正整数 \\(k\\)，使所有 \\(n\\ge k\\) 都有 \\(a_n=a_k\\)。",
+      "tags": [
+        "数论",
+        "递推数列",
+        "完全平方数",
+        "最终常值"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "resource_id": "yau-2026-cd5b0f6f31-questions",
+  "source_sha256": "170ea961abbbe803f60b7f82c276e46e694980d883ba812986971d3e50f86e2a",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "1",
+      "title": "YAU 2026 · 代数与数论 · 第1题",
+      "body_zh": "设 \\(p\\) 为素数，\\(n\\ge1\\) 为整数且 \\(\\gcd(n,p)=1\\)。记\n\\[\\Gamma_0(p)=\\left\\{\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\in SL_2(\\mathbb Z)\\;\\middle|\\;c\\equiv0\\pmod p\\right\\},\\qquad\\alpha=\\begin{pmatrix}1&0\\\\0&n\\end{pmatrix}.\\]\n证明双陪集 \\(\\Gamma_0(p)\\alpha\\Gamma_0(p)\\) 可以分解为下列右陪集的不交并：\n\\[\\Gamma_0(p)\\alpha\\Gamma_0(p)=\\bigsqcup_{\\gamma\\in\\mathcal R}\\Gamma_0(p)\\gamma,\\]\n其中\n\\[\\mathcal R=\\left\\{\\begin{pmatrix}a&b\\\\0&d\\end{pmatrix}\\;\\middle|\\;ad=n,\\ a>0,\\ 0\\le b<d,\\ \\gcd(a,b,d)=1\\right\\}.\\]",
+      "tags": ["抽象代数", "数论", "模群", "双陪集", "矩阵群"]
+    },
+    {
+      "number": "2",
+      "title": "YAU 2026 · 代数与数论 · 第2题",
+      "body_zh": "设 \\(p\\) 为素数，\\(\\mathbb F_p\\) 为有 \\(p\\) 个元素的域。考虑该域上的方程 \\(Y^2=X^3+1\\)，记其解数为\n\\[N_p=\\#\\{(x,y)\\in\\mathbb F_p^2\\mid y^2=x^3+1\\}.\\]\n本题要证明 \\(|N_p-p|\\le2\\sqrt p\\)。\n对整数 \\(m\\ge1\\)，令 \\(\\mathbb X_m=\\mathbb X_m(\\mathbb F_p^\\times)\\) 为 \\(\\mathbb F_p^\\times\\) 上阶整除 \\(m\\) 的复值特征标组成的群。将特征标延拓至零点，规定：平凡特征标满足 \\(\\chi(0)=1\\)，其余特征标满足 \\(\\chi(0)=0\\)。对两个特征标 \\(\\chi,\\mu\\)，定义 Jacobi 和\n\\[J(\\chi,\\mu)=\\sum_{a+b=1}\\chi(a)\\mu(b)\\in\\mathbb C.\\]\n可使用结论：若 \\(\\chi,\\mu,\\chi\\mu\\) 均非平凡，则 \\(|J(\\chi,\\mu)|=\\sqrt p\\)。\n（1）当 \\(p=3\\) 或 \\(p\\equiv2\\pmod3\\) 时，证明 \\(N_p=p\\)，从而此时所需不等式成立。\n（2）设 \\(p\\equiv1\\pmod m\\)，\\(a\\in\\mathbb F_p\\)。以 \\(N(X^m=a)\\) 表示方程 \\(X^m=a\\) 在 \\(\\mathbb F_p\\) 中的解数，证明\n\\[N(X^m=a)=\\sum_{\\chi\\in\\mathbb X_m}\\chi(a).\\]\n（3）当 \\(p\\equiv1\\pmod3\\) 时，证明仍有 \\(|N_p-p|\\le2\\sqrt p\\)。",
+      "tags": ["数论", "有限域", "特征标", "Jacobi和", "椭圆曲线", "点计数"]
+    },
+    {
+      "number": "3",
+      "title": "YAU 2026 · 代数与数论 · 第3题",
+      "body_zh": "设 \\(K\\) 为数域，\\(\\mathcal O_K\\) 为其整数环，\\(\\overline K\\) 为其代数闭包。记 \\(\\mathcal O_{\\overline K}\\) 为 \\(\\overline K\\) 中在 \\(\\mathcal O_K\\) 上整的元素所组成的环。\n给定 \\(a,b\\in\\mathcal O_K\\)，证明以下条件等价：\n（1）\\(a,b\\) 互素，即它们在 \\(\\mathcal O_K\\) 中生成的理想 \\((a,b)\\) 等于 \\(\\mathcal O_K\\)；\n（2）存在 \\(u\\in\\mathcal O_{\\overline K}\\)，使 \\(au+b\\in\\mathcal O_{\\overline K}^{\\times}\\)。\n这里上标 \\(\\times\\) 表示环的单位群。",
+      "tags": ["代数数论", "数域", "整数环", "互素理想", "单位群"],
+      "question_regions": [{"page": 1, "bbox": [0, 631.9757690429688, 595.2760009765625, 730]}]
+    },
+    {
+      "number": "4",
+      "title": "YAU 2026 · 代数与数论 · 第4题",
+      "body_zh": "设整数 \\(a\\) 无平方因子，\\(\\alpha=\\sqrt[3]{a}\\) 是多项式 \\(f(x)=x^3-a\\) 的一个根。已知判别式 \\(\\operatorname{Disc}(f)=-27a^2\\)。记 \\(K=\\mathbb Q(\\alpha)\\)。证明其整数环 \\(\\mathcal O_K\\) 的一组整基为：\n当 \\(a\\not\\equiv\\pm1\\pmod9\\) 时，\n\\[\\{1,\\alpha,\\alpha^2\\};\\]\n当 \\(a\\equiv\\pm1\\pmod9\\) 时，\n\\[\\left\\{1,\\alpha,\\frac{1\\pm\\alpha+\\alpha^2}{3}\\right\\}.\\]\n后一式的正负号与 \\(a\\equiv\\pm1\\pmod9\\) 中的符号对应。",
+      "tags": ["代数数论", "三次数域", "整数环", "整基", "判别式"]
+    },
+    {
+      "number": "5",
+      "title": "YAU 2026 · 代数与数论 · 第5题",
+      "body_zh": "设 \\(p\\) 为素数，\\(K/\\mathbb Q_p\\) 是 \\(p\\)-进数域 \\(\\mathbb Q_p\\) 的有限扩张。\n（1）证明：对任意固定整数 \\(d\\ge1\\)，\\(K\\) 只有有限多个彼此不同构的 \\(d\\) 次有限扩张。\n（2）设 \\(\\gcd(d,p)=1\\)。若 \\(L/K\\) 是 \\(d\\) 次有限 Galois 全分歧扩张，证明 \\(K\\) 含有一个本原 \\(d\\) 次单位根，且 \\(L/K\\) 为循环扩张。\n（3）设 \\(\\gcd(d,p)=1\\)，计算 \\(K\\) 的彼此不同构的 \\(d\\) 次 Galois 全分歧扩张的个数。",
+      "tags": ["代数数论", "局部域", "p进数", "Galois扩张", "全分歧", "循环扩张"]
+    }
+  ]
+}

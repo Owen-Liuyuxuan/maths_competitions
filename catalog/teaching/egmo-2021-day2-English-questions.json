@@ -1,0 +1,124 @@
+{
+  "resource_id": "egmo-2021-day2-English-questions",
+  "source_sha256": "ad1ec71e920a6af2dff035d6cf05d292f0024c8055b622c51c0a1acd49267b04",
+  "solution_resource_id": "egmo-2021-both-days-solutions",
+  "solution_sha256": "3def26b50f7e7a4f0c96ea9c63249e7012147d10ddc8c5d2e6e6803bcc0a4edd",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "egmo-2021-day2-English-questions-q4",
+      "resource_id": "egmo-2021-day2-English-questions",
+      "source_sha256": "ad1ec71e920a6af2dff035d6cf05d292f0024c8055b622c51c0a1acd49267b04",
+      "solution_resource_id": "egmo-2021-both-days-solutions",
+      "solution_sha256": "3def26b50f7e7a4f0c96ea9c63249e7012147d10ddc8c5d2e6e6803bcc0a4edd",
+      "contest": "EGMO",
+      "year": 2021,
+      "number": "4",
+      "level": "高中",
+      "title": "EGMO 2021 · 第4题",
+      "blind_attempt": {
+        "approach": "首先验证 \\(E, F\\) 总是存在且互不重合，再设点 \\(A\\) 关于角平分线 \\(BI, CI\\) 的对称点分别为 \\(A_B, A_C\\)（均在直线 \\(BC\\) 上）。于是要证存在直线 \\(BC\\) 上的点 \\(A'\\) 为 \\(A\\) 关于 \\(EF\\) 的对称点，只需证直线 \\(BC\\) 上存在点 \\(A'\\) 满足 \\(EA' = EA_C\\) 与 \\(FA' = FA_B\\)，这等价于 \\(E, F\\) 在直线 \\(BC\\) 上的正交投影 \\(E_0, F_0\\) 满足 \\(\\overrightarrow{E_0 F_0} = \\frac{1}{2}\\overrightarrow{A_C A_B}\\)。进一步利用向量参数化 \\(D\\) 在线段 \\(BC\\) 上的位置，证明 \\(E_0, F_0\\) 随 \\(D\\) 线性变化，从而只需验证端点 \\(D = B\\) 与 \\(D = C\\)（对应 \\(\\triangle ABC\\) 的旁心 \\(I_C, I_B\\) 以及外角平分线对称性质）即可完成证明。",
+        "final_answer": "命题得证：对于边 \\(BC\\) 上任意一点 \\(D\\)，均有 \\(E \\neq F\\)，且存在直线 \\(BC\\) 上的点 \\(A'\\) 满足 \\(EA' = EA\\) 与 \\(FA' = FA\\)（具体地，\\(A'\\) 为 \\(A_C\\) 关于 \\(E\\) 在 \\(BC\\) 上投影的对称点，同时也为 \\(A_B\\) 关于 \\(F\\) 在 \\(BC\\) 上投影的对称点，其中 \\(A_B, A_C\\) 分别为 \\(A\\) 关于 \\(BI, CI\\) 的对称点）。因为 \\(A \\notin BC\\) 而 \\(A' \\in BC\\)，故 \\(A' \\neq A\\)，从而 \\(EF\\) 恰为线段 \\(AA'\\) 的垂直平分线，即点 \\(A\\) 关于直线 \\(EF\\) 的对称点 \\(A'\\) 位于直线 \\(BC\\) 上。",
+        "problem_statement_zh": "三角形 \\(ABC\\) 的内心为 \\(I\\)，\\(D\\) 为边 \\(BC\\) 上任意一点。过 \\(D\\) 且垂直于 \\(BI\\) 的直线交 \\(CI\\) 于 \\(E\\)，过 \\(D\\) 且垂直于 \\(CI\\) 的直线交 \\(BI\\) 于 \\(F\\)。证明：点 \\(A\\) 关于直线 \\(EF\\) 的对称点位于直线 \\(BC\\) 上。",
+        "steps": [
+          "第 1 步（确认 \\(E, F\\) 的存在性与互异性）：在 \\(\\triangle ABC\\) 中，\\(\\angle BIC = 90^\\circ + \\frac{1}{2}\\angle A \\in (90^\\circ, 180^\\circ)\\)，故 \\(\\angle BIC \\neq 90^\\circ\\)，直线 \\(BI\\) 与 \\(CI\\) 不垂直。因此过 \\(D\\) 垂直于 \\(BI\\) 的直线必与 \\(CI\\) 交于唯一一点 \\(E\\)，过 \\(D\\) 垂直于 \\(CI\\) 的直线必与 \\(BI\\) 交于唯一一点 \\(F\\)。若 \\(E = F\\)，则 \\(E = F \\in BI \\cap CI = \\{I\\}\\)，从而 \\(DI \\perp BI\\) 且 \\(DI \\perp CI\\)；又 \\(BI, CI\\) 为两条不同直线，故只能有 \\(D = I\\)，与 \\(D \\in BC\\) 而 \\(I \\notin BC\\) 矛盾。因此总有 \\(E \\neq F\\)，直线 \\(EF\\) 唯一确定。",
+          "第 2 步（转化对称条件）：设 \\(A_B\\) 为点 \\(A\\) 关于直线 \\(BI\\) 的对称点，\\(A_C\\) 为点 \\(A\\) 关于直线 \\(CI\\) 的对称点。由于 \\(BI, CI\\) 分别为 \\(\\angle ABC, \\angle ACB\\) 的内角平分线，故 \\(A_B, A_C\\) 均位于直线 \\(BC\\) 上。对 \\(E \\in CI\\) 与 \\(F \\in BI\\)，分别有 \\(EA = EA_C\\) 与 \\(FA = FA_B\\)。设 \\(E_0, F_0\\) 分别为 \\(E, F\\) 在直线 \\(BC\\) 上的正交投影。若能在直线 \\(BC\\) 上找到点 \\(A'\\)，使 \\(E_0\\) 为线段 \\(A'A_C\\) 的中点且 \\(F_0\\) 为线段 \\(A'A_B\\) 的中点，则由 \\(EE_0 \\perp BC\\) 及勾股定理有 \\[EA'^2 = E_0 E^2 + E_0 A'^2 = E_0 E^2 + E_0 A_C^2 = EA_C^2 = EA^2,\\] 即 \\(EA' = EA\\)；同理 \\(FA' = FA_B = FA\\)。再结合 \\(A \\notin BC\\)、\\(A' \\in BC\\)（故 \\(A' \\neq A\\)）及 \\(E \\neq F\\)，可知 \\(EF\\) 即为线段 \\(AA'\\) 的垂直平分线，从而 \\(A'\\) 就是 \\(A\\) 关于 \\(EF\\) 的对称点。",
+          "第 3 步（建立向量与投影关系）：按 \\(\\overrightarrow{BC}\\) 的方向建立直线 \\(BC\\) 的一维坐标，设 \\(B\\) 为原点，单位方向向量为 \\(\\vec{u}\\)，记任意点 \\(P\\) 在直线 \\(BC\\) 上正交投影的坐标为 \\(x_P = \\overrightarrow{BP} \\cdot \\vec{u}\\)。因 \\(D\\) 在边 \\(BC\\) 上，可设 \\(\\overrightarrow{BD} = t\\,\\overrightarrow{BC}\\)（\\(t \\in [0, 1]\\)）。记当 \\(D = B\\) 时对应的点 \\(E\\) 为 \\(E_1\\)（此时 \\(BE_1 \\perp BI\\) 且 \\(E_1 \\in CI\\)，即 \\(E_1\\) 为 \\(\\triangle ABC\\) 的 \\(C\\)-旁心 \\(I_C\\)），当 \\(D = C\\) 时对应的点 \\(F\\) 为 \\(F_2\\)（此时 \\(CF_2 \\perp CI\\) 且 \\(F_2 \\in BI\\)，即 \\(F_2\\) 为 \\(\\triangle ABC\\) 的 \\(B\\)-旁心 \\(I_B\\)）。考虑点 \\(E'\\) 与 \\(F'\\)，定义为 \\[\\overrightarrow{BE'} = (1 - t)\\overrightarrow{BE_1} + t\\,\\overrightarrow{BC}, \\qquad \\overrightarrow{BF'} = t\\,\\overrightarrow{BF_2}.\\] 由于 \\(E_1, C \\in CI\\)，故 \\(E' \\in CI\\)；又 \\(\\overrightarrow{DE'} = \\overrightarrow{BE'} - \\overrightarrow{BD} = (1 - t)\\overrightarrow{BE_1} \\perp BI\\)，由交点唯一性得 \\(E = E'\\)。同理 \\(F' \\in BI\\) 且 \\(\\overrightarrow{DF'} = \\overrightarrow{BF'} - \\overrightarrow{BD} = t(\\overrightarrow{BF_2} - \\overrightarrow{BC}) = t\\,\\overrightarrow{CF_2} \\perp CI\\)，故 \\(F = F'\\)。对上两式与 \\(\\vec{u}\\) 作点积，得投影坐标满足 \\[x_E = (1 - t)x_{E_1} + t\\,x_C, \\qquad x_F = t\\,x_{F_2}.\\]",
+          "第 4 步（验证端点 \\(D = B\\) 与 \\(D = C\\) 处的投影坐标）：设 \\(A_1\\) 为 \\(A\\) 关于直线 \\(BE_1\\) 的对称点，\\(A_2\\) 为 \\(A\\) 关于直线 \\(CF_2\\) 的对称点。因为 \\(BE_1 \\perp BI\\) 是 \\(\\angle ABC\\) 的外角平分线，所以 \\(A_1\\) 落在直线 \\(BC\\) 上（位于 \\(CB\\) 延长线上），且 \\(BA_1 = BA = BA_B\\)，故 \\(B\\) 是线段 \\(A_1 A_B\\) 的中点，即 \\(x_{A_1} + x_{A_B} = 2x_B\\)。同时，由 \\(E_1 \\in BE_1\\) 与 \\(E_1 \\in CI\\) 得 \\(E_1 A_1 = E_1 A = E_1 A_C\\)，故 \\(E_1\\) 在 \\(BC\\) 上的投影是线段 \\(A_1 A_C\\) 的中点，即 \\(2x_{E_1} = x_{A_1} + x_{A_C}\\)。两式相减得 \\[x_B - x_{E_1} = \\frac{x_{A_B} - x_{A_C}}{2}.\\] 同理，\\(CF_2 \\perp CI\\) 是 \\(\\angle ACB\\) 的外角平分线，\\(A_2\\) 落在直线 \\(BC\\) 上（位于 \\(BC\\) 延长线上）且 \\(C\\) 是线段 \\(A_2 A_C\\) 的中点（\\(x_{A_2} + x_{A_C} = 2x_C\\)）；由 \\(F_2 A_2 = F_2 A = F_2 A_B\\) 知 \\(F_2\\) 在 \\(BC\\) 上的投影是线段 \\(A_2 A_B\\) 的中点（\\(2x_{F_2} = x_{A_2} + x_{A_B}\\)），两式相减得 \\[x_{F_2} - x_C = \\frac{x_{A_B} - x_{A_C}}{2}.\\]",
+          "第 5 步（得出一般结论）：结合第 3 步与第 4 步的表达式，对任意 \\(t \\in [0, 1]\\) 均有 \\[x_F - x_E = t\\,x_{F_2} - (1 - t)x_{E_1} - t\\,x_C = (1 - t)(x_B - x_{E_1}) + t(x_{F_2} - x_C) = \\frac{x_{A_B} - x_{A_C}}{2}\\]（其中用到了 \\(x_B = 0\\)）。由此可知 \\[2x_E - x_{A_C} = 2x_F - x_{A_B}.\\] 在直线 \\(BC\\) 上取坐标为 \\(x_{A'} = 2x_E - x_{A_C} = 2x_F - x_{A_B}\\) 的点 \\(A'\\)，则 \\(E_0\\) 恰好为线段 \\(A'A_C\\) 的中点，\\(F_0\\) 恰好为线段 \\(A'A_B\\) 的中点。由第 2 步的论证，点 \\(A'\\) 即为点 \\(A\\) 关于直线 \\(EF\\) 的对称点，且 \\(A'\\) 位于直线 \\(BC\\) 上。证毕。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在基于单个构图完成导角后，显式检查边界点 \\(D = B, C\\)（确认 \\(E \\neq F\\) 依然成立）以及 \\(T\\) 落在 \\(BC\\) 延长线上的情形；或改用有向角 \\(\\pmod{180^\\circ}\\) 与向量/投影坐标方法统一处理所有位置。",
+            "mistake": "仅在 \\(I\\) 位于 \\(\\triangle EFD\\) 内部且 \\(T\\) 位于线段 \\(BC\\) 上的默认图形下使用普通角相加（如 \\(\\angle ATB + \\angle ATC = 180^\\circ\\)），未注意当 \\(D\\) 靠近 \\(B\\) 或 \\(C\\) 时 \\(T\\) 会落到 \\(BC\\) 延长线上、\\(I\\) 会落到 \\(\\triangle EFD\\) 外部。",
+            "title": "构型变化与边界退化情形漏判",
+            "why_wrong": "当 \\(T\\) 落在 \\(BC\\) 延长线上时，\\(\\angle ATB\\) 与 \\(\\angle ATC\\) 不再互补而是相等（或差为 \\(0^\\circ\\)），普通角等式 \\(\\angle ATB + \\angle ATC = 180^\\circ\\) 不再直接适用；且 \\(D=B\\) 或 \\(D=C\\) 时 \\(\\triangle DEF\\) 退化，若依赖 \\(\\triangle DEF\\) 非退化就会出现漏洞。"
+          },
+          {
+            "how_to_avoid": "在“由 \\(EA = ET, FA = FT\\) 推出 \\(T\\) 为 \\(A\\) 关于 \\(EF\\) 的对称点”前，先由 \\(\\angle BIC = 90^\\circ + \\frac{1}{2}\\angle A \\neq 90^\\circ\\) 与 \\(I \\notin BC\\) 说明 \\(E \\neq F\\)，并由 \\(A \\notin BC, T \\in BC\\) 说明 \\(A \\neq T\\)。",
+            "mistake": "只验证 \\(EA = ET\\) 和 \\(FA = FT\\)（或只证 \\(AA' \\perp EF\\)），未检验 \\(E \\neq F\\) 与 \\(A \\neq T\\) 就直接断定 \\(EF\\) 是 \\(AT\\) 的垂直平分线。",
+            "title": "对称轴判定中忽视点重合的排除",
+            "why_wrong": "若 \\(E = F\\)，则过 \\(E, F\\) 的直线并不唯一；若 \\(A = T\\)，则 \\(EA = ET\\) 平凡成立但 \\(T\\) 并非真正意义下确定中垂线的异点。"
+          },
+          {
+            "how_to_avoid": "书写相似三角形时按相等内角严格对齐顶点顺序（如由 \\(\\angle FBD = \\angle ABI\\) 与 \\(\\angle BFD = \\angle BAI\\) 写为 \\(\\triangle BFD \\sim \\triangle BAI\\)），再按“前二比一三”逐项写出比例式并交叉验证。",
+            "mistake": "在倒角证出两组角相等后，未按对应角对齐顶点就匆忙写出比例式（例如官方参考解答 2 原文印刷中即出现将 \\(\\frac{AB}{BF} = \\frac{BI}{BD}\\) 误写为 \\(\\frac{AB}{AF} = \\frac{BI}{BD}\\) 的笔误）。",
+            "title": "相似三角形对应顶点未对齐导致比例写错",
+            "why_wrong": "一旦对应边错位，后续借助 SAS 构造第二组相似（\\(\\triangle ABF \\sim \\triangle IBD\\)）就会失去依据。"
+          }
+        ],
+        "comparison_summary": "第 1 轮盲做证明完全正确、严谨且无漏洞，属于与官方参考解答不同的有效方法（`different_valid_method`）。官方参考解答给出了两种纯综合几何解法，核心均是构造 \\((AEC)\\) 与 \\((AFB)\\) 的第二交点 \\(T\\) 并证明 \\(AEIF\\) 四点共圆（解法 1 作 \\(DF \\cap AC = N\\)，利用 \\(N\\) 与 \\(D\\) 关于 \\(CI\\) 对称证 \\(A, I, N, F\\) 共圆；解法 2 利用 \\(\\triangle BFD \\sim \\triangle BAI\\) 与 SAS 相似 \\(\\triangle ABF \\sim \\triangle IBD\\) 导角，其中官方印刷在写第一组相似比例时有 \\(\\frac{AB}{AF}=\\frac{BI}{BD}\\) 的笔误，实为 \\(\\frac{AB}{BF}=\\frac{BI}{BD}\\)），最后均由角平分线与外接圆推出 \\(EA=ET\\)、\\(FA=FT\\)。第 1 轮解答则先将 \\(A' \\in BC\\) 为 \\(A\\) 关于 \\(EF\\) 的对称点转化为“\\(E, F\\) 在 \\(BC\\) 上的投影分别为 \\(A'A_C\\) 与 \\(A'A_B\\) 的中点”，再利用向量对 \\(D \\in BC\\) 线性参数化并验证端点 \\(D=B, C\\)，天然避开了 \\(I\\) 是否在 \\(\\triangle EFD\\) 内及 \\(T\\) 是否在 \\(BC\\) 延长线上的构型分类问题。",
+        "difficulties": [
+          {
+            "detail": "直接从垂线与角平分线硬算 \\(A\\) 关于 \\(EF\\) 的对称点坐标或长度往往繁琐。关键突破在于“逆向锁定对称点”：要么通过外接圆交点 \\(T = (AEC) \\cap (AFB)\\) 借助圆内接四边形与角平分线自动获得 \\(EA=ET, FA=FT\\)（只需再证 \\(T \\in BC\\)）；要么先取 \\(A\\) 关于 \\(BI, CI\\) 的对称点 \\(A_B, A_C \\in BC\\)，把 \\(EA=EA', FA=FA'\\) 转化为投影线段关系 \\(x_F - x_E = \\frac{1}{2}(x_{A_B} - x_{A_C})\\)。",
+            "title": "“对称点位于 \\(BC\\) 上”的几何转化与等价刻画"
+          },
+          {
+            "detail": "在综合解法中，\\(AEIF\\) 四点共圆并不直接由已知直角看出，必须借助一个过渡步骤：要么引入 \\(D\\) 关于 \\(CI\\) 的对称点 \\(N \\in AC\\) 构造辅助圆 \\((AINF)\\)，要么连续使用两次相似（先由角相等得 \\(\\triangle BFD \\sim \\triangle BAI\\)，再倒出比例 \\(\\frac{AB}{BF}=\\frac{BI}{BD}\\) 并用 SAS 证出 \\(\\triangle ABF \\sim \\triangle IBD\\)）。",
+            "title": "发现并搭建 \\(AEIF\\) 四点共圆的中间桥梁"
+          },
+          {
+            "detail": "当 \\(D\\) 靠近 \\(B\\) 或 \\(C\\) 时，\\(I\\) 可能位于 \\(\\triangle EFD\\) 外部，且对称点 \\(T\\) 会落在边 \\(BC\\) 的延长线上；同时 \\(D = B, C\\) 时 \\(\\triangle DEF\\) 退化。纯普通角追逐需要分情况或改用有向角，而参数化方法能统一覆盖全区间。",
+            "title": "动点位置变化引起的构型分类与边界情形"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "辅助线与几何变换",
+          "对称与轮换"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:符号与方向",
+          "易错:充分性与必要性混淆"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "先明确 \\(D\\) 是 \\(BC\\) 上的动点，而 \\(E \\in CI\\)、\\(F \\in BI\\) 满足 \\(DE \\perp BI\\)、\\(DF \\perp CI\\)。注意到 \\(BI, CI\\) 是内角平分线，角度关系固定为 \\(\\angle BIC = 90^\\circ + \\frac{1}{2}\\angle A\\)，因此 \\(\\angle(DE, CI) = \\angle(DF, BI) = \\frac{1}{2}\\angle A\\) 是与 \\(D\\) 无关的定角，这是后续相似或线性化的重要信号。",
+            "step": "审题与定性观察：提取垂线与内角平分线带来的定角结构"
+          },
+          {
+            "detail": "要证明“\\(A\\) 关于 \\(EF\\) 的对称点 \\(T\\) 在 \\(BC\\) 上”，等价于同时满足三条性质：\\(EA=ET\\)、\\(FA=FT\\)、\\(T \\in BC\\)。因为 \\(E \\in CI\\) 且 \\(CI\\) 平分 \\(\\angle ACB\\)，若 \\(T\\) 也在 \\((AEC)\\) 上则自动有 \\(EA=ET\\)；同理 \\(T \\in (AFB)\\) 自动给出 \\(FA=FT\\)。于是自然想到把 \\(T\\) 设为 \\((AEC)\\) 与 \\((AFB)\\) 的第二交点，只需证明 \\(T \\in BC\\)。",
+            "step": "目标拆解：用外接圆交点或对称像将三条件解耦"
+          },
+          {
+            "detail": "检验极端位置 \\(D = B\\)（此时 \\(F = B\\)，\\(EF = BE\\) 为外角平分线，\\(T\\) 显然在 \\(BC\\) 延长线上）与 \\(D = C\\)，既能直观确认命题成立与 \\(T\\) 可落于延长线上，也能启发两条道路：综合路线追踪 \\(\\angle ATB + \\angle ATC = 180^\\circ\\)（等价于 \\(AEIF\\) 共圆），参数化路线利用 \\(D \\mapsto E, F\\) 的线性依赖直接比较投影间距。",
+            "step": "极端情形试探与路线选择"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "以 \\(I\\) 位于 \\(\\triangle EFD\\) 内部为例，取 \\(\\triangle AEC\\) 与 \\(\\triangle AFB\\) 的外接圆的另一交点为 \\(T\\)（若两圆相切等情形可同法或有向角处理）。一旦能证明 \\(A, E, I, F\\) 四点共圆，则 \\(\\angle AFI + \\angle AEI = 180^\\circ\\)，进而 \\(\\angle ATB + \\angle ATC = \\angle AFB + \\angle AEC = \\angle AFI + \\angle AEI = 180^\\circ\\)，由此即得 \\(B, T, C\\) 三点共线，即 \\(T \\in BC\\)。",
+            "motivation": "先构造天然满足 \\(EA=ET\\) 与 \\(FA=FT\\) 的候选对称点 \\(T\\)，从而把全部困难集中到证明 \\(AEIF\\) 四点共圆上。",
+            "step": "第一步：构造交点 \\(T\\) 并将其共线条件归约为 \\(AEIF\\) 共圆"
+          },
+          {
+            "detail": "设直线 \\(DF\\) 与 \\(AC\\) 交于点 \\(N\\)。因为 \\(DF \\perp CI\\) 且 \\(CI\\) 平分 \\(\\angle ACB\\)，所以 \\(N\\) 是 \\(D\\) 关于 \\(CI\\) 的对称点，故 \\(\\angle INC = \\angle IDC\\)，从而 \\(\\angle INA = \\angle IDB\\)。另一方面，计算角度得 \\(\\angle IFD = \\angle NDC - \\angle IBC = 90^\\circ - \\angle ICB - \\angle IBC = \\frac{1}{2}\\angle A = \\angle IAN\\)，因此 \\(A, I, N, F\\) 四点共圆。由此得到 \\(\\angle AFI = \\angle INA = \\angle IDB\\)；同理有 \\(\\angle AEI = \\angle IDC\\)，相加即得 \\(\\angle AFI + \\angle AEI = \\angle IDB + \\angle IDC = 180^\\circ\\)。",
+            "motivation": "利用 \\(DF \\perp CI\\) 与角平分线 \\(CI\\) 的天然轴对称性，将 \\(D\\) 反射到 \\(AC\\) 上从而把底边 \\(BC\\) 处的角 \\(\\angle IDB\\) 搬运到圆内接四边形 \\(AINF\\) 中。",
+            "step": "第二步（参考解答 1）：利用 \\(D\\) 关于 \\(CI\\) 的对称点 \\(N\\) 证明 \\(AEIF\\) 共圆"
+          },
+          {
+            "detail": "先由 \\(\\angle FBD = \\angle ABI = \\frac{1}{2}\\angle B\\) 及 \\(\\angle BFD = \\angle FDC - \\angle IBC = 90^\\circ - \\angle ICD - \\angle IBC = \\frac{1}{2}\\angle A = \\angle IAB\\)，得 \\(\\triangle BFD \\sim \\triangle BAI\\)，从而 \\(\\frac{AB}{BF} = \\frac{BI}{BD}\\)。再结合 \\(\\angle ABF = \\angle IBD\\)，由 SAS 相似判定得 \\(\\triangle ABF \\sim \\triangle IBD\\)，于是 \\(\\angle AFB = \\angle IDB\\)（即 \\(\\angle AFI = \\angle IDB\\)）。同理可得 \\(\\angle AEI = \\angle IDC\\)，故 \\(\\angle AFI + \\angle AEI = 180^\\circ\\)，同样证得 \\(AEIF\\) 共圆。",
+            "motivation": "不引入辅助点 \\(N\\)，而是直接利用垂线带来的 \\(\\frac{1}{2}\\angle A\\) 定角构造相似三角形，并通过 SAS 相似桥接点 \\(A\\) 与点 \\(D\\)。",
+            "step": "第三步（参考解答 2）：通过“两次相似”直接导出 \\(\\angle AFI = \\angle IDB\\)"
+          },
+          {
+            "detail": "已知 \\(T \\in BC\\)。因为 \\(EC\\) 平分 \\(\\angle ACB\\) 且 \\(A, E, T, C\\) 四点共圆，所以 \\(E\\) 平分劣弧 \\(AT\\)（或等圆周角对等弦），故 \\(EA = ET\\)；同理 \\(FB\\) 平分 \\(\\angle ABC\\) 且 \\(A, F, T, B\\) 四点共圆，故 \\(FA = FT\\)。结合 \\(E \\neq F\\) 与 \\(A \\neq T\\)，可知直线 \\(EF\\) 为线段 \\(AT\\) 的垂直平分线，即点 \\(A\\) 关于直线 \\(EF\\) 的对称点 \\(T\\) 位于直线 \\(BC\\) 上。",
+            "motivation": "完成对称性质的最后验证，闭环整个证明。",
+            "step": "第四步：利用角平分线与外接圆完成对称点验证"
+          }
+        ],
+        "teaching_takeaway": "面对“证明点关于动直线的对称点在定直线上”的竞赛几何题，既可以“逆向构造候选对称点”（如利用角平分线外接圆交点 \\(T\\) 锁定等距性，再靠四点共圆证共线），也可以“把对称性转化为底边投影坐标的恒等关系”并通过线性参数化只验端点，两条思路都能将动态问题化繁为简。",
+        "topic_tags": [
+          "平面几何",
+          "三角形内心与旁心",
+          "四点共圆与对称"
+        ]
+      }
+    }
+  ]
+}

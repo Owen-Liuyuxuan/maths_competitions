@@ -1,0 +1,121 @@
+{
+  "resource_id": "yau-2022-2c28a9e65f-questions",
+  "source_sha256": "bafc66bc4efa535492f8157ef2501ee332599e0a2abdd837cfc9e2779ce21dd3",
+  "solution_resource_id": "yau-2022-105bebec8b-solutions",
+  "solution_sha256": "c4592daba964ee359505b62bce0dde97daecb7194fed359c2ce0d941fe22106b",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2022-2c28a9e65f-questions-q1",
+      "resource_id": "yau-2022-2c28a9e65f-questions",
+      "source_sha256": "bafc66bc4efa535492f8157ef2501ee332599e0a2abdd837cfc9e2779ce21dd3",
+      "solution_resource_id": "yau-2022-105bebec8b-solutions",
+      "solution_sha256": "c4592daba964ee359505b62bce0dde97daecb7194fed359c2ce0d941fe22106b",
+      "contest": "YAU",
+      "year": 2022,
+      "number": "1",
+      "level": "本科",
+      "title": "algebra and numbertheory 22s.pdf · 1",
+      "blind_attempt": {
+        "approach": "第 (a) 题利用分式域中的根消去分母，将问题转化为整环 \\(R\\) 中的整除关系 \\(a \\mid a_0 b^n\\) 与 \\(b \\mid a_n a^n\\)，再结合互素条件（在唯一分解整环 UFD 中无非单位公因子，或在一般整环中取强互素即 \\((a)+(b)=R\\)）推得 \\(a \\mid a_0\\) 与 \\(b \\mid a_n\\)（同时指出在非 UFD 的一般整环中若仅假设无非单位公因子则存在反例）。第 (b) 题通过双向包含证明域相等：一方面显然有 \\(\\mathbf{Q}(\\sqrt{2}+\\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)；另一方面利用 \\(\\alpha = \\sqrt{2}+\\sqrt{3}\\) 的逆元 \\(\\alpha^{-1} = \\sqrt{3}-\\sqrt{2}\\)（或立方 \\(\\alpha^3\\)）线性表出 \\(\\sqrt{2}\\) 与 \\(\\sqrt{3}\\)，从而得到反向包含。",
+        "final_answer": "(a) 将 \\(x = a/b\\) 代入 \\(p(x)=0\\) 并乘以 \\(b^n\\) 得 \\(a_n a^n + a_{n-1}a^{n-1}b + \\cdots + a_1 a b^{n-1} + a_0 b^n = 0\\)，从而 \\(a \\mid a_0 b^n\\) 且 \\(b \\mid a_n a^n\\)。在 \\(R\\) 为 UFD（或互素指共极大理想条件 \\(ra+sb=1\\)）的前提下，可得 \\(a \\mid a_0\\) 且 \\(b \\mid a_n\\)（若 \\(R\\) 为一般整环且互素仅指无非单位公因子，则结论未必成立）。\n(b) 由 \\(\\sqrt{2}+\\sqrt{3} \\in \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 得 \\(\\mathbf{Q}(\\sqrt{2}+\\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)；又设 \\(\\alpha = \\sqrt{2}+\\sqrt{3}\\)，则 \\(\\alpha^{-1} = \\sqrt{3}-\\sqrt{2} \\in \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\)，故 \\(\\sqrt{2} = \\frac{\\alpha-\\alpha^{-1}}{2} \\in \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\) 且 \\(\\sqrt{3} = \\frac{\\alpha+\\alpha^{-1}}{2} \\in \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\)，从而 \\(\\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\)。因此 \\(\\mathbf{Q}(\\sqrt{2},\\sqrt{3}) = \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\)。",
+        "problem_statement_zh": "问题 1.\n(a) 设 \\(p(x) = a_n x^n + \\cdots + a_1 x + a_0 \\in R[x]\\) 是整环 \\(R\\) 上的多项式，\\(K\\) 表示 \\(R\\) 的分式域。设 \\(a/b \\in K\\) 是 \\(p(x)\\) 的一个根，其中 \\(a, b \\in R\\) 且互素。证明：\\(a \\mid a_0\\) 且 \\(b \\mid a_n\\)。\n(b) 证明 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3}) = \\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\)。",
+        "steps": [
+          "(a) 1. 消去分母：由于 \\(a/b \\in K\\)，故 \\(b \\neq 0\\)。将 \\(x = a/b\\) 代入 \\(p(x) = 0\\) 并在等式两边同乘 \\(b^n\\)，得到 \\(R\\) 中的等式：\\[a_n a^n + a_{n-1} a^{n-1} b + \\cdots + a_1 a b^{n-1} + a_0 b^n = 0.\\]",
+          "(a) 2. 导出整除关系：将上述等式移项并提取公因子，分别得到 \\[a(a_n a^{n-1} + a_{n-1} a^{n-2} b + \\cdots + a_1 b^{n-1}) = -a_0 b^n,\\] \\[b(a_{n-1} a^{n-1} + \\cdots + a_1 a b^{n-2} + a_0 b^{n-1}) = -a_n a^n.\\] 因此在 \\(R\\) 中有 \\(a \\mid a_0 b^n\\) 且 \\(b \\mid a_n a^n\\)。（特别地，若 \\(a = 0\\)，则由 \\(a_0 b^n = 0\\) 及 \\(b \\neq 0\\)、\\(R\\) 无零因子得 \\(a_0 = 0\\)，故 \\(a \\mid a_0\\)；又 \\(0\\) 与 \\(b\\) 互素意味着 \\(b\\) 是 \\(R\\) 中的单位，故 \\(b \\mid a_n\\) 平凡成立。）",
+          "(a) 3. 利用互素条件完成证明：\n- 情形一（若 \\(R\\) 为唯一分解整环 UFD，且互素指无非单位公因子）：由欧几里得引理（或素元分解唯一性），\\(a\\) 与 \\(b\\) 互素推得 \\(a\\) 与 \\(b^n\\) 互素、\\(b\\) 与 \\(a^n\\) 互素。于是由 \\(a \\mid a_0 b^n\\) 得 \\(a \\mid a_0\\)，由 \\(b \\mid a_n a^n\\) 得 \\(b \\mid a_n\\)。\n- 情形二（若 \\(R\\) 为一般整环，且“互素”定义为共极大条件，即存在 \\(r, s \\in R\\) 使得 \\(ra + sb = 1\\)）：若 \\(a \\mid a_0 b^k\\)（\\(k \\ge 1\\)），则 \\(a_0 b^{k-1} = a_0 b^{k-1}(ra + sb) = (a_0 b^{k-1} r)a + s(a_0 b^k)\\) 仍被 \\(a\\) 整除，归纳即得 \\(a \\mid a_0\\)；同理可得 \\(b \\mid a_n\\)。",
+          "(b) 1. 证明 \\(\\mathbf{Q}(\\sqrt{2} + \\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\)：因为 \\(\\sqrt{2} \\in \\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\) 且 \\(\\sqrt{3} \\in \\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\)，而 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\) 是域（对加法封闭），所以 \\(\\sqrt{2} + \\sqrt{3} \\in \\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\)。由于 \\(\\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\) 是包含 \\(\\mathbf{Q}\\) 与 \\(\\sqrt{2} + \\sqrt{3}\\) 的最小域，故 \\(\\mathbf{Q}(\\sqrt{2} + \\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\)。",
+          "(b) 2. 证明 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\)：记 \\(\\alpha = \\sqrt{2} + \\sqrt{3} \\in \\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\)。显然 \\(\\alpha \\neq 0\\)，因此其乘法逆元也属于该域：\\[\\alpha^{-1} = \\frac{1}{\\sqrt{2} + \\sqrt{3}} = \\frac{\\sqrt{3} - \\sqrt{2}}{(\\sqrt{3} + \\sqrt{2})(\\sqrt{3} - \\sqrt{2})} = \\sqrt{3} - \\sqrt{2} \\in \\mathbf{Q}(\\sqrt{2} + \\sqrt{3}).\\] 由此可得 \\[\\sqrt{2} = \\frac{\\alpha - \\alpha^{-1}}{2} \\in \\mathbf{Q}(\\sqrt{2} + \\sqrt{3}), \\qquad \\sqrt{3} = \\frac{\\alpha + \\alpha^{-1}}{2} \\in \\mathbf{Q}(\\sqrt{2} + \\sqrt{3}).\\] 由于 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3})\\) 是包含 \\(\\mathbf{Q}\\)、\\(\\sqrt{2}\\) 与 \\(\\sqrt{3}\\) 的最小域，故 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3}) \\subseteq \\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\)。综合两方面包含关系即得 \\(\\mathbf{Q}(\\sqrt{2}, \\sqrt{3}) = \\mathbf{Q}(\\sqrt{2} + \\sqrt{3})\\)。"
+        ],
+        "uncertainties": [
+          "第 (a) 题中，题面仅假设 \\(R\\) 是整环（integral domain）且 \\(a, b \\in R\\) 互素（relatively prime），未说明 \\(R\\) 是否为唯一分解整环（UFD），也未明确“互素”是指无非单位公因子还是指存在 \\(r, s \\in R\\) 使得 \\(ra + sb = 1\\)。若 \\(R\\) 不是 UFD 且“互素”仅指无非单位公因子，原命题实际上不成立：例如取 \\(R = \\mathbf{Z}[\\sqrt{-5}]\\)，\\(p(x) = 3x + (\\sqrt{-5}-1)\\)，其根 \\(a/b = 2/(1+\\sqrt{-5})\\) 中 \\(2\\) 与 \\(1+\\sqrt{-5}\\) 无非单位公因子，但 \\(2 \\nmid (\\sqrt{-5}-1)\\) 且 \\((1+\\sqrt{-5}) \\nmid 3\\)。因此推导中需要隐含假设 \\(R\\) 为 UFD，或将互素理解为 \\(ra + sb = 1\\)。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在一般整环中应用欧几里得引理前，先确认该整环是否为 UFD，或确认“互素”是否定义为共极大条件 \\(ra+sb=1\\)；若为教学/竞赛常规作答，可明确指出在 UFD（或 \\((a)+(b)=R\\)）条件下成立。",
+            "mistake": "在第 (a) 题中，直接由 \\(a \\mid a_0 b^n\\) 与“\\(a,b\\) 无非单位公因子”推出 \\(a \\mid a_0\\)，忽略了非唯一分解整环的反例。",
+            "title": "在非 UFD 整环中误用“互素整除传递性”",
+            "why_wrong": "只有当 \\(R\\) 是唯一分解整环（UFD）或 \\(a,b\\) 满足共极大条件 \\(ra+sb=1\\) 时，\\(a \\mid a_0 b^n\\) 才必然推出 \\(a \\mid a_0\\)。在一般整环（如 \\(\\mathbf{Z}[\\sqrt{-5}]\\)）中，无非单位公因子并不保证该结论成立。"
+          },
+          {
+            "how_to_avoid": "对 \\(4\\) 次及以上多项式判定不可约性时，不仅要用 (a) 检验有无有理根（排除 \\(1\\times 3\\) 分解），还必须显式排除 \\(2\\times 2\\) 的二次因子分解。",
+            "mistake": "在第 (b) 题中，仅验证 \\(p(x) = x^4 - 10x^2 + 1\\) 没有有理根，便直接断言其在 \\(\\mathbf{Q}\\) 上不可约。",
+            "title": "误以为四次多项式无有理根即不可约",
+            "why_wrong": "无有理根只排除了存在一次因子的可能，四次多项式仍可能分解为两个二次不可约多项式的乘积（例如 \\((x^2+1)(x^2+2)\\) 无有理根但可约）。"
+          },
+          {
+            "how_to_avoid": "书写包含关系时严格核对子空间方向：由 \\(\\alpha \\in \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 先得 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)，再配合 \\(\\dim \\mathbf{Q}(\\alpha) = 4 \\ge \\dim \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 得出两域相等。",
+            "mistake": "混淆集合包含方向与维数不等式方向，或忘记说明有限维子空间维数相等才推出集合相等。",
+            "title": "域包含方向与维数比较的逻辑混淆",
+            "why_wrong": "若写反包含方向，则无法从“\\(\\mathbf{Q}(\\alpha)\\) 维数为 \\(4\\)”直接推出两域相等；必须先确立单向包含 \\(U \\subseteq V\\)，再利用有限维线性空间的维数关系 \\(\\dim U = \\dim V < \\infty\\) 才能推出 \\(U = V\\)。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲解与参考解答方向一致且结论完全正确，但在第 (b) 题中采用了不同的有效方法。第 (a) 题中，Turn 1 给出了消去分母后的完整整除推导，并额外指出了非 UFD 整环中“无非单位公因子”与“共极大条件”的微妙差异；参考解答仅简略标注“Easy”。第 (b) 题中，Turn 1 通过计算 \\(\\alpha^{-1} = \\sqrt{3}-\\sqrt{2}\\) 直接用 \\(\\alpha = \\sqrt{2}+\\sqrt{3}\\) 线性表出 \\(\\sqrt{2}\\) 与 \\(\\sqrt{3}\\)，从而证明双向包含；参考解答则紧扣第 (a) 题，构造极小多项式 \\(p(x) = x^4 - 10x^2 + 1\\)，用 (a) 排除有理根并排除二次分解以证其不可约，再通过比较 \\(\\mathbf{Q}\\)-线性空间维数 \\(4 = \\dim \\mathbf{Q}(\\alpha) \\le \\dim \\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\le 4\\) 完成证明（注：参考解答首句笔误将包含方向写反为 \\(\\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\subset \\mathbf{Q}(\\sqrt{2}+\\sqrt{3})\\)，但后续论证实际使用的是 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)）。",
+        "difficulties": [
+          {
+            "detail": "四次多项式 \\(p(x) = x^4 - 10x^2 + 1\\) 在 \\(\\mathbf{Q}\\) 上不可约不仅需要无有理根（由第 (a) 题检验 \\(\\pm 1\\) 即可），还需利用高斯引理转化为 \\(\\mathbf{Z}[x]\\) 中的分解，并逐一排除分解为两个整系数二次多项式乘积的可能。",
+            "title": "四次多项式在有理数域上的不可约性证明"
+          },
+          {
+            "detail": "将“两个域相等”的集合论证明，转化为“已知单向包含 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)，证明两者作为 \\(\\mathbf{Q}\\)-线性空间的维数均为 \\(4\\)”的线性代数论证。",
+            "title": "利用域扩张次数（维数）代替显式构造逆元/生成元"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "生成函数与多项式",
+          "反证与分类讨论"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:充分性与必要性混淆"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "第 (a) 题是整数有理根定理在整环 \\(R\\) 上的推广，看到分式域根 \\(a/b\\) 与多项式 \\(p(x) \\in R[x]\\)，首先应通过乘以 \\(b^n\\) 把分式域中的等式化回整环 \\(R\\) 中的整除问题。",
+            "step": "识别代数结构与消去分母"
+          },
+          {
+            "detail": "注意观察 (a) 与 (b) 的承接关系：在竞赛题中，第 (a) 题的整除判别法常用于第 (b) 题检验某些代数数极小多项式候选者的不可约性（排除有理根）。",
+            "step": "捕捉上下问的逻辑关联"
+          },
+          {
+            "detail": "第 (b) 题既可以走“元素直接生成”（从 \\(\\alpha = \\sqrt{2}+\\sqrt{3}\\) 构造出 \\(\\sqrt{2}, \\sqrt{3}\\)），也可以走“维数夹逼”（先有 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)，再比较两者在 \\(\\mathbf{Q}\\) 上的扩张次数）。",
+            "step": "选择域相等的证明策略"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "由 \\(\\sqrt{2}+\\sqrt{3} \\in \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 可得单向包含 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\)，其中 \\(\\alpha = \\sqrt{2}+\\sqrt{3}\\)。同时，因 \\(\\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 是由 \\(\\mathbf{Q}\\) 先添加 \\(\\sqrt{2}\\)（次数至多为 \\(2\\)）再添加 \\(\\sqrt{3}\\)（次数至多为 \\(2\\)）得到的，故 \\(\\dim_{\\mathbf{Q}} \\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\le 4\\)。",
+            "motivation": "建立子空间包含关系并估计上界维数，为后续“维数夹逼”做准备。",
+            "step": "确立包含方向与维数上界"
+          },
+          {
+            "detail": "由 \\(\\alpha^2 = 5 + 2\\sqrt{6}\\) 移项平方得 \\((\\alpha^2 - 5)^2 = 24\\)，即 \\(\\alpha\\) 是整系数首一多项式 \\(p(x) = x^4 - 10x^2 + 1\\) 的根。",
+            "motivation": "消去所有根号以找到 \\(\\alpha\\) 满足的整系数多项式，从而利用代数扩张次数计算 \\(\\dim_{\\mathbf{Q}} \\mathbf{Q}(\\alpha)\\)。",
+            "step": "构造 \\(\\alpha\\) 的零化多项式"
+          },
+          {
+            "detail": "由第 (a) 题的有理根判别法，\\(p(x)\\) 的有理根只可能是 \\(\\pm 1\\)，代入均非零，故 \\(p(x)\\) 无一次有理因子。再由高斯引理，若 \\(p(x)\\) 在 \\(\\mathbf{Q}[x]\\) 中可约，则必可分解为两个首一（或整数）二次多项式 \\((x^2+bx+c)(x^2+ex+f) \\in \\mathbf{Z}[x]\\)；比较系数得 \\(cf=1\\)（即 \\(c=f=\\pm 1\\)）、\\(b+e=0\\)、\\(c+f+be=-10\\)、\\(bf+ce=0\\)，无论 \\(c=f=1\\) 还是 \\(c=f=-1\\) 均导出 \\(b^2 = 12\\) 或 \\(b^2 = 8\\)，无整数解。因此 \\(p(x)\\) 在 \\(\\mathbf{Q}\\) 上不可约。",
+            "motivation": "只有证明 \\(p(x)\\) 在 \\(\\mathbf{Q}\\) 上不可约，才能确认它是 \\(\\alpha\\) 的极小多项式，从而精确得到 \\(\\dim_{\\mathbf{Q}} \\mathbf{Q}(\\alpha) = 4\\)。",
+            "step": "证明 \\(p(x)\\) 在 \\(\\mathbf{Q}\\) 上不可约"
+          },
+          {
+            "detail": "由 \\(p(x)\\) 不可约得 \\(\\dim_{\\mathbf{Q}} \\mathbf{Q}(\\alpha) = \\deg p = 4\\)。结合 \\(\\mathbf{Q}(\\alpha) \\subseteq \\mathbf{Q}(\\sqrt{2},\\sqrt{3})\\) 与 \\(\\dim_{\\mathbf{Q}} \\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\le 4\\)，得到 \\(4 = \\dim_{\\mathbf{Q}} \\mathbf{Q}(\\alpha) \\le \\dim_{\\mathbf{Q}} \\mathbf{Q}(\\sqrt{2},\\sqrt{3}) \\le 4\\)，故两域相等。",
+            "motivation": "利用有限维线性空间中“子空间与全空间同维则必相等”的事实完成证明。",
+            "step": "维数夹逼收尾"
+          }
+        ],
+        "teaching_takeaway": "证明两个有限扩张域相等时，除了直接用生成元互相线性表出外，先确立单向包含再用“极小多项式次数 + 维数夹逼”是更通用的代数学方法；同时使用整除性质前务必留意底环是否具备唯一分解性（UFD）。",
+        "topic_tags": [
+          "域扩张",
+          "多项式与整除",
+          "极小多项式"
+        ]
+      }
+    }
+  ]
+}

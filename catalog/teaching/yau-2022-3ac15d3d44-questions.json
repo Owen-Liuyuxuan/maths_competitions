@@ -1,0 +1,113 @@
+{
+  "resource_id": "yau-2022-3ac15d3d44-questions",
+  "source_sha256": "31843dfbffc9841ffb2b094b46341d9a85f8912aeb0a0db2ee253fcbe2c0c435",
+  "solution_resource_id": "yau-2022-efdbf8bf89-solutions",
+  "solution_sha256": "ecf2fb251e891b0dceed293c34d140afb1437f0f7c4cfbf9d73283c6a3a74a3f",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2022-3ac15d3d44-questions-q1",
+      "resource_id": "yau-2022-3ac15d3d44-questions",
+      "source_sha256": "31843dfbffc9841ffb2b094b46341d9a85f8912aeb0a0db2ee253fcbe2c0c435",
+      "solution_resource_id": "yau-2022-efdbf8bf89-solutions",
+      "solution_sha256": "ecf2fb251e891b0dceed293c34d140afb1437f0f7c4cfbf9d73283c6a3a74a3f",
+      "contest": "YAU",
+      "year": 2022,
+      "number": "1",
+      "level": "本科",
+      "title": "analysis and differential 22s.pdf · 1",
+      "blind_attempt": {
+        "approach": "利用恒等式 \\(\\frac{1}{A} = \\int_0^\\infty e^{-At}\\,dt\\)（\\(A > 0\\)）结合 Tonelli 定理，将 \\(n\\) 重积分 \\(I_n\\) 化为单重积分 \\(I_n = n \\int_0^\\infty f(t)^n\\,dt\\)，其中 \\(f(t) = \\int_0^1 e^{-t/x}\\,dx\\)。通过对 \\(f(t)\\) 在小区间 \\((0, 1)\\) 上的渐近上界估计（利用 \\(1 - e^{-y} \\ge (1 - e^{-1})y\\) 对 \\(y \\in [0, 1]\\) 成立）以及在 \\([1, \\infty)\\) 上的指数衰减估计，将积分区间分为 \\((0, n^{-1/2}]\\)、\\([n^{-1/2}, 1]\\) 和 \\([1, \\infty)\\) 三段分别放缩，从而证明 \\(\\lim_{n\\to\\infty} I_n = 0\\)。（注：从概率论视角，若取独立同分布的 \\(U[0,1]\\) 随机变量 \\(X_1, \\dots, X_n\\)，因 \\(\\mathbb{E}[1/X_1] = +\\infty\\)，截断后由强大数定律知 \\(\\frac{n}{\\sum_{i=1}^n 1/X_i} \\to 0\\) a.s.，再由有界收敛定理亦可得 \\(\\lim_{n\\to\\infty} I_n = 0\\)。）",
+        "final_answer": "极限 \\(\\lim_{n\\to\\infty} I_n\\) 存在，且 \\(\\lim_{n\\to\\infty} I_n = 0\\)。",
+        "problem_statement_zh": "对 \\(n \\ge 1\\)，考虑积分\n\\[I_n = \\int_{[0,1]^n} \\frac{n}{\\frac{1}{x_1} + \\frac{1}{x_2} + \\cdots + \\frac{1}{x_n}} \\, dx_1 \\cdots dx_n.\\]\n证明：\\(\\lim_{n\\to\\infty} I_n\\) 存在。",
+        "steps": [
+          "**被积函数的良定性与积分变换**：当某个 \\(x_i \\to 0^+\\) 时，\\(0 \\le \\frac{n}{\\sum_{j=1}^n 1/x_j} \\le n x_i \\to 0\\)，故被积函数在 \\([0,1]^n \\setminus (0,1]^n\\) 上可连续延拓为 \\(0\\)，从而 \\(I_n \\ge 0\\) 在 \\([0,1]^n\\) 上良定，且等于在 \\((0,1]^n\\) 上的积分。对任意 \\((x_1,\\dots,x_n) \\in (0,1]^n\\)，令 \\(A = \\sum_{i=1}^n \\frac{1}{x_i} > 0\\)，利用 \\(\\frac{1}{A} = \\int_0^\\infty e^{-At}\\,dt\\) 并由非负函数的 Tonelli 定理交换积分次序，得\n\\[I_n = n \\int_0^\\infty \\left(\\int_0^1 e^{-t/x}\\,dx\\right)^n dt = n \\int_0^\\infty f(t)^n \\, dt,\\]\n其中 \\(f(t) = \\int_0^1 e^{-t/x}\\,dx\\)（\\(t \\ge 0\\)）。",
+          "**\\(f(t)\\) 的基本性质与上界估计**：显然 \\(f(0) = 1\\)，且 \\(f(t)\\) 在 \\([0, \\infty)\\) 上严格单调递减、恒正。\n1. 当 \\(t \\ge 1\\) 时，对 \\(x \\in (0, 1]\\) 有 \\(t/x \\ge t\\)，故 \\(f(t) \\le \\int_0^1 e^{-t}\\,dx = e^{-t}\\)。\n2. 当 \\(t \\in (0, 1)\\) 时，由于 \\(g(y) = 1 - e^{-y} - (1 - e^{-1})y\\) 在 \\([0,1]\\) 上满足 \\(g(0)=g(1)=0\\) 且 \\(g''(y) = -e^{-y} < 0\\)（严格凹），故对所有 \\(y \\in [0, 1]\\) 有 \\(1 - e^{-y} \\ge c y\\)，其中 \\(c = 1 - e^{-1} > 0\\)。对 \\(x \\in [t, 1]\\)，有 \\(y = t/x \\in [t, 1] \\subseteq [0, 1]\\)，因此\n\\[1 - f(t) = \\int_0^1 (1 - e^{-t/x})\\,dx \\ge \\int_t^1 (1 - e^{-t/x})\\,dx \\ge c t \\int_t^1 \\frac{dx}{x} = c t \\ln\\frac{1}{t}.\\]\n利用不等式 \\(1 - u \\le e^{-u}\\)，得到对所有 \\(t \\in (0, 1)\\)，\n\\[f(t) \\le \\exp\\left(-c t \\ln\\frac{1}{t}\\right).\\]",
+          "**分段估计 \\(I_n\\)（取 \\(n \\ge 2\\)）**：令 \\(t_0 = n^{-1/2} \\in (0, 1)\\)，将 \\(I_n = n \\int_0^\\infty f(t)^n\\,dt\\) 拆分为三段：\n1. 在 \\((0, t_0]\\) 上：对任意 \\(t \\in (0, t_0]\\)，有 \\(\\ln\\frac{1}{t} \\ge \\ln\\frac{1}{t_0} = \\frac{1}{2}\\ln n\\)，于是 \\(f(t) \\le \\exp\\left(-\\frac{c}{2}(\\ln n) t\\right)\\)。从而\n\\[n \\int_0^{t_0} f(t)^n\\,dt \\le n \\int_0^\\infty \\exp\\left(-\\frac{c}{2} n (\\ln n) t\\right) dt = \\frac{n}{\\frac{c}{2} n \\ln n} = \\frac{2}{c \\ln n}.\\]\n2. 在 \\([t_0, 1]\\) 上：由 \\(f(t)\\) 单调递减，对 \\(t \\in [t_0, 1]\\) 有 \\(f(t) \\le f(t_0) \\le \\exp\\left(-\\frac{c}{2} n^{-1/2} \\ln n\\right)\\)，故\n\\[n \\int_{t_0}^1 f(t)^n\\,dt \\le n (1 - t_0) f(t_0)^n \\le n \\exp\\left(-\\frac{c}{2}\\sqrt{n}\\ln n\\right).\\]\n3. 在 \\([1, \\infty)\\) 上：利用 \\(f(t) \\le e^{-t}\\)，得\n\\[n \\int_1^\\infty f(t)^n\\,dt \\le n \\int_1^\\infty e^{-nt}\\,dt = e^{-n}.\\]",
+          "**取极限**：综合以上三段估计，对所有 \\(n \\ge 2\\) 有\n\\[0 \\le I_n \\le \\frac{2}{c \\ln n} + n \\exp\\left(-\\frac{c}{2}\\sqrt{n}\\ln n\\right) + e^{-n}.\\]\n当 \\(n \\to \\infty\\) 时，右端三项均趋于 \\(0\\)，由夹逼定理得 \\(\\lim_{n\\to\\infty} I_n = 0\\)，故极限存在。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在开始估计或交换积分次序前，先用 \\(0 \\le \\frac{n}{\\sum_{j=1}^n 1/x_j} \\le n x_i \\to 0\\)（\\(x_i \\to 0^+\\)）说明被积函数在边界上可连续延拓为 \\(0\\)，从而明确积分在 \\((0,1]^n\\) 上进行且良定。",
+            "mistake": "直接对 \\(x_i \\in [0,1]\\) 使用 \\(\\frac{1}{x_i}\\)，未处理 \\(x_i = 0\\) 处分母无定义或无穷大的情形。",
+            "title": "忽略边界 \\(x_i = 0\\) 处的定义域问题",
+            "why_wrong": "在 \\([0,1]^n\\) 的边界 \\(\\bigcup_{i=1}^n \\{x_i = 0\\}\\) 上 \\(\\frac{1}{x_i}\\) 无定义，若不说明该边界测度为零且被积函数可连续延拓为 \\(0\\)，后续的代数不等式（如 \\(x,y>0\\)）或 Tonelli 定理在形式上缺乏严谨性。"
+          },
+          {
+            "how_to_avoid": "若采用“先求逐点极限再积分”的思路，必须显式验证被积函数列一致有界（\\(0 \\le H_n \\le 1\\)），并引用有界收敛定理或控制收敛定理；或者采用参考解答的次可加方法与拉普拉斯变换方法，完全绕开在无穷维乘积空间上直接交换极限与积分。",
+            "mistake": "直观认为 \\(\\frac{1}{n}\\sum_{i=1}^n \\frac{1}{x_i} \\to \\int_0^1 \\frac{1}{x}\\,dx = +\\infty\\)，从而不加证明地直接令“极限与积分交换”得出 \\(I_n \\to 0\\)。",
+            "title": "未经控制收敛验证直接交换极限与积分",
+            "why_wrong": "一方面，\\(\\lim_{n\\to\\infty} I_n\\) 的积分区域维数 \\(n\\) 随 \\(n\\) 变化，并非固定测度空间上的函数列；若不构造乘积概率空间 \\(([0,1]^\\mathbb{N}, \\mathcal{B}, \\mathbb{P})\\) 并引用强大数定律与有界收敛定理，直接“逐点取极限再积分”在表述与逻辑上都是不严谨的。"
+          },
+          {
+            "how_to_avoid": "在应用 Fekete 引理时，务必同时验证：（1）\\(J_{m+n} \\le J_m + J_n\\)；（2）\\(\\inf_{n \\ge 1} \\frac{J_n}{n} > -\\infty\\)（本题中 \\(I_n \\ge 0\\) 保证了下界为 \\(0\\)）。",
+            "mistake": "在运用 Fekete 引理时忘记检查 \\(\\frac{J_n}{n}\\) 是否有下界，或误以为 \\(I_n\\) 本身满足 \\(I_{m+n} \\le I_m + I_n\\)。",
+            "title": "误用次可加数列（Fekete 引理）的条件或漏写下界验证",
+            "why_wrong": "\\(I_n\\) 本身并不满足次可加性，必须乘以 \\(n\\) 化为 \\(J_n = n I_n\\) 后才满足 \\(J_{m+n} \\le J_m + J_n\\)；此外，一般次可加数列只保证 \\(\\lim_{n\\to\\infty} \\frac{J_n}{n} = \\inf_{n\\ge 1} \\frac{J_n}{n} \\in [-\\infty, +\\infty)\\)，只有确认下确界有限（如非负性 \\(J_n \\ge 0\\)）才能得出有限极限存在。"
+          }
+        ],
+        "comparison_summary": "第一轮盲解采用了完全有效但不同的解析方法（different_valid_method）：利用恒等式 \\(\\frac{1}{A} = \\int_0^\\infty e^{-At}\\,dt\\) 与 Tonelli 定理将 \\(n\\) 重积分转化为 \\(I_n = n \\int_0^\\infty f(t)^n\\,dt\\)（其中 \\(f(t) = \\int_0^1 e^{-t/x}\\,dx\\)），再通过三段式精细放缩直接证明了 \\(\\lim_{n\\to\\infty} I_n = 0\\)（不仅证明了极限存在，还求出了极限值）。而参考解答则巧妙得多：通过 Cauchy-Schwarz 不等式（Titu 引理）\\(\\frac{(m+n)^2}{x+y} \\le \\frac{m^2}{x} + \\frac{n^2}{y}\\) 发现 \\(J_n = n I_n\\) 满足次可加性 \\(J_{m+n} \\le J_m + J_n\\)，结合 \\(J_n \\ge 0\\) 直接由 Fekete 引理秒杀极限的存在性，无需计算极限值。",
+        "difficulties": [
+          {
+            "detail": "对于 \\(I_n\\) 而言，被积函数是 \\(n\\) 个变量的调和平均，不同维数 \\(n\\) 之间没有明显的单调性或递推关系。参考解答最关键的跃迁是“退一步”观察 \\(J_n = n I_n\\)，把分子的 \\(n\\) 变成 \\(n^2\\)，从而恰好匹配 Cauchy-Schwarz 不等式（Titu 引理）\\(\\frac{m^2}{x} + \\frac{n^2}{y} \\ge \\frac{(m+n)^2}{x+y}\\) 的结构。",
+            "title": "从 \\(I_n\\) 转化为次可加量 \\(J_n = n I_n\\) 的结构洞察"
+          },
+          {
+            "detail": "即便想到把前 \\(m\\) 个变量和后 \\(n\\) 个变量拆开，若不熟悉 Fekete 引理（非负次可加数列满足 \\(\\lim_{n\\to\\infty} \\frac{J_n}{n} = \\inf_n \\frac{J_n}{n}\\)），往往会在得到 \\(J_{m+n} \\le J_m + J_n\\) 后不知如何推出 \\(\\lim_{n\\to\\infty} \\frac{J_n}{n}\\) 的存在性。",
+            "title": "Fekete 次可加引理的识别与调用"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "放缩与估值",
+          "局部-整体转化"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:定义域与分母为零",
+          "易错:极限与积分交换"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目只要求证明“极限存在”，并未要求求出极限值。这提示我们不一定需要硬算 \\(I_n\\) 的渐近阶，可以优先寻找单调性、柯西收敛准则或次可加性（Fekete 引理）等存在性工具。",
+            "step": "审题与目标识别：只证存在性，未必求极限值"
+          },
+          {
+            "detail": "被积函数 \\(\\frac{n}{\\sum_{i=1}^n 1/x_i}\\) 具有高度对称性，分母是各变量倒数的和。若将 \\(m+n\\) 个变量拆分为前 \\(m\\) 个与后 \\(n\\) 个，设 \\(x = \\sum_{i=1}^m \\frac{1}{x_i}\\)、\\(y = \\sum_{j=m+1}^{m+n} \\frac{1}{x_j}\\)，则分母自然呈现 \\(x + y\\) 的形式。",
+            "step": "捕捉对称性与分母的可加结构"
+          },
+          {
+            "detail": "注意到 \\(n I_n\\) 的被积函数为 \\(\\frac{n^2}{\\sum_{i=1}^n 1/x_i}\\)，分子出现平方、分母为和式，这是应用 Cauchy-Schwarz 不等式（分式形式 / Titu 引理）的典型信号。",
+            "step": "匹配代数不等式结构"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "对任意正整数 \\(m, n\\) 及正实数 \\(x, y > 0\\)，验证不等式\n\\[\\frac{(m+n)^2}{x+y} \\le \\frac{m^2}{x} + \\frac{n^2}{y}.\\]\n事实上，两边同乘 \\(x y (x+y) > 0\\) 后等价于 \\((m y - n x)^2 \\ge 0\\)（也可直接由 Cauchy-Schwarz 不等式 \\((x+y)\\left(\\frac{m^2}{x} + \\frac{n^2}{y}\\right) \\ge (m+n)^2\\) 得到）。这一步提供了将 \\(m+n\\) 个变量拆分为 \\(m\\) 个与 \\(n\\) 个变量的逐点控制。",
+            "motivation": "建立分母之和与各自调和和之间的不等式联系",
+            "step": "第一步：利用 Titu 引理建立核心逐点不等式"
+          },
+          {
+            "detail": "令 \\(J_n = n I_n = \\int_{[0,1]^n} \\frac{n^2}{\\sum_{i=1}^n 1/x_i}\\,dx_1\\cdots dx_n\\)。在 \\((0,1]^{m+n}\\) 上，取 \\(x = \\sum_{i=1}^m \\frac{1}{x_i} > 0\\) 与 \\(y = \\sum_{j=m+1}^{m+n} \\frac{1}{x_j} > 0\\)，代入上述不等式并在 \\([0,1]^{m+n}\\) 上积分（由于边界测度为零，积分区域可视为 \\((0,1]^{m+n}\\)），利用 Fubini 定理将右侧两项分别对各自变量积分（其余变量积分值为 \\(1\\)），即得\n\\[J_{m+n} \\le J_m + J_n.\\]",
+            "motivation": "将逐点不等式积分，利用独立变量的体积为 \\(1\\) 转化为数列不等式",
+            "step": "第二步：积分导出次可加性 \\(J_{m+n} \\le J_m + J_n\\)"
+          },
+          {
+            "detail": "因为 \\(J_n \\ge 0\\)，数列 \\(\\{J_n\\}_{n\\ge 1}\\) 是非负次可加数列。由经典的 Fekete 次可加引理，极限 \\(\\lim_{n\\to\\infty} \\frac{J_n}{n}\\) 存在且等于 \\(\\inf_{n\\ge 1} \\frac{J_n}{n} \\ge 0\\)。由于 \\(I_n = \\frac{J_n}{n}\\)，故 \\(\\lim_{n\\to\\infty} I_n\\) 存在。",
+            "motivation": "由次可加性与有下界直接得出商数列的收敛性",
+            "step": "第三步：应用 Fekete 次可加引理完成证明"
+          }
+        ],
+        "teaching_takeaway": "当题目仅要求证明带维数参数 \\(n\\) 的积分或组合量 \\(I_n\\) 的极限存在时，优先尝试将 \\(m+n\\) 拆分为 \\(m\\) 与 \\(n\\) 两块，检查 \\(n I_n\\) 是否满足次可加性（Fekete 引理）或超可加性，往往能用极简的代数不等式代替复杂的渐近分析；同时，利用 \\(\\frac{1}{A} = \\int_0^\\infty e^{-At}\\,dt\\) 将分母转化为指数积分也是处理“和的倒数”型高维积分的强力通用技巧。",
+        "topic_tags": [
+          "多元微积分",
+          "积分极限",
+          "次可加数列"
+        ]
+      }
+    }
+  ]
+}

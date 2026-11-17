@@ -1,0 +1,112 @@
+[
+  {
+    "resource_id": "chsmo-2020-B-round1-combined",
+    "reason": "Heading count 4 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-0dc02b9475-combined",
+    "reason": "Heading count 2 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-2babc5fb73-combined",
+    "reason": "Heading count 1 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-a6617b7ae0-combined",
+    "reason": "Heading count 3 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-d711dc5d61-combined",
+    "reason": "Heading count 4 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-d8ad2065dd-combined",
+    "reason": "Heading count 3 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2022-images-db5bb1b9f0-combined",
+    "reason": "Heading count 5 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2023-images-38003b909e-combined",
+    "reason": "Heading count 1 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2023-images-a2d4e369ee-combined",
+    "reason": "Heading count 8 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2023-images-b2138d1272-combined",
+    "reason": "Heading count 1 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2023-images-b2ea5f5392-combined",
+    "reason": "Heading count 1 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2024-images-0736d4193f-combined",
+    "reason": "Heading count 7 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2024-images-19e252a311-combined",
+    "reason": "Heading count 1 differs from expected 11; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "chsmo-2024-images-7bc04952c9-combined",
+    "reason": "Heading count 1 differs from expected 4; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "cmo-2023-images-db13680339-combined",
+    "reason": "Heading count 3 differs from expected 6; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "egmo-2021-both-days-solutions",
+    "reason": "Heading count 4 differs from expected 6; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "egmo-2024-both-days-solutions",
+    "reason": "Heading count 3 differs from expected 6; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "egmo-2025-both-days-solutions",
+    "reason": "Heading count 1 differs from expected 6; inspect boundaries and missing numbers.",
+    "priority": "high"
+  },
+  {
+    "resource_id": "yau-2022-45a37b6840-solutions",
+    "reason": "No reliable text headings; scanned PDF or unsupported numbering.",
+    "priority": "normal"
+  },
+  {
+    "resource_id": "yau-2022-79b0ee3c2a-questions",
+    "reason": "No reliable text headings; scanned PDF or unsupported numbering.",
+    "priority": "normal"
+  },
+  {
+    "resource_id": "yau-2024-59a55a67c9-questions",
+    "reason": "No reliable text headings; scanned PDF or unsupported numbering.",
+    "priority": "normal"
+  },
+  {
+    "resource_id": "yau-2024-b438bee2f4-questions",
+    "reason": "No reliable text headings; scanned PDF or unsupported numbering.",
+    "priority": "normal"
+  }
+]

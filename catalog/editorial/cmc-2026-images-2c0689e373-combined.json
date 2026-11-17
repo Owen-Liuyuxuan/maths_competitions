@@ -1,0 +1,397 @@
+{
+  "resource_id": "cmc-2026-images-2c0689e373-combined",
+  "source_sha256": "086577c62ac5985fca0feaec71e038de4095d1221d88b15599fed38595d6ba1e",
+  "read_method": "model-visual",
+  "replace_questions": true,
+  "questions": [
+    {
+      "number": "1.1",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第1题（1）",
+      "body_zh": "设\n\\[A=\\begin{pmatrix}\\sin\\frac{\\pi}{1013}&-\\cos\\frac{\\pi}{1013}\\\\[2pt]\\cos\\frac{\\pi}{1013}&\\sin\\frac{\\pi}{1013}\\end{pmatrix}^{2026}.\\]\n求 \\(A\\) 的迹 \\(\\operatorname{tr}A\\)。",
+      "tags": [
+        "线性代数",
+        "矩阵幂",
+        "旋转矩阵"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            337.5,
+            530.25,
+            386.25
+          ]
+        }
+      ],
+      "solution_regions": []
+    },
+    {
+      "number": "1.2",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第1题（2）",
+      "body_zh": "设 \\(f(x,y)=x^2-y^2+9x^2y-3y^3\\)，\n\\[B_R=\\{(x,y)\\mid x^2+y^2\\le R^2\\},\\qquad I_R=\\max_{(x,y)\\in B_R}f(x,y),\\quad \\ell_R=\\min_{(x,y)\\in B_R}f(x,y).\\]\n求 \\(\\displaystyle\\lim_{R\\to+\\infty}\\frac{I_R+\\ell_R}{R^2}\\)。",
+      "tags": [
+        "多元微积分",
+        "最值",
+        "渐近分析"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            386.25,
+            530.25,
+            435
+          ]
+        }
+      ],
+      "solution_regions": []
+    },
+    {
+      "number": "1.3",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第1题（3）",
+      "body_zh": "设 \\(f(x)=\\displaystyle\\int_1^x\\frac{1}{1+t^3}\\,\\mathrm dt\\)，\\(g(x)=f(x)-f(1/x)\\)。求 \\(g(2)\\)。",
+      "tags": [
+        "数学分析",
+        "定积分",
+        "变量代换"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            432,
+            530.25,
+            465
+          ]
+        }
+      ],
+      "solution_regions": []
+    },
+    {
+      "number": "1.4",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第1题（4）",
+      "body_zh": "求微分方程\n\\[t x''(t)-x'(t)-(4t-2)x(t)=0\\]\n的通解。",
+      "tags": [
+        "常微分方程",
+        "二阶线性微分方程"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            461.25,
+            530.25,
+            476.25
+          ]
+        }
+      ],
+      "solution_regions": []
+    },
+    {
+      "number": "2",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第2题",
+      "body_zh": "在空间直角坐标系中，椭球面 \\(S\\) 和 \\(T\\) 的方程分别为\n\\[S:\\ x^2+2y^2+3z^2=4,\\qquad T:\\ x^2+2y^2+3z^2=1.\\]\n设直线 \\(L\\) 交椭球面 \\(S\\) 于 \\(A,B\\) 两点，交椭球面 \\(T\\) 于 \\(C,D\\) 两点。证明：\n（1）线段 \\(AB\\) 的中点和线段 \\(CD\\) 的中点重合；\n（2）线段 \\(AC\\) 和线段 \\(DB\\) 的长度相等。",
+      "tags": [
+        "解析几何",
+        "二次曲面",
+        "椭球",
+        "弦中点"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            757.5,
+            530.25,
+            896.25
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            896.25,
+            530.25,
+            2111.25
+          ]
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第3题",
+      "body_zh": "设 \\(A,B\\) 均为 \\(n\\) 阶实方阵（\\(n\\ge2\\)），\\(E\\) 为 \\(n\\) 阶单位阵，且\n\\[\\det(A-B)=1,\\qquad AA^T-E>0,\\qquad BB^T-E>0.\\]\n这里 \\(>0\\) 表示正定。证明：\n（1）\n\\[\\begin{aligned}\n&(E-AB^T)(E-BB^T)^{-1}(E-AB^T)^T-(E-AA^T)\\\\\n&=(E-BB^T)^{-1}-E-A B^T(E-BB^T)^{-1}\\\\\n&\\quad -(E-BB^T)^{-1}BA^T+A\\bigl(E+B^T(E-BB^T)^{-1}B\\bigr)A^T;\n\\end{aligned}\\]\n（2）\n\\[\\det(E-AA^T)\\det(E-BB^T)\\le\\det(E-AB^T)^2-1.\\]",
+      "tags": [
+        "线性代数",
+        "正定矩阵",
+        "行列式不等式"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            2111.25,
+            530.25,
+            2272.5
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            2272.5,
+            530.25,
+            4132.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第4题",
+      "body_zh": "设 \\(f\\) 在 \\((-\\infty,+\\infty)\\) 内可导，数列 \\(\\{a_n\\}\\) 收敛。取 \\(x_1\\in(-\\infty,+\\infty)\\)，归纳定义\n\\[x_{n+1}=f(x_n)+a_n,\\qquad n\\ge1.\\]\n（1）若存在 \\(\\alpha\\in(0,1)\\)，使得 \\(|f'|\\le\\alpha\\)，证明 \\(\\{x_n\\}\\) 收敛。\n（2）若存在 \\(M>0\\)，使得\n\\[|f'(x)|\\le\\frac{|x|+M}{|x|+M+1}\\qquad(x\\in\\mathbb R),\\]\n证明或举例否定：\\(\\{x_n\\}\\) 收敛。",
+      "tags": [
+        "数学分析",
+        "递推数列",
+        "压缩映射",
+        "收敛性"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            4132.5,
+            530.25,
+            4282.5
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            4282.5,
+            530.25,
+            5527.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第5题",
+      "body_zh": "设 \\(h\\) 是 \\([0,1]\\) 上非负的 Lebesgue 可积函数，\\(A=\\displaystyle\\int_0^1h(x)\\,\\mathrm dx\\)。证明\n\\[(1+A^3)^{1/3}\\le \\int_0^1\\bigl(1+h^3(x)\\bigr)^{1/3}\\,\\mathrm dx\\le 1+A.\\]",
+      "tags": [
+        "实分析",
+        "Lebesgue积分",
+        "积分不等式",
+        "凸性",
+        "Minkowski不等式"
+      ],
+      "question_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            5527.5,
+            530.25,
+            5598.75
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 1,
+          "bbox": [
+            60,
+            5598.75,
+            530.25,
+            6819.75
+          ]
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第6题",
+      "body_zh": "设 \\(f\\) 是全平面上的非常数解析函数，\n\\[M(r)=\\max_{|z|=r}|f(z)|\\qquad(r\\ge0).\\]\n（1）证明 \\(M(r)\\) 在 \\([0,+\\infty)\\) 上严格单增，且 \\(\\displaystyle\\lim_{r\\to+\\infty}M(r)=+\\infty\\)。\n（2）设 \\(a_n\\ne0\\)（\\(n=1,2,\\ldots\\)）是 \\(f\\) 的零点，同一零点出现的次数不超过其重数；满足\n\\[|a_1|\\le|a_2|\\le\\cdots,\\qquad\\lim_{r\\to+\\infty}\\frac{\\ln\\ln M(r)}{\\ln r}=\\rho\\in(0,+\\infty).\\]\n证明：对任意 \\(\\varepsilon>0\\)，级数\n\\[\\sum_{n=1}^{\\infty}\\frac{1}{|a_n|^{\\rho+\\varepsilon}}\\]\n收敛。",
+      "tags": [
+        "复分析",
+        "整函数",
+        "零点分布",
+        "增长阶",
+        "级数收敛"
+      ],
+      "question_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            67.5,
+            530.25,
+            180
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            180,
+            530.25,
+            1387.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第7题",
+      "body_zh": "设 \\(G\\) 是有限交换群，\\(x\\in G\\) 是 \\(G\\) 中阶最大的元素，记 \\(x\\) 的阶为 \\(n\\)。证明：\n（1）若 \\(a,b\\in G\\) 的阶分别为 \\(m_1,m_2\\)，且 \\(m_1,m_2\\) 互素，则 \\(ab\\) 的阶为 \\(m_1m_2\\)；\n（2）对任意 \\(y\\in G\\)，都有 \\(y^n=1\\)；\n（3）设 \\(F\\) 是一个域，\\(N>0\\) 是任意整数，则\n\\[U_N(F)=\\{a\\in F\\mid a^N=1\\}\\]\n关于 \\(F\\) 的乘法构成一个循环群。",
+      "tags": [
+        "抽象代数",
+        "有限交换群",
+        "元素的阶",
+        "循环群"
+      ],
+      "question_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            1387.5,
+            530.25,
+            1558.5
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            1558.5,
+            530.25,
+            2122.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第8题",
+      "body_zh": "设 \\(T^2\\) 是 \\(\\mathbb R^3\\) 中的圆环面：在直角坐标系 \\(O-xyz\\) 中，由 \\(yz\\) 平面上的圆（圆心 \\((0,a,0)\\)，半径 \\(b\\)，且 \\(a>b>0\\)）绕 \\(z\\) 轴旋转一周而成。\n（1）证明 \\(T^2\\) 上没有脐点；\n（2）求 \\(T^2\\) 上 Gauss 曲率为零的点集。",
+      "tags": [
+        "微分几何",
+        "圆环面",
+        "主曲率",
+        "Gauss曲率"
+      ],
+      "question_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            2122.5,
+            530.25,
+            2206.5
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            2206.5,
+            530.25,
+            3412.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第9题",
+      "body_zh": "设 \\(X,Y\\) 为离散随机变量，分别取值于有限集 \\(\\mathcal X,\\mathcal Y\\)。记概率分布 \\(p(x)=P(X=x)\\)、\\(p(y)=P(Y=y)\\)，联合分布 \\(p(x,y)=P(X=x,Y=y)\\)，条件分布 \\(p(x\\mid y)=P(X=x\\mid Y=y)\\)（当 \\(p(y)>0\\) 时）。定义熵、联合熵和条件熵：\n\\[H(X)=-\\sum_{x\\in\\mathcal X}p(x)\\ln p(x),\\]\n\\[H(X,Y)=-\\sum_{x\\in\\mathcal X}\\sum_{y\\in\\mathcal Y}p(x,y)\\ln p(x,y),\\]\n\\[H(X\\mid Y)=-\\sum_{x,y}p(x,y)\\ln p(x\\mid y).\\]\n约定 \\(0\\ln0=0\\)。证明：\n（1）链式法则：\\(H(X,Y)=H(X)+H(Y\\mid X)\\)；\n（2）条件熵递减：\\(H(X\\mid Y)\\le H(X)\\)，且等号成立当且仅当 \\(X,Y\\) 独立。",
+      "tags": [
+        "概率论",
+        "信息论",
+        "熵",
+        "条件熵",
+        "独立性",
+        "凹性"
+      ],
+      "question_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            3495,
+            530.25,
+            3686.25
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            3686.25,
+            530.25,
+            4627.5
+          ]
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "第17届 CMC 决赛 · 数学高年级 · 第10题",
+      "body_zh": "设 \\(A_n\\in\\mathbb R^{n\\times n}\\) 为三对角矩阵：\n\\[A_n=\\begin{pmatrix}2&-1&&&\\\\-1&2&\\ddots&&\\\\&\\ddots&\\ddots&-1&\\\\&&-1&2&-1\\\\&&&-1&2\\end{pmatrix}.\\]\n其谱条件数为 \\(\\kappa_2(A_n)=\\lambda_n/\\lambda_1\\)，其中 \\(\\lambda_1,\\lambda_n\\) 分别是最小、最大特征值。\n（1）证明 \\(A_n\\) 的特征值为\n\\[\\lambda_k=4\\sin^2\\frac{k\\pi}{2(n+1)},\\qquad k=1,2,\\ldots,n,\\]\n并证明当 \\(n\\to+\\infty\\) 时，\\(\\kappa_2(A_n)\\sim4n^2/\\pi^2\\)。\n（2）考虑用 Richardson 迭代求解线性方程组 \\(A_nx=b\\)：\n\\[x^{(m+1)}=x^{(m)}-\\alpha(A_nx^{(m)}-b),\\qquad m=0,1,\\ldots,\\quad\\alpha>0.\\]\n求使迭代收敛的 \\(\\alpha\\) 的取值范围，并求使收敛最快的最优参数 \\(\\alpha\\)。\n（3）考虑用 Jacobi 迭代求解 \\(A_nx=b\\)，证明迭代收敛，并分析当 \\(n\\) 充分大时收敛的快慢。",
+      "tags": [
+        "数值分析",
+        "三对角矩阵",
+        "特征值",
+        "条件数",
+        "Richardson迭代",
+        "Jacobi迭代"
+      ],
+      "question_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            4867.5,
+            530.25,
+            5130
+          ]
+        }
+      ],
+      "solution_regions": [
+        {
+          "page": 2,
+          "bbox": [
+            60,
+            5130,
+            530.25,
+            6820.5
+          ]
+        }
+      ]
+    }
+  ]
+}

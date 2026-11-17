@@ -1,0 +1,39 @@
+{
+  "resource_id": "egmo-2026-day2-ChineseSimplified-questions",
+  "source_sha256": "4f66f5349002b52b8051ac256edc136729429e7da74614eafdcfd7da92ca268e",
+  "read_method": "model-visual",
+  "questions": [
+    {
+      "number": "4",
+      "title": "EGMO 2026 · 第4题",
+      "body_zh": "设实数无穷数列满足\n\\[1=a_1\\ge a_2\\ge a_3\\ge\\cdots,\\qquad a_n=a_{2n}+a_{2n+1}\\quad(n\\ge1).\\]\n令 \\(r=2026^{2026}\\)。证明\n\\[\\frac1r\\le a_r\\le\\frac2{r+1}.\\]",
+      "tags": [
+        "数列",
+        "递推",
+        "不等式"
+      ]
+    },
+    {
+      "number": "5",
+      "title": "EGMO 2026 · 第5题",
+      "body_zh": "锐角三角形 \\(ABC\\) 满足 \\(AC>AB\\)，其外接圆为 \\(\\omega\\)，圆心为 \\(O\\)。过 \\(B,C\\) 作 \\(\\omega\\) 的切线，交于 \\(K\\)。圆 \\(ABK\\) 与直线 \\(BC\\) 再交于 \\(Z\\ne B\\)。\\(L\\) 为线段 \\(KZ\\) 的中点，直线 \\(KZ\\) 与 \\(AB\\) 交于 \\(X\\)。\n圆 \\(ABL\\) 上存在唯一一点 \\(V\\)，满足 \\(OV\\perp KZ\\)，且 \\(V,A\\) 位于直线 \\(BC\\) 的同侧。\n证明 \\(LV\\perp CX\\)。",
+      "tags": [
+        "平面几何",
+        "圆",
+        "垂直",
+        "切线"
+      ]
+    },
+    {
+      "number": "6",
+      "title": "EGMO 2026 · 第6题",
+      "body_zh": "设 \\(p\\) 为素数，\\(n\\) 为不能被 \\(p\\) 整除的正整数。\\(n\\) 的全部正因子依次为\n\\[1=d_1<d_2<\\cdots<d_k=n.\\]\n对每个 \\(i=1,2,\\ldots,k\\)，令 \\(c_i\\) 为 \\(d_i^2\\) 的正因子 \\(\\ell\\) 中满足 \\(p\\mid d_i-\\ell\\) 的个数。\n证明\n\\[(p-1)(c_1+c_2+\\cdots+c_k)\\ge k^2.\\]",
+      "tags": [
+        "数论",
+        "因数计数",
+        "同余",
+        "不等式"
+      ]
+    }
+  ]
+}

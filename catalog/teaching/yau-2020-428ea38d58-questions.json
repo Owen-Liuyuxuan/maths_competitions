@@ -1,0 +1,237 @@
+{
+  "resource_id": "yau-2020-428ea38d58-questions",
+  "source_sha256": "ea380cfbbcec65e6627cb49832a4736dfbc37d4e2f95f75fb9be78f5f709d827",
+  "solution_resource_id": "yau-2020-37496cc485-solutions",
+  "solution_sha256": "fc49bcc830988402a6eb6692224b01ed9a590df3fc03c8f284530089a3335d73",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "yau-2020-428ea38d58-questions-q1",
+      "resource_id": "yau-2020-428ea38d58-questions",
+      "source_sha256": "ea380cfbbcec65e6627cb49832a4736dfbc37d4e2f95f75fb9be78f5f709d827",
+      "solution_resource_id": "yau-2020-37496cc485-solutions",
+      "solution_sha256": "fc49bcc830988402a6eb6692224b01ed9a590df3fc03c8f284530089a3335d73",
+      "contest": "YAU",
+      "year": 2020,
+      "number": "1",
+      "level": "本科",
+      "title": "geometry and topology 20.pdf · 1",
+      "blind_attempt": {
+        "approach": "本题考察流形上的微分形式、de Rham 上同调与代数拓扑中的 Hopf 不变量（Whitehead 积分公式及偶性）：\n1. **第 (a) 问**：利用 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\) 上的径向缩放将 \\(S^6\\) 的标准体积形式延拓为 \\(6\\)-形式，并除以 \\(S^6\\) 的表面积以使积分归一化为 \\(1\\)。\n2. **第 (b) 问**：由 \\(d\\alpha = 0\\) 得 \\(d(f^*\\alpha) = 0\\)，结合球面的 de Rham 上同调 \\(H^6_{\\mathrm{dR}}(S^{11}) = 0\\)（可通过 Mayer–Vietoris 序列归纳证明），可知闭形式 \\(f^*\\alpha\\) 必恰当。\n3. **第 (c) 问**：若 \\(\\varphi_1, \\varphi_2\\) 均满足 \\(d\\varphi_i = f^*\\alpha\\)，则 \\(\\varphi_1 - \\varphi_2\\) 为闭 \\(5\\)-形式；由 \\(H^5_{\\mathrm{dR}}(S^{11}) = 0\\) 知其恰当，利用分部积分与 Stokes 定理即得积分不变性。\n4. **第 (d) 问**：首先证明 \\(H(f)\\) 不依赖于单位积分闭 \\(6\\)-形式 \\(\\alpha\\) 的选取；随后构造映射锥 \\(C_f = S^6 \\cup_f D^{12}\\)，利用相对上同调与 de Rham 定理证明 \\(H(f)\\) 等于映射锥整上同调中的杯积系数（即经典的 Hopf 不变量），从而 \\(H(f) \\in \\mathbb{Z}\\)；最后在模 \\(2\\) 上同调 \\(H^*(C_f; \\mathbb{Z}_2)\\) 中应用 Steenrod 平方的 Adem 关系 \\(\\operatorname{Sq}^2 \\operatorname{Sq}^4 = \\operatorname{Sq}^6 + \\operatorname{Sq}^5 \\operatorname{Sq}^1\\)，由 \\(C_f\\) 在 \\(7\\) 维与 \\(10\\) 维上同调为零推出 \\(\\operatorname{Sq}^6(\\bar{u}) = 0\\)，进而得到 \\(H(f) \\equiv 0 \\pmod 2\\)。",
+        "final_answer": "**(a)** 在 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\) 上可取闭 \\(6\\)-形式\n\\[\n\\alpha = \\frac{15}{16\\pi^3} r^{-7} \\sum_{j=1}^{7} (-1)^{j-1} x_j \\, dx_1 \\wedge \\dots \\wedge \\widehat{dx_j} \\wedge \\dots \\wedge dx_7,\n\\]\n其中 \\(r = \\left(\\sum_{j=1}^{7} x_j^2\\right)^{1/2}\\)。其满足 \\(d\\alpha = 0\\) 且 \\(\\int_{S^6} \\alpha = 1\\)。\n\n**(b)** 由 \\(d(f^*\\alpha) = f^*(d\\alpha) = 0\\) 及 \\(H^6_{\\mathrm{dR}}(S^{11}) = 0\\)，存在 \\(S^{11}\\) 上的光滑 \\(5\\)-形式 \\(\\varphi\\) 使得 \\(f^*\\alpha = d\\varphi\\)。\n\n**(c)** 任意两个解 \\(\\varphi_1, \\varphi_2\\) 相差一个闭 \\(5\\)-形式，由 \\(H^5_{\\mathrm{dR}}(S^{11}) = 0\\) 可写为 \\(\\varphi_1 - \\varphi_2 = d\\psi\\)，再由 Stokes 定理得 \\(\\int_{S^{11}} (\\varphi_1 - \\varphi_2) \\wedge f^*\\alpha = \\int_{S^{11}} d(\\psi \\wedge d\\varphi_1) = 0\\)，故 \\(H(f)\\) 与 \\(\\varphi\\) 的选取无关。\n\n**(d)** 通过映射锥 \\(C_f = S^6 \\cup_f D^{12}\\) 上的相对杯积与 de Rham 定理，\\(H(f)\\) 等于 \\(u \\smile u = H(f) v\\) 中的整系数（其中 \\(u \\in H^6(C_f;\\mathbb{Z}),\\, v \\in H^{12}(C_f;\\mathbb{Z})\\) 为生成元），故 \\(H(f) \\in \\mathbb{Z}\\)；再由模 \\(2\\) 上同调中的 Adem 关系 \\(\\operatorname{Sq}^6 = \\operatorname{Sq}^2\\operatorname{Sq}^4 + \\operatorname{Sq}^5\\operatorname{Sq}^1\\) 以及 \\(H^7(C_f;\\mathbb{Z}_2) = H^{10}(C_f;\\mathbb{Z}_2) = 0\\)，可得 \\(H(f) \\bmod 2 = 0\\)，即 \\(H(f)\\) 必为偶数。",
+        "problem_statement_zh": "设 \\(S^n\\) 为 \\(\\mathbb{R}^{n+1}\\) 中的单位球面。\n\n**(a)** 在 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\) 上求一个 \\(6\\)-形式 \\(\\alpha\\)，使得\n\\[\nd\\alpha = 0, \\quad \\text{且} \\quad \\int_{S^6} \\alpha = 1.\n\\]\n\n**(b)** 对任意光滑映射 \\(f : S^{11} \\to S^6\\)，证明在 \\(S^{11}\\) 上存在一个 \\(5\\)-形式 \\(\\varphi\\)，使得\n\\[\nf^*\\alpha = d\\varphi. \\qquad (1)\n\\]\n\n**(c)** 令\n\\[\nH(f) = \\int_{S^{11}} \\varphi \\wedge d\\varphi.\n\\]\n证明 \\(H(f)\\) 与满足 (1) 的 \\(\\varphi\\) 的选取无关。\n\n**(d)** 证明对任意光滑映射 \\(f : S^{11} \\to S^6\\)，\\(H(f)\\) 都是一个偶数。",
+        "steps": [
+          "第 (a) 问：在 \\(\\mathbb{R}^7\\) 上定义 \\(\\omega = \\sum_{j=1}^{7} (-1)^{j-1} x_j \\, dx_1 \\wedge \\dots \\wedge \\widehat{dx_j} \\wedge \\dots \\wedge dx_7\\)，则 \\(d\\omega = 7 \\, dx_1 \\wedge \\dots \\wedge dx_7\\)。由 Stokes 定理及单位球 \\(B^7\\) 的体积 \\(\\operatorname{Vol}(B^7) = \\frac{\\pi^{7/2}}{\\Gamma(9/2)} = \\frac{16\\pi^3}{105}\\)，得 \\(\\int_{S^6} \\omega = 7\\operatorname{Vol}(B^7) = \\frac{16\\pi^3}{15}\\)。取 \\(\\alpha = \\frac{15}{16\\pi^3} r^{-7}\\omega\\)，其中 \\(r = \\left(\\sum_{j=1}^7 x_j^2\\right)^{1/2}\\)。在 \\(S^6\\) 上 \\(r=1\\)，故 \\(\\int_{S^6} \\alpha = 1\\)；又由 \\(dr = r^{-1}\\sum_{k=1}^7 x_k dx_k\\) 得 \\(d(r^{-7})\\wedge\\omega = -7r^{-7} dx_1\\wedge\\dots\\wedge dx_7 = -r^{-7}d\\omega\\)，从而 \\(d\\alpha = 0\\)。",
+          "第 (b) 问：因 \\(d\\alpha = 0\\)，故 \\(d(f^*\\alpha) = f^*(d\\alpha) = 0\\)，即 \\(f^*\\alpha\\) 为 \\(S^{11}\\) 上的闭 \\(6\\)-形式。用南北极各挖去一点的两个开球覆盖 \\(S^n\\)（\\(n \\ge 2\\)），由 Poincaré 引理与 Mayer–Vietoris 长正合列归纳可得对所有 \\(0 < k < n\\) 有 \\(H^k_{\\mathrm{dR}}(S^n) = 0\\)。特别地 \\(H^6_{\\mathrm{dR}}(S^{11}) = 0\\)，故存在 \\(S^{11}\\) 上的光滑 \\(5\\)-形式 \\(\\varphi\\) 使得 \\(d\\varphi = f^*\\alpha\\)。",
+          "第 (c) 问：若 \\(\\varphi_1, \\varphi_2\\) 均满足 \\(d\\varphi_i = f^*\\alpha\\)，则 \\(d(\\varphi_1 - \\varphi_2) = 0\\)。由 \\(H^5_{\\mathrm{dR}}(S^{11}) = 0\\)，存在 \\(S^{11}\\) 上的 \\(4\\)-形式 \\(\\psi\\) 使得 \\(\\varphi_1 - \\varphi_2 = d\\psi\\)。因为 \\(\\deg\\psi = 4\\) 为偶数且 \\(d(d\\varphi_1) = 0\\)，有 \\((\\varphi_1 - \\varphi_2) \\wedge f^*\\alpha = d\\psi \\wedge d\\varphi_1 = d(\\psi \\wedge d\\varphi_1)\\)。由 Stokes 定理（\\(S^{11}\\) 无边界），\\(\\int_{S^{11}} (\\varphi_1 \\wedge d\\varphi_1 - \\varphi_2 \\wedge d\\varphi_2) = \\int_{S^{11}} d(\\psi \\wedge d\\varphi_1) = 0\\)，从而 \\(H(f)\\) 与 \\(\\varphi\\) 的选取无关。",
+          "第 (d) 问第一步（对 \\(\\alpha\\) 的无关性）：若 \\(\\alpha'\\) 为 \\(S^6\\) 上任意满足 \\(\\int_{S^6} \\alpha' = 1\\) 的闭 \\(6\\)-形式，由 \\(H^6_{\\mathrm{dR}}(S^6) \\cong \\mathbb{R}\\) 可写 \\(\\alpha' - \\alpha = d\\beta\\)（\\(\\beta\\) 为 \\(S^6\\) 上 \\(5\\)-形式），取 \\(\\varphi' = \\varphi + f^*\\beta\\)。因 \\(6\\) 维流形 \\(S^6\\) 上不存在非零 \\(11\\)-形式，\\(\\alpha \\wedge \\beta = \\beta \\wedge \\alpha' = 0\\)，于是 \\(\\varphi' \\wedge d\\varphi' - \\varphi \\wedge d\\varphi = \\varphi \\wedge d(f^*\\beta) = -d(\\varphi \\wedge f^*\\beta)\\)，再由 Stokes 定理得积分值不变。",
+          "第 (d) 问第二步（构造映射锥并证明 \\(H(f) \\in \\mathbb{Z}\\)）：记 \\(C_f = S^6 \\cup_f D^{12}\\) 为映射锥，\\(q : D^{12} \\to C_f\\) 为特征映射。则 \\(H^k(C_f; \\mathbb{Z}) \\cong \\mathbb{Z}\\)（\\(k = 0, 6, 12\\)），其余次数为零。取整生成元 \\(u \\in H^6(C_f; \\mathbb{Z})\\)（限制到 \\(S^6\\) 后在实系数下对应 \\([\\alpha]\\)）与 \\(v \\in H^{12}(C_f; \\mathbb{Z})\\)（通过切除同构 \\(H^{12}(C_f, S^6; \\mathbb{Z}) \\xrightarrow{\\sim} H^{12}(D^{12}, S^{11}; \\mathbb{Z})\\) 对应于 \\(D^{12}\\) 定向基本类），则有 \\(u \\smile u = m v\\)（\\(m \\in \\mathbb{Z}\\)）。在 \\(S^6\\) 上取两个不相交闭球并分别取支集在其内部的单位积分 \\(6\\)-形式 \\(\\alpha_1, \\alpha_2\\)，令 \\(\\widetilde{A}_i = S^6 \\setminus \\operatorname{supp}(\\alpha_i)\\)。取光滑截断函数 \\(\\rho : [0,1] \\to [0,1]\\)（在 \\([0,1/3]\\) 上为 \\(0\\)，在 \\([2/3,1]\\) 上为 \\(1\\)），并在 \\(D^{12}\\) 上置 \\(\\tilde{\\varphi}_i(y) = \\rho(\\|y\\|)\\pi_{S^{11}}^*\\varphi_i(y)\\)（其中 \\(d\\varphi_i = f^*\\alpha_i\\)）。令 \\(U_i = \\{y \\in D^{12} : \\|y\\| > 2/3,\\, y/\\|y\\| \\in f^{-1}(\\widetilde{A}_i)\\}\\) 及 \\(\\widehat{A}_i = \\widetilde{A}_i \\cup q(U_i)\\)。利用 \\(H^6(C_f, \\widehat{A}_i; \\mathbb{R}) \\xrightarrow{q^*} H^6(D^{12}, U_i; \\mathbb{R}) \\xrightarrow{\\sim} H^6(U_1 \\cup U_2, U_i; \\mathbb{R})\\)，可知 \\(q^*(u)\\) 由在 \\(U_i\\) 上为零的闭 \\(6\\)-形式 \\(d\\tilde{\\varphi}_i\\) 代表。由开对相对 de Rham 定理中链同伦的自然性，\\(q^*(u \\smile u) \\in H^{12}(D^{12}, U_1 \\cup U_2; \\mathbb{R})\\) 由紧支集 \\(12\\)-形式 \\(d\\tilde{\\varphi}_1 \\wedge d\\tilde{\\varphi}_2\\) 代表。由 Stokes 定理，\\(m = \\int_{D^{12}} d\\tilde{\\varphi}_1 \\wedge d\\tilde{\\varphi}_2 = \\int_{D^{12}} d(\\tilde{\\varphi}_1 \\wedge d\\tilde{\\varphi}_2) = \\int_{S^{11}} \\varphi_1 \\wedge f^*\\alpha_2 = H(f)\\)，故 \\(H(f) = m \\in \\mathbb{Z}\\)。",
+          "第 (d) 问第三步（利用 Steenrod 平方证明 \\(H(f)\\) 为偶数）：将 \\(u, v\\) 模 \\(2\\) 约化为 \\(\\bar{u} \\in H^6(C_f; \\mathbb{Z}_2)\\) 与 \\(\\bar{v} \\in H^{12}(C_f; \\mathbb{Z}_2)\\)，则 \\(\\operatorname{Sq}^6(\\bar{u}) = \\bar{u}^2 = (H(f) \\bmod 2)\\,\\bar{v}\\)。由 Steenrod 平方的 Adem 关系（\\(a = 2 < 2b = 8\\)），\\(\\operatorname{Sq}^2 \\operatorname{Sq}^4 = \\binom{3}{2}\\operatorname{Sq}^6\\operatorname{Sq}^0 + \\binom{2}{0}\\operatorname{Sq}^5\\operatorname{Sq}^1 = \\operatorname{Sq}^6 + \\operatorname{Sq}^5\\operatorname{Sq}^1 \\pmod 2\\)。因为 \\(H^7(C_f; \\mathbb{Z}_2) = 0\\) 且 \\(H^{10}(C_f; \\mathbb{Z}_2) = 0\\)，故 \\(\\operatorname{Sq}^1(\\bar{u}) = 0\\)、\\(\\operatorname{Sq}^4(\\bar{u}) = 0\\)，从而 \\(\\operatorname{Sq}^6(\\bar{u}) = \\operatorname{Sq}^2(\\operatorname{Sq}^4\\bar{u}) + \\operatorname{Sq}^5(\\operatorname{Sq}^1\\bar{u}) = 0\\)，即 \\(H(f) \\equiv 0 \\pmod 2\\)。"
+        ],
+        "uncertainties": [
+          "第 (d) 问使用了映射锥上同调与 Steenrod 平方的 Adem 关系（或可改用复 \\(K\\)-理论中的 Adams 运算 \\(\\psi^2, \\psi^3\\)）来证明 \\(H(f)\\) 为偶数；对于本科水平而言属于进阶代数拓扑工具，目前不确定是否存在完全不依赖 Steenrod 平方或 \\(K\\)-理论的初等微分几何证法。",
+          "第 (d) 问中 \\(m = +H(f)\\) 的正负号取决于 \\(D^{12}\\) 与其边界 \\(S^{11}\\) 取一致的 Stokes 定向约定；若生成元 \\(v\\) 取相反定向则 \\(m = -H(f)\\)，但不影响 \\(H(f) \\in 2\\mathbb{Z}\\) 的结论。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "写完 \\(\\alpha = c\\, r^{-p} \\omega\\) 后务必直接求一次 \\(d\\alpha\\) 验证（利用 \\(dr = r^{-1}\\sum x_k dx_k\\) 与 \\(d\\omega = 7\\,dx_1\\wedge\\dots\\wedge dx_7\\)），并注意 \\(\\alpha|_{S^6}\\) 应取向外单位法向量缩并体积形式，从而要求 \\(p = 7\\)（分母中 \\(r^7\\) 而非 \\(r^6\\)）。",
+            "mistake": "第 (a) 问中直接把 \\(S^6\\) 的面元写成 \\(\\sum (-1)^{j-1} x_j dx_1\\wedge\\dots\\wedge\\widehat{dx_j}\\wedge\\dots\\wedge dx_7\\) 而忘记除以 \\(r^7\\)，或者误除以 \\(r^6\\)（以为 \\(6\\)-形式要按 \\(r^6\\) 齐次化）。",
+            "title": "径向延拓幂次错误导致 \\(d\\alpha \\neq 0\\)",
+            "why_wrong": "未除以 \\(r^7\\) 时 \\(d\\omega = 7\\,dx_1\\wedge\\dots\\wedge dx_7 \\neq 0\\)；若误除以 \\(r^6\\)，则 \\(d(r^{-6}\\omega) = r^{-6}\\,dx_1\\wedge\\dots\\wedge dx_7 \\neq 0\\)。只有 \\(0\\)-次齐次延拓（即经径向投影 \\(\\pi(x) = x/r\\) 拉回，因 \\(x_j\\) 为 \\(1\\) 次、\\(dx_k\\) 为 \\(1\\) 次，共 \\(7\\) 次，故需乘以 \\(r^{-7}\\)）才能由 \\(d(\\alpha|_{S^6})=0\\) 保证 \\(d\\alpha = 0\\)。"
+          },
+          {
+            "how_to_avoid": "在使用分部外微分公式 \\(d(\\eta \\wedge \\xi) = d\\eta \\wedge \\xi + (-1)^{\\deg\\eta}\\eta \\wedge d\\xi\\) 时显式标出 \\(\\deg \\eta\\)，并注意本题 \\(S^{11}\\) 维数为奇数时外积顺序交换的符号变化。",
+            "mistake": "第 (c) 问计算 \\(\\int_{S^{11}} d\\psi \\wedge d\\varphi_1\\) 时漏掉次数符号 \\((-1)^{\\deg \\psi}\\)，或者在第 (d) 问错把 \\(d(\\varphi \\wedge \\varphi)\\) 当成 \\(2\\varphi \\wedge d\\varphi\\) 来直接“证明” \\(H(f)=0\\)。",
+            "title": "外微分 Leibniz 法则与高维形式次数符号混淆",
+            "why_wrong": "当 \\(f: S^{2m-1} \\to S^m\\) 中 \\(m\\) 为奇数时，\\(\\deg \\varphi = m-1\\) 为偶数，确实有 \\(d(\\varphi \\wedge \\varphi) = 2\\varphi \\wedge d\\varphi\\) 从而 \\(H(f)=0\\)；但本题 \\(m=6\\) 为偶数，\\(\\deg\\varphi = 5\\) 为奇数，\\(d(\\varphi \\wedge \\varphi) = d\\varphi \\wedge \\varphi - \\varphi \\wedge d\\varphi = 0\\)（因为 \\(6\\)-形式与 \\(5\\)-形式交换正负号不变），无法推出 \\(H(f)=0\\)。"
+          },
+          {
+            "how_to_avoid": "在严格书写时，要么将光滑形式放到 \\(D^{12}\\) 上利用相对上同调 \\((D^{12}, U_i)\\) 与 \\((C_f, \\widehat{A}_i)\\) 的切除同构来过渡，要么明确说明是将 \\(\\alpha\\) 延拓到截断后的胞腔上（等价于奇异上同调杯积与光滑流形相对 de Rham 定理的对接）。同时牢记 \\(m=2,4,8\\) 时存在 Hopf 不变量为 \\(1\\) 的映射，\\(m=6\\) 为偶数的关键在于 \\(6\\) 不是 \\(2\\) 的幂。",
+            "mistake": "第 (d) 问中直接把光滑微分形式及其外微分写到非光滑的 CW 复形 \\(K = B \\cup_f S^6\\) 上，或误以为对任意偶数 \\(m\\)，映射 \\(S^{2m-1} \\to S^m\\) 的 \\(H(f)\\) 都是偶数。",
+            "title": "在非光滑空间上盲目使用光滑形式或过度推广结论",
+            "why_wrong": "\\(K = B \\cup_f S^6\\) 沿粘合处 \\(S^6\\) 一般不具有光滑流形结构，直接写 \\(\\int_K (f^*\\alpha)\\wedge(f^*\\alpha)\\) 缺乏严格定义（参考答案中该记号实为将光滑球盘上的相对形式等价于奇异杯积的简写）；此外当 \\(m = 2, 4, 8\\) 时（对应复数、四元数、八元数 Hopf 纤维化）存在 \\(H(f)=1\\) 的映射，并非所有偶数 \\(m\\) 都成立。"
+          }
+        ],
+        "comparison_summary": "盲做解答与参考答案完全一致，且在关键细节上更为严谨完整：\n1. 第 (a) 问给出的闭 \\(6\\)-形式 \\(\\alpha\\) 与参考答案公式完全相同，并额外显式算出了 \\(\\operatorname{Vol}(S^6) = \\frac{16\\pi^3}{15}\\) 及 \\(d\\alpha = 0\\) 的逐项微分验证。\n2. 第 (b)、(c) 问均分别利用 \\(H^6_{\\mathrm{dR}}(S^{11})=0\\)、\\(H^5_{\\mathrm{dR}}(S^{11})=0\\) 与 Stokes 定理完成，盲做中还补充了利用 Mayer–Vietoris 序列对 \\(H^k_{\\mathrm{dR}}(S^n)=0\\)（\\(0<k<n\\)）的归纳证明，逻辑更自洽。\n3. 第 (d) 问的核心思路与参考答案完全吻合——均通过构造映射锥 \\(K = S^6 \\cup_f D^{12}\\)（\\(C_f\\)）将 \\(H(f)\\) 转化为整上同调环中的杯积系数 \\(\\alpha^2 = H(f)\\beta\\) 从而证明 \\(H(f) \\in \\mathbb{Z}\\)，再利用模 \\(2\\) 上同调的 Adem 关系 \\(\\operatorname{Sq}^6 = \\operatorname{Sq}^2\\operatorname{Sq}^4 + \\operatorname{Sq}^5\\operatorname{Sq}^1\\) 及中间次数上同调消没证明 \\(H(f)\\) 为偶数。此外，盲做补充了通过开对 \\((D^{12}, U_i)\\) 相对 de Rham 定理将 \\(\\int_{S^{11}} \\varphi \\wedge d\\varphi\\) 严格对齐到映射锥杯积的完整证明，弥补了参考答案在非光滑 CW 复形 \\(K\\) 上直接积分形式的简写跳步。唯一差异在于盲做未展开参考答案末尾提及的另一种证整数性的方法（相交理论中的环绕数 \\(\\operatorname{lk}(f^{-1}(p), f^{-1}(q))\\)），但主线完全对齐，判定为 `correct`。",
+        "difficulties": [
+          {
+            "detail": "题目给出的 \\(H(f) = \\int_{S^{11}} \\varphi \\wedge d\\varphi\\) 是一个分析/微分几何积分，既没有显式的整数结构，也很难直接看出模 \\(2\\) 同余性质。必须构造映射锥 \\(C_f = B \\cup_f S^6\\)，将积分解释为 \\(H^{12}(C_f;\\mathbb{Z})\\) 中的杯积关系 \\(u^2 = H(f)v\\)（即经典的 Hopf 不变量），从而一次性把连续积分转化为整数环上的代数不变量。",
+            "title": "从微分形式积分向映射锥整上同调杯积的跨越"
+          },
+          {
+            "detail": "即使知道 \\(H(f) \\in \\mathbb{Z}\\)，由 \\(m=2,4,8\\) 的 Hopf 纤维化可知 Hopf 不变量未必总是偶数；且因 \\(6\\) 为偶数，\\(\\varphi\\) 是 \\(5\\)-形式（奇次），\\(d(\\varphi \\wedge \\varphi) = 0\\) 不会像奇数维球面那样自动迫使 \\(H(f)=0\\)。要排除 \\(H(f)\\) 为奇数，必须借助高阶上同调运算：利用 \\(6\\) 不是 \\(2\\) 的幂次，通过 Adem 关系 \\(\\operatorname{Sq}^6 = \\operatorname{Sq}^2\\operatorname{Sq}^4 + \\operatorname{Sq}^5\\operatorname{Sq}^1\\) 把原本能取非零值的 \\(\\operatorname{Sq}^6\\) 分解为必然穿过空缺次数 \\(H^7 = H^{10} = 0\\) 的复合运算。",
+            "title": "利用 Steenrod 平方的 Adem 关系突破“非 \\(2\\) 的幂次”限制"
+          }
+        ],
+        "difficulty_tag": "训练:压轴攻坚",
+        "method_tags": [
+          "不变量与单调量",
+          "奇偶与同余",
+          "局部-整体转化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广",
+          "易错:定义域与分母为零"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "观察 (a)–(c) 的维数关系：靶空间是 \\(S^6\\)（\\(6\\)-形式 \\(\\alpha\\)），定义域是 \\(S^{11}\\)（\\(11 = 2 \\times 6 - 1\\)），原函数 \\(\\varphi\\) 是 \\(5\\)-形式，而 \\(\\varphi \\wedge d\\varphi\\) 恰好是 \\(5 + 6 = 11\\) 次顶形式。这正是 Whitehead 关于映射 \\(f: S^{2m-1} \\to S^m\\) 的 Hopf 不变量积分公式（取 \\(m = 6\\)）。",
+            "step": "识别维数配对与核心模型"
+          },
+          {
+            "detail": "前两问只用到球面的标准几何与 de Rham 上同调消没性质：构造 \\(\\alpha\\) 时要让其从 \\(S^6\\) 体积形式经径向投影拉回（即 \\(0\\) 次齐次），保证在 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\) 上闭；(b)、(c) 问则直接由 \\(H^6_{\\mathrm{dR}}(S^{11}) = H^5_{\\mathrm{dR}}(S^{11}) = 0\\) 与 Stokes 定理自然导出。",
+            "step": "拆解前两问的纯微分拓扑条件"
+          },
+          {
+            "detail": "分析第 (d) 问的双重要求：“整数性”与“偶性”。整数性源自代数拓扑或相交理论（映射锥上的整杯积，或两个正则值原像的环绕数）；而“偶数”则强依赖于目标维数 \\(m = 6 \\notin \\{1,2,4,8\\}\\)，提示必须在模 \\(2\\) 上同调中使用 Steenrod 平方的 Adem 关系（或 \\(K\\)-理论中的 Adams 运算）来瓦解 \\(\\operatorname{Sq}^6\\)。",
+            "step": "定位第 (d) 问的两个拓扑障碍"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "在 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\) 上取径向投影 \\(\\pi(x) = x / \\|x\\|\\) 拉回 \\(S^6\\) 上的归一化体积形式 \\(\\frac{1}{\\operatorname{Vol}(S^6)}\\operatorname{vol}_{S^6}\\)，即得\n\\[\n\\alpha = \\frac{\\sum_{j=1}^7 (-1)^{j-1} x_j \\, dx_1 \\wedge \\dots \\wedge \\widehat{dx_j} \\wedge \\dots \\wedge dx_7}{\\operatorname{Vol}(S^6) \\left(\\sum_{j=1}^7 x_j^2\\right)^{7/2}},\n\\]\n其中 \\(\\operatorname{Vol}(S^6) = \\frac{16\\pi^3}{15}\\)。由于 \\(S^6\\) 上任何 \\(6\\)-形式必闭，其拉回 \\(\\alpha = \\pi^*(\\alpha|_{S^6})\\) 自动满足 \\(d\\alpha = 0\\)，且 \\(\\int_{S^6} \\alpha = 1\\)。",
+            "motivation": "需要一个在穿孔欧氏空间上闭、且在单位球面上积分为 \\(1\\) 的 \\(6\\)-形式。最自然的想法是将 \\(S^6\\) 的标准定向体积形式经径向投影拉回至 \\(\\mathbb{R}^7 \\setminus \\{0\\}\\)。",
+            "step": "1. 径向拉回构造归一化闭形式 \\(\\alpha\\)（第 (a) 问）"
+          },
+          {
+            "detail": "由 \\(d(f^*\\alpha) = f^*(d\\alpha) = 0\\) 以及 \\(H^6_{\\mathrm{dR}}(S^{11}) = 0\\) 得存在 \\(5\\)-形式 \\(\\varphi\\) 使 \\(d\\varphi = f^*\\alpha\\)。若另有一解 \\(\\varphi'\\)，则 \\(d(\\varphi' - \\varphi) = 0\\)，再由 \\(H^5_{\\mathrm{dR}}(S^{11}) = 0\\) 得 \\(\\varphi' - \\varphi = d\\psi\\)。因为 \\(\\deg\\psi = 4\\) 为偶数且 \\(d(f^*\\alpha) = 0\\)，有 \\((\\varphi' - \\varphi) \\wedge f^*\\alpha = d(\\psi \\wedge f^*\\alpha)\\)，由无边闭流形 \\(S^{11}\\) 上的 Stokes 定理即得积分不变。同理，若把 \\(\\alpha\\) 换成 \\(S^6\\) 上另一同调闭形式 \\(\\alpha + d\\beta\\)，因 \\(S^6\\) 上无非零 \\(11\\)-形式，\\(H(f)\\) 亦不变。",
+            "motivation": "利用中间维数球面 de Rham 上同调为零以及边界消没，保证 \\(\\varphi\\) 的存在性与 \\(H(f)\\) 的良定义。",
+            "step": "2. 球面上同调消没与 Stokes 定理确立不变量 \\(H(f)\\)（第 (b)、(c) 问）"
+          },
+          {
+            "detail": "构造 CW 复形（映射锥）\\(K = B^{12} \\cup_f S^6\\)，由胞腔上同调知 \\(H^q(K;\\mathbb{Z})\\) 仅在 \\(q=0,6,12\\) 时同构于 \\(\\mathbb{Z}\\)，取 \\(6\\) 维与 \\(12\\) 维整生成元 \\(\\alpha_K, \\beta_K\\)，则 \\(\\alpha_K^2 = m\\beta_K\\)（\\(m \\in \\mathbb{Z}\\)）。利用球盘 \\(B^{12}\\) 上的截断延拓 \\(\\tilde{\\varphi}_i\\)（或相对 de Rham 定理），在 \\(B^{12}\\) 上由 Stokes 定理把杯积 \\(\\langle \\alpha_K^2, [K] \\rangle = m\\) 化为边界积分 \\(\\int_{S^{11}} \\varphi_1 \\wedge f^*\\alpha_2 = H(f)\\)，从而证明 \\(H(f) = m \\in \\mathbb{Z}\\)。",
+            "motivation": "直接计算 \\(\\int_{S^{11}} \\varphi \\wedge d\\varphi\\) 看不到整性；将其放入以 \\(f\\) 为粘合映射的 \\(12\\)-胞腔映射锥 \\(K = B \\cup_f S^6\\) 中，外微分恰好对应映射锥上的上边缘与杯积结构。",
+            "step": "3. 映射锥整上同调杯积证明 \\(H(f) \\in \\mathbb{Z}\\)（第 (d) 问前半）"
+          },
+          {
+            "detail": "将 \\(\\alpha_K, \\beta_K\\) 模 \\(2\\) 约化为 \\(\\sigma \\in H^6(K;\\mathbb{Z}_2)\\) 与 \\(\\tau \\in H^{12}(K;\\mathbb{Z}_2)\\)，则 \\(\\operatorname{Sq}^6(\\sigma) = \\sigma^2 = (H(f)\\bmod 2)\\tau\\)。由 Adem 关系（\\(a=2 < 2b=8\\)）得 \\(\\operatorname{Sq}^2\\operatorname{Sq}^4 = \\operatorname{Sq}^6 + \\operatorname{Sq}^5\\operatorname{Sq}^1\\)，即 \\(\\operatorname{Sq}^6 = \\operatorname{Sq}^2\\operatorname{Sq}^4 + \\operatorname{Sq}^5\\operatorname{Sq}^1\\)。因 \\(K\\) 在 \\(7\\) 维和 \\(10\\) 维没有胞腔，\\(H^7(K;\\mathbb{Z}_2) = H^{10}(K;\\mathbb{Z}_2) = 0\\)，故 \\(\\operatorname{Sq}^1(\\sigma) = 0\\) 且 \\(\\operatorname{Sq}^4(\\sigma) = 0\\)。于是 \\(\\operatorname{Sq}^6(\\sigma) = 0\\)，矛盾于若 \\(H(f)\\) 为奇数则 \\(\\operatorname{Sq}^6(\\sigma) = \\tau \\neq 0\\)，从而 \\(H(f)\\) 必为偶数。",
+            "motivation": "利用映射锥在 \\(7\\sim 11\\) 维的“空隙”（上同调全为零），借助 Steenrod 平方的分解把 \\(\\operatorname{Sq}^6\\) 因子化，从而判定杯积平方模 \\(2\\) 为零。",
+            "step": "4. 模 \\(2\\) 上同调与 Adem 关系证明 \\(H(f)\\) 为偶数（第 (d) 问后半）"
+          }
+        ],
+        "teaching_takeaway": "面对光滑流形上的积分型拓扑不变量（如 Whitehead 的 Hopf 不变量公式），“先在流形上用 de Rham 上同调与 Stokes 定理建立良定义，再通过构造映射锥 \\(C_f\\) 把边界积分转化为相对/胞腔上同调中的整杯积，最后借助模 \\(2\\) Steenrod 运算与 Adem 关系提取奇偶障碍”是打通微分拓扑与代数拓扑的经典范式。",
+        "topic_tags": [
+          "微分形式与 de Rham 上同调",
+          "Hopf 不变量",
+          "Steenrod 平方与代数拓扑"
+        ]
+      }
+    },
+    {
+      "id": "yau-2020-428ea38d58-questions-q2",
+      "resource_id": "yau-2020-428ea38d58-questions",
+      "source_sha256": "ea380cfbbcec65e6627cb49832a4736dfbc37d4e2f95f75fb9be78f5f709d827",
+      "solution_resource_id": "yau-2020-37496cc485-solutions",
+      "solution_sha256": "fc49bcc830988402a6eb6692224b01ed9a590df3fc03c8f284530089a3335d73",
+      "contest": "YAU",
+      "year": 2020,
+      "number": "2",
+      "level": "本科",
+      "title": "geometry and topology 20.pdf · 2",
+      "blind_attempt": {
+        "approach": "令 \\(u = \\log h_1 \\in C^\\infty(\\mathbb{R}^2)\\)，则条件 \\(\\operatorname{Ric}(h_1) = 1\\) 等价于在 \\(\\mathbb{R}^2\\) 上成立非线性椭圆偏微分方程 \\(\\Delta u = e^u\\)。通过对 \\(u\\) 取以原点为中心的圆周平均值 \\(\\bar{u}(r)\\)，结合散度定理与 Jensen 不等式，将问题转化为关于 \\(\\bar{u}(r)\\) 的常微分不等式，再作对数坐标变换 \\(t = \\log r\\) 与函数代换 \\(v(t) = \\bar{u}(e^t) + 2t\\)，利用能量单调性证明解必在有限区间内爆破，从而得出不存在这样的函数 \\(h_1\\)。",
+        "final_answer": "不存在满足 \\(\\operatorname{Ric}(h_1) = 1\\) 的正的光滑函数 \\(h_1 \\in C^\\infty(\\mathbb{R}^2)\\)。",
+        "problem_statement_zh": "对任意 \\(h \\in C^\\infty(\\mathbb{R}^2)\\) 且在 \\(\\mathbb{R}^2\\) 上满足 \\(h > 0\\)，定义与 \\(h\\) 相关的 Ricci 曲率 \\(\\operatorname{Ric}(h)\\) 为\n\\[\\operatorname{Ric}(h) = \\frac{1}{h}\\left(\\frac{\\partial^2}{\\partial x^2} + \\frac{\\partial^2}{\\partial y^2}\\right)\\log h,\\]\n其中 \\((x, y)\\) 是 \\(\\mathbb{R}^2\\) 上的标准直角坐标。请构造一个正的光滑函数 \\(h_1\\) 使得 \\(\\operatorname{Ric}(h_1) = 1\\)，或者证明不存在这样的函数 \\(h_1\\)。",
+        "steps": [
+          "反设存在正的光滑函数 \\(h_1 \\in C^\\infty(\\mathbb{R}^2)\\) 使得 \\(\\operatorname{Ric}(h_1) = 1\\)。令 \\(u = \\log h_1 \\in C^\\infty(\\mathbb{R}^2)\\)，则 \\(h_1 = e^u\\)，原条件等价于在 \\(\\mathbb{R}^2\\) 上成立 \\[\\Delta u = \\left(\\frac{\\partial^2}{\\partial x^2} + \\frac{\\partial^2}{\\partial y^2}\\right)u = e^u\\]。",
+          "对 \\(r \\ge 0\\)，定义 \\(u\\) 在半径为 \\(r\\) 的圆周上的平均值 \\[\\bar{u}(r) = \\frac{1}{2\\pi}\\int_0^{2\\pi} u(r\\cos\\theta, r\\sin\\theta)\\,d\\theta\\]。 由 \\(u \\in C^\\infty(\\mathbb{R}^2)\\) 可知 \\(\\bar{u} \\in C^\\infty([0,\\infty))\\)，且 \\(\\lim_{r\\to 0^+}\\bar{u}(r) = u(0,0)\\)。利用散度定理，对任意 \\(r > 0\\) 有 \\[r\\bar{u}'(r) = \\frac{1}{2\\pi}\\int_{\\partial B_r}\\frac{\\partial u}{\\partial \\nu}\\,ds = \\frac{1}{2\\pi}\\iint_{B_r}\\Delta u\\,dx\\,dy = \\frac{1}{2\\pi}\\int_0^r \\left(\\int_0^{2\\pi} e^{u(\\rho\\cos\\theta,\\rho\\sin\\theta)}\\,d\\theta\\right)\\rho\\,d\\rho\\]。 由此立即得到对所有 \\(r > 0\\) 有 \\(r\\bar{u}'(r) > 0\\)，且当 \\(r \\to 0^+\\) 时 \\(r\\bar{u}'(r) \\to 0\\)。",
+          "对上式关于 \\(r > 0\\) 求导并应用指数函数的 Jensen 不等式，可得 \\[\\frac{d}{dr}\\bigl(r\\bar{u}'(r)\\bigr) = \\frac{r}{2\\pi}\\int_0^{2\\pi} e^{u(r\\cos\\theta,r\\sin\\theta)}\\,d\\theta \\ge r\\exp\\left(\\frac{1}{2\\pi}\\int_0^{2\\pi} u(r\\cos\\theta,r\\sin\\theta)\\,d\\theta\\right) = r e^{\\bar{u}(r)}\\]。",
+          "作变量代换 \\(t = \\log r \\in \\mathbb{R}\\)（即 \\(r = e^t\\)），并令 \\(v(t) = \\bar{u}(e^t) + 2t\\)。则 \\(v \\in C^\\infty(\\mathbb{R})\\)，且 \\[v'(t) = e^t\\bar{u}'(e^t) + 2 > 2 > 0,\\] \\[v''(t) = \\frac{d}{dt}\\bigl(e^t\\bar{u}'(e^t)\\bigr) = e^t \\left.\\frac{d}{dr}\\bigl(r\\bar{u}'(r)\\bigr)\\right|_{r=e^t} \\ge e^{2t} e^{\\bar{u}(e^t)} = e^{v(t)}\\]。",
+          "考虑函数 \\(E(t) = \\frac{1}{2}(v'(t))^2 - e^{v(t)}\\)。由于 \\(v'(t) > 0\\) 且 \\(v''(t) \\ge e^{v(t)}\\)，有 \\[E'(t) = v'(t)\\bigl(v''(t) - e^{v(t)}\\bigr) \\ge 0,\\] 故 \\(E(t)\\) 在 \\(\\mathbb{R}\\) 上单调非减。当 \\(t \\to -\\infty\\)（即 \\(r = e^t \\to 0^+\\)）时，\\(v(t) \\to -\\infty\\) 从而 \\(e^{v(t)} \\to 0\\)，且 \\(v'(t) \\to 2\\)，因此 \\[\\lim_{t\\to -\\infty} E(t) = \\frac{1}{2}\\cdot 2^2 - 0 = 2\\]。 于是对所有 \\(t \\in \\mathbb{R}\\) 均有 \\(E(t) \\ge 2\\)，即 \\((v'(t))^2 \\ge 2e^{v(t)} + 4 > 2e^{v(t)}\\)。结合 \\(v'(t) > 0\\) 得 \\[v'(t) > \\sqrt{2}\\,e^{v(t)/2} \\quad (\\forall\\, t \\in \\mathbb{R})\\]。",
+          "两边同乘 \\(e^{-v(t)/2}\\) 得 \\[\\frac{d}{dt}\\left(-2e^{-v(t)/2}\\right) = e^{-v(t)/2}v'(t) > \\sqrt{2}\\]。 从 \\(t = 0\\) 积分到任意 \\(T > 0\\)，有 \\[-2e^{-v(T)/2} + 2e^{-v(0)/2} > \\sqrt{2}\\,T \\implies 2e^{-v(0)/2} > \\sqrt{2}\\,T\\]。 令 \\(T \\to +\\infty\\) 即得矛盾。因此，不存在满足 \\(\\operatorname{Ric}(h_1) = 1\\) 的正光滑函数 \\(h_1\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "代换检验时务必将试探函数（如 \\((1+r^2)^{-2}\\)）实际代入 \\(\\frac{1}{h}\\Delta\\log h\\) 核算符号，确认常曲率正负号与方程的对应关系。",
+            "mistake": "把 \\(\\operatorname{Ric}(h) = 1\\) 误当成正 Gauss 曲率条件，试图构造类似球面共形度量 \\(h = \\frac{4}{(1+r^2)^2}\\) 的全局解。",
+            "title": "混淆曲率定义中的正负号",
+            "why_wrong": "标准 Gauss 曲率公式为 \\(K = -\\frac{1}{2h}\\Delta\\log h\\)，因此 \\(\\frac{1}{h}\\Delta\\log h = 1\\) 实际上对应负曲率 \\(K = -1/2\\)；而球面度量 \\(h = \\frac{4}{(1+r^2)^2}\\) 给出的是 \\(\\frac{1}{h}\\Delta\\log h = -2 < 0\\)，符号恰好相反。"
+          },
+          {
+            "how_to_avoid": "使用圆周平均 \\(\\bar{u}(r)\\) 配合凸函数 \\(e^s\\) 的 Jensen 不等式，将一般光滑解严格规约到一维常微分不等式，或采用障碍函数/广义极值原理。",
+            "mistake": "仅求解径向对称情形的常微分方程 \\(u'' + \\frac{1}{r}u' = e^u\\)，由径向解有限爆破便直接断言全平面无解。",
+            "title": "默认解具有径向对称性",
+            "why_wrong": "偏微分方程 \\(\\Delta u = e^u\\) 可能有非径向解，径向解不存在并不自动排除非径向解的存在性（尽管在此题中结论仍为不存在）。"
+          },
+          {
+            "how_to_avoid": "若采用极值原理路线，应在有界圆盘 \\(B_R\\) 上与 Poincaré 度量作差比较（利用边界趋于 \\(-\\infty\\) 使差函数在内部取极大值），再令 \\(R \\to \\infty\\)。",
+            "mistake": "在非紧空间 \\(\\mathbb{R}^2\\) 上直接假设 \\(u = \\log h_1\\) 达到全局极大值，从而在极大值点得出 \\(0 \\ge \\Delta u = e^u > 0\\) 的“矛盾”。",
+            "title": "在非紧区域误用经典极值原理",
+            "why_wrong": "\\(\\mathbb{R}^2\\) 非紧，全局光滑函数未必能取到极大值，甚至可能无上界。"
+          }
+        ],
+        "comparison_summary": "Turn 1 的盲解完全正确：得出了“不存在满足 \\(\\operatorname{Ric}(h_1)=1\\) 的正光滑函数 \\(h_1\\)”的正确结论，并给出了严密、自洽的完整证明。参考解答说明了本题源自非正曲率流形上的 Schwarz 型引理及 Yau / Cheng-Yau 广义极值原理，并指出除极值原理路径外，亦可采用积分法（integration method）证明；Turn 1 所使用的“圆周平均 + Jensen 不等式 + 对数变换下的能量单调性爆破”正是积分法的标准实现。",
+        "difficulties": [
+          {
+            "detail": "题目要求“构造或证明不存在”，若未能从 \\(\\Delta\\log h = h\\) 识别出其对应负曲率共形度量（Ahlfors-Schwarz 引理背景），容易在错误的“构造全局解”方向耗费时间。",
+            "title": "存在性与不存在性的直觉判断"
+          },
+          {
+            "detail": "由于未假设 \\(h_1\\) 径向对称，必须借助圆周平均与 Jensen 不等式（或构造圆盘上的 Poincaré 度量障碍函数）将二维 PDE 严格转化为一维估计。",
+            "title": "非径向自由度的消去"
+          },
+          {
+            "detail": "极坐标常微分不等式 \\(\\bar{u}'' + \\frac{1}{r}\\bar{u}' \\ge e^{\\bar{u}}\\) 带有变系数 \\(\\frac{1}{r}\\)，需通过 \\(t = \\log r\\) 与 \\(v(t) = \\bar{u}(e^t) + 2t\\) 化为自治不等式 \\(v'' \\ge e^v\\)，并检查 \\(t \\to -\\infty\\) 的渐近初值才能完成爆破证明。",
+            "title": "变系数常微分不等式的爆破分析"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "放缩与估值",
+          "不变量与单调量",
+          "变量代换与重参数化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "由 \\(h_1 > 0\\) 令 \\(u = \\log h_1\\)，将 \\(\\operatorname{Ric}(h_1) = 1\\) 等价改写为 \\(\\Delta u = e^u\\)。注意到这与负曲率共形度量方程一致，从而预判 \\(\\mathbb{R}^2\\) 上不存在全局解。",
+            "step": "对数化简与几何辨识"
+          },
+          {
+            "detail": "因为不知道 \\(u\\) 是否径向对称，可以对 \\(u\\) 取以原点为中心的圆周平均 \\(\\bar{u}(r)\\)，利用散度定理和指数函数的凸性（Jensen 不等式）消去角度依赖，得到关于 \\(\\bar{u}(r)\\) 的常微分不等式。",
+            "step": "利用圆周平均降维"
+          },
+          {
+            "detail": "对径向微分不等式 \\(\\frac{d}{dr}(r\\bar{u}'(r)) \\ge r e^{\\bar{u}(r)}\\) 作欧拉代换 \\(t = \\log r\\)、\\(v(t) = \\bar{u}(e^t) + 2t\\) 消去变系数，再利用一阶能量单调性导出有限时间爆破矛盾。",
+            "step": "重参数化与爆破分析"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "令 \\(u = \\log h_1 \\in C^\\infty(\\mathbb{R}^2)\\)，则 \\(\\operatorname{Ric}(h_1) = 1\\) 等价于在全平面上成立 \\(\\Delta u = e^u\\)。这一步将乘法与对数非线性转化为标准的半线性椭圆方程。",
+            "motivation": "消去对数和分母 \\(h_1\\)，得到结构更清晰的 Laplace 方程。",
+            "step": "等价化为半线性椭圆方程"
+          },
+          {
+            "detail": "对圆周平均 \\(\\bar{u}(r) = \\frac{1}{2\\pi}\\int_0^{2\\pi} u(r\\cos\\theta, r\\sin\\theta)\\,d\\theta\\)，由散度定理得 \\(r\\bar{u}'(r) = \\frac{1}{2\\pi}\\iint_{B_r} e^u\\,dx\\,dy > 0\\)。对 \\(r\\) 求导并用 Jensen 不等式 \\(\\frac{1}{2\\pi}\\int_0^{2\\pi} e^u\\,d\\theta \\ge e^{\\bar{u}(r)}\\)，得到 \\(\\frac{d}{dr}(r\\bar{u}'(r)) \\ge r e^{\\bar{u}(r)}\\)。由于 \\(e^s\\) 是凸函数，Jensen 不等式的方向恰好保持所需的下界估计。",
+            "motivation": "将二维 PDE 的非径向解通过积分平均压缩为一维常微分不等式。",
+            "step": "圆周平均与 Jensen 不等式降维"
+          },
+          {
+            "detail": "令 \\(t = \\log r\\)、\\(v(t) = \\bar{u}(e^t) + 2t\\)，则 \\(v'(t) = r\\bar{u}'(r) + 2 > 2\\) 且 \\(v''(t) \\ge e^{v(t)}\\)。构造能量函数 \\(E(t) = \\frac{1}{2}(v'(t))^2 - e^{v(t)}\\)，由 \\(E'(t) \\ge 0\\) 与 \\(\\lim_{t\\to -\\infty} E(t) = 2\\) 推出 \\(v'(t) > \\sqrt{2}\\,e^{v(t)/2}\\)，积分即得 \\(2e^{-v(0)/2} > \\sqrt{2}T\\) 对一切 \\(T > 0\\) 成立，矛盾。这一步利用自治方程的能量守恒结构把二阶不等式降阶为一阶可分离变量不等式。",
+            "motivation": "消除极坐标中的变系数并证明解必然在有限处爆破。",
+            "step": "对数坐标变换与能量法爆破"
+          }
+        ],
+        "teaching_takeaway": "在 \\(\\mathbb{R}^n\\) 上处理缺乏对称性的超线性或指数型椭圆方程 \\(\\Delta u = f(u)\\) 时，圆周/球面平均配合 Jensen 不等式是将其严格降维为一维常微分不等式的标准利器，再结合对数坐标变换与能量单调性即可高效判定有限爆破与整体解的不存在性。",
+        "topic_tags": [
+          "微分几何",
+          "椭圆偏微分方程",
+          "曲率与共形度量"
+        ]
+      }
+    }
+  ]
+}

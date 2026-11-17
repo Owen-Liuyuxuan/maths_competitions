@@ -1,0 +1,332 @@
+{
+  "resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+  "source_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+  "solution_resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+  "solution_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "cmc-2021-final-11-nonmath-combined-combined-q2",
+      "resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "source_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "solution_resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "solution_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "contest": "CMC",
+      "year": 2021,
+      "number": "2",
+      "level": "本科",
+      "title": "第11届 CMC 决赛 nonmath-combined · 2",
+      "blind_attempt": {
+        "approach": "先将常数 \\(1\\) 改写为 \\(\\sum_{k=1}^{n} \\frac{1}{n}\\)，把括号内的差合并为单一求和 \\(\\sum_{k=1}^{n} \\frac{\\sqrt{k}}{n(n+\\sqrt{k})}\\)。再乘以 \\(\\sqrt{n}\\) 后，利用分母中 \\(\\sqrt{k}\\) 满足 \\(0 < \\sqrt{k} \\le \\sqrt{n}\\) 进行放缩，结合夹逼准则与定积分的定义（黎曼和）即可求得极限。",
+        "final_answer": "\\(\\frac{2}{3}\\)",
+        "problem_statement_zh": "求极限：\n\\[\n\\lim_{n\\to\\infty} \\sqrt{n}\\left(1 - \\sum_{k=1}^{n} \\frac{1}{n+\\sqrt{k}}\\right).\n\\]",
+        "steps": [
+          "将 \\(1\\) 写成 \\(\\sum_{k=1}^{n} \\frac{1}{n}\\)，通分合并得到：\n\\[\n1 - \\sum_{k=1}^{n} \\frac{1}{n+\\sqrt{k}} = \\sum_{k=1}^{n} \\left(\\frac{1}{n} - \\frac{1}{n+\\sqrt{k}}\\right) = \\sum_{k=1}^{n} \\frac{\\sqrt{k}}{n(n+\\sqrt{k})}.\n\\]",
+          "两边同乘 \\(\\sqrt{n}\\)，记 \\(a_n = \\sqrt{n}\\left(1 - \\sum_{k=1}^{n} \\frac{1}{n+\\sqrt{k}}\\right)\\)，则\n\\[\na_n = \\sum_{k=1}^{n} \\frac{\\sqrt{n}\\sqrt{k}}{n(n+\\sqrt{k})}.\n\\]",
+          "对 \\(1 \\le k \\le n\\)，有 \\(n < n+\\sqrt{k} \\le n+\\sqrt{n}\\)，因此\n\\[\n\\frac{n}{n+\\sqrt{n}} \\cdot \\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}} \\le a_n \\le \\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}}.\n\\]",
+          "由于函数 \\(f(x) = \\sqrt{x}\\) 在 \\([0,1]\\) 上连续，根据定积分的定义有\n\\[\n\\lim_{n\\to\\infty} \\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}} = \\int_{0}^{1} \\sqrt{x}\\,dx = \\left.\\frac{2}{3}x^{\\frac{3}{2}}\\right|_{0}^{1} = \\frac{2}{3}.\n\\]\n又 \\(\\lim_{n\\to\\infty} \\frac{n}{n+\\sqrt{n}} = \\lim_{n\\to\\infty} \\frac{1}{1 + 1/\\sqrt{n}} = 1\\)，由夹逼准则得\n\\[\n\\lim_{n\\to\\infty} a_n = \\frac{2}{3}.\n\\]"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "先将 \\(1\\) 拆成 \\(\\sum_{k=1}^{n}\\frac{1}{n}\\) 合并通分，把分子中的高阶小量显式分离出来，再在严格的不等式链下做放缩。",
+            "mistake": "直接对求和中的每一项做“等价替换”，例如认为 \\(\\frac{1}{n+\\sqrt{k}} \\sim \\frac{1}{n}\\)，从而得出括号内极限为 \\(0\\)，再乘以 \\(\\sqrt{n}\\) 误判为 \\(0 \\cdot \\infty\\) 型无法处理或直接算错主项。",
+            "title": "对含参变量 \\(k\\) 的通项直接做无控制替换",
+            "why_wrong": "在 \\(\\sum_{k=1}^{n}\\) 中项数 \\(n \\to \\infty\\)，逐项忽略的 \\(\\frac{\\sqrt{k}}{n^2}\\) 累积起来恰有 \\(\\Theta(n^{-1/2})\\) 的量级，乘以 \\(\\sqrt{n}\\) 后正是决定极限非零的主项。"
+          },
+          {
+            "how_to_avoid": "在写放缩链之前先标明被积函数单调性（如 \\(f(x)=\\sqrt{x}\\) 单调递增），并在数轴或区间 \\([k-1,k]\\)、\\([k,k+1]\\) 上核对左端点与右端点函数值的大小关系。",
+            "mistake": "使用积分放缩时搞反不等号方向或错写积分上下限，例如将 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 错放缩为 \\(\\le \\int_0^n \\sqrt{x}\\,dx\\)。",
+            "title": "积分放缩时端点与不等号方向混淆",
+            "why_wrong": "因为 \\(\\sqrt{x}\\) 单调递增，在 \\([k-1,k]\\) 上有 \\(\\sqrt{k} \\ge \\sqrt{x}\\)，而在 \\([k,k+1]\\) 上才有 \\(\\sqrt{k} \\le \\sqrt{x}\\)，上下限与方向必须匹配。"
+          },
+          {
+            "how_to_avoid": "先将通项分母放缩为与 \\(k\\) 无关的上下界，再单独处理分子 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 的积分放缩（或先化为 \\(\\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}}\\) 再用定积分定义）。",
+            "mistake": "试图直接把 \\(\\sum_{k=1}^{n} \\frac{\\sqrt{k}}{\\sqrt{n}(n+\\sqrt{k})}\\) 凑成定积分 \\(\\int_0^1 \\frac{\\sqrt{x}}{1+\\sqrt{x}}\\,dx\\)。",
+            "title": "错配黎曼和的离散步长与变量比例",
+            "why_wrong": "分母中是 \\(n+\\sqrt{k} = n\\left(1 + \\frac{1}{\\sqrt{n}}\\sqrt{\\frac{k}{n}}\\right)\\)，并非 \\(n(1+\\sqrt{k/n})\\)；其中 \\(\\frac{\\sqrt{k}}{n}\\) 随 \\(n\\to\\infty\\) 一致趋于 \\(0\\)，而不是保持为 \\(\\sqrt{x}\\)。"
+          }
+        ],
+        "comparison_summary": "盲解与参考答案均求得正确极限 \\(\\frac{2}{3}\\)。第一步完全一致，都是将 \\(1\\) 改写为 \\(\\sum_{k=1}^{n}\\frac{1}{n}\\) 合并通分，再对分母 \\(n+\\sqrt{k}\\) 进行 \\(n < n+\\sqrt{k} \\le n+\\sqrt{n}\\) 的一致放缩；后续处理 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 时，盲解提取出黎曼和 \\(\\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}}\\) 并利用定积分定义求极限，而参考答案则通过单调函数的积分不等式直接给出 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 的上下界并用夹逼准则一次收尾，两种方法均完全严格有效。",
+        "difficulties": [
+          {
+            "detail": "如果直接把 \\(\\sum_{k=1}^{n}\\frac{1}{n+\\sqrt{k}}\\) 放缩成 \\(\\frac{n}{n+\\sqrt{n}}\\) 到 \\(\\frac{n}{n+1}\\)，上下界与 \\(1\\) 作差再乘 \\(\\sqrt{n}\\) 会分别得到 \\(0\\) 和 \\(1\\)，界过松而夹逼失败；必须先合并再针对分子 \\(\\sqrt{k}\\) 保留其分布结构。",
+            "title": "先放缩还是先通分合并的顺序选择"
+          },
+          {
+            "detail": "分母中的 \\(\\sqrt{k}\\) 满足 \\(0 < \\sqrt{k} \\le \\sqrt{n}\\)，相对于主项 \\(n\\) 是 \\(o(n)\\) 的低阶项，因此放缩分母时不会改变主项系数，从而把复杂的分式求和转化成了只含 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 的简单求和。",
+            "title": "识别分母中 \\(\\sqrt{k}\\) 为低阶扰动并做一致放缩"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "放缩与估值"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:计算精度与等价替换",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "观察括号内 \\(1 - \\sum_{k=1}^{n}\\frac{1}{n+\\sqrt{k}}\\)：当 \\(n\\to\\infty\\) 时每项都接近 \\(\\frac{1}{n}\\)，共有 \\(n\\) 项，故求和整体趋于 \\(1\\)，括号内趋于 \\(0\\)，而外部乘以 \\(\\sqrt{n}\\to\\infty\\)，属于“\\(\\infty \\cdot 0\\)”型待定式。",
+            "step": "辨识极限类型与量级"
+          },
+          {
+            "detail": "将常数 \\(1\\) 拆分为 \\(n\\) 个 \\(\\frac{1}{n}\\) 之和，把差式合并为单一求和 \\(\\sum_{k=1}^{n}\\left(\\frac{1}{n}-\\frac{1}{n+\\sqrt{k}}\\right) = \\sum_{k=1}^{n}\\frac{\\sqrt{k}}{n(n+\\sqrt{k})}\\)，消除“\\(1 - 1\\)”的相消结构。",
+            "step": "合并常数与求和式"
+          },
+          {
+            "detail": "对通项 \\(\\frac{\\sqrt{k}}{\\sqrt{n}(n+\\sqrt{k})}\\) 进行阶次分析：分母中 \\(\\sqrt{k}\\) 相对 \\(n\\) 较小，而分子 \\(\\sqrt{k}\\) 决定积分阶，于是先对分母做上下界放缩，再对分子求和用积分不等式（或黎曼和）估值。",
+            "step": "剥离分母扰动并定位核心求和"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "记 \\(a_n = \\sqrt{n}\\left(1 - \\sum_{k=1}^{n}\\frac{1}{n+\\sqrt{k}}\\right)\\)，将 \\(1 = \\sum_{k=1}^{n}\\frac{1}{n}\\) 代入后通分得到\n\\[\na_n = \\sum_{k=1}^{n}\\frac{\\sqrt{k}}{\\sqrt{n}(n+\\sqrt{k})}.\n\\]\n这一步消除了括号内的主要相消，使每项均为正，便于后续直接做同向放缩。",
+            "motivation": "消除“\\(1\\) 减去接近 \\(1\\) 的求和”所造成的精度损失。",
+            "step": "恒等变形与通分合并"
+          },
+          {
+            "detail": "对 \\(1 \\le k \\le n\\)，利用 \\(n < n+\\sqrt{k} \\le n+\\sqrt{n}\\)，得到\n\\[\n\\frac{1}{\\sqrt{n}(n+\\sqrt{n})}\\sum_{k=1}^{n}\\sqrt{k} \\le a_n \\le \\frac{1}{n\\sqrt{n}}\\sum_{k=1}^{n}\\sqrt{k}.\n\\]\n因为 \\(\\frac{n}{n+\\sqrt{n}}\\to 1\\)，这一步把与 \\(k\\) 耦合的分母完全替换为与 \\(k\\) 无关的常数因子，且没有损失渐近主项。",
+            "motivation": "将分母中与 \\(k\\) 相关的低阶项分离出去。",
+            "step": "对分母进行一致放缩"
+          },
+          {
+            "detail": "利用 \\(f(x)=\\sqrt{x}\\) 的单调递增性，在 \\([k,k+1]\\) 上 \\(\\sqrt{k} \\le \\sqrt{x}\\)，在 \\([k-1,k]\\) 上 \\(\\sqrt{k} \\ge \\sqrt{x}\\)，积分求和得\n\\[\n\\frac{2}{3}n\\sqrt{n} = \\int_{0}^{n}\\sqrt{x}\\,dx \\le \\sum_{k=1}^{n}\\sqrt{k} \\le \\int_{1}^{n+1}\\sqrt{x}\\,dx = \\frac{2}{3}\\left((n+1)\\sqrt{n+1}-1\\right).\n\\]\n（注：也可直接将 \\(\\frac{1}{n\\sqrt{n}}\\sum_{k=1}^{n}\\sqrt{k}\\) 写成黎曼和 \\(\\frac{1}{n}\\sum_{k=1}^{n}\\sqrt{\\frac{k}{n}} \\to \\int_0^1 \\sqrt{x}\\,dx = \\frac{2}{3}\\)。）",
+            "motivation": "精确估计离散和 \\(\\sum_{k=1}^{n}\\sqrt{k}\\) 的渐近大小。",
+            "step": "用定积分放缩（或黎曼和）估计 \\(\\sum_{k=1}^{n}\\sqrt{k}\\)"
+          },
+          {
+            "detail": "代入上下界可得\n\\[\n\\frac{2}{3}\\cdot\\frac{n}{n+\\sqrt{n}} \\le a_n < \\frac{2}{3}\\left(1+\\frac{1}{n}\\right)\\sqrt{1+\\frac{1}{n}}.\n\\]\n令 \\(n\\to\\infty\\)，两端极限均为 \\(\\frac{2}{3}\\)，由夹逼准则即得 \\(\\lim_{n\\to\\infty} a_n = \\frac{2}{3}\\)。",
+            "motivation": "收束上下界，完成极限证明。",
+            "step": "应用夹逼准则求极限"
+          }
+        ],
+        "teaching_takeaway": "遇到“\\(C - \\sum_{k=1}^{n} f(n,k)\\)”型数列极限时，切忌先对求和号内直接放缩再与 \\(C\\) 相减；应先将常数 \\(C\\) 均分入求和号内合并通分以消除主项相消，再分离分母中的低阶扰动并结合积分放缩或黎曼和收尾。",
+        "topic_tags": [
+          "数列极限",
+          "夹逼准则",
+          "定积分应用"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2021-final-11-nonmath-combined-combined-q3",
+      "resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "source_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "solution_resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "solution_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "contest": "CMC",
+      "year": 2021,
+      "number": "3",
+      "level": "本科",
+      "title": "第11届 CMC 决赛 nonmath-combined · 3",
+      "blind_attempt": {
+        "approach": "利用复合函数求导法则将 \\(F\\) 对 \\(x_1, x_2, x_3\\) 的一阶及二阶偏导数用 \\(f(u,v)\\) 的偏导数表示，再利用分部积分法（或对 \\(\\varphi\\) 求二阶导数并利用周期性）化简积分表达式，从而求得最终结果。",
+        "final_answer": "\\(0\\)",
+        "problem_statement_zh": "设 \\(F(x_1, x_2, x_3) = \\int_0^{2\\pi} f(x_1 + x_3 \\cos\\varphi, x_2 + x_3 \\sin\\varphi)\\,\\mathrm{d}\\varphi\\)，其中 \\(f(u, v)\\) 具有二阶连续偏导数。已知\n\\[\n\\frac{\\partial F}{\\partial x_i} = \\int_0^{2\\pi} \\frac{\\partial}{\\partial x_i}\\bigl[f(x_1 + x_3 \\cos\\varphi, x_2 + x_3 \\sin\\varphi)\\bigr]\\,\\mathrm{d}\\varphi,\n\\]\n\\[\n\\frac{\\partial^2 F}{\\partial x_i^2} = \\int_0^{2\\pi} \\frac{\\partial^2}{\\partial x_i^2}\\bigl[f(x_1 + x_3 \\cos\\varphi, x_2 + x_3 \\sin\\varphi)\\bigr]\\,\\mathrm{d}\\varphi,\\quad i=1,2,3,\n\\]\n试求 \\(x_3\\left(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\right) - \\frac{\\partial F}{\\partial x_3}\\) 并要求化简。",
+        "steps": [
+          "令 \\(u = x_1 + x_3 \\cos\\varphi\\)，\\(v = x_2 + x_3 \\sin\\varphi\\)，并记 \\(f_1 = \\frac{\\partial f}{\\partial u}\\)，\\(f_2 = \\frac{\\partial f}{\\partial v}\\)，\\(f_{11} = \\frac{\\partial^2 f}{\\partial u^2}\\)，\\(f_{12} = \\frac{\\partial^2 f}{\\partial u\\partial v}\\)，\\(f_{21} = \\frac{\\partial^2 f}{\\partial v\\partial u}\\)，\\(f_{22} = \\frac{\\partial^2 f}{\\partial v^2}\\)。由 \\(f(u,v)\\) 具有二阶连续偏导数可知 \\(f_{12} = f_{21}\\)。",
+          "根据已知的积分号下求导公式与复合函数求导法则，计算各偏导数：\n\\[\n\\frac{\\partial F}{\\partial x_3} = \\int_0^{2\\pi} \\bigl(f_1(u,v)\\cos\\varphi + f_2(u,v)\\sin\\varphi\\bigr)\\,\\mathrm{d}\\varphi,\n\\]\n\\[\n\\frac{\\partial^2 F}{\\partial x_1^2} = \\int_0^{2\\pi} f_{11}(u,v)\\,\\mathrm{d}\\varphi,\\qquad \\frac{\\partial^2 F}{\\partial x_2^2} = \\int_0^{2\\pi} f_{22}(u,v)\\,\\mathrm{d}\\varphi,\n\\]\n\\[\n\\frac{\\partial^2 F}{\\partial x_3^2} = \\int_0^{2\\pi} \\bigl(f_{11}(u,v)\\cos^2\\varphi + 2f_{12}(u,v)\\sin\\varphi\\cos\\varphi + f_{22}(u,v)\\sin^2\\varphi\\bigr)\\,\\mathrm{d}\\varphi.\n\\]",
+          "于是有\n\\[\n\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2} = \\int_0^{2\\pi} \\bigl(f_{11}(u,v)\\sin^2\\varphi - 2f_{12}(u,v)\\sin\\varphi\\cos\\varphi + f_{22}(u,v)\\cos^2\\varphi\\bigr)\\,\\mathrm{d}\\varphi.\n\\]",
+          "对 \\(\\frac{\\partial F}{\\partial x_3}\\) 的两项分别作分部积分。注意到 \\(\\frac{\\partial u}{\\partial \\varphi} = -x_3\\sin\\varphi\\)，\\(\\frac{\\partial v}{\\partial \\varphi} = x_3\\cos\\varphi\\)，且被积边界项在 \\(\\varphi=0\\) 与 \\(\\varphi=2\\pi\\) 处相等而相消：\n\\[\n\\begin{aligned}\n\\int_0^{2\\pi} f_1(u,v)\\cos\\varphi\\,\\mathrm{d}\\varphi &= \\bigl[f_1(u,v)\\sin\\varphi\\bigr]_0^{2\\pi} - \\int_0^{2\\pi} \\sin\\varphi \\cdot \\frac{\\partial f_1(u,v)}{\\partial \\varphi}\\,\\mathrm{d}\\varphi \\\\\n&= -\\int_0^{2\\pi} \\sin\\varphi \\bigl(-x_3 f_{11}(u,v)\\sin\\varphi + x_3 f_{12}(u,v)\\cos\\varphi\\bigr)\\,\\mathrm{d}\\varphi \\\\\n&= x_3 \\int_0^{2\\pi} \\bigl(f_{11}(u,v)\\sin^2\\varphi - f_{12}(u,v)\\sin\\varphi\\cos\\varphi\\bigr)\\,\\mathrm{d}\\varphi,\n\\end{aligned}\n\\]\n同理可得\n\\[\n\\begin{aligned}\n\\int_0^{2\\pi} f_2(u,v)\\sin\\varphi\\,\\mathrm{d}\\varphi &= \\bigl[-f_2(u,v)\\cos\\varphi\\bigr]_0^{2\\pi} + \\int_0^{2\\pi} \\cos\\varphi \\cdot \\frac{\\partial f_2(u,v)}{\\partial \\varphi}\\,\\mathrm{d}\\varphi \\\\\n&= \\int_0^{2\\pi} \\cos\\varphi \\bigl(-x_3 f_{21}(u,v)\\sin\\varphi + x_3 f_{22}(u,v)\\cos\\varphi\\bigr)\\,\\mathrm{d}\\varphi \\\\\n&= x_3 \\int_0^{2\\pi} \\bigl(-f_{21}(u,v)\\sin\\varphi\\cos\\varphi + f_{22}(u,v)\\cos^2\\varphi\\bigr)\\,\\mathrm{d}\\varphi.\n\\end{aligned}\n\\]",
+          "将两式相加并利用 \\(f_{12} = f_{21}\\)，得到\n\\[\n\\frac{\\partial F}{\\partial x_3} = x_3 \\int_0^{2\\pi} \\bigl(f_{11}(u,v)\\sin^2\\varphi - 2f_{12}(u,v)\\sin\\varphi\\cos\\varphi + f_{22}(u,v)\\cos^2\\varphi\\bigr)\\,\\mathrm{d}\\varphi = x_3\\left(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\right).\n\\]\n因此，\n\\[\nx_3\\left(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\right) - \\frac{\\partial F}{\\partial x_3} = 0.\n\\]"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在计算 \\(\\frac{\\partial f_1}{\\partial \\varphi}\\) 和 \\(\\frac{\\partial f_2}{\\partial \\varphi}\\) 时，先显式写出 \\(\\frac{\\partial u}{\\partial \\varphi} = -x_3\\sin\\varphi\\) 与 \\(\\frac{\\partial v}{\\partial \\varphi} = x_3\\cos\\varphi\\)，再套用链式法则和分部积分公式，逐项核对正负号。",
+            "mistake": "对复合函数求关于 \\(\\varphi\\) 的偏导数或作分部积分时符号出错，例如遗漏 \\(\\frac{\\partial u}{\\partial \\varphi} = -x_3\\sin\\varphi\\) 中的负号，或将 \\(\\int \\cos\\varphi\\,\\mathrm{d}\\varphi = \\sin\\varphi\\) 与 \\(\\int \\sin\\varphi\\,\\mathrm{d}\\varphi = -\\cos\\varphi\\) 混淆。",
+            "title": "链式法则与分部积分中的正负号错误",
+            "why_wrong": "一旦符号出错，一阶偏导项与二阶偏导组合项无法抵消，导致无法化简为 \\(0\\)，甚至得到非零的虚假余项。"
+          },
+          {
+            "how_to_avoid": "直接在积分号内对 \\(\\frac{\\partial F}{\\partial x_3}\\) 作分部积分，不要除以 \\(x_3\\)；若从 \\(\\frac{\\partial^2 f}{\\partial \\varphi^2}\\) 出发，需单独验证 \\(x_3 = 0\\) 时原式也等于 \\(0\\)。",
+            "mistake": "若从把被积函数写成 \\(\\frac{1}{x_3}\\frac{\\partial^2 f}{\\partial \\varphi^2}\\) 的思路出发，直接两边除以 \\(x_3\\) 而未讨论 \\(x_3 = 0\\) 的情形。",
+            "title": "除以 \\(x_3\\) 时忽略 \\(x_3 = 0\\) 的退化情形",
+            "why_wrong": "当 \\(x_3 = 0\\) 时分母为零，\\(\\frac{1}{x_3}\\) 无意义，论证在逻辑上不完整。"
+          },
+          {
+            "how_to_avoid": "记住二阶连续可微条件 \\(f \\in C^2\\) 保证了混合偏导数对称性 \\(\\frac{\\partial^2 f}{\\partial u\\partial v} = \\frac{\\partial^2 f}{\\partial v\\partial u}\\)，并在计算 \\(\\frac{\\partial^2 f}{\\partial x_3^2}\\) 时保留完整的二次型展开式。",
+            "mistake": "计算 \\(\\frac{\\partial^2 f}{\\partial x_3^2}\\) 时漏掉混合偏导项 \\(2\\sin\\varphi\\cos\\varphi \\frac{\\partial^2 f}{\\partial u\\partial v}\\)，或误以为 \\(\\frac{\\partial^2 f}{\\partial u\\partial v}\\) 与 \\(\\frac{\\partial^2 f}{\\partial v\\partial u}\\) 不能合并。",
+            "title": "漏掉混合偏导项或未利用混合偏导对称性",
+            "why_wrong": "漏掉交叉项或未合并同类项会导致 \\(\\frac{\\partial^2 F}{\\partial x_3^2}\\) 表达式残缺，无法与 \\(\\frac{\\partial F}{\\partial x_3}\\) 分部积分后的结果匹配。"
+          }
+        ],
+        "comparison_summary": "盲解（Turn 1）与参考解答在核心思路、关键步骤及最终答案上完全一致：均先设中间变量 \\(u = x_1 + x_3\\cos\\varphi, v = x_2 + x_3\\sin\\varphi\\)，利用复合函数求导法则算出各一阶、二阶偏导数，再对 \\(\\frac{\\partial F}{\\partial x_3}\\) 关于 \\(\\varphi\\) 作分部积分并利用混合偏导相等及周期性边界项消去，证明两项完全相等从而结果为 \\(0\\)。参考解答在中间写法上直接将 \\(2\\sin\\varphi\\cos\\varphi\\) 合并为 \\(\\sin 2\\varphi\\)，两者等价。",
+        "difficulties": [
+          {
+            "detail": "题目中要求解的表达式同时包含一阶偏导 \\(\\frac{\\partial F}{\\partial x_3}\\) 与二阶偏导的线性组合 \\(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\)。如何把一阶偏导转化为二阶偏导的积分，是本题最核心的突破口——必须利用三角函数在 \\([0,2\\pi]\\) 上的周期性，对 \\(\\varphi\\) 进行分部积分。",
+            "title": "一阶偏导与二阶偏导之间的桥梁（分部积分升阶）"
+          },
+          {
+            "detail": "分部积分后的被积表达式需用链式法则对 \\(\\varphi\\) 求导，并用 \\(\\frac{\\partial^2 f}{\\partial u\\partial v} = \\frac{\\partial^2 f}{\\partial v\\partial u}\\)（由 \\(f\\) 具有二阶连续偏导数保证）将所有二阶偏导统一为 \\(\\frac{\\partial^2 f}{\\partial u^2}, \\frac{\\partial^2 f}{\\partial u\\partial v}, \\frac{\\partial^2 f}{\\partial v^2}\\) 的组合。",
+            "title": "中间变量与积分变量之间的链式法则转换"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "变量代换与重参数化",
+          "算子与线性化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:定义域与分母为零"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题目已明确给出积分号下求导成立（无需再费篇幅证明积分与求导可交换），因此核心任务是把 \\(F\\) 的偏导数转化为被积函数 \\(f(u,v)\\) 的偏导数积分。",
+            "step": "识别已知条件与免证部分"
+          },
+          {
+            "detail": "令 \\(u = x_1 + x_3\\cos\\varphi\\)，\\(v = x_2 + x_3\\sin\\varphi\\)，分别计算 \\(f\\) 对 \\(x_1, x_2, x_3\\) 的一阶和二阶偏导数，观察 \\(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\) 中系数 \\(\\sin^2\\varphi, \\cos^2\\varphi, \\sin 2\\varphi\\) 的结构。",
+            "step": "展开各阶偏导数并观察代数结构"
+          },
+          {
+            "detail": "注意到所求表达式中二阶偏导项前乘有因子 \\(x_3\\)，而一阶偏导 \\(\\frac{\\partial F}{\\partial x_3}\\) 恰好只含 \\(\\cos\\varphi, \\sin\\varphi\\)；对 \\(\\varphi\\) 求导会产生因子 \\(x_3\\) 并把阶数从一阶提升到二阶，从而自然想到对 \\(\\frac{\\partial F}{\\partial x_3}\\) 作分部积分。",
+            "step": "发现阶数与因子 \\(x_3\\) 的匹配关系"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(u = x_1 + x_3\\cos\\varphi, v = x_2 + x_3\\sin\\varphi\\)，由复合函数求导法则得：\\(\\frac{\\partial f}{\\partial x_1} = \\frac{\\partial f}{\\partial u}\\)，\\(\\frac{\\partial f}{\\partial x_2} = \\frac{\\partial f}{\\partial v}\\)，\\(\\frac{\\partial f}{\\partial x_3} = \\cos\\varphi \\frac{\\partial f}{\\partial u} + \\sin\\varphi \\frac{\\partial f}{\\partial v}\\)；进而得二阶偏导 \\(\\frac{\\partial^2 f}{\\partial x_1^2} = \\frac{\\partial^2 f}{\\partial u^2}\\)，\\(\\frac{\\partial^2 f}{\\partial x_2^2} = \\frac{\\partial^2 f}{\\partial v^2}\\)，\\(\\frac{\\partial^2 f}{\\partial x_3^2} = \\frac{\\partial^2 f}{\\partial u^2}\\cos^2\\varphi + \\frac{\\partial^2 f}{\\partial u\\partial v}\\sin 2\\varphi + \\frac{\\partial^2 f}{\\partial v^2}\\sin^2\\varphi\\)。",
+            "motivation": "将 \\(F\\) 对外部自变量 \\(x_1, x_2, x_3\\) 的偏导统一表示为 \\(f\\) 对中间变量 \\(u, v\\) 的偏导，便于合并同类项。",
+            "step": "计算一阶与二阶偏导数"
+          },
+          {
+            "detail": "代入并利用 \\(1 - \\cos^2\\varphi = \\sin^2\\varphi\\) 与 \\(1 - \\sin^2\\varphi = \\cos^2\\varphi\\)，得到 \\(x_3\\left(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\right) = x_3\\int_0^{2\\pi}\\left(\\frac{\\partial^2 f}{\\partial u^2}\\sin^2\\varphi - \\frac{\\partial^2 f}{\\partial u\\partial v}\\sin 2\\varphi + \\frac{\\partial^2 f}{\\partial v^2}\\cos^2\\varphi\\right)\\,\\mathrm{d}\\varphi\\)。",
+            "motivation": "利用三角恒等式化简二阶偏导组合，使被积函数的形式更加紧凑。",
+            "step": "化简二阶偏导线性组合"
+          },
+          {
+            "detail": "利用 \\(\\cos\\varphi\\,\\mathrm{d}\\varphi = \\mathrm{d}(\\sin\\varphi)\\) 与 \\(\\sin\\varphi\\,\\mathrm{d}\\varphi = -\\mathrm{d}(\\cos\\varphi)\\)，对 \\(\\frac{\\partial F}{\\partial x_3}\\) 的两项作分部积分。由于被积函数关于 \\(\\varphi\\) 以 \\(2\\pi\\) 为周期，边界项 \\(\\bigl[\\frac{\\partial f}{\\partial u}\\sin\\varphi\\bigr]_0^{2\\pi}\\) 与 \\(\\bigl[-\\frac{\\partial f}{\\partial v}\\cos\\varphi\\bigr]_0^{2\\pi}\\) 均为 \\(0\\)。再利用 \\(\\frac{\\partial u}{\\partial \\varphi} = -x_3\\sin\\varphi\\)，\\(\\frac{\\partial v}{\\partial \\varphi} = x_3\\cos\\varphi\\) 及 \\(\\frac{\\partial^2 f}{\\partial u\\partial v} = \\frac{\\partial^2 f}{\\partial v\\partial u}\\)，化简后恰好得到 \\(x_3\\int_0^{2\\pi}\\left(\\frac{\\partial^2 f}{\\partial u^2}\\sin^2\\varphi - \\frac{\\partial^2 f}{\\partial u\\partial v}\\sin 2\\varphi + \\frac{\\partial^2 f}{\\partial v^2}\\cos^2\\varphi\\right)\\,\\mathrm{d}\\varphi\\)。",
+            "motivation": "通过分部积分把一阶偏导提升为二阶偏导并自然引出系数 \\(x_3\\)，实现与上一步积分的直接对比。",
+            "step": "对 \\(\\frac{\\partial F}{\\partial x_3}\\) 作分部积分并比较结果"
+          },
+          {
+            "detail": "两部分积分完全相等，相减即得 \\(x_3\\left(\\frac{\\partial^2 F}{\\partial x_1^2} + \\frac{\\partial^2 F}{\\partial x_2^2} - \\frac{\\partial^2 F}{\\partial x_3^2}\\right) - \\frac{\\partial F}{\\partial x_3} = 0\\)。",
+            "motivation": "完成最终化简。",
+            "step": "得出结论"
+          }
+        ],
+        "teaching_takeaway": "面对含参变量圆周积分（如 \\(x_1 + x_3\\cos\\varphi, x_2 + x_3\\sin\\varphi\\)）的偏微分方程或算子化简问题时，利用周期区间 \\([0,2\\pi]\\) 上边界项消去的特点对角度变量 \\(\\varphi\\) 作分部积分，是实现偏导数降阶或升阶并打通各阶偏导联系的常规利器。",
+        "topic_tags": [
+          "多元函数微分学",
+          "含参变量积分",
+          "分部积分法"
+        ]
+      }
+    },
+    {
+      "id": "cmc-2021-final-11-nonmath-combined-combined-q4",
+      "resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "source_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "solution_resource_id": "cmc-2021-final-11-nonmath-combined-combined",
+      "solution_sha256": "90e0909b1b5353e1ae98b09065da038caa8c329d1b45fc351e9c6ae4c6adda85",
+      "contest": "CMC",
+      "year": 2021,
+      "number": "4",
+      "level": "本科",
+      "title": "第11届 CMC 决赛 nonmath-combined · 4",
+      "blind_attempt": {
+        "approach": "利用分部积分法将已知的 \\(\\int_0^1 f(x)\\,\\mathrm{d}x\\) 与 \\(\\int_0^1 x f(x)\\,\\mathrm{d}x\\) 转化为关于 \\(f'(x)\\) 的加权积分。具体地，构造在端点 \\(0, 1\\) 处取值为零的辅助函数 \\(\\frac{1}{2}x(x-1)\\)，计算 \\(\\int_0^1 \\left(x - \\frac{1}{2}\\right) f(x)\\,\\mathrm{d}x\\) 并分部积分，得到 \\(\\int_0^1 x(1-x)(f'(x)-3)\\,\\mathrm{d}x = 0\\)，再结合 \\(f'(x)\\) 的连续性与反证法（或零点定理）即可证明存在 \\(\\xi \\in (0, 1)\\) 使得 \\(f'(\\xi) = 3\\)。",
+        "final_answer": "证明如下：\n\n由已知条件可得\n\\[\n\\int_0^1 \\left(x - \\frac{1}{2}\\right) f(x)\\,\\mathrm{d}x = \\int_0^1 x f(x)\\,\\mathrm{d}x - \\frac{1}{2}\\int_0^1 f(x)\\,\\mathrm{d}x = \\frac{3}{2} - \\frac{1}{2} \\times \\frac{5}{2} = \\frac{1}{4}.\n\\]\n注意到 \\(\\left[\\frac{1}{2}x(x-1)\\right]' = x - \\frac{1}{2}\\)，且函数 \\(f(x)\\) 在 \\([0, 1]\\) 上具有连续导数，利用分部积分法得\n\\[\n\\begin{aligned}\n\\int_0^1 \\left(x - \\frac{1}{2}\\right) f(x)\\,\\mathrm{d}x &= \\left.\\frac{1}{2}x(x-1)f(x)\\right|_0^1 - \\frac{1}{2}\\int_0^1 x(x-1)f'(x)\\,\\mathrm{d}x \\\\\n&= \\frac{1}{2}\\int_0^1 x(1-x)f'(x)\\,\\mathrm{d}x.\n\\end{aligned}\n\\]\n由此可知\n\\[\n\\int_0^1 x(1-x)f'(x)\\,\\mathrm{d}x = \\frac{1}{2}.\n\\]\n又因为\n\\[\n\\int_0^1 x(1-x)\\,\\mathrm{d}x = \\left.\\left(\\frac{x^2}{2} - \\frac{x^3}{3}\\right)\\right|_0^1 = \\frac{1}{6},\n\\]\n所以\n\\[\n\\int_0^1 x(1-x)\\bigl(f'(x) - 3\\bigr)\\,\\mathrm{d}x = \\int_0^1 x(1-x)f'(x)\\,\\mathrm{d}x - 3\\int_0^1 x(1-x)\\,\\mathrm{d}x = \\frac{1}{2} - 3 \\times \\frac{1}{6} = 0.\n\\]\n下面用反证法证明存在 \\(\\xi \\in (0, 1)\\) 使得 \\(f'(\\xi) = 3\\)。假设对任意 \\(x \\in (0, 1)\\) 均有 \\(f'(x) \\neq 3\\)。因为 \\(f'(x)\\) 在 \\([0, 1]\\) 上连续，故在 \\((0, 1)\\) 上也连续。由介值定理可知，\\(f'(x) - 3\\) 在 \\((0, 1)\\) 上必定保持恒正或恒负。\n\n- 若对所有 \\(x \\in (0, 1)\\) 有 \\(f'(x) - 3 > 0\\)，由于在 \\((0, 1)\\) 上 \\(x(1-x) > 0\\)，故连续函数 \\(g(x) = x(1-x)\\bigl(f'(x)-3\\bigr)\\) 在 \\((0, 1)\\) 上恒大于 \\(0\\)。从而\n  \\[\n  \\int_0^1 x(1-x)\\bigl(f'(x) - 3\\bigr)\\,\\mathrm{d}x \\ge \\int_{\\frac{1}{4}}^{\\frac{3}{4}} g(x)\\,\\mathrm{d}x > 0,\n  \\]\n  这与积分为 \\(0\\) 矛盾。\n- 同理，若对所有 \\(x \\in (0, 1)\\) 有 \\(f'(x) - 3 < 0\\)，则 \\(\\int_0^1 x(1-x)\\bigl(f'(x) - 3\\bigr)\\,\\mathrm{d}x < 0\\)，同样矛盾。\n\n综上所述，必存在 \\(\\xi \\in (0, 1)\\)，使得 \\(f'(\\xi) = 3\\)。",
+        "problem_statement_zh": "设函数 \\(f(x)\\) 在 \\([0, 1]\\) 上具有连续导数，且 \\(\\int_0^1 f(x)\\,\\mathrm{d}x = \\frac{5}{2}\\)，\\(\\int_0^1 x f(x)\\,\\mathrm{d}x = \\frac{3}{2}\\)。证明：存在 \\(\\xi \\in (0, 1)\\)，使得 \\(f'(\\xi) = 3\\)。",
+        "steps": [
+          "计算线性组合积分 \\(\\int_0^1 \\left(x - \\frac{1}{2}\\right) f(x)\\,\\mathrm{d}x = \\frac{3}{2} - \\frac{1}{2} \\cdot \\frac{5}{2} = \\frac{1}{4}\\)。",
+          "选取 \\(x - \\frac{1}{2}\\) 的原函数 \\(\\frac{1}{2}x(x-1)\\)（其在 \\(x=0,1\\) 处均为 \\(0\\)），对 \\(\\int_0^1 \\left(x - \\frac{1}{2}\\right) f(x)\\,\\mathrm{d}x\\) 进行分部积分，得到 \\(\\int_0^1 x(1-x)f'(x)\\,\\mathrm{d}x = \\frac{1}{2}\\)。",
+          "计算 \\(\\int_0^1 x(1-x)\\,\\mathrm{d}x = \\frac{1}{6}\\)，进而得出 \\(\\int_0^1 x(1-x)\\bigl(f'(x) - 3\\bigr)\\,\\mathrm{d}x = 0\\)。",
+          "利用 \\(f'(x)\\) 在 \\([0, 1]\\) 上的连续性以及 \\(x(1-x) > 0\\)（当 \\(x \\in (0, 1)\\)），通过反证法与介值定理排除 \\(f'(x) - 3\\) 在 \\((0, 1)\\) 上恒正或恒负的可能，从而证明存在 \\(\\xi \\in (0, 1)\\) 使得 \\(f'(\\xi) = 3\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "使用积分中值定理时，明确写出开区间版本（或用反证法结合介值定理：若 \\(f'(x)-3\\) 在 \\((0,1)\\) 上不变号，则加权积分严格不为零），避免端点处权函数为零导致无法消去因子。",
+            "mistake": "直接对 \\(x(1-x)[3-f'(x)]\\) 使用闭区间 \\([0, 1]\\) 上的积分中值定理，只得到 \\(\\xi \\in [0, 1]\\)。",
+            "title": "积分中值定理的区间开闭混淆",
+            "why_wrong": "若 \\(\\xi\\) 取到端点 \\(0\\) 或 \\(1\\)，则 \\(\\xi(1-\\xi) = 0\\)，无法从 \\(\\xi(1-\\xi)[3-f'(\\xi)] = 0\\) 推出 \\(f'(\\xi) = 3\\)；题目也明确要求 \\(\\xi \\in (0, 1)\\)。"
+          },
+          {
+            "how_to_avoid": "每次分部积分前先检查边界项的次数与端点取值，确保多项式因子在区间两端点同时为零，或者按 \\(\\int u\\,\\mathrm{d}v = uv|_a^b - \\int v\\,\\mathrm{d}u\\) 逐步写出再化简。",
+            "mistake": "在构造辅助积分时随意选取线性函数（如只取 \\(x[3-f'(x)]\\)），导致分部积分后出现未知的边界值 \\(f(1)\\)。",
+            "title": "忽略分部积分边界项的消去条件",
+            "why_wrong": "题设仅给出积分条件，没有给出 \\(f(0)\\) 与 \\(f(1)\\) 的点值，若边界项不恒为零，则无法利用已知积分值进行计算。"
+          },
+          {
+            "how_to_avoid": "分部积分后先单独核对多项式导数的符号（如 \\([x(1-x)]' = 1 - 2x\\)），再分别代入 \\(\\int_0^1 f(x)\\,\\mathrm{d}x\\) 与 \\(\\int_0^1 x f(x)\\,\\mathrm{d}x\\) 的数值并做一次验算（例如代入特例 \\(f(x)=3x+1\\) 检验）。",
+            "mistake": "分部积分展开 \\(\\int_0^1 (1-2x)[3x-f(x)]\\,\\mathrm{d}x\\) 时出现正负号错误或系数计算失误。",
+            "title": "分部积分展开中的符号与系数错误",
+            "why_wrong": "两个负号（分部积分公式中的减号与 \\([3x-f(x)]\\) 中的负号）叠加容易导致 \\(\\int_0^1 (1-2x)f(x)\\,\\mathrm{d}x\\) 的符号写反，从而无法得到 \\(0\\)。"
+          }
+        ],
+        "comparison_summary": "我的盲解思路与参考答案完全一致，核心都是通过构造权函数 \\(x(1-x)\\)（对应原函数中的一次因子 \\(x-\\frac{1}{2}\\)）将积分条件与导数 \\(f'(x)-3\\) 联系起来，并利用分部积分证明 \\(\\int_0^1 x(1-x)[f'(x)-3]\\,\\mathrm{d}x = 0\\)。参考答案直接应用开区间形式的积分中值定理一步得出 \\(\\xi \\in (0, 1)\\)；我在盲解中额外用反证法与介值定理严密排除了端点退化情形，使证明在逻辑上更加完整。",
+        "difficulties": [
+          {
+            "detail": "题设只给出 \\(f(x)\\) 的零阶矩与一阶矩，而结论涉及导数 \\(f'(\\xi)=3\\)，需要想到用“在端点取零的二次权函数 \\(x(1-x)\\)”配合分部积分，将导数积分转化为含 \\(f(x)\\) 与 \\(xf(x)\\) 的线性组合。",
+            "title": "权函数 \\(x(1-x)\\) 的构造动机"
+          },
+          {
+            "detail": "即便得出 \\(\\int_0^1 x(1-x)[3-f'(x)]\\,\\mathrm{d}x = 0\\)，由于 \\(x(1-x)\\) 在端点 \\(0,1\\) 处为零，必须保证所取的中值点 \\(\\xi\\) 严格落在开区间 \\((0, 1)\\) 内，才能消去 \\(\\xi(1-\\xi) > 0\\) 得到 \\(f'(\\xi) = 3\\)。",
+            "title": "开区间 \\(\\xi \\in (0, 1)\\) 的严密论证"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "构造与反例",
+          "局部-整体转化",
+          "反证与分类讨论"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "已知条件为 \\(\\int_0^1 f(x)\\,\\mathrm{d}x = \\frac{5}{2}\\) 和 \\(\\int_0^1 x f(x)\\,\\mathrm{d}x = \\frac{3}{2}\\)，目标是证明存在 \\(\\xi \\in (0, 1)\\) 使 \\(f'(\\xi) = 3\\)。尝试线性函数 \\(f(x) = ax + b\\) 可立即发现 \\(f(x) = 3x + 1\\) 恰好满足两个积分条件且导数恒为 \\(3\\)，这揭示了目标常数 \\(3\\) 的来源。",
+            "step": "特例试探，洞察常数来源"
+          },
+          {
+            "detail": "因为条件中只有积分值而无端点函数值 \\(f(0), f(1)\\)，若想通过分部积分把 \\(f'(x)\\) 转化为 \\(f(x)\\) 和 \\(xf(x)\\)，乘在 \\(f'(x)-3\\) 前面的权函数 \\(w(x)\\) 必须满足 \\(w(0) = w(1) = 0\\)，且导数 \\(w'(x)\\) 为一次函数，最自然的选择就是 \\(w(x) = x(1-x)\\)。",
+            "step": "由“无边界条件”反推权函数结构"
+          },
+          {
+            "detail": "将整体积分 \\(\\int_0^1 x(1-x)[3-f'(x)]\\,\\mathrm{d}x\\) 算成 \\(0\\) 后，利用连续函数积分为零的性质（或反证法+介值定理）转化为局部点态结论 \\(f'(\\xi) = 3\\)。",
+            "step": "建立整体积分与局部导数的桥梁"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "构造函数 \\(g(x) = x(1-x)[3 - f'(x)]\\) 并考察其定积分 \\(\\int_0^1 x(1-x)[3 - f'(x)]\\,\\mathrm{d}x\\)。",
+            "motivation": "因为 \\(x(1-x)\\) 在 \\(x=0,1\\) 处均为 \\(0\\)，分部积分时边界项自动消失，且其导数 \\(1-2x\\) 恰好能把积分拆成 \\(\\int_0^1 f(x)\\,\\mathrm{d}x\\) 与 \\(\\int_0^1 xf(x)\\,\\mathrm{d}x\\) 的线性组合。",
+            "step": "构造加权被积函数并建立积分表达式"
+          },
+          {
+            "detail": "因为 \\([3x - f(x)]' = 3 - f'(x)\\)，利用分部积分得\n\\[\n\\int_0^1 x(1-x)[3-f'(x)]\\,\\mathrm{d}x = \\left.x(1-x)[3x-f(x)]\\right|_0^1 - \\int_0^1 (1-2x)[3x-f(x)]\\,\\mathrm{d}x = \\int_0^1 3x(2x-1)\\,\\mathrm{d}x + \\int_0^1 f(x)\\,\\mathrm{d}x - 2\\int_0^1 xf(x)\\,\\mathrm{d}x.\n\\]\n代入 \\(\\int_0^1 3x(2x-1)\\,\\mathrm{d}x = \\left.(2x^3 - \\frac{3}{2}x^2)\\right|_0^1 = \\frac{1}{2}\\) 以及已知积分值 \\(\\frac{5}{2}\\) 和 \\(\\frac{3}{2}\\)，算得结果为 \\(\\frac{1}{2} + \\frac{5}{2} - 3 = 0\\)。",
+            "motivation": "通过分部积分消去导数 \\(f'(x)\\)，将待证关系完全转化为题目给出的两个定积分已知量。",
+            "step": "分部积分并代入已知积分条件求值"
+          },
+          {
+            "detail": "由于 \\(f'(x)\\) 在 \\([0, 1]\\) 上连续，被积函数 \\(x(1-x)[3 - f'(x)]\\) 在 \\([0, 1]\\) 上连续且积分为 \\(0\\)。由积分中值定理（开区间形式）存在 \\(\\xi \\in (0, 1)\\) 使得 \\(\\xi(1-\\xi)[3 - f'(\\xi)] = 0\\)。又因 \\(\\xi \\in (0, 1)\\) 时 \\(\\xi(1-\\xi) > 0\\)，故必有 \\(f'(\\xi) = 3\\)。",
+            "motivation": "将积分等于零的整体性质转化为开区间内某一点函数值为零的局部性质，并利用开区间端点外侧非零因子完成消元。",
+            "step": "应用积分中值定理得出结论"
+          }
+        ],
+        "teaching_takeaway": "当题目只给出函数的若干阶矩（如 \\(\\int_a^b f(x)\\,\\mathrm{d}x\\) 与 \\(\\int_a^b x f(x)\\,\\mathrm{d}x\\)）而要证明导数中值结论时，常可构造在端点处为零的多项式权函数 \\((x-a)(b-x)\\) 进行分部积分，既消去了未知边界项，又恰好把导数积分降阶为已知各阶矩的线性组合。",
+        "topic_tags": [
+          "积分中值定理",
+          "分部积分法",
+          "微积分"
+        ]
+      }
+    }
+  ]
+}

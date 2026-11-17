@@ -1,0 +1,113 @@
+{
+  "resource_id": "chsmo-2020-images-01a0295f88-combined",
+  "source_sha256": "1bb23870216cbbc09bdf131953b7842d704c66b9cb0f980ce10142f1c36e3f3a",
+  "solution_resource_id": "chsmo-2020-images-01a0295f88-combined",
+  "solution_sha256": "1bb23870216cbbc09bdf131953b7842d704c66b9cb0f980ce10142f1c36e3f3a",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "chsmo-2020-images-01a0295f88-combined-q2",
+      "resource_id": "chsmo-2020-images-01a0295f88-combined",
+      "source_sha256": "1bb23870216cbbc09bdf131953b7842d704c66b9cb0f980ce10142f1c36e3f3a",
+      "solution_resource_id": "chsmo-2020-images-01a0295f88-combined",
+      "solution_sha256": "1bb23870216cbbc09bdf131953b7842d704c66b9cb0f980ce10142f1c36e3f3a",
+      "contest": "CHSMO",
+      "year": 2020,
+      "number": "2",
+      "level": "高中",
+      "title": "2020年全国高中数学联赛A卷及答案 · 2",
+      "blind_attempt": {
+        "approach": "设椭圆 \\(\\Gamma\\) 的长半轴长为 \\(a\\)，短半轴长为 \\(b\\)，半焦距为 \\(c\\)（\\(a > b > 0\\)，\\(c = \\sqrt{a^2 - b^2} > 0\\)）。利用平面直角坐标系或向量中线极化公式 \\(\\overrightarrow{PF_1} \\cdot \\overrightarrow{PF_2} = |PO|^2 - c^2\\)，将条件 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} + \\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = 0\\) 转化为 \\(a^2 + b^2 = 2c^2\\)，进而求出 \\(\\frac{|AB|}{|F_1F_2|}\\) 的值。",
+        "final_answer": "\\(\\frac{\\sqrt{2}}{2}\\)",
+        "problem_statement_zh": "在椭圆 \\(\\Gamma\\) 中，\\(A\\) 为长轴的一个端点，\\(B\\) 为短轴的一个端点，\\(F_1, F_2\\) 为两个焦点。若 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} + \\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = 0\\)，则 \\(\\frac{|AB|}{|F_1F_2|}\\) 的值为______.",
+        "steps": [
+          "1. 设椭圆 \\(\\Gamma\\) 的长半轴长为 \\(a\\)，短半轴长为 \\(b\\)，半焦距为 \\(c\\)（\\(a > b > 0\\)，且 \\(c = \\sqrt{a^2 - b^2} > 0\\)）。以椭圆中心 \\(O\\) 为原点，长轴所在直线为 \\(x\\) 轴，短轴所在直线为 \\(y\\) 轴建立平面直角坐标系，则椭圆方程为 \\(\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1\\)，两焦点坐标为 \\(F_1(-c, 0)\\) 与 \\(F_2(c, 0)\\)。",
+          "2. 由椭圆的对称性，无论取长轴哪一个端点为 \\(A(\\pm a, 0)\\) 以及短轴哪一个端点为 \\(B(0, \\pm b)\\)，向量数量积 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2}\\)、\\(\\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2}\\) 与线段长度 \\(|AB|\\) 均保持不变。不妨取 \\(A(a, 0)\\)，\\(B(0, b)\\)。",
+          "3. 计算两个数量积：\\(\\overrightarrow{AF_1} = (-c - a, 0)\\)，\\(\\overrightarrow{AF_2} = (c - a, 0)\\)，故 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} = (-c - a)(c - a) = a^2 - c^2\\)；又 \\(\\overrightarrow{BF_1} = (-c, -b)\\)，\\(\\overrightarrow{BF_2} = (c, -b)\\)，故 \\(\\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = -c^2 + b^2 = b^2 - c^2\\)。",
+          "4. 代入已知条件 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} + \\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = 0\\)，得 \\((a^2 - c^2) + (b^2 - c^2) = 0\\)，即 \\(a^2 + b^2 = 2c^2\\)。结合 \\(c^2 = a^2 - b^2\\) 可验证 \\(a^2 = 3b^2\\)，\\(c^2 = 2b^2\\)，满足 \\(a > b > 0\\) 且 \\(c > 0\\) 的存在性条件。",
+          "5. 在直角三角形 \\(AOB\\) 中，\\(|AB| = \\sqrt{a^2 + b^2}\\)，而焦距 \\(|F_1F_2| = 2c\\)，因此 \\(\\frac{|AB|}{|F_1F_2|} = \\frac{\\sqrt{a^2 + b^2}}{2c} = \\frac{\\sqrt{2c^2}}{2c} = \\frac{\\sqrt{2}}{2}\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "建立标准坐标系后先明确写出各点坐标，严格按“终点坐标减起点坐标”写出向量 \\(\\overrightarrow{AF_1}, \\overrightarrow{AF_2}, \\overrightarrow{BF_1}, \\overrightarrow{BF_2}\\) 再作点积；也可以用极化恒等式 \\(\\overrightarrow{PF_1} \\cdot \\overrightarrow{PF_2} = |PO|^2 - c^2\\) 作独立交叉检验。",
+            "mistake": "在计算 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2}\\) 时把 \\((-c - a)(c - a)\\) 错算成 \\(c^2 - a^2\\)，或在计算 \\(\\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2}\\) 时因忽略纵坐标同号而错写成 \\(-c^2 - b^2\\)。",
+            "title": "向量坐标与数量积符号出错",
+            "why_wrong": "混淆了向量 \\(\\overrightarrow{AF_1}\\) 与 \\(\\overrightarrow{F_1A}\\) 的方向，或者在代数展开 \\(-(a+c)(a-c) = c^2 - a^2\\) 时漏掉了外层的负号；对于 \\(B(0,b)\\)，\\(\\overrightarrow{BF_1}\\) 和 \\(\\overrightarrow{BF_2}\\) 的 \\(y\\) 分量均为 \\(-b\\)，其乘积应为 \\(+b^2\\) 而非 \\(-b^2\\)。"
+          },
+          {
+            "how_to_avoid": "在列比值表达式之前，先用文字核对分子、分母对应的几何线段长度：\\(|AB| = \\sqrt{a^2 + b^2}\\)、\\(|F_1F_2| = 2c\\)，避免把半焦距直接当作焦距。",
+            "mistake": "误将两焦点间距离 \\(|F_1F_2|\\) 记作 \\(c\\)，从而得出 \\(\\frac{\\sqrt{2c^2}}{c} = \\sqrt{2}\\)。",
+            "title": "焦距与半焦距概念混淆",
+            "why_wrong": "椭圆的标准参数 \\(c\\) 是半焦距（中心到焦点的距离），而题目所求分母 \\(|F_1F_2|\\) 是两焦点之间的全焦距 \\(2c\\)。"
+          },
+          {
+            "how_to_avoid": "解出参数关系 \\(a^2 + b^2 = 2c^2\\) 后，顺手代入 \\(c^2 = a^2 - b^2\\) 验算是否满足 \\(a > b > 0\\)（此处 \\(a^2 = 3b^2\\)，\\(c^2 = 2b^2 > 0\\) 确实成立），并在化简 \\(\\sqrt{c^2}\\) 时注意 \\(c > 0\\)。",
+            "mistake": "直接“不妨设 \\(A(a, 0), B(0, b)\\)”而未意识到这需要以椭圆的对称性为前提，或未检验所得关系 \\(a^2 + b^2 = 2c^2\\) 是否与 \\(c^2 = a^2 - b^2\\) 相容。",
+            "title": "忽略“不妨设”的前提及参数存在性检验",
+            "why_wrong": "若问题不具备对称性，随意固定端点会丢失其他情况；若不检验 \\(c^2 = a^2 - b^2\\) 是否有正解，则可能在隐含无解的情况下给出虚假比值。"
+          }
+        ],
+        "comparison_summary": "盲解（Turn 1）的最终答案 \\(\\frac{\\sqrt{2}}{2}\\) 与参考解答完全一致，整体建系与数量积运算思路也和参考解答高度吻合。不同之处在于：参考解答直接“不妨设”椭圆标准方程及 \\(A(a, 0), B(0, b)\\) 并一步算出结果；盲解则在计算前先简短说明了选取不同长、短轴端点的对称不变性，随后还补充验证了 \\(a^2 = 3b^2, c^2 = 2b^2\\) 满足椭圆参数 \\(a > b > 0\\) 的存在性条件，且补充了向量极化恒等式 \\(\\overrightarrow{PF_1} \\cdot \\overrightarrow{PF_2} = |PO|^2 - c^2\\) 的几何视角。",
+        "difficulties": [
+          {
+            "detail": "在未给出椭圆方程、未指定具体端点的情况下，需要自觉利用椭圆关于坐标轴的对称性建立标准坐标系并“不妨设” \\(A(a,0), B(0,b)\\)，从而避免对四个顶点组合逐一分类讨论。",
+            "title": "通过对称性固定顶点，避免分类讨论"
+          },
+          {
+            "detail": "条件式看似没有直接给出 \\(a, b, c\\) 的具体数值，关键在于识别目标式 \\(\\frac{|AB|}{|F_1F_2|} = \\frac{\\sqrt{a^2 + b^2}}{2c}\\) 与条件导出的 \\(a^2 + b^2 = 2c^2\\) 均为关于 \\(a, b, c\\) 的齐次式，无需解出具体偏心率或联立消去 \\(b\\) 即可直接整体代入求值。",
+            "title": "识别齐次结构，利用 \\(a^2 + b^2 = 2c^2\\) 整体代入"
+          }
+        ],
+        "difficulty_tag": "训练:基础热身",
+        "method_tags": [
+          "对称与轮换"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "题干中“长轴的一个端点 \\(A\\)”、“短轴的一个端点 \\(B\\)”与“两焦点 \\(F_1, F_2\\)”均只涉及椭圆本身，所求比值 \\(\\frac{|AB|}{|F_1F_2|}\\) 也与位置和大小放缩无关，由此判断可建立标准直角坐标系并利用对称性任取 \\(A(a,0), B(0,b)\\)。",
+            "step": "1. 识别几何对象的对称性与无坐标设定"
+          },
+          {
+            "detail": "条件 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} + \\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = 0\\) 中的两个数量积都可以用 \\(a, b, c\\) 表示，而目标 \\(\\frac{|AB|}{|F_1F_2|} = \\frac{\\sqrt{a^2 + b^2}}{2c}\\) 同样完全由 \\(a, b, c\\) 决定，从而确定将向量条件转化为 \\(a, b, c\\) 代数方程的切入点。",
+            "step": "2. 将向量条件与目标比值统一参数化为 \\(a, b, c\\) 的表达式"
+          },
+          {
+            "detail": "在得到 \\(a^2 + b^2 = 2c^2\\) 后，注意目标分子恰好是 \\(\\sqrt{a^2 + b^2}\\)，于是可直接整体替换而不必绕道先求离心率 \\(e\\) 再分别用 \\(c\\) 表示 \\(a\\) 和 \\(b\\)。",
+            "step": "3. 观察式子结构，寻找最简整体消元路径"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设椭圆 \\(\\Gamma\\) 的标准方程为 \\(\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1\\)（\\(a > b > 0\\)），取 \\(A(a, 0)\\)、\\(B(0, b)\\)、\\(F_1(-c, 0)\\)、\\(F_2(c, 0)\\)，其中 \\(c = \\sqrt{a^2 - b^2}\\)。由于椭圆关于 \\(x\\) 轴、\\(y\\) 轴均对称，无论取长轴和短轴的哪一个端点，\\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2}\\)、\\(\\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2}\\) 以及 \\(|AB|\\) 都保持不变，因此“不妨设”不会丢失一般性。",
+            "motivation": "借助椭圆的对称性消除“一个端点”带来的选点不确定性，把抽象几何关系落到具体的标准坐标上。",
+            "step": "1. 建立标准坐标系并固定代表元"
+          },
+          {
+            "detail": "由坐标得 \\(\\overrightarrow{AF_1} \\cdot \\overrightarrow{AF_2} = (-c - a)(c - a) = a^2 - c^2\\)，\\(\\overrightarrow{BF_1} \\cdot \\overrightarrow{BF_2} = (-c) \\cdot c + (-b) \\cdot (-b) = b^2 - c^2\\)，相加并令其等于 \\(0\\)，化简即得 \\(a^2 + b^2 - 2c^2 = 0\\)，即 \\(a^2 + b^2 = 2c^2\\)。（也可从向量中线公式 \\(\\overrightarrow{PF_1} \\cdot \\overrightarrow{PF_2} = |PO|^2 - c^2\\) 直接看出两项分别为 \\(a^2 - c^2\\) 与 \\(b^2 - c^2\\)。）",
+            "motivation": "将平面向量数量积转化为只含基本参数 \\(a, b, c\\) 的二次齐次方程。",
+            "step": "2. 计算向量数量积并化简条件等式"
+          },
+          {
+            "detail": "由勾股定理知 \\(|AB| = \\sqrt{a^2 + b^2}\\)，两焦点间距 \\(|F_1F_2| = 2c\\)，将 \\(a^2 + b^2 = 2c^2\\) 整体代入目标比值：\\(\\frac{|AB|}{|F_1F_2|} = \\frac{\\sqrt{a^2 + b^2}}{2c} = \\frac{\\sqrt{2c^2}}{2c} = \\frac{\\sqrt{2}}{2}\\)。同时 \\(c^2 = a^2 - b^2\\) 给出 \\(a^2 = 3b^2\\)，确保满足 \\(a > b > 0\\) 的椭圆真实存在。",
+            "motivation": "将参数方程直接与目标比值对接，实现一次消元直接求值。",
+            "step": "3. 整体代入计算最终比值"
+          }
+        ],
+        "teaching_takeaway": "对于涉及椭圆焦点 \\(F_1, F_2\\) 的向量数量积问题，既要善用对称性“不妨设”标准位置，也可以记住极化恒等式 \\(\\overrightarrow{PF_1} \\cdot \\overrightarrow{PF_2} = |PO|^2 - c^2\\) 来快速心算并交叉验算，同时在求齐次比值时优先观察能否整体代入而非急于单解各参数。",
+        "topic_tags": [
+          "解析几何",
+          "椭圆性质",
+          "平面向量"
+        ]
+      }
+    }
+  ]
+}

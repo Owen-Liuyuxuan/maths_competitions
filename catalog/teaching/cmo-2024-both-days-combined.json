@@ -1,0 +1,698 @@
+{
+  "resource_id": "cmo-2024-both-days-combined",
+  "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+  "solution_resource_id": "cmo-2024-both-days-combined",
+  "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+  "method": "blind-then-verify",
+  "questions": [
+    {
+      "id": "cmo-2024-both-days-combined-q1",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "1",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 1",
+      "blind_attempt": {
+        "approach": "首先说明原题图片中递推式左侧印作 \\(x_n\\) 应为 \\(x_{n+1}\\) 的笔误。对第（1）问，利用当 \\(x_n > L\\) 时 \\(x_{n+1} = \\lfloor \\frac{x_n}{\\alpha} \\rfloor < x_n\\)，证明数列必在有限步内首次进入 \\([1, L]\\)；此后证明一旦 \\(1 \\le x_N \\le L\\)，对一切 \\(n \\ge N\\) 均有 \\(1 \\le x_n \\le \\lfloor \\alpha L \\rfloor\\)，由抽屉原理即得 \\(\\{x_n\\}\\) 最终周期。对第（2）问，令 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)。首先证明首次落入 \\([1, L]\\) 的项 \\(x_N\\) 满足 \\(M \\le x_N \\le L\\)，且由 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 可推出 \\(M > \\frac{1}{\\alpha - 1}\\)，从而 \\(M + 1 \\le \\lfloor \\alpha M \\rfloor \\le L\\)。接着利用 \\(\\alpha\\) 的无理性证明核心引理：对任意整数 \\(x \\in [M+1, L]\\)，有 \\(\\lfloor \\alpha x \\rfloor > L\\) 且 \\(\\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\rfloor = x - 1\\)。由此任意 \\(x_N \\in [M, L]\\) 必经过若干次两步一降 \\(1\\) 的过程到达 \\(M\\)；而从 \\(M\\) 出发，先跳至 \\(M + k = \\lfloor \\alpha M \\rfloor \\in [M+1, L]\\)（其中 \\(k = \\lfloor \\alpha M \\rfloor - M \\ge 1\\)），再经历 \\(k\\) 轮两步一降 \\(1\\) 回到 \\(M\\)。这给出了一个长度为 \\(2k + 1\\) 且元素两两互异的唯一极限环，故最小正周期为奇数 \\(2(\\lfloor \\alpha M \\rfloor - M) + 1\\)，且仅与 \\(\\alpha, L\\) 有关而与 \\(x_1\\) 无关。",
+        "final_answer": "（1）**最终周期性证明**：\n因为 \\(\\alpha > 1\\)，\\(L > \\frac{\\alpha^2}{\\alpha - 1} = \\alpha + 1 + \\frac{1}{\\alpha - 1} > \\alpha\\)，故对任意正整数 \\(x\\)：若 \\(x \\le L\\)，则 \\(\\lfloor \\alpha x \\rfloor \\ge \\lfloor \\alpha \\rfloor \\ge 1\\)；若 \\(x > L\\)，则 \\(\\lfloor \\frac{x}{\\alpha} \\rfloor \\ge \\lfloor \\frac{L}{\\alpha} \\rfloor \\ge 1\\)。这与数列为正整数数列相一致。\n当 \\(x_n > L\\) 时，由于 \\(\\alpha > 1\\)，有 \\(\\frac{x_n}{\\alpha} < x_n\\)，从而 \\(x_{n+1} = \\lfloor \\frac{x_n}{\\alpha} \\rfloor \\le x_n - 1\\)。因为 \\(x_1 > L\\) 且正整数严格递减不能无限持续保持大于 \\(L\\)，故必存在最小的正整数 \\(N \\ge 2\\)，使得 \\(x_N \\le L\\)（且 \\(x_{N-1} > L\\)）。\n下面用数学归纳法证明：对一切 \\(n \\ge N\\)，均有 \\(1 \\le x_n \\le \\lfloor \\alpha L \\rfloor\\)。\n- 当 \\(n = N\\) 时，\\(1 \\le x_N \\le L \\le \\lfloor \\alpha L \\rfloor\\) 成立；\n- 假设 \\(1 \\le x_n \\le \\lfloor \\alpha L \\rfloor\\)。若 \\(x_n \\le L\\)，则 \\(1 \\le x_{n+1} = \\lfloor \\alpha x_n \\rfloor \\le \\lfloor \\alpha L \\rfloor\\)；若 \\(L < x_n \\le \\lfloor \\alpha L \\rfloor\\)，则 \\(\\frac{x_n}{\\alpha} \\le \\frac{\\alpha L}{\\alpha} = L\\)，从而 \\(1 \\le x_{n+1} = \\lfloor \\frac{x_n}{\\alpha} \\rfloor \\le L \\le \\lfloor \\alpha L \\rfloor\\)。\n\n因此对所有 \\(n \\ge N\\)，\\(x_n\\) 都取值于有限集 \\(\\{1, 2, \\dots, \\lfloor \\alpha L \\rfloor\\}\\)。由抽屉原理，存在 \\(j > i \\ge N\\) 使得 \\(x_i = x_j\\)。因为递推关系中 \\(x_{n+1}\\) 由 \\(x_n\\) 唯一确定，归纳即得对一切 \\(n \\ge i\\) 都有 \\(x_{n+(j-i)} = x_n\\)，故 \\(\\{x_n\\}\\) 是最终周期的。\n\n（2）**最小正周期为与 \\(x_1\\) 无关的奇数**：\n记迭代映射为 \\(f(x) = \\begin{cases} \\lfloor \\alpha x \\rfloor, & x \\le L, \\\\ \\lfloor \\frac{x}{\\alpha} \\rfloor, & x > L, \\end{cases}\\) 并令 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)。\n\n**第一步：界定 \\(x_N\\) 与 \\(M\\) 的范围**。\n由 \\(N\\) 的最小性可知 \\(x_{N-1} \\ge L + 1\\)，于是\n\\[\nx_N = \\left\\lfloor \\frac{x_{N-1}}{\\alpha} \\right\\rfloor \\ge \\left\\lfloor \\frac{L+1}{\\alpha} \\right\\rfloor = M,\n\\]\n故 \\(M \\le x_N \\le L\\)。又由 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 可得\n\\[\nM = \\left\\lfloor \\frac{L+1}{\\alpha} \\right\\rfloor > \\frac{L+1}{\\alpha} - 1 > \\frac{L}{\\alpha} - 1 > \\frac{\\alpha}{\\alpha - 1} - 1 = \\frac{1}{\\alpha - 1}.\n\\]\n由此 \\((\\alpha - 1)M > 1\\)，即 \\(\\alpha M > M + 1\\)，故 \\(\\lfloor \\alpha M \\rfloor \\ge M + 1\\)。另一方面，因为 \\(\\alpha\\) 为无理数且 \\(L + 1 \\in \\mathbb{Z}_{>0}\\)，\\(\\frac{L+1}{\\alpha}\\) 不是整数，所以 \\(M < \\frac{L+1}{\\alpha}\\)，即 \\(\\alpha M < L + 1\\)，从而 \\(\\lfloor \\alpha M \\rfloor \\le L\\)。综上，\n\\[\nM + 1 \\le \\lfloor \\alpha M \\rfloor \\le L.\n\\]\n\n**第二步：建立区间 \\([M+1, L]\\) 上的两步降一引理**。\n设整数 \\(x\\) 满足 \\(M + 1 \\le x \\le L\\)。由于 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\) 且 \\(\\frac{L+1}{\\alpha} \\notin \\mathbb{Z}\\)，必有 \\(x \\ge M + 1 > \\frac{L+1}{\\alpha}\\)，故 \\(\\alpha x > L + 1\\)，从而\n\\[\nf(x) = \\lfloor \\alpha x \\rfloor \\ge L + 1 > L.\n\\]\n因为 \\(x \\ge 1\\) 为整数且 \\(\\alpha\\) 为无理数，\\(\\alpha x \\notin \\mathbb{Z}\\)，所以 \\(\\alpha x - 1 < \\lfloor \\alpha x \\rfloor < \\alpha x\\)。两边除以 \\(\\alpha > 1\\)，结合 \\(0 < \\frac{1}{\\alpha} < 1\\)，得\n\\[\nx - 1 < x - \\frac{1}{\\alpha} < \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} < x.\n\\]\n由于 \\(x\\) 为整数，上式说明 \\(\\frac{\\lfloor \\alpha x \\rfloor}{\\alpha}\\) 严格介于相邻整数 \\(x - 1\\) 与 \\(x\\) 之间，因此\n\\[\nf(f(x)) = \\left\\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\right\\rfloor = x - 1.\n\\]\n\n**第三步：确定公共极限环并计算最小正周期**。\n由 \\(M \\le x_N \\le L\\)，反复应用第二步的结论 \\((x_N - M)\\) 次（当 \\(x_N = M\\) 时应用 \\(0\\) 次），得\n\\[\nx_{N + 2(x_N - M)} = M.\n\\]\n令 \\(k = \\lfloor \\alpha M \\rfloor - M\\)，由第一步知 \\(k \\ge 1\\) 且 \\(M + k = \\lfloor \\alpha M \\rfloor \\in [M+1, L]\\)。现从 \\(z_0 = M\\) 出发追踪序列 \\(z_{m+1} = f(z_m)\\)：\n- \\(z_1 = f(M) = \\lfloor \\alpha M \\rfloor = M + k \\in [M+1, L]\\)；\n- 对 \\(j = 1, 2, \\dots, k\\)，由于 \\(z_{2j-1} = M + k - (j - 1) \\in [M+1, L]\\)，由第二步有 \\(z_{2j} = f(z_{2j-1}) = \\lfloor \\alpha z_{2j-1} \\rfloor > L\\) 且 \\(z_{2j+1} = f(z_{2j}) = z_{2j-1} - 1 = M + k - j\\)。\n\n当 \\(j = k\\) 时，\\(z_{2k+1} = M = z_0\\)。从而对一切 \\(n \\ge N_0 := N + 2(x_N - M)\\)，数列 \\(\\{x_n\\}\\) 以 \\(2k + 1\\) 为周期循环取遍 \\(z_0, z_1, \\dots, z_{2k}\\)。\n\n最后验证 \\(z_0, z_1, \\dots, z_{2k}\\) 两两互异：\n- \\(z_0 = M\\)；\n- \\(z_1, z_3, \\dots, z_{2k-1}\\) 依次为 \\(M+k, M+k-1, \\dots, M+1\\)，它们两两互异，且均属于 \\([M+1, L]\\)，严格大于 \\(z_0\\)；\n- \\(z_2, z_4, \\dots, z_{2k}\\) 均严格大于 \\(L\\)，故与前面所有 \\(\\le L\\) 的项均不相同；且若对 \\(1 \\le i, j \\le k\\) 有 \\(z_{2i} = z_{2j}\\)，则 \\(z_{2i+1} = f(z_{2i}) = f(z_{2j}) = z_{2j+1}\\)，即 \\(M + k - i = M + k - j\\)，从而 \\(i = j\\)。\n\n因此 \\(z_0, z_1, \\dots, z_{2k}\\) 共 \\(2k + 1\\) 个数两两互异，故 \\(\\{x_n\\}\\) 的最小正周期恰为\n\\[\nT = 2k + 1 = 2\\left(\\lfloor \\alpha M \\rfloor - M\\right) + 1 = 2\\left(\\left\\lfloor \\alpha \\left\\lfloor \\frac{L+1}{\\alpha} \\right\\rfloor \\right\\rfloor - \\left\\lfloor \\frac{L+1}{\\alpha} \\right\\rfloor\\right) + 1.\n\\]\n显然 \\(T\\) 是一个奇数，且只依赖于 \\(\\alpha\\) 与 \\(L\\)，与初项 \\(x_1\\) 无关。",
+        "problem_statement_zh": "1. 给定无理数 \\(\\alpha > 1\\) 及正整数 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)，正整数数列 \\(\\{x_n\\}\\) 满足 \\(x_1 > L\\) 且对任意正整数 \\(n\\)，均有\n\\[\nx_{n+1} = \\begin{cases} \\lfloor \\alpha x_n \\rfloor, & x_n \\leqslant L \\\\ \\lfloor \\frac{x_n}{\\alpha} \\rfloor, & x_n > L \\end{cases}\n\\]\n（注：原题图片中分段式左侧印作 \\(x_n = \\dots\\)，结合题意显然为 \\(x_{n+1} = \\dots\\) 的印刷笔误。）\n（1）证明：\\(\\{x_n\\}\\) 是最终周期的。\n（2）证明：\\(\\{x_n\\}\\) 的最小正周期是一个与 \\(x_1\\) 无关的奇数。",
+        "steps": [
+          "辨识原题图片中的条件与微小印刷笔误（将递推式左侧的 \\(x_n\\) 确认为 \\(x_{n+1}\\)）。",
+          "对第（1）问，验证每一步仍为正整数，并利用 \\(x_n > L\\) 时序列严格递减证明必存在首次满足 \\(x_N \\le L\\) 的项 \\(x_N\\)。",
+          "用数学归纳法证明对一切 \\(n \\ge N\\) 均有 \\(1 \\le x_n \\le \\lfloor \\alpha L \\rfloor\\)，由抽屉原理与递推关系的确定性推出 \\(\\{x_n\\}\\) 最终周期。",
+          "对第（2）问，定义 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)，由 \\(x_{N-1} \\ge L + 1\\) 得 \\(M \\le x_N \\le L\\)，并结合 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 与 \\(\\alpha\\) 的无理性证明 \\(M + 1 \\le \\lfloor \\alpha M \\rfloor \\le L\\)。",
+          "利用 \\(\\alpha\\) 为无理数证明：对任意整数 \\(x \\in [M+1, L]\\)，都有 \\(f(x) = \\lfloor \\alpha x \\rfloor > L\\) 且 \\(f(f(x)) = \\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\rfloor = x - 1\\)。",
+          "推出无论 \\(x_1\\) 如何选取，数列必在 \\(x_N\\) 之后经过 \\(2(x_N - M)\\) 步到达 \\(M\\)，随后进入长度 \\(2k + 1\\)（其中 \\(k = \\lfloor \\alpha M \\rfloor - M \\ge 1\\)）且 \\(2k + 1\\) 项两两互异的周期轨道，从而最小正周期为与 \\(x_1\\) 无关的奇数 \\(2k + 1\\)。",
+          "通过 Python 脚本对多种无理数 \\(\\alpha > 1\\)、不同 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 及不同初值 \\(x_1 > L\\) 进行数值验证，结果与公式 \\(2(\\lfloor \\alpha M \\rfloor - M) + 1\\) 完全一致。"
+        ],
+        "uncertainties": [
+          "原题图片中递推公式左侧印刷为 \\(x_n = \\begin{cases} \\lfloor \\alpha x_n \\rfloor, & x_n \\leqslant L \\\\ \\lfloor \\frac{x_n}{\\alpha} \\rfloor, & x_n > L \\end{cases}\\)，此处 \\(x_n\\) 显然是 \\(x_{n+1}\\) 的印刷笔误（若真为 \\(x_n\\)，则当 \\(x_1 > L\\) 时 \\(x_1 = \\lfloor x_1/\\alpha \\rfloor < x_1\\) 矛盾）。数学推导本身已完全闭合且经过数值验证，无未解决的漏洞或边缘情形。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "严格写明：对整数 \\(x \\ge 1\\) 与无理数 \\(\\alpha > 1\\)，\\(\\alpha x \\notin \\mathbb{Z}\\)，故 \\(\\alpha x - 1 < \\lfloor \\alpha x \\rfloor < \\alpha x\\)，两边除以 \\(\\alpha > 1\\) 得 \\(x - 1 < x - \\frac{1}{\\alpha} < \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} < x\\)，从而必有 \\(\\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\rfloor = x - 1\\)。",
+            "mistake": "忽略 \\(\\alpha\\) 为无理数及 \\(\\alpha > 1\\) 的条件，直接误以为 \\(\\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\rfloor = x\\) 或对任意 \\(\\alpha\\) 都等于 \\(x - 1\\)。",
+            "title": "忽视无理性导致取整恒等式出错",
+            "why_wrong": "若 \\(\\alpha\\) 为整数或有理数使得 \\(\\alpha x \\in \\mathbb{Z}\\)，则 \\(\\lfloor \\alpha x \\rfloor = \\alpha x\\)，从而 \\(\\lfloor \\frac{\\lfloor \\alpha x \\rfloor}{\\alpha} \\rfloor = x\\) 而非 \\(x - 1\\)，整个“两步降 \\(1\\)”或状态转移结构将彻底改变。"
+          },
+          {
+            "how_to_avoid": "紧盯 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)，由此推出 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor > \\frac{L+1}{\\alpha} - 1 > \\frac{L}{\\alpha} - 1 > \\frac{1}{\\alpha - 1}\\)，进而得到 \\(\\alpha M > M + 1\\)，严格保证 \\(\\lfloor \\alpha M \\rfloor \\ge M + 1\\)。",
+            "mistake": "漏证 \\(\\lfloor \\alpha M \\rfloor > M\\)（其中 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)），导致可能出现不动点 \\(M \\mapsto M\\)。",
+            "title": "未验证最小正周期不可能退化为 1（忽略下界条件）",
+            "why_wrong": "若没有 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)，当 \\(\\alpha \\in (1, 2)\\) 且 \\(M\\) 较小时完全可能出现 \\(\\lfloor \\alpha M \\rfloor = M\\)，此时参考解答中“除 \\(M\\) 外 \\(A\\) 中其余元素都跳入 \\(B\\)”及 \\(t > M\\)、或“隔项减 \\(1\\) 回到 \\(M\\) 后不再停留”都将失效，最小正周期可能变成 \\(1\\) 甚至陷入不同的不动点。"
+          },
+          {
+            "how_to_avoid": "在标答法中，先利用周期性取 \\(x_p = x_q = t\\) 为相邻两次出现最大项 \\(t\\) 的位置，从而保证开区间 \\((p, q)\\) 内不再出现 \\(t\\)，才能断定 \\(x_{p+1}, \\dots, x_{q-1}\\) 严格在 \\(B, A\\) 间交替且必在 \\(x_{q-1} = M\\) 结束；在直接算周期法中，则需显式验证周期内 \\(2k+1\\) 项两两互异。",
+            "mistake": "只证明数列有某个奇数周期（如某两个相等项之间的步数为奇数），就直接断言“最小正周期为奇数”。",
+            "title": "混淆“存在奇数周期”与“最小正周期为奇数”",
+            "why_wrong": "一个最小正周期为 \\(T\\) 的数列，其任意正整数倍 \\(mT\\) 都是周期（例如当 \\(T = 3\\) 时 \\(6\\) 是偶数周期，当 \\(T = 2\\) 时不存在奇数周期；更重要的是，若只证得某两相同项间距为奇数，还不能直接排除是最小正周期的奇数倍，不过奇数之因数必为奇数，这一点也需说清：若最小正周期 \\(T\\) 整除某个奇数 \\(q - p\\)，则 \\(T\\) 必为奇数；但若要证“与 \\(x_1\\) 无关”，仍需说明进入同一极限环）。"
+          }
+        ],
+        "comparison_summary": "盲解结果完全正确且严谨，采用了参考解答末尾提示的另一条经典路径（即通过证明区间 \\([M+1, L]\\) 上每两步数值减 \\(1\\)，直接确定了长度为 \\(2(\\lfloor \\alpha M \\rfloor - M) + 1\\) 的唯一极限环）；参考解答则采用“有界归纳 + 极端原理（取不超过 \\(L\\) 的最大周期项 \\(t\\)）+ 二分集合 \\(A, B\\) 交替转移”的路线，两者本质相通，且盲解更显式地验明了条件 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 对保证 \\(\\lfloor \\alpha M \\rfloor \\ge M + 1\\) 的作用（参考解答在此处略微简略）。",
+        "difficulties": [
+          {
+            "detail": "由 \\(x_{N-1} \\ge L + 1\\) 得到下界 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\) 是关键一步，但若仅停留在粗略估算，往往看不出与 \\(\\alpha, L\\) 的精确关联。难点在于将 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 转化为 \\(M > \\frac{1}{\\alpha - 1}\\)（即 \\(\\lfloor \\alpha M \\rfloor \\ge M + 1\\)），并利用 \\(\\alpha\\) 的无理性辨明临界点 \\(M\\) 与 \\(M + 1\\) 在乘以 \\(\\alpha\\) 后分别落在 \\(L\\) 的两侧。",
+            "title": "难点一：精确识别临界下界 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\) 并用活条件 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)"
+          },
+          {
+            "detail": "第（2）问既要证最小正周期是奇数，又要证与 \\(x_1\\) 无关。学生容易只用抽屉原理停留在周期存在性上，难以发现“状态 \\(M\\) 是所有轨道的必经汇合点”，也容易忽略如何利用 \\(A, B\\) 两个状态集合的交替转移（标答）或两步降 \\(1\\) 轨道（另一解法）来锁定周期奇偶性。",
+            "title": "难点二：刻画周期轨道结构以同时锁定“奇偶性”与“初值无关性”"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "归纳与递推",
+          "放缩与估值",
+          "极端原理"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "递推规则在阈值 \\(L\\) 两侧分别为“乘 \\(\\alpha\\) 取整”（放大）和“除以 \\(\\alpha\\) 取整”（缩小）。由于 \\(x_1 > L\\)，数列先不断缩小直至首次出现 \\(\\le L\\) 的项；一旦进入 \\([1, L]\\)，放大后最多到达 \\(\\lfloor \\alpha L \\rfloor\\)，之后又会被拉回 \\([1, L]\\)，这就是第（1）问有界性与最终周期性的直观来源。",
+            "step": "步骤一：分析分段递推的“放大-缩小”动力学机制"
+          },
+          {
+            "detail": "从大于 \\(L\\) 首次跳回 \\(\\le L\\) 的一步最值得关注：因为前一项至少是 \\(L + 1\\)，所以新项至少是 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)。同时检查条件 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)，变形得 \\(\\frac{L}{\\alpha} - 1 > \\frac{1}{\\alpha - 1}\\)，这恰好提示下界 \\(M\\) 满足 \\((\\alpha - 1)M > 1\\)，即 \\(\\lfloor \\alpha M \\rfloor > M\\)，排除了不动点的可能。",
+            "step": "步骤二：追踪首次跨过阈值 \\(L\\) 后的下界，并解码条件 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\)"
+          },
+          {
+            "detail": "既然最小正周期与 \\(x_1\\) 无关，几乎必然存在某个“瓶颈元素”对所有初值都在周期中出现，自然怀疑这个元素就是下界 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)；而周期为奇数，暗示着轨道在 \\(L\\) 以下与 \\(L\\) 以上几乎交替出现，只在到达 \\(M\\) 处发生一次“连续留在 \\(\\le L\\) 区域”的跃迁。",
+            "step": "步骤三：从“奇数”与“与 \\(x_1\\) 无关”逆向猜测轨道结构"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "由于 \\(x_1 > L\\) 且当 \\(x_n > L\\) 时 \\(x_{n+1} = \\lfloor \\frac{x_n}{\\alpha} \\rfloor \\le x_n - 1\\)，数列必在有限步内首次落入 \\([1, L]\\)。去掉前面若干项后，不妨设首项 \\(x_1\\) 即为第一个不超过 \\(L\\) 的项（其前项 \\(x_0 \\ge L + 1\\)）。于是 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor \\le x_1 \\le L < \\alpha L\\)。利用归纳法验证：若 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor \\le x_k \\le L\\)，则 \\(x_{k+1} = \\lfloor \\alpha x_k \\rfloor\\) 满足 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor \\le x_k \\le x_{k+1} \\le \\lfloor \\alpha L \\rfloor < \\alpha L\\)（这里用到 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 保证下界处有 \\(\\lfloor \\alpha x_k \\rfloor > x_k\\)）；若 \\(L + 1 \\le x_k < \\alpha L\\)，则 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor \\le \\lfloor \\frac{x_k}{\\alpha} \\rfloor = x_{k+1} \\le L < \\alpha L\\)。因区间 \\([\\lfloor \\frac{L+1}{\\alpha} \\rfloor, \\alpha L)\\) 中整数有限，且后项由前项唯一确定，故 \\(\\{x_n\\}\\) 最终周期。",
+            "motivation": "第（1）问需要证明有界性；进一步把下界直接缩紧到 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)，能同时为第（2）问铺路。",
+            "step": "步骤一：先降后界，归纳锁定不变有限集并证最终周期性"
+          },
+          {
+            "detail": "去掉前周期部分，不妨设 \\(\\{x_n\\}\\) 已经是纯周期数列。记 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)，并由极端原理取周期数列中不超过 \\(L\\) 的最大项为 \\(t\\)。定义 \\(A = \\{a \\in \\mathbb{N}^* \\mid M \\le a \\le t\\}\\)，\\(B = \\{b \\in \\mathbb{N}^* \\mid L + 1 \\le b < \\alpha t\\}\\)。同理归纳可知周期项全部落在 \\(A \\cup B\\) 中（因为从 \\(A\\) 出发至多到 \\(\\lfloor \\alpha t \\rfloor < \\alpha t\\)，从 \\(B\\) 出发除以 \\(\\alpha\\) 取整严格小于 \\(t\\)）。",
+            "motivation": "要证明最小正周期与 \\(x_1\\) 无关且为奇数，直接追踪每一项的数值较繁琐，参考解答改用极端原理取定“上边界 \\(t\\)”，将所有周期项划入两个互斥集合 \\(A\\)（不大于 \\(L\\)）与 \\(B\\)（大于 \\(L\\)）来分析转移规律。",
+            "step": "步骤二：截去非周期首部，依极大值 \\(t\\) 划分状态集 \\(A\\) 与 \\(B\\)"
+          },
+          {
+            "detail": "利用 \\(\\alpha\\) 的无理性可得 \\(\\lfloor \\alpha M \\rfloor < L + 1\\)（即 \\(\\lfloor \\alpha M \\rfloor \\le L\\)）且 \\(\\lfloor \\alpha (M + 1) \\rfloor \\ge L + 1\\)。由此：\n（1）若 \\(x_i \\in A\\) 且 \\(x_i \\neq M\\)，则 \\(x_i \\ge M + 1\\)，故 \\(x_{i+1} = \\lfloor \\alpha x_i \\rfloor \\ge L + 1\\)，又 \\(x_i \\le t \\implies x_{i+1} < \\alpha t\\)，所以 \\(x_{i+1} \\in B\\)；\n（2）若 \\(x_i \\in B\\)，则 \\(L + 1 \\le x_i < \\alpha t \\implies x_{i+1} = \\lfloor \\frac{x_i}{\\alpha} \\rfloor < t\\)，故 \\(x_{i+1} \\in A \\setminus \\{t\\}\\)；\n（3）既然 \\(t\\) 在周期中出现，而上述两类转移都不可能到达 \\(t\\)（需注意由 \\(L > \\frac{\\alpha^2}{\\alpha - 1}\\) 知 \\(M > \\frac{1}{\\alpha - 1}\\)，故 \\(\\lfloor \\alpha M \\rfloor \\ge M + 1\\)，从而 \\(t \\ge \\lfloor \\alpha M \\rfloor > M\\)），因此 \\(t\\) 的前一项必为 \\(M\\)，即当 \\(x_i = M\\) 时 \\(x_{i+1} = t \\in A\\)。",
+            "motivation": "找出转移图中的“唯一非交替边”：只有从 \\(M\\) 到 \\(t\\) 是留在 \\(A\\) 内部的一步，其余时刻都在 \\(A\\) 与 \\(B\\) 之间严格来回跳跃。",
+            "step": "步骤三：建立 \\(A\\)、\\(B\\) 之间的转移法则并锁定 \\(M \\to t\\) 的唯一性"
+          },
+          {
+            "detail": "在纯周期数列中取相邻两次出现 \\(t\\) 的下标 \\(p < q\\)（即 \\(x_p = x_q = t\\) 且在 \\(p, q\\) 之间不再出现 \\(t\\)）。因为 \\(t\\) 在周期中只从 \\(M\\) 跳来，从 \\(x_p = t \\in A \\setminus \\{M\\}\\) 出发，必有 \\(x_{p+1} \\in B, x_{p+2} \\in A, x_{p+3} \\in B, \\dots\\) 严格交替；直到回到 \\(x_q = t\\) 的前一项必为 \\(x_{q-1} = M \\in A\\)。于是下标差 \\((q - 1) - p\\) 为偶数，故最小正周期 \\(T = q - p\\) 为奇数（注：相邻两次 \\(t\\) 的间距恰为一个最小正周期，因整个轨道被 \\(t\\) 到下一次 \\(t\\) 唯一决定）。同时，由于 \\(M = \\lfloor \\frac{L+1}{\\alpha} \\rfloor\\) 必然在周期中出现（即 \\(x_{q-1} = M\\)），而后续所有项均由 \\(M\\) 唯一确定，因此整个周期轨道以及最小正周期 \\(T\\) 都只与 \\(\\alpha, L\\) 有关，与初项 \\(x_1\\) 完全无关。\n\n（补充对比思路：也可不用最大项 \\(t\\)，直接证明对一切 \\(x \\in [M+1, L]\\) 有 \\(f(x) > L\\) 且 \\(f(f(x)) = x - 1\\)，从而无论 \\(x_1\\) 为何值必降到 \\(M\\)，且 \\(M \\to M + k \\to \\dots \\to M\\) 直接给出最小正周期的显式表达式 \\(2(\\lfloor \\alpha M \\rfloor - M) + 1\\)。）",
+            "motivation": "用相邻两次 \\(t\\) 之间的状态交替计数奇偶性，并用必经点 \\(M\\) 说明周期与初值无关。",
+            "step": "步骤四：通过相邻极大项 \\(t\\) 之间的交替步数证明最小正周期为奇数且与 \\(x_1\\) 无关"
+          }
+        ],
+        "teaching_takeaway": "处理分段取整递推数列时，一要紧盯阈值两侧的单调与跨界估算（特别注意无理性对严格不等式的保证），二要善于从临界状态（如 \\(\\lfloor \\frac{L+1}{\\alpha} \\rfloor\\)）或极端状态（如周期极大值 \\(t\\)）入手将复杂数值轨迹转化为清晰的状态机交替转移。",
+        "topic_tags": [
+          "取整函数",
+          "递归数列",
+          "周期数列"
+        ]
+      }
+    },
+    {
+      "id": "cmo-2024-both-days-combined-q2",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "2",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 2",
+      "blind_attempt": {
+        "approach": "先定位三条直线的公共点：取线段 \\(ID\\) 的中点 \\(X\\)。由于 \\(L\\)、\\(N\\) 分别是 \\(AI\\)、\\(CI\\) 的中点，且 \\(D\\) 在 \\(AC\\) 上，\\(X\\) 显然在直线 \\(LN\\) 上。接着证明 \\(X\\) 也在直线 \\(EF\\) 与直线 \\(PQ\\) 上：\n1. 证明 \\(X \\in EF\\)：利用 \\(BC=BD\\) 得 \\(\\triangle BCD\\) 为等腰三角形，从而 \\(\\angle DEF = \\frac{C}{2}\\)。设 \\(\\triangle ABC\\) 的内切圆与 \\(AC\\) 切于 \\(E_0\\)，计算 \\(X\\) 在 \\(AC\\) 上的投影 \\(X'\\) 到 \\(E\\) 的有向距离，发现 \\(EX' = \\frac{E_0 C}{2}\\)，结合 \\(XX' = \\frac{r}{2}\\) 即可由正切值相等及同侧方向证明 \\(X \\in EF\\)。\n2. 证明 \\(X \\in PQ\\)：由 \\(J\\) 为 \\(\\triangle AIC\\) 外心知 \\(JM \\perp AC\\)、\\(JL \\perp AI\\)、\\(MN \\parallel AI\\)，故 \\(JD\\) 为 \\(\\omega\\) 的直径。先验证 \\(P, Q, J, M\\) 四点互异（即使 \\(D \\in JL\\) 导致 \\(Q=D\\) 亦然），再用有向角导角证明 \\(PQ \\parallel AB\\)；另一方面，由 \\(JD\\) 为直径知 \\(Q\\) 是 \\(D\\) 在 \\(JL\\) 上的正投影，利用以 \\(AI\\) 方向及垂直方向为基的向量分解，直接算出 \\(\\overrightarrow{QX}\\) 与 \\(\\overrightarrow{AB}\\) 同向，即 \\(QX \\parallel AB\\)，从而 \\(P, Q, X\\) 共线。",
+        "final_answer": "取线段 \\(ID\\) 的中点 \\(X\\)，以下证明直线 \\(PQ\\)、\\(LN\\)、\\(EF\\) 均经过点 \\(X\\)，从而三线共点。\n\n**一、基本性质与非退化说明**\n\n记 \\(\\triangle ABC\\) 的三边长分别为 \\(a = BC\\)、\\(b = AC\\)、\\(c = AB\\)，半周长 \\(s = \\frac{a+b+c}{2}\\)，内切圆半径为 \\(r\\)。\n由 \\(\\triangle ABD\\) 存在内切圆知 \\(D \\neq A\\)；由 \\(\\omega\\) 是 \\(\\triangle JMD\\) 的外接圆知 \\(D \\neq M\\)。因此 \\(D\\) 严格在线段 \\(AM\\) 内部，即 \\(0 < AD < \\frac{b}{2}\\)。\n因为 \\(D\\) 在线段 \\(AC\\) 上且 \\(BD = BC\\)（\\(D \\neq C\\)），在等腰 \\(\\triangle BCD\\) 中有 \\(\\angle BDC = \\angle BCD = C\\)（故 \\(C < 90^\\circ\\)），从而 \\(\\angle ADB = 180^\\circ - C\\)。\n\n因为 \\(J\\) 是 \\(\\triangle AIC\\) 的外心，所以 \\(JA = JI = JC\\)。又 \\(\\angle AIC = 90^\\circ + \\frac{B}{2} > 90^\\circ\\)，故 \\(J\\) 与 \\(I\\)（以及 \\(B\\)）在直线 \\(AC\\) 的异侧。\n由 \\(L\\)、\\(M\\)、\\(N\\) 分别是 \\(AI\\)、\\(AC\\)、\\(CI\\) 的中点，立得：\n- \\(JM \\perp AC\\)（因为 \\(JA = JC\\)）；\n- \\(JL \\perp AI\\)（因为 \\(JA = JI\\)）；\n- \\(MN \\parallel AI\\)，\\(LN \\parallel AC\\)。\n\n**二、证明 \\(X\\) 在直线 \\(LN\\) 上**\n\n因为 \\(L\\)、\\(N\\)、\\(X\\) 分别是线段 \\(IA\\)、\\(IC\\)、\\(ID\\) 的中点，且 \\(A\\)、\\(D\\)、\\(C\\) 共线，在以 \\(I\\) 为位似中心、位似比为 \\(\\frac{1}{2}\\) 的位似变换下，直线 \\(AC\\) 映为直线 \\(LN\\)，点 \\(D\\) 映为点 \\(X\\)，故 \\(X\\) 在直线 \\(LN\\) 上。\n\n**三、证明 \\(X\\) 在直线 \\(EF\\) 上**\n\n设 \\(\\triangle ABC\\) 的内切圆与边 \\(AC\\) 切于点 \\(E_0\\)，则 \\(E_0\\) 在线段 \\(AC\\) 上，\\(IE_0 \\perp AC\\)，\\(IE_0 = r\\)，\\(AE_0 = s - a = \\frac{b+c-a}{2}\\)，且 \\(E_0 C = s - c = \\frac{a+b-c}{2} > 0\\)。在 \\(\\mathrm{Rt}\\triangle IE_0 C\\) 中，\\(\\angle ICE_0 = \\frac{C}{2}\\)，故\n\\[\n\\tan\\frac{C}{2} = \\frac{IE_0}{E_0 C} = \\frac{r}{E_0 C}.\n\\]\n\n设 \\(X\\) 在直线 \\(AC\\) 上的正投影为 \\(X'\\)。因为 \\(X\\) 是 \\(ID\\) 的中点且 \\(D \\in AC\\)，所以 \\(X'\\) 是线段 \\(E_0 D\\) 的中点，且 \\(X\\) 与 \\(I\\)（及 \\(B\\)）在直线 \\(AC\\) 的同侧，满足 \\(XX' = \\frac{1}{2}IE_0 = \\frac{r}{2}\\)。\n\n在 \\(\\triangle ABD\\) 中，内切圆与 \\(AD\\)、\\(BD\\) 分别切于 \\(E\\)、\\(F\\)，故 \\(E\\) 严格在线段 \\(AD\\) 内部，\\(F\\) 严格在线段 \\(BD\\) 内部（在 \\(AC\\) 的 \\(B\\) 同侧），且\n\\[\nAE = \\frac{AD + AB - BD}{2} = \\frac{AD + c - a}{2}.\n\\]\n沿射线 \\(\\overrightarrow{AC}\\) 方向度量从 \\(A\\) 出发的有向距离：\n\\[\nAX' - AE = \\frac{AE_0 + AD}{2} - AE = \\frac{\\frac{b+c-a}{2} + AD - (AD + c - a)}{2} = \\frac{a+b-c}{4} = \\frac{E_0 C}{2} > 0.\n\\]\n因此 \\(X'\\) 位于点 \\(E\\) 沿 \\(\\overrightarrow{AC}\\) 方向的正前方，且 \\(EX' = \\frac{E_0 C}{2}\\)。在 \\(\\mathrm{Rt}\\triangle EX'X\\) 中，\n\\[\n\\tan\\angle XEX' = \\frac{XX'}{EX'} = \\frac{r/2}{E_0 C/2} = \\frac{r}{E_0 C} = \\tan\\frac{C}{2},\n\\]\n故 \\(\\angle XEX' = \\frac{C}{2}\\)。\n\n另一方面，在 \\(\\triangle ABD\\) 中，\\(DE = DF\\) 且 \\(\\angle EDF = \\angle ADB = 180^\\circ - C\\)，所以\n\\[\n\\angle DEF = \\frac{180^\\circ - (180^\\circ - C)}{2} = \\frac{C}{2}.\n\\]\n由于 \\(E\\) 在线段 \\(AD\\) 内部，射线 \\(\\overrightarrow{ED}\\) 与 \\(\\overrightarrow{AC}\\) 同向；又 \\(F\\) 与 \\(X\\) 均在直线 \\(AC\\) 的 \\(B\\) 同侧，且 \\(\\angle DEF = \\angle XEX' = \\frac{C}{2}\\)，故射线 \\(\\overrightarrow{EF}\\) 与射线 \\(\\overrightarrow{EX}\\) 重合，即点 \\(X\\) 在直线 \\(EF\\) 上。\n\n**四、证明 \\(X\\) 在直线 \\(PQ\\) 上**\n\n1. **\\(JD\\) 为 \\(\\omega\\) 的直径及 \\(P, Q, J, M\\) 四点互异**\n   因为 \\(JM \\perp AC\\) 且 \\(D \\in AM\\)（\\(D \\neq M\\)），所以 \\(\\angle JMD = 90^\\circ\\)，\\(JD\\) 是 \\(\\omega\\) 的直径。\n   - **证明 \\(P \\notin \\{J, M, D\\}\\)**：因为 \\(MN \\parallel AI\\) 且 \\(AI \\nparallel AC\\)，直线 \\(MN\\) 与 \\(AC\\) 仅交于 \\(M\\)，所以 \\(D \\notin MN\\)，故 \\(P \\neq D\\)；又 \\(JM \\perp AC\\) 而 \\(AI \\nparallel AC\\)，所以 \\(J \\notin MN\\)，故 \\(P \\neq J\\)。若 \\(P = M\\)，则 \\(MN\\) 与 \\(\\omega\\) 相切于 \\(M\\)，从而 \\(MN \\perp MO\\)（其中 \\(O\\) 为 \\(JD\\) 中点，即 \\(\\omega\\) 的圆心）。但 \\(\\overrightarrow{MO} = \\frac{1}{2}(\\overrightarrow{MJ} + \\overrightarrow{MD})\\)，\\(\\overrightarrow{MN} = \\frac{1}{2}\\overrightarrow{AI}\\)。由于 \\(J\\) 与 \\(I\\) 在 \\(AC\\) 异侧，且 \\(\\angle IAC = \\frac{A}{2} < 90^\\circ\\)，有 \\(\\overrightarrow{MJ} \\cdot \\overrightarrow{AI} < 0\\)；又 \\(D\\) 在线段 \\(AM\\) 上，\\(\\overrightarrow{MD}\\) 与 \\(\\overrightarrow{AC}\\) 反向而 \\(\\overrightarrow{AI}\\) 在 \\(\\overrightarrow{AC}\\) 上的投影为正，故 \\(\\overrightarrow{MD} \\cdot \\overrightarrow{AI} < 0\\)。从而 \\(\\overrightarrow{MO} \\cdot \\overrightarrow{MN} < 0\\)，矛盾，因此 \\(P \\neq M\\)。\n   - **证明 \\(Q \\neq J, M\\) 且 \\(Q\\) 是 \\(D\\) 在 \\(JL\\) 上的正投影**：若 \\(Q = M\\)，则 \\(M \\in JL\\)，由 \\(JL \\perp AI\\) 与 \\(JM \\perp AC\\) 得 \\(AI \\parallel AC\\)，矛盾。若 \\(Q = J\\)，则 \\(JL\\) 与 \\(\\omega\\) 相切于 \\(J\\)，于是 \\(JL \\perp JD\\)，结合 \\(JL \\perp AI\\) 得 \\(JD \\parallel AI\\)；但 \\(\\overrightarrow{JD}\\) 在 \\(AC\\) 上的投影为 \\(\\overrightarrow{MD}\\)（与 \\(\\overrightarrow{AC}\\) 反向），而 \\(\\overrightarrow{AI}\\) 在 \\(AC\\) 上的投影与 \\(\\overrightarrow{AC}\\) 同向，矛盾。因此 \\(Q \\neq J\\)。又 \\(JD\\) 是 \\(\\omega\\) 的直径，故若 \\(D \\in JL\\) 则 \\(Q = D\\)，若 \\(D \\notin JL\\) 则 \\(\\angle JQD = 90^\\circ\\)；无论哪种情况，均有 \\(DQ \\perp JL\\)，即 \\(Q\\) 是 \\(D\\) 在直线 \\(JL\\) 上的正投影。\n   - **证明 \\(P \\neq Q\\)**：因为 \\(Q\\) 是 \\(D\\) 在 \\(JL\\) 上的正投影且 \\(JL \\perp AI\\)，点 \\(Q\\) 到直线 \\(AI\\) 的距离等于 \\(D\\) 到直线 \\(AI\\) 的距离，即 \\(AD\\sin\\frac{A}{2}\\)。而 \\(MN \\parallel AI\\)，直线 \\(MN\\) 上任意一点到 \\(AI\\) 的距离等于 \\(M\\) 到 \\(AI\\) 的距离，即 \\(AM\\sin\\frac{A}{2}\\)。因为 \\(AD < AM\\)，所以 \\(Q \\notin MN\\)，从而 \\(Q \\neq P\\)。\n\n2. **证明 \\(PQ \\parallel AB\\)**\n   因为 \\(P, Q, J, M\\) 是 \\(\\omega\\) 上四个互异的点，由有向角（模 \\(180^\\circ\\)）的圆周角定理：\n   \\[\n   \\measuredangle(PQ, JL) = \\measuredangle(PQ, QJ) = \\measuredangle(PM, MJ) = \\measuredangle(MN, JM) = \\measuredangle(AI, JM).\n   \\]\n   结合 \\(JL \\perp AI\\)（\\(\\measuredangle(JL, AI) = 90^\\circ\\)）及 \\(JM \\perp AC\\)（\\(\\measuredangle(AC, JM) = 90^\\circ\\)），得\n   \\[\n   \\begin{aligned}\n   \\measuredangle(PQ, AC) &= \\measuredangle(PQ, JL) + \\measuredangle(JL, AI) + \\measuredangle(AI, AC) \\\\\n   &= \\measuredangle(AI, AC) + \\measuredangle(AC, JM) + 90^\\circ + \\measuredangle(AI, AC) \\\\\n   &= 2\\measuredangle(AI, AC) + 180^\\circ = \\measuredangle(AB, AC) \\pmod{180^\\circ},\n   \\end{aligned}\n   \\]\n   其中最后一步用到 \\(AI\\) 平分 \\(\\angle BAC\\)。因此 \\(PQ \\parallel AB\\)。\n\n3. **证明 \\(QX \\parallel AB\\)**\n   设 \\(\\mathbf{u}\\) 为沿 \\(\\overrightarrow{AI}\\) 方向的单位向量，\\(\\mathbf{v}\\) 为垂直于 \\(\\mathbf{u}\\) 且指向直线 \\(AI\\) 含 \\(C\\) 一侧半平面的单位向量（则 \\(B\\) 在 \\(-\\mathbf{v}\\) 一侧）。因为 \\(\\angle IAC = \\frac{A}{2}\\) 且 \\(D\\) 在射线 \\(\\overrightarrow{AC}\\) 上（记 \\(d = AD > 0\\)），有\n   \\[\n   \\overrightarrow{AD} = d\\cos\\frac{A}{2}\\,\\mathbf{u} + d\\sin\\frac{A}{2}\\,\\mathbf{v}.\n   \\]\n   由于 \\(L\\) 是 \\(AI\\) 的中点且 \\(JL \\perp AI\\)，\\(D\\) 在 \\(JL\\) 上的正投影 \\(Q\\) 满足\n   \\[\n   \\overrightarrow{AQ} = \\frac{1}{2}\\overrightarrow{AI} + d\\sin\\frac{A}{2}\\,\\mathbf{v}.\n   \\]\n   又 \\(X\\) 是 \\(ID\\) 的中点，故\n   \\[\n   \\overrightarrow{AX} = \\frac{1}{2}\\left(\\overrightarrow{AI} + \\overrightarrow{AD}\\right) = \\frac{1}{2}\\overrightarrow{AI} + \\frac{d}{2}\\cos\\frac{A}{2}\\,\\mathbf{u} + \\frac{d}{2}\\sin\\frac{A}{2}\\,\\mathbf{v}.\n   \\]\n   两式相减得\n   \\[\n   \\overrightarrow{QX} = \\overrightarrow{AX} - \\overrightarrow{AQ} = \\frac{d}{2}\\left(\\cos\\frac{A}{2}\\,\\mathbf{u} - \\sin\\frac{A}{2}\\,\\mathbf{v}\\right).\n   \\]\n   因为 \\(AI\\) 是 \\(\\angle BAC\\) 的内角平分线且 \\(B, C\\) 在 \\(AI\\) 异侧，沿 \\(\\overrightarrow{AB}\\) 方向的单位向量正是 \\(\\cos\\frac{A}{2}\\,\\mathbf{u} - \\sin\\frac{A}{2}\\,\\mathbf{v}\\)。又 \\(d > 0\\)，故 \\(\\overrightarrow{QX} \\neq \\mathbf{0}\\) 且 \\(QX \\parallel AB\\)。\n\n   由 \\(PQ \\parallel AB\\) 与 \\(QX \\parallel AB\\) 可知 \\(P\\)、\\(Q\\)、\\(X\\) 三点共线，即 \\(X\\) 在直线 \\(PQ\\) 上。\n\n综上所述，点 \\(X\\) 同时在直线 \\(PQ\\)、\\(LN\\)、\\(EF\\) 上，因此直线 \\(PQ\\)、\\(LN\\)、\\(EF\\) 三线共点（交于 \\(ID\\) 的中点 \\(X\\)）。",
+        "problem_statement_zh": "给定 \\(\\triangle ABC\\)，点 \\(I\\) 是 \\(\\triangle ABC\\) 的内心，点 \\(L\\)、\\(M\\)、\\(N\\) 分别是 \\(AI\\)、\\(AC\\)、\\(CI\\) 的中点，线段 \\(AM\\) 上的一点 \\(D\\) 满足 \\(BC = BD\\)，\\(\\triangle ABD\\) 的内切圆分别与 \\(AD\\)、\\(BD\\) 切于点 \\(E\\)、\\(F\\)，已知点 \\(J\\) 为 \\(\\triangle AIC\\) 的外心，\\(\\omega\\) 为 \\(\\triangle JMD\\) 的外接圆，直线 \\(MN\\) 再次交 \\(\\omega\\) 于点 \\(P\\)，直线 \\(JL\\) 再次交 \\(\\omega\\) 于点 \\(Q\\)，证明：直线 \\(PQ\\)、\\(LN\\)、\\(EF\\) 三线共点。",
+        "steps": [
+          "确定非退化条件：\\(D \\neq A, M\\)（故 \\(0 < AD < \\frac{AC}{2}\\)）；由 \\(BC=BD\\) 得 \\(\\angle BDC = C < 90^\\circ\\)，\\(\\angle ADB = 180^\\circ - C\\)。由 \\(J\\) 为 \\(\\triangle AIC\\) 外心及 \\(\\angle AIC > 90^\\circ\\)，得 \\(J\\) 与 \\(I\\) 在 \\(AC\\) 异侧，且 \\(JM \\perp AC\\)、\\(JL \\perp AI\\)、\\(MN \\parallel AI\\)、\\(LN \\parallel AC\\)。",
+          "取 \\(ID\\) 的中点 \\(X\\)。利用中位线或以 \\(I\\) 为位似中心、位似比为 \\(\\frac{1}{2}\\) 的位似变换，直接得出 \\(X \\in LN\\)。",
+          "证明 \\(X \\in EF\\)：设 \\(\\triangle ABC\\) 内切圆切 \\(AC\\) 于 \\(E_0\\)，\\(X\\) 在 \\(AC\\) 上的投影为 \\(X'\\)（即 \\(E_0 D\\) 中点）。计算有向距离得 \\(EX' = AX' - AE = \\frac{a+b-c}{4} = \\frac{E_0 C}{2} > 0\\)，且 \\(XX' = \\frac{r}{2}\\)，从而 \\(\\tan\\angle XEX' = \\frac{r}{E_0 C} = \\tan\\frac{C}{2}\\)。又由 \\(\\angle EDF = 180^\\circ - C\\) 及 \\(DE=DF\\) 得 \\(\\angle DEF = \\frac{C}{2}\\)，且 \\(F, X\\) 在 \\(AC\\) 同侧、\\(\\overrightarrow{ED}\\) 与 \\(\\overrightarrow{AC}\\) 同向，故 \\(X \\in EF\\)。",
+          "验证圆 \\(\\omega\\) 上各点的位置关系：由 \\(\\angle JMD = 90^\\circ\\) 知 \\(JD\\) 为 \\(\\omega\\) 直径；通过内积与投影说明 \\(MN\\) 不切 \\(\\omega\\) 于 \\(M\\)、\\(JL\\) 不切 \\(\\omega\\) 于 \\(J\\)，从而 \\(P \\notin \\{J, M, D\\}\\)、\\(Q \\neq J, M\\)（注意当 \\(D \\in JL\\) 时允许 \\(Q = D\\)），且 \\(Q\\) 必为 \\(D\\) 在 \\(JL\\) 上的正投影；再比较到 \\(AI\\) 的距离得出 \\(Q \\notin MN\\)，故 \\(P \\neq Q\\)。",
+          "证明 \\(PQ \\parallel AB\\)：在 \\(\\omega\\) 上对互异四点 \\(P, Q, J, M\\) 使用有向角（模 \\(180^\\circ\\)），由 \\(\\measuredangle(PQ, JL) = \\measuredangle(MN, JM)\\) 并结合 \\(JL \\perp AI\\)、\\(JM \\perp AC\\)、\\(\\angle BAI = \\angle IAC\\) 推出 \\(\\measuredangle(PQ, AC) = \\measuredangle(AB, AC) \\pmod{180^\\circ}\\)，即 \\(PQ \\parallel AB\\)。",
+          "证明 \\(QX \\parallel AB\\)：以 \\(\\overrightarrow{AI}\\) 方向及指向 \\(C\\) 一侧的法方向为正交基，写出 \\(\\overrightarrow{AD}\\)、\\(\\overrightarrow{AQ}\\)（\\(D\\) 在 \\(JL\\) 上投影）和 \\(\\overrightarrow{AX}\\)（\\(ID\\) 中点），相减得 \\(\\overrightarrow{QX} = \\frac{AD}{2}(\\cos\\frac{A}{2}\\,\\mathbf{u} - \\sin\\frac{A}{2}\\,\\mathbf{v})\\)，恰沿 \\(\\overrightarrow{AB}\\) 方向，故 \\(QX \\parallel AB\\)，从而 \\(X \\in PQ\\)。综合三步即证 \\(PQ, LN, EF\\) 共点于 \\(X\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "在证明四点共圆导角或使用等腰梯形前，先检验各点是否重合；更稳妥的做法是采用有向角（模 \\(180^\\circ\\)）与向量方法，直接对 \\(Q=D\\) 与 \\(Q \\neq D\\) 给出统一论证。",
+            "mistake": "默认 \\(P, Q, D, M\\) 总是构成非退化的等腰梯形 \\(DQMP\\)，忽略了当 \\(D\\) 恰落在 \\(AI\\) 的中垂线 \\(JL\\) 上时会出现 \\(Q = D\\) 的情形。",
+            "title": "忽略 \\(Q = D\\) 的退化情形导致等腰梯形失效",
+            "why_wrong": "当 \\(D \\in JL\\)（例如 \\(a=4, b=5\\) 且 \\(c \\in (4.5, 5)\\) 的某些三角形）时，\\(JD\\) 与 \\(JL\\) 重合，从而 \\(Q = D\\)，此时四边形 \\(DQMP\\) 退化为三角形，直接引用等腰梯形 \\(DQMP\\) 的底角性质会导致论证不完整。"
+          },
+          {
+            "how_to_avoid": "使用从 \\(A\\) 出发沿射线 \\(\\overrightarrow{AC}\\) 的有向坐标（或直接计算 \\(\\tan\\angle XEX'\\) 并比较 \\(E_0\\)、\\(X'\\) 与 \\(A\\) 的位置差 \\(AX' - AE > 0\\)），不依赖 \\(E\\)、\\(X'\\)、\\(E_0\\) 的左右排列顺序。",
+            "mistake": "直接把 \\(KECN\\) 当作标准等腰梯形并用纯角加减推导 \\(\\angle KED = \\angle ICD\\)，未验证点 \\(E\\)、\\(D\\)、\\(I'\\)、\\(K'\\) 在 \\(AC\\) 上的先后顺序。",
+            "title": "依赖草图顺序导致有向线段与梯形构型出错",
+            "why_wrong": "随着 \\(AD\\) 长度变化，点 \\(E\\) 可能位于 \\(I'\\)（即内切圆切点）的左侧或右侧，若不校验 \\(EK'\\) 的方向（即 \\(AK' - AE > 0\\)），草图上的梯形方向可能发生翻转或自交。"
+          },
+          {
+            "how_to_avoid": "对“三线共点”问题，最稳健的策略是构造唯一候选交点 \\(X\\) 并分别验证 \\(X \\in PQ\\)、\\(X \\in LN\\)、\\(X \\in EF\\)，不要假定三条直线必须两两不同。",
+            "mistake": "认为“三线共点”必须满足三条直线两两相交于同一点，在构造时强行设 \\(PQ \\cap EF\\)，未注意两者可能重合。",
+            "title": "忽视 \\(PQ\\) 与 \\(EF\\) 可能重合的情形",
+            "why_wrong": "当 \\(\\triangle ABC\\) 满足 \\(C = 2A\\) 且 \\(A < 30^\\circ\\) 时，\\(PQ\\) 与 \\(EF\\) 均过 \\(ID\\) 中点且均与 \\(AC\\) 成角 \\(A\\)，此时 \\(PQ\\) 与 \\(EF\\) 重合；若依赖“交点存在唯一”，论证会在这一情形失效。"
+          }
+        ],
+        "comparison_summary": "盲解思路与参考解答完全一致，均抓住核心交点为线段 \\(ID\\) 的中点（参考解答中记作线段 \\(LN\\) 上满足 \\(LK = \\frac{1}{2}AD\\) 的点 \\(K\\)，盲解记作 \\(X\\)），先证该点在 \\(LN\\) 上，再分别证其在 \\(EF\\) 与 \\(PQ\\) 上。细节上，盲解进一步补齐了参考解答未讨论的退化情形（如 \\(D \\in JL\\) 时 \\(Q = D\\)、\\(C = 2A\\) 时 \\(PQ\\) 与 \\(EF\\) 重合），并用有向角（模 \\(180^\\circ\\)）与正交基向量替换了对等腰梯形 \\(DQMP\\) 和 \\(KECN\\) 图形顺序的依赖，使证明对所有满足条件的三角形均严格成立。",
+        "difficulties": [
+          {
+            "detail": "圆 \\(\\omega\\) 的定义涉及 \\(J, M, D\\)，而要说明 \\(PQ\\) 过某固定点，需同时提取圆上的角度信息（\\(PQ \\parallel AB\\)）与点的位置信息（\\(Q\\) 为 \\(D\\) 在 \\(JL\\) 上的投影），再通过解 \\(\\triangle LKQ\\)（或向量分解）建立 \\(KQ \\parallel AB\\)，两步结合才得到 \\(K, P, Q\\) 共线。",
+            "title": "将“二圆交点”转化为“方向+投影”的双重刻画"
+          },
+          {
+            "detail": "从条件 \\(BC=BD\\) 出发既能得到 \\(\\angle DEF = \\frac{C}{2}\\)，又能算得 \\(AE\\) 与 \\(AD\\) 的关系；只有把 \\(K\\) 在 \\(AC\\) 上的投影 \\(K'\\) 与 \\(\\triangle ABC\\) 内切圆切点 \\(I'\\) 联系起来，才能看到 \\(EK' = \\frac{a+b-c}{4} = \\frac{1}{2}CI'\\) 这一常数相消。",
+            "title": "识别交点 \\(K\\) 为 \\(ID\\) 中点并完成长度相消"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "辅助线与几何变换",
+          "局部-整体转化"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:符号与方向",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "由 \\(I\\) 是内心、\\(J\\) 是 \\(\\triangle AIC\\) 外心及 \\(L, M, N\\) 为中点，立即识别出经典构型：\\(JM \\perp AC\\)、\\(JL\\) 为 \\(AI\\) 中垂线、\\(MN \\parallel AI\\) 且 \\(LN \\parallel AC\\)。由 \\(JM \\perp AC\\) 立刻看出 \\(JD\\) 是圆 \\(\\omega\\) 的直径。",
+            "step": "拆解外心与中点条件，捕捉直角与直径"
+          },
+          {
+            "detail": "由于 \\(PQ\\)、\\(LN\\)、\\(EF\\) 三线共点且 \\(LN \\parallel AC\\) 位置最简单，先思考交点在 \\(LN\\) 上的位置。注意到 \\(D \\in AC\\) 而 \\(LN\\) 是 \\(\\triangle AIC\\) 的中位线，线段 \\(ID\\) 的中点 \\(K\\) 天然落在 \\(LN\\) 上（满足 \\(LK = \\frac{1}{2}AD\\)），于是可将三线共点拆解为“证明 \\(K \\in PQ\\)”与“证明 \\(K \\in EF\\)”两个独立目标。",
+            "step": "利用中位线性质锁定候选交点 \\(K\\)"
+          },
+          {
+            "detail": "由 \\(BC=BD\\) 知 \\(\\triangle BCD\\) 等腰且 \\(\\angle BDC = C\\)，进而 \\(\\angle DEF = \\frac{C}{2}\\)，这把 \\(EF\\) 的方向与 \\(\\angle C\\)（即直线 \\(CI\\) 的倾斜角）直接挂钩；另一方面，由 \\(JD\\) 为直径知 \\(DQ \\perp JL\\)，把 \\(Q\\) 转化为 \\(D\\) 的正投影，从而可从纯方向与长度角度分别攻克两个共线目标。",
+            "step": "将 \\(BC=BD\\) 与直径条件转化为角度和投影关系"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "在线段 \\(LN\\) 上取点 \\(K\\) 使 \\(LK = \\frac{1}{2}AD\\)（即 \\(ID\\) 的中点）。因为 \\(L, N\\) 为 \\(IA, IC\\) 中点且 \\(D \\in AC\\)，以 \\(I\\) 为中心、\\(\\frac{1}{2}\\) 为位似比的位似变换把 \\(A, D, C\\) 映为 \\(L, K, N\\)，故 \\(K\\) 必在直线 \\(LN\\) 上，只需证明 \\(K, P, Q\\) 共线与 \\(K, E, F\\) 共线。",
+            "motivation": "把“三线共点”转化为“特定点落在另外两条直线上”，避免直接求 \\(PQ \\cap EF\\) 带来的复杂表达。",
+            "step": "重新刻画目标共点 \\(K\\)"
+          },
+          {
+            "detail": "由 \\(J\\) 为 \\(\\triangle AIC\\) 外心知 \\(JM \\perp AC\\)、\\(JL \\perp AI\\)；因 \\(D \\in AM\\)，有 \\(\\angle JMD = 90^\\circ\\)，故 \\(DJ\\) 为 \\(\\omega\\) 直径，从而 \\(DQ \\perp LJ\\)（\\(Q\\) 为 \\(D\\) 在 \\(LJ\\) 上投影），进而 \\(DQ \\parallel AI \\parallel PM\\)。于是圆内接四边形 \\(DQMP\\) 为等腰梯形（一般情形下；或用有向角），结合 \\(PM \\parallel AI\\) 得 \\(PQ\\) 与 \\(AC\\) 成角 \\(2\\angle IAC = \\angle BAC\\)，即 \\(PQ \\parallel AB\\)。",
+            "motivation": "先确定直线 \\(PQ\\) 的方向，只需再证明 \\(KQ\\) 具有相同方向即可推出共线。",
+            "step": "利用圆 \\(\\omega\\) 的直径与平行弦确定 \\(PQ \\parallel AB\\)"
+          },
+          {
+            "detail": "在 \\(\\triangle LKQ\\) 中，\\(LK = \\frac{1}{2}AD\\)，由 \\(Q\\) 是 \\(D\\) 在 \\(LJ\\) 上的投影及 \\(LJ \\perp AI\\) 得 \\(LQ = AD\\sin\\frac{A}{2}\\)，且 \\(\\angle KLQ = 90^\\circ - \\frac{A}{2}\\)。于是 \\(LK\\cos\\angle KLQ = \\frac{1}{2}AD\\sin\\frac{A}{2} = \\frac{1}{2}LQ\\)，说明 \\(K\\) 在 \\(LQ\\) 的中垂线上，故 \\(\\angle LKQ = 180^\\circ - 2(90^\\circ - \\frac{A}{2}) = A\\)。又 \\(LK \\parallel AC\\)，从而 \\(KQ \\parallel AB\\)，结合 \\(PQ \\parallel AB\\) 即得 \\(K, P, Q\\) 共线。",
+            "motivation": "在已得 \\(PQ \\parallel AB\\) 的前提下，只需验证 \\(KQ\\) 的斜率或夹角等于 \\(\\angle A\\)。",
+            "step": "证明 \\(KQ \\parallel AB\\) 完成 \\(K, P, Q\\) 共线"
+          },
+          {
+            "detail": "作 \\(I, L, K, N\\) 在 \\(AC\\) 上的正投影 \\(I', L', K', N'\\)，利用切线长公式 \\(AE = \\frac{AD+AB-BD}{2}\\) 与 \\(AI' = \\frac{AB+AC-BC}{2}\\)，算出 \\(EK' = \\frac{1}{2}AI' + \\frac{1}{2}AD - AE = \\frac{AC+BC-AB}{4} = \\frac{1}{2}CI' = CN'\\)。因为 \\(KN \\parallel AC\\) 且 \\(K, N\\) 到 \\(AC\\) 距离均为 \\(I\\) 到 \\(AC\\) 距离的一半，所以 \\(KECN\\) 为等腰梯形（或直接在 \\(\\mathrm{Rt}\\triangle EK'K\\) 中算 \\(\\tan\\angle KEK' = \\frac{r}{s-c} = \\tan\\frac{C}{2}\\)），得 \\(\\angle KED = \\angle ICD = \\frac{C}{2}\\)；又 \\(\\triangle BCD\\) 中 \\(BC=BD\\) 故 \\(\\angle BDC = C\\)、\\(\\angle FED = \\frac{C}{2}\\)，因此 \\(K, E, F\\) 共线。",
+            "motivation": "\\(EF\\) 的方向角已固定为 \\(\\frac{C}{2}\\)，因此只需证明 \\(KE\\) 与 \\(AC\\) 夹角也为 \\(\\frac{C}{2}\\)，这等价于比较 \\(K\\) 到 \\(E\\) 的水平投影与到 \\(C\\) 的距离。",
+            "step": "投影算长度证明 \\(K, E, F\\) 共线"
+          }
+        ],
+        "teaching_takeaway": "面对“三条直线共点”的平面几何题，首先应寻找其中一条直线（如中位线 \\(LN\\)）上由另一几何对象（如 \\(ID\\) 中点）自然诱导的特殊点作为候选交点，再把共点问题拆解为“方向平行”与“投影算长”两个局部子命题逐一击破。",
+        "topic_tags": [
+          "三角形的心与鸡爪定理",
+          "圆内接四边形与直径",
+          "三线共点与位似"
+        ]
+      }
+    },
+    {
+      "id": "cmo-2024-both-days-combined-q3",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "3",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 3",
+      "blind_attempt": {
+        "approach": "利用“极小性”的等价刻画与迭代整除链分解来界定集合 \\(X\\) 的大小。首先选取使分式部分之和达到最小值 \\(f(X)\\) 的下标 \\(i_0\\)，记 \\(L_1 = a_{i_0}\\)，将 \\(X\\) 中不被 \\(L_1\\) 整除的元素直接用 \\(S_{i_0}(X) = f(X)\\) 界定为不超过 \\(L_1 f(X)\\)。对于剩余被 \\(L_1\\) 整除的子集 \\(Z_1\\)，利用极小性不断选取能覆盖 \\(Z_t\\) 中元素的指标 \\(j_t\\) 并将模数扩大为 \\(L_{t+1} = \\mathrm{lcm}(L_t, a_{j_t})\\)，利用 \\(\\delta_{j_t} < 1 - \\frac{1}{b_t}\\)（其中 \\(b_t = L_{t+1}/L_t \\ge 2\\)）精确控制每一步被筛去的元素个数，最后结合 \\(\\sum b_t \\le \\prod b_t \\le \\frac{M}{L_1}\\) 与 \\(f(X) \\ge \\frac{2}{a_n} \\ge \\frac{2}{L_1}\\) 以及 \\(M f(X) \\in \\mathbb{Z}\\) 完成严格放缩。",
+        "final_answer": "证明完毕，结论 \\(|X| \\le f(X)M\\) 成立。",
+        "problem_statement_zh": "给定正整数 \\(a_1 > a_2 > \\dots > a_n > 1\\)，记 \\(M = \\mathrm{lcm}(a_1, a_2, \\dots, a_n)\\)，对有限非空正整数集 \\(X\\)，记\n\\[\nf(X) = \\min_{1 \\le i \\le n} \\sum_{x \\in X} \\left\\{\\frac{x}{a_i}\\right\\},\n\\]\n称 \\(X\\) 为“极小的”，如果对 \\(X\\) 的任意真子集 \\(Y\\)，均有 \\(f(Y) < f(X)\\)。设 \\(X\\) 是极小的且 \\(f(X) \\ge \\frac{2}{a_n}\\)，证明：\\(|X| \\le f(X)M\\)。",
+        "steps": [
+          "记 \\(S_i(X) = \\sum_{x \\in X} \\left\\{\\frac{x}{a_i}\\right\\}\\)，\\(f = f(X) = \\min_{1 \\le i \\le n} S_i(X)\\)，且对每个 \\(i \\in \\{1, \\dots, n\\}\\) 记 \\(\\delta_i = S_i(X) - f \\ge 0\\)。选取 \\(i_0 \\in \\{1, \\dots, n\\}\\) 使得 \\(S_{i_0}(X) = f\\)。由于 \\(S_{i_0}(X)\\) 是 \\(\\frac{1}{a_{i_0}}\\) 的整数倍且 \\(a_{i_0} \\mid M\\)，故 \\(M f\\) 为正整数。",
+          "令 \\(L_1 = a_{i_0}\\)，并记 \\(Z_1 = \\{ x \\in X : L_1 \\mid x \\}\\)。对任意 \\(x \\in X \\setminus Z_1\\)，有 \\(a_{i_0} \\nmid x\\)，因此 \\(\\left\\{\\frac{x}{a_{i_0}}\\right\\} \\ge \\frac{1}{a_{i_0}}\\)。于是 \\(f = S_{i_0}(X) \\ge \\frac{|X \\setminus Z_1|}{a_{i_0}}\\)，即 \\(|X \\setminus Z_1| \\le L_1 f\\)。若 \\(Z_1 = \\emptyset\\)，则 \\(|X| = |X \\setminus Z_1| \\le L_1 f \\le M f\\)，结论成立。",
+          "若 \\(Z_1 \\ne \\emptyset\\)，构造递降子集列 \\(Z_1 \\supset Z_2 \\supset \\dots \\supset Z_m = \\emptyset\\) 及严格递增整除链 \\(L_1 \\mid L_2 \\mid \\dots \\mid L_m \\mid M\\)。对当前非空的 \\(Z_t\\)（其中 \\(Z_t = \\{ x \\in X : L_t \\mid x \\}\\)），任取 \\(x_t \\in Z_t\\)。由 \\(X\\) 的极小性，\\(f(X \\setminus \\{x_t\\}) < f\\)，故存在 \\(j_t \\in \\{1, \\dots, n\\}\\) 使得 \\(S_{j_t}(X \\setminus \\{x_t\\}) < f\\)，即 \\(\\left\\{\\frac{x_t}{a_{j_t}}\\right\\} > S_{j_t}(X) - f = \\delta_{j_t} \\ge 0\\)。特别地，\\(a_{j_t} \\nmid x_t\\)，结合 \\(L_t \\mid x_t\\) 可知 \\(a_{j_t} \\nmid L_t\\)。",
+          "令 \\(L_{t+1} = \\mathrm{lcm}(L_t, a_{j_t})\\)，\\(b_t = \\frac{L_{t+1}}{L_t} = \\frac{a_{j_t}}{\\gcd(a_{j_t}, L_t)} \\ge 2\\)（为整数），并令 \\(Z_{t+1} = \\{ x \\in Z_t : a_{j_t} \\mid x \\} = \\{ x \\in X : L_{t+1} \\mid x \\}\\)。由于 \\(L_t < L_{t+1} \\mid M\\)，该过程必在有限步 \\(m \\ge 2\\) 后终止，且有 \\(Z_m = \\emptyset\\)（若 \\(L_t = M\\)，则 \\(Z_t\\) 中元素被所有 \\(a_j\\) 整除，与极小性矛盾）。",
+          "在每一步 \\(t \\in \\{1, \\dots, m-1\\}\\) 中，因为 \\(L_t \\mid x_t\\) 且 \\(a_{j_t} \\nmid x_t\\)，故 \\(\\gcd(a_{j_t}, L_t) \\mid x_t\\)，从而 \\(\\left\\{\\frac{x_t}{a_{j_t}}\\right\\}\\) 是 \\(\\frac{1}{b_t}\\) 的正整数倍且小于 \\(1\\)，因此 \\(\\delta_{j_t} < \\left\\{\\frac{x_t}{a_{j_t}}\\right\\} \\le 1 - \\frac{1}{b_t}\\)，即 \\(S_{j_t}(X) < f + 1 - \\frac{1}{b_t}\\)。另一方面，对任意 \\(x \\in Z_t \\setminus Z_{t+1}\\)，有 \\(L_t \\mid x\\) 且 \\(a_{j_t} \\nmid x\\)，故 \\(\\left\\{\\frac{x}{a_{j_t}}\\right\\} \\ge \\frac{1}{b_t}\\)。求和得 \\(\\frac{|Z_t \\setminus Z_{t+1}|}{b_t} \\le S_{j_t}(X) < f + 1 - \\frac{1}{b_t}\\)，即 \\(|Z_t \\setminus Z_{t+1}| < b_t f + b_t - 1\\)。",
+          "记 \\(P_0 = \\frac{M}{L_1} \\ge \\frac{L_m}{L_1} = \\prod_{t=1}^{m-1} b_t\\)。对整数 \\(b_1, \\dots, b_{m-1} \\ge 2\\)，易证 \\(\\sum_{t=1}^{m-1} b_t \\le \\prod_{t=1}^{m-1} b_t \\le P_0\\)（利用 \\(A, B \\ge 2 \\implies AB \\ge A + B\\) 归纳）。将各步估计相加，得 \\(|X| = |X \\setminus Z_1| + \\sum_{t=1}^{m-1} |Z_t \\setminus Z_{t+1}| < L_1 f + \\sum_{t=1}^{m-1} (b_t f + b_t - 1) \\le (L_1 + P_0) f + P_0 - 1\\)。",
+          "由于 \\(L_1 = a_{i_0} \\ge a_n \\ge 2\\) 且 \\(P_0 \\ge 2\\)，有 \\(P_0 L_1 - L_1 - P_0 = (P_0 - 1)(L_1 - 1) - 1 \\ge 0\\)。结合 \\(f \\ge \\frac{2}{a_n} \\ge \\frac{2}{L_1}\\)，可得 \\((M f + 1) - \\big((L_1 + P_0) f + P_0 - 1\\big) = (P_0 L_1 - L_1 - P_0) f - (P_0 - 2) \\ge (P_0 L_1 - L_1 - P_0) \\frac{2}{L_1} - (P_0 - 2) = P_0 \\left(1 - \\frac{2}{L_1}\\right) \\ge 0\\)。因此 \\(|X| < M f + 1\\)。又因为 \\(|X|\\) 与 \\(M f\\) 均为整数，故 \\(|X| \\le M f = f(X) M\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "严格区分“去掉 \\(a_i\\) 不改变 \\(f(X)\\)”与“去掉 \\(a_i\\) 不改变 \\(X\\) 的极小性”，说明为何所有 \\(|Y|=|X|-1\\) 的子集的 \\(f(Y)\\) 也不变，或改用保留全部 \\(a_i\\) 的整除链分解法。",
+            "mistake": "在删去多余的 \\(a_i\\) 时，只检查 \\(f(X)\\) 不变而忽略了 \\(X\\) 的极小性是否被破坏（即是否存在某个真子集 \\(Y\\) 在删去 \\(a_i\\) 后 \\(f(Y)\\) 变大到 \\(\\ge f(X)\\)）。",
+            "title": "删去冗余模数时忽略极小性的保持",
+            "why_wrong": "删去一个 \\(a_i\\) 不会减小 \\(f(X)\\)，但有可能使某个真子集 \\(Y\\) 的最小值变大；必须验证对所有 \\(|Y|=|X|-1\\) 的子集，要么 \\(f(Y)\\) 本就由其他 \\(a_j\\) 达到，要么 \\(Y\\) 已被选作某个 \\(X_j\\)，从而 \\(f(Y) < f(X)\\) 仍成立。"
+          },
+          {
+            "how_to_avoid": "对 \\(t=0\\) 与 \\(t \\ge 1\\) 分别讨论：\\(t=0\\) 时利用 \\(a_i \\le \\frac{M}{i+1}\\)；\\(t \\ge 1\\) 时利用 \\((x,M) \\ge 2t\\) 得到下界 \\(\\frac{2t(n-t)}{M} \\ge \\frac{2(n-1)}{M}\\)。",
+            "mistake": "对单个 \\(x \\in X'\\) 估计 \\(\\sum_{i=1}^n \\left\\{\\frac{x}{a_i}\\right\\}\\) 时，直接用 \\(\\frac{1}{a_i} \\ge \\frac{1}{M}\\) 放缩，忽略了 \\(t\\) 个零项带来的 \\((x, M)\\) 公因子放大效应。",
+            "title": "对分式部分和的下界估计过松",
+            "why_wrong": "若仅用 \\(\\left\\{\\frac{x}{a_i}\\right\\} \\ge \\frac{1}{M}\\) 对非零项求和，只能得到 \\(\\frac{n-t}{M}\\)，当 \\(t\\) 较大时无法与上界 \\(n f(X) - \\frac{n-1}{M}\\) 抗衡。"
+          },
+          {
+            "how_to_avoid": "在不等式两端出现常数误差（如 \\(+1\\) 或 \\(-\\frac{n-1}{M}\\)）时，先确认 \\(M f(X) \\in \\mathbb{Z}\\)，再利用严格不等号 \\(< M f(X) + 1\\) 推出 \\(\\le M f(X)\\)。",
+            "mistake": "忘记利用 \\(M f(X)\\) 是整数这一性质，或在 \\(f(X) \\ge \\frac{2}{a_n}\\) 的放缩中忽略 \\(n=2\\) 或 \\(a_1 = M\\) 等边界情形。",
+            "title": "忽略 \\(M f(X)\\) 的整性及 \\(n=2\\) 的边界情况",
+            "why_wrong": "若不利用 \\(M f(X) \\in \\mathbb{Z}\\)，许多严格小于 \\(M f(X) + 1\\) 的上界无法收口到 \\(\\le M f(X)\\)；而在参考解答中，\\(n \\ge 3\\) 时可直接推出矛盾，\\(n=2\\) 则是边界情形需单独检验。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲解完全正确且无逻辑漏洞，采用的是与参考解答不同的另一种有效方法（`different_valid_method`）。Turn 1 从极小性的等价刻画 \\(X = \\bigcup_{i=1}^n X_i\\) 出发，选取使 \\(S_{i_0}(X) = f(X)\\) 的模数 \\(L_1 = a_{i_0}\\)，对能被 \\(L_1\\) 整除的剩余元素迭代构造整除链 \\(L_1 \\mid L_2 \\mid \\dots \\mid L_m \\mid M\\)，利用 \\(\\delta_{j_t} < 1 - \\frac{1}{b_t}\\) 与 \\(\\sum b_t \\le \\prod b_t \\le \\frac{M}{L_1}\\)、\\(f(X) \\ge \\frac{2}{L_1}\\) 及 \\(M f(X) \\in \\mathbb{Z}\\) 直接完成证明，无需对 \\(n=2\\) 单独讨论，也无需删去冗余的 \\(a_i\\)。参考解答则采用“消去冗余 \\(a_i\\) + 算两次”的思路：先删去不能产生新极小减元子集 \\(X_i\\) 的 \\(a_i\\)，剔除 \\(n-1\\) 个代表元 \\(P\\) 得到 \\(X'\\)，再对 \\(\\sum_{i=1}^n \\sum_{x \\in X'} \\left\\{\\frac{x}{a_i}\\right\\}\\) 进行双向估计（上界用 \\(n f(X) - \\frac{n-1}{M}\\)，下界利用 \\((x,M) \\ge 2t\\) 得出每项和至少为 \\(\\frac{2(n-1)}{M}\\)），从而迫使 \\(n=2\\) 后再收尾。两种方法均严谨完整。",
+        "difficulties": [
+          {
+            "detail": "题目中的“极小性”是一个关于所有真子集的条件，直接将其等价转化为每个 \\(x \\in X\\) 都存在某个 \\(i\\) 使得 \\(S_i(X \\setminus \\{x\\}) < f(X)\\)，只是第一步；更大的难点在于多个 \\(a_i\\) 之间存在复杂的公因数关系（\\(\\sum a_i\\) 甚至可以远大于 \\(M\\)），无法简单地把每个 \\(i\\) 对应的“关键元素”个数直接相加来得到 \\(f(X)M\\)。",
+            "title": "如何处理多个 \\(a_i\\) 之间的重叠与非独立性"
+          },
+          {
+            "detail": "参考解答中将“每个 \\(i \\ne i_0\\) 对应一个不同的 \\((|X|-1)\\)-子集 \\(X_i\\)”与“删去不满足条件的 \\(a_i\\)”结合，使得被剔除的集合 \\(P\\) 恰好有 \\(n-1\\) 个元素；如果不做这一步，\\(x_i\\) 可能重合，无法保证 \\(|X'| = |X| - n + 1\\)。而盲解中则通过整除链 \\(L_t \\mid L_{t+1}\\) 强制每次扩大的倍数 \\(b_t \\ge 2\\) 满足和不超过积，从而绕开了 \\(\\sum a_i > M\\) 的障碍。",
+            "title": "找到能同时利用 \\(M = \\mathrm{lcm}(a_1, \\dots, a_n)\\) 与 \\(f(X) \\ge \\frac{2}{a_n}\\) 的放缩桥梁"
+          }
+        ],
+        "difficulty_tag": "训练:压轴攻坚",
+        "method_tags": [
+          "放缩与估值",
+          "概率方法与算两次",
+          "极端原理"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:计数重复与漏算",
+          "易错:隐含假设与越界推广"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "明确目标不等式 \\(|X| \\le f(X)M\\) 的等价形式：对至少一个（乃至所有）指标 \\(i\\)，有 \\(\\frac{|X|}{M} \\le \\sum_{x \\in X} \\left\\{\\frac{x}{a_i}\\right\\}\\)。同时注意到 \\(f(X)\\) 必由某个 \\(i_0\\) 取到，故 \\(M f(X)\\) 恒为正整数。",
+            "step": "解读目标不等式与整性条件"
+          },
+          {
+            "detail": "由 \\(f\\) 的单调性，\\(X\\) 是极小的等价于：对每个 \\(x \\in X\\)，存在 \\(i\\) 使得 \\(S_i(X \\setminus \\{x\\}) < f(X)\\)，即 \\(\\left\\{\\frac{x}{a_i}\\right\\} > S_i(X) - f(X)\\)。特别地，若 \\(a_1 = M\\) 且 \\(S_1(X) = f(X)\\)，则不存在 \\(a_1 \\mid x\\)，立得 \\(|X| \\le f(X) M\\)。",
+            "step": "刻画极小性与检验特殊情形"
+          },
+          {
+            "detail": "条件 \\(f(X) \\ge \\frac{2}{a_n}\\) 意味着对任意 \\(i\\) 都有 \\(a_i f(X) \\ge 2\\)；当 \\(M > a_1\\) 时，有 \\(a_i \\le \\frac{M}{i+1}\\)，从而 \\(f(X) \\ge \\frac{2(n+1)}{M}\\)，这是后续比较线性项与乘积项的关键。",
+            "step": "挖掘 \\(f(X) \\ge \\frac{2}{a_n}\\) 与 \\(M > a_1\\) 的数值信息"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "设 \\(i_0\\) 使得 \\(S_{i_0}(X) = f(X)\\)，令 \\(X_{i_0} = X\\)。依次考察 \\(i \\ne i_0\\)：若存在不同于已取集合的 \\(Y \\subset X\\)（\\(|Y| = |X| - 1\\)）使得 \\(S_i(Y) = f(Y)\\)，则记 \\(X_i = Y\\)；否则删去 \\(a_i\\)。删去这样的 \\(a_i\\) 不会改变 \\(f(X)\\) 与任意 \\((|X|-1)\\)-子集的 \\(f(Y)\\)，从而不破坏 \\(X\\) 的极小性，且新的公倍数 \\(M' \\le M\\)。于是可设对所有 \\(i \\ne i_0\\) 都有互不相同的 \\(X_i = X \\setminus \\{x_i\\}\\)，记 \\(P = \\{x_i : i \\ne i_0\\}\\)，则 \\(|P| = n - 1\\)。",
+            "motivation": "为了后续对所有 \\(a_i\\) 求和时能够统一剔除一组代表元，先消去不能提供新“关键元素”的冗余模数 \\(a_i\\)。",
+            "step": "第一步：消去冗余的 \\(a_i\\) 并构造代表元集合 \\(P\\)"
+          },
+          {
+            "detail": "若 \\(M = a_1\\)，则任意 \\(x \\in X\\) 均不被 \\(a_1\\) 整除（否则去掉 \\(x\\) 后 \\(f\\) 不变，与极小性矛盾），故 \\(\\left\\{\\frac{x}{a_1}\\right\\} \\ge \\frac{1}{M}\\)，直接求和得 \\(f(X) \\ge \\frac{|X|}{M}\\)。若 \\(M > a_1\\)，则 \\(\\frac{M}{a_1} \\ge 2\\)，由 \\(a_1 > a_2 > \\dots > a_n\\) 递推得 \\(\\frac{M}{a_i} \\ge i + 1\\)。",
+            "motivation": "将 \\(M = a_1\\) 的平凡情形分离出来，从而在 \\(M > a_1\\) 时获得更强的分母上界 \\(a_i \\le \\frac{M}{i+1}\\)。",
+            "step": "第二步：按 \\(M = a_1\\) 与 \\(M > a_1\\) 分类处理"
+          },
+          {
+            "detail": "记 \\(X' = X \\setminus P\\)，则 \\(|X'| = |X| - n + 1\\)。由于 \\(X' \\subset X_i\\) 且对 \\(i \\ne i_0\\) 有 \\(f(X_i) \\le f(X) - \\frac{1}{M}\\)（利用 \\(M f\\) 的整性与极小性），故有上界\n\\[\n\\sum_{i=1}^n \\sum_{x \\in X'} \\left\\{\\frac{x}{a_i}\\right\\} \\le \\sum_{i=1}^n f(X_i) \\le n f(X) - \\frac{n-1}{M}.\n\\]",
+            "motivation": "通过剔除 \\(P\\)，保证每个 \\(i \\ne i_0\\) 在 \\(X'\\) 上的和严格小于 \\(f(X)\\)（至少差 \\(\\frac{1}{M}\\)）。",
+            "step": "第三步：利用极小性建立双和的上界"
+          },
+          {
+            "detail": "交换求和次序，对固定的 \\(x \\in X'\\) 估计 \\(\\sum_{i=1}^n \\left\\{\\frac{x}{a_i}\\right\\}\\)。若其中有 \\(t \\ge 1\\) 项为 \\(0\\)，则这 \\(t\\) 个 \\(a_i\\) 均整除 \\((x, M)\\)，故 \\((x, M) \\ge 2t\\)；其余 \\(n - t\\) 个非零项的分子均为 \\((x, M)\\) 的正整数倍，故每项至少为 \\(\\frac{2t}{M}\\)，总和至少为 \\(\\frac{2t(n-t)}{M} \\ge \\frac{2(n-1)}{M}\\)。若 \\(t = 0\\)，则利用 \\(\\frac{M}{a_i} \\ge i + 1\\) 直接得总和至少为 \\(\\sum_{i=1}^n \\frac{i+1}{M} \\ge \\frac{2(n-1)}{M}\\)。",
+            "motivation": "对单个 \\(x \\in X'\\) 而言，若许多 \\(a_i\\) 整除 \\(x\\)，则 \\((x, M)\\) 必然很大，从而迫使剩余非零分式部分的分子很大。这是整个证明最核心的数论估值技巧。",
+            "step": "第四步：交换求和次序并建立内层和的统一下界"
+          },
+          {
+            "detail": "结合上下界并反设 \\(|X| \\ge f(X)M\\)（实际严格大于，但参考解答以 \\(\\ge\\) 推出 \\(n=2\\)），代入 \\(f(X) \\ge \\frac{2}{a_n} \\ge \\frac{2(n+1)}{M}\\)，化简得 \\(\\frac{2(n+1)}{M} \\le f(X) \\le \\frac{(n-1)(2n-3)}{(n-2)M}\\)（\\(n \\ge 3\\)），矛盾，故只剩 \\(n = 2\\)。当 \\(n = 2\\) 时，利用 \\(2f(X) - \\frac{1}{M}\\) 与下界 \\(\\frac{3}{M}(|X|-1)\\) 对比得出必有 \\(a_1 = \\frac{M}{2}, a_2 = 2\\) 且至少两个 \\(x\\) 为奇数（由 \\(f(X) \\ge \\frac{2}{a_2} = 1\\)），从而再收紧下界导出矛盾。",
+            "motivation": "通过上下界对撞消去 \\(|X|\\)，将问题压缩到极端的 \\(n=2\\) 情形并最终导出矛盾。",
+            "step": "第五步：合并上下界，排除 \\(n \\ge 3\\) 并处理 \\(n = 2\\)"
+          }
+        ],
+        "teaching_takeaway": "面对涉及最小公倍数 \\(M = \\mathrm{lcm}(a_1, \\dots, a_n)\\) 与“极小性”的数论组合最值问题时，既可以通过“删去冗余模数 + 交换求和次序（算两次）”并借助 \\((x, M)\\) 放大分式部分下界来破局，也可以通过“构造整除链 \\(L_1 \\mid L_2 \\mid \\dots \\mid L_m \\mid M\\)”将原本重叠的模数转化为乘积不超限的逐步筛除。",
+        "topic_tags": [
+          "数论与组合",
+          "分式部分",
+          "极小集合与最值"
+        ]
+      }
+    },
+    {
+      "id": "cmo-2024-both-days-combined-q4",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "4",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 4",
+      "blind_attempt": {
+        "approach": "将平面上的小数距离等价转化为二维平环面 \\(\\mathbb{T}^2 = \\mathbb{R}^2 / \\mathbb{Z}^2\\) 上的度量。首先通过显式构造四个点 \\((0,0), (a, \\frac{1}{2}), (\\frac{1}{2}, a), (\\frac{1}{2}+a, \\frac{1}{2}+a)\\)（其中 \\(a = 1 - \\frac{\\sqrt{3}}{2}\\)，对应平面周期密铺中的扭棱正方形密铺），说明可以达到 \\(r = \\sqrt{2-\\sqrt{3}} = \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。随后采用反证法证明上界：假设存在四点满足两两距离均不小于 \\(r > \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)，通过平移与对称性将四点坐标归约为环面上的标准序，按横纵坐标的相对排列顺序分为三种本质不同的情形（\\(24\\) 归约为 \\(3\\) 种置换），分别利用区间和、绝对值不等式以及代数放缩导出矛盾。",
+        "final_answer": "\\(\\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)（即 \\(\\sqrt{2-\\sqrt{3}}\\)）",
+        "problem_statement_zh": "对于 \\(\\mathbb{R}^2\\) 中任意两点 \\((x_1, y_1), (x_2, y_2)\\)，我们定义该两点之间的小数距离为 \\[\\sqrt{\\|x_1 - x_2\\|^2 + \\|y_1 - y_2\\|^2}\\] 其中 \\(\\|x\\|\\) 表示实数 \\(x\\) 与最近的整数的距离。求最大的实数 \\(r\\)，使得平面上存在四个点，满足两两之间的小数距离均不小于 \\(r\\)。",
+        "steps": [
+          "**构造下界（证明 \\(r \\ge \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)）：** 令 \\(a = 1 - \\frac{\\sqrt{3}}{2}\\in (0,\\frac{1}{2})\\)，在平面上取四个点：\n\\[P_1 = (0,0),\\quad P_2 = \\left(a, \\frac{1}{2}\\right),\\quad P_3 = \\left(\\frac{1}{2}, a\\right),\\quad P_4 = \\left(\\frac{1}{2}+a, \\frac{1}{2}+a\\right).\\]\n计算两两之间小数距离的平方：\n- \\(d(P_1, P_2)^2 = d(P_1, P_3)^2 = d(P_2, P_4)^2 = d(P_3, P_4)^2 = \\|a\\|^2 + \\left\\|\\frac{1}{2}\\right\\|^2 = a^2 + \\frac{1}{4} = \\left(1 - \\frac{\\sqrt{3}}{2}\\right)^2 + \\frac{1}{4} = 2 - \\sqrt{3}\\)；\n- \\(d(P_1, P_4)^2 = d(P_2, P_3)^2 = 2\\left\\|\\frac{1}{2} - a\\right\\|^2 = 2\\left(\\frac{\\sqrt{3}-1}{2}\\right)^2 = 2 - \\sqrt{3}\\)。\n注意 \\(\\sqrt{2-\\sqrt{3}} = \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)，因此这四个点两两之间的小数距离均等于 \\(\\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。",
+          "**证明上界——基本性质与归约：** 设存在四个点 \\(P_1, P_2, P_3, P_4\\) 满足两两之间的小数距离均不小于 \\(r\\)。注意到对任意实数 \\(t\\) 有 \\(\\|t\\| \\in [0, \\frac{1}{2}]\\)，且对 \\(t \\in [0,1]\\) 有 \\(\\|t\\| = \\min(t, 1-t) = \\frac{1}{2} - \\left|t - \\frac{1}{2}\\right|\\)，故恒有 \\(r \\le \\sqrt{\\left(\\frac{1}{2}\\right)^2 + \\left(\\frac{1}{2}\\right)^2} = \\frac{1}{\\sqrt{2}}\\)。\n\n反证：假设 \\(r > \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。因为 \\(\\left(\\frac{\\sqrt{6}-\\sqrt{2}}{2}\\right)^2 = 2-\\sqrt{3} > \\frac{1}{4}\\)，故 \\(r > \\frac{1}{2}\\)。令 \\(\\delta = \\sqrt{r^2 - \\frac{1}{4}}\\)，则 \\(\\delta \\in \\left(1-\\frac{\\sqrt{3}}{2}, \\frac{1}{2}\\right]\\)，且 \\(M := \\frac{1}{2} - \\delta \\in \\left[0, \\frac{\\sqrt{3}-1}{2}\\right)\\)。\n\n由于 \\(\\|t\\|\\) 仅依赖于 \\(t \\bmod 1\\)，将各点横、纵坐标分别取小数部分并作适当平移（不改变两两之间的 \\(\\|x_i-x_j\\|\\) 与 \\(\\|y_i-y_j\\|\\)），可设 \\(P_i = (x_i, y_i) \\in [0, 1)^2\\)。若存在两点横坐标相等，则它们的小数距离为 \\(\\|y_i-y_j\\| \\le \\frac{1}{2} < r\\)，矛盾；同理纵坐标也两两互异。重新编号并平移，使 \\(0 = x_1 < x_2 < x_3 < x_4 < 1\\) 且 \\(y_1 = 0\\)，\\(y_2, y_3, y_4 \\in (0, 1)\\) 互异。\n\n**引理：** 若两点 \\((x,y)\\) 与 \\((x',y')\\) 满足 \\(\\|x-x'\\|^2 + \\|y-y'\\|^2 \\ge r^2\\)，记 \\(u = \\|x-x'\\|\\)，\\(v = \\|y-y'\\|\\)，则 \\(u \\ge \\delta\\)，\\(v \\ge \\delta\\)，且 \\(u + v \\ge \\frac{1}{2} + \\delta\\)。\n*证明：* 由 \\(v \\le \\frac{1}{2}\\) 得 \\(u^2 \\ge r^2 - \\frac{1}{4} = \\delta^2\\)，故 \\(u \\ge \\delta\\)；同理 \\(v \\ge \\delta\\)。又 \\((\\frac{1}{2}-u)(\\frac{1}{2}-v) \\ge 0\\)，展开得 \\(2uv \\ge u+v-\\frac{1}{2}\\)，从而 \\((u+v)^2 = u^2+v^2+2uv \\ge \\frac{1}{4}+\\delta^2+u+v-\\frac{1}{2}\\)，即 \\((u+v-\\frac{1}{2})^2 \\ge \\delta^2\\)。因 \\(u+v \\ge \\sqrt{u^2+v^2} \\ge r > \\frac{1}{2}\\)，故 \\(u+v \\ge \\frac{1}{2}+\\delta\\)。",
+          "**按 \\(y_2, y_3, y_4\\) 的大小顺序分类讨论：** \\((y_2, y_3, y_4)\\) 的大小排列共有 \\(6\\) 种情况。利用变换 \\(y \\mapsto 1-y \\pmod 1\\)（保持 \\(x_i\\) 序与 \\(y_1=0\\) 不变）可将 \\(y_1 < y_4 < y_3 < y_2\\) 化为 \\(y_1 < y_2 < y_3 < y_4\\)，将 \\(y_1 < y_3 < y_4 < y_2\\) 化为 \\(y_1 < y_2 < y_4 < y_3\\)；利用变换 \\(x \\mapsto 1-x \\pmod 1\\) 并重排标号 \\((P_1, P_4, P_3, P_2)\\) 可将 \\(y_1 < y_4 < y_2 < y_3\\) 化为 \\(y_1 < y_2 < y_4 < y_3\\)。因此只需考虑以下三种本质不同的情形：\n\n**情形 1：\\(y_1 < y_2 < y_3 < y_4\\)。**\n记 \\(g_1 = x_2-x_1, g_2 = x_3-x_2, g_3 = x_4-x_3, g_4 = 1-x_4\\)，以及 \\(h_1 = y_2-y_1, h_2 = y_3-y_2, h_3 = y_4-y_3, h_4 = 1-y_4\\)。它们均为正数且 \\(\\sum_{i=1}^4 g_i = \\sum_{i=1}^4 h_i = 1\\)。对 \\((P_1, P_2), (P_2, P_3), (P_3, P_4), (P_4, P_1)\\) 分别有 \\(r \\le \\sqrt{\\|g_i\\|^2 + \\|h_i\\|^2} \\le g_i + h_i\\)（\\(i=1,2,3,4\\)）。四式相加得 \\(4r \\le \\sum_{i=1}^4 (g_i+h_i) = 2\\)，故 \\(r \\le \\frac{1}{2}\\)，与 \\(r > \\frac{1}{2}\\) 矛盾。\n\n**情形 2：\\(y_1 < y_2 < y_4 < y_3\\)。**\n记 \\(g_1 = x_2-x_1, g_2 = x_3-x_2, g_3 = x_4-x_3, g_4 = 1-x_4\\)，以及 \\(h_1 = y_2-y_1, h_2 = y_4-y_2, h_3 = y_3-y_4, h_4 = 1-y_3\\)。它们均为正数且 \\(\\sum_{i=1}^4 g_i = \\sum_{i=1}^4 h_i = 1\\)。对点对 \\((P_1, P_2), (P_3, P_4), (P_1, P_3), (P_2, P_3), (P_2, P_4)\\) 分别应用引理（并注意到 \\(\\|t\\| \\le t\\) 与 \\(\\|1-t\\| = \\|t\\| \\le t\\)）：\n- 由 \\((P_1, P_2)\\) 得 \\(g_1 + h_1 \\ge \\frac{1}{2} + \\delta\\)；\n- 由 \\((P_3, P_4)\\) 得 \\(g_3 + h_3 \\ge \\frac{1}{2} + \\delta\\)；\n- 由 \\((P_1, P_3)\\) 得 \\(g_4 + h_4 \\ge \\frac{1}{2} + \\delta\\)；\n- 由 \\((P_2, P_3)\\) 得 \\(g_2 \\ge \\delta\\)；\n- 由 \\((P_2, P_4)\\) 得 \\(h_2 \\ge \\delta\\)。\n五式相加得 \\(2 = \\sum_{i=1}^4 (g_i + h_i) \\ge \\frac{3}{2} + 5\\delta\\)，即 \\(\\delta \\le \\frac{1}{10}\\)。然而 \\(\\delta > 1 - \\frac{\\sqrt{3}}{2} > \\frac{1}{10}\\)（因 \\(\\frac{9}{10} > \\frac{\\sqrt{3}}{2} \\iff 3.24 > 3\\)），矛盾。",
+          "**情形 3：\\(y_1 < y_3 < y_2 < y_4\\)。**\n记 \\(g_1 = x_2-x_1, g_2 = x_3-x_2, g_3 = x_4-x_3, g_4 = 1-x_4 > 0\\)（和为 \\(1\\)），以及 \\(h_1 = y_3-y_1, h_2 = y_2-y_3, h_3 = y_4-y_2, h_4 = 1-y_4 > 0\\)（和为 \\(1\\)）。此时各点坐标为 \\(P_1=(0,0)\\)，\\(P_2=(g_1, h_1+h_2)\\)，\\(P_3=(g_1+g_2, h_1)\\)，\\(P_4=(1-g_4, 1-h_4)\\)。\n\n令 \\(t_1 = g_1+g_2-\\frac{1}{2}\\)，\\(t_3 = g_2+g_3-\\frac{1}{2}\\)，\\(s_1 = h_1+h_2-\\frac{1}{2}\\)，\\(s_3 = h_2+h_3-\\frac{1}{2}\\)，它们均在 \\((-\\frac{1}{2}, \\frac{1}{2})\\) 内。利用 \\(\\sum g_i = \\sum h_i = 1\\) 可直接写出：\n\\[g_2 = \\frac{1}{2}+t_1-g_1 = \\frac{1}{2}+t_3-g_3,\\qquad g_4 = \\frac{1}{2}-t_1-g_3 = \\frac{1}{2}-t_3-g_1,\\]\n\\[h_2 = \\frac{1}{2}+s_1-h_1 = \\frac{1}{2}+s_3-h_3,\\qquad h_4 = \\frac{1}{2}-s_1-h_3 = \\frac{1}{2}-s_3-h_1.\\]\n设 \\(u(x) = \\sqrt{\\delta^2 + x - x^2}\\)（\\(x \\in [0, \\frac{1}{2}]\\)），易见 \\(u(x)\\) 在 \\([0, \\frac{1}{2}]\\) 上严格递增且 \\(u(0) = \\delta\\)。考察点对 \\((P_1, P_2), (P_3, P_4), (P_1, P_3), (P_2, P_4)\\)：\n- 由 \\((P_1, P_2)\\) 得 \\(g_1^2 \\ge \\|g_1\\|^2 \\ge r^2 - \\|h_1+h_2\\|^2 = \\frac{1}{4} + \\delta^2 - \\left(\\frac{1}{2} - |s_1|\\right)^2 = \\delta^2 + |s_1| - |s_1|^2\\)，故 \\(g_1 \\ge u(|s_1|) \\ge \\delta\\)；\n- 同理由 \\((P_3, P_4)\\) 得 \\(g_3 \\ge u(|s_3|) \\ge \\delta\\)；由 \\((P_1, P_3)\\) 得 \\(h_1 \\ge u(|t_1|) \\ge \\delta\\)；由 \\((P_2, P_4)\\) 得 \\(h_3 \\ge u(|t_3|) \\ge \\delta\\)。\n\n现在看 \\(t_1, t_3, s_1, s_3\\) 的符号：\n1. 若 \\(t_1, t_3\\) 至少有一个 \\(\\le 0\\) 且 \\(s_1, s_3\\) 至少有一个 \\(\\le 0\\)，则由上面表达式得 \\(0 < g_2 \\le \\frac{1}{2} - \\delta = M\\) 且 \\(0 < h_2 \\le M\\)。于是对 \\((P_2, P_3)\\) 有 \\(r^2 \\le \\|g_2\\|^2 + \\|h_2\\|^2 \\le g_2^2 + h_2^2 \\le 2M^2\\)。但 \\(r^2 - 2M^2 = \\frac{1}{4} + \\delta^2 - 2\\left(\\frac{1}{2} - \\delta\\right)^2 = \\frac{3}{4} - (1-\\delta)^2 > 0\\)（因 \\(0 < 1-\\delta < \\frac{\\sqrt{3}}{2}\\)），矛盾！\n2. 若 \\(t_1, t_3\\) 至少有一个 \\(\\ge 0\\) 且 \\(s_1, s_3\\) 至少有一个 \\(\\ge 0\\)，则同理 \\(0 < g_4 \\le M\\) 且 \\(0 < h_4 \\le M\\)，对 \\((P_1, P_4)\\) 得 \\(r^2 \\le g_4^2 + h_4^2 \\le 2M^2 < r^2\\)，矛盾！\n\n因此只剩下 \\(t_1, t_3\\) 同号且 \\(s_1, s_3\\) 与之异号。由对称性（必要时交换 \\(x, y\\) 坐标），不妨设 \\(t_1 > 0, t_3 > 0\\) 且 \\(s_1 < 0, s_3 < 0\\)。令 \\(m = \\min(t_1, t_3, |s_1|, |s_3|) \\in (0, \\frac{1}{2})\\)。检验 \\(m\\) 的四种取法：\n- 若 \\(m = t_1\\)，取 \\((a, b) = (g_2, h_2)\\)，则 \\(a = \\frac{1}{2} + t_1 - g_1 \\le M + m\\)，\\(b = \\frac{1}{2} - |s_1| - h_1 \\le \\frac{1}{2} - m - u(m)\\)；\n- 若 \\(m = t_3\\)，取 \\((a, b) = (g_2, h_2)\\)，则 \\(a = \\frac{1}{2} + t_3 - g_3 \\le M + m\\)，\\(b = \\frac{1}{2} - |s_3| - h_3 \\le \\frac{1}{2} - m - u(m)\\)；\n- 若 \\(m = |s_1|\\)，取 \\((a, b) = (h_4, g_4)\\)，则 \\(a = \\frac{1}{2} + |s_1| - h_3 \\le M + m\\)，\\(b = \\frac{1}{2} - t_3 - g_1 \\le \\frac{1}{2} - m - u(m)\\)；\n- 若 \\(m = |s_3|\\)，取 \\((a, b) = (h_4, g_4)\\)，则 \\(a = \\frac{1}{2} + |s_3| - h_1 \\le M + m\\)，\\(b = \\frac{1}{2} - t_1 - g_3 \\le \\frac{1}{2} - m - u(m)\\)。\n\n于是在所有四种取法中，均存在正数 \\(a, b\\) 满足 \\(a^2 + b^2 \\ge r^2\\)，\\(0 < a \\le M + m\\)，且 \\(0 < b \\le \\frac{1}{2} - m - u(m)\\)。",
+          "**完成情形 3 的最后放缩：**\n首先由 \\(b > 0\\) 得 \\(m + u(m) < \\frac{1}{2}\\)。若 \\(m \\ge \\delta\\)，因 \\(m < \\frac{1}{2}\\) 且 \\(u\\) 在 \\([0, \\frac{1}{2}]\\) 递增，有 \\(m + u(m) \\ge \\delta + u(\\delta) = \\delta + \\sqrt{\\delta}\\)。但 \\(\\delta > 1 - \\frac{\\sqrt{3}}{2} = \\left(\\frac{\\sqrt{3}-1}{2}\\right)^2\\)，故 \\(\\delta + \\sqrt{\\delta} > \\left(1 - \\frac{\\sqrt{3}}{2}\\right) + \\frac{\\sqrt{3}-1}{2} = \\frac{1}{2}\\)，矛盾！因此必有 \\(0 < m < \\delta\\)（这也排除了 \\(\\delta = \\frac{1}{2}\\) 时 \\(M=0\\) 导致矛盾以外的情形，实际上 \\(\\delta = \\frac{1}{2}\\) 时 \\(u(m) \\ge \\frac{1}{2}\\) 直接与 \\(m+u(m)<\\frac{1}{2}\\) 矛盾）。\n\n当 \\(0 < m < \\delta\\) 时，利用恒等式\n\\[(\\delta^2 + m - m^2) - \\left(\\delta + \\left(\\frac{1}{\\sqrt{\\delta}} - 1\\right)m\\right)^2 = m(2\\delta - 2\\sqrt{\\delta} + 1)\\left(1 - \\frac{m}{\\delta}\\right) > 0\\]\n（因 \\(2\\delta - 2\\sqrt{\\delta} + 1 = (\\sqrt{\\delta}-1)^2 + \\delta > 0\\)），可得 \\(u(m) > \\delta + \\left(\\frac{1}{\\sqrt{\\delta}} - 1\\right)m\\)。代入 \\(b\\) 的上界得\n\\[0 < b < \\frac{1}{2} - \\delta - \\frac{m}{\\sqrt{\\delta}} = M - \\frac{m}{\\sqrt{\\delta}},\\]\n从而 \\(0 < m < M\\sqrt{\\delta}\\) 且 \\(r^2 \\le a^2 + b^2 < (M + m)^2 + \\left(M - \\frac{m}{\\sqrt{\\delta}}\\right)^2\\)。\n\n将 \\(q(m) = (M + m)^2 + \\left(M - \\frac{m}{\\sqrt{\\delta}}\\right)^2\\) 视为关于 \\(m \\in [0, M\\sqrt{\\delta}]\\) 的二次函数，其二次项系数 \\(1 + \\frac{1}{\\delta} > 0\\)，故最大值必在端点处取得：\n- \\(q(0) = 2M^2 < r^2\\)（已证）；\n- \\(q(M\\sqrt{\\delta}) = M^2(1 + \\sqrt{\\delta})^2\\)。记 \\(x = \\sqrt{\\delta} > \\frac{\\sqrt{3}-1}{2}\\)，则 \\(x^2 + x - \\frac{1}{2} > 0\\)，于是\n\\[0 \\le M(1+x) = \\left(\\frac{1}{2} - x^2\\right)(1+x) = \\frac{1}{2} - x\\left(x^2 + x - \\frac{1}{2}\\right) < \\frac{1}{2},\\]\n故 \\(q(M\\sqrt{\\delta}) < \\frac{1}{4} < r^2\\)。\n综上必有 \\(r^2 < \\max(q(0), q(M\\sqrt{\\delta})) < r^2\\)，矛盾！\n\n因此假设不成立，最大的实数 \\(r\\) 为 \\(\\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "先利用“将一点置于原点并把其余点平移入 \\([0,1)^2\\)”把小数距离化为标准几何距离的最小值 \\(\\min(|PA|,|PX|,|PY|,|PZ|)\\)，或者在代数证明中始终区分 \\(\\|t\\|\\) 与 \\(t\\)，特别注意当 \\(t > \\frac{1}{2}\\) 时 \\(\\|t\\| = 1 - t < t\\)。",
+            "mistake": "误以为欧氏距离大就代表小数距离大，或忽略横纵坐标差大于 \\(\\frac{1}{2}\\) 时的“绕回”效应。",
+            "title": "混淆欧氏距离与小数距离的边界绕回效应",
+            "why_wrong": "小数距离定义在模 \\(1\\) 的周期空间（平环面）上，总有 \\(d_{\\text{小数}}(P,Q) \\le |PQ|\\)。因此在同一小区域内“欧氏直径 \\(\\le d\\)”可以推出“小数距离 \\(\\le d\\)”，但反过来若把点放得过远（例如在单位正方形内部距离超过 \\(\\frac{1}{2}\\)），它们在周期意义下反而更近。"
+          },
+          {
+            "how_to_avoid": "看到“两两距离”与可连续调节的坐标时，应主动尝试打破正交网格对称性，例如先固定 \\(A(0,0)\\)，再观察 \\(\\odot A, \\odot X, \\odot Y, \\odot Z\\) 在单位正方形内挖去后的剩余星形区域的顶点（如 \\(E,F,G,H\\)）与对称轴上的点，顺藤摸瓜找到全等边长为 \\(d\\) 的极限构型。",
+            "mistake": "先入为主认为最优构型是正交网格 \\((0,0),(\\frac{1}{2},0),(0,\\frac{1}{2}),(\\frac{1}{2},\\frac{1}{2})\\)，从而误猜答案为 \\(\\frac{1}{2}\\)。",
+            "title": "被网格直觉误导而错失真正极值构型",
+            "why_wrong": "正交网格虽然对称，但相邻点之间有一个坐标差为 \\(0\\)，导致距离受限于 \\(\\|x\\| \\le \\frac{1}{2}\\)。若将部分点沿坐标方向微调错位（构成类似“扭棱正方形”的正三角形与正方形拼接），可以让两个坐标差同时非零，从而突破 \\(\\frac{1}{2}\\) 达到 \\(\\frac{\\sqrt{6}-\\sqrt{2}}{2} \\approx 0.5176\\)。"
+          },
+          {
+            "how_to_avoid": "在划分区域应用抽屉原理前，必须单独排查公共边界线段（如 \\(JK, KL\\)）是否可能落入点，并用“排除公共边界的开/半开区域”严格写出“四个区域互不重合且各含至少一个点”，确保逻辑无漏洞。",
+            "mistake": "分割区域后直接套用抽屉原理，未排除点恰好落在区域公共边界 \\(JK, KL\\) 上的情形。",
+            "title": "区域划分论证中忽略边界归属导致抽屉原理失效",
+            "why_wrong": "若点 \\(B\\) 恰好落在 \\(\\triangle FKJ\\) 与多边形 \\(EJKLHI\\) 的公共边 \\(JK\\) 上，则 \\(B\\) 同时属于这两个区域，不能仅凭“每个区域至多含一点”就断定三个区域各有一点并进一步对称推广出四个不交区域。"
+          }
+        ],
+        "comparison_summary": "Turn 1 盲解所得最终答案 \\(\\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)（即 \\(\\sqrt{2-\\sqrt{3}}\\)）及极值构型与参考答案完全一致；上界证明采用了与参考答案不同的有效方法。参考答案在单位正方形内以角点与交点为圆心作半径为 \\(d\\) 的辅助圆，将剩余星形区域巧妙剖分为直径均不超过 \\(d\\) 的三个子区域，再借由 \\(90^\\circ\\) 旋转对称性与边界排除导出“四个互不重合区域各含 \\(B,C,D\\) 中一点”的几何矛盾，构思极为精妙直观；盲解则通过平环面坐标归约，将横纵坐标的相对次序经反射对称压缩为三种置换情形，前两种用间距和迅速否定，第三种借助区间偏离量与二次函数端点最值给出纯代数的严谨证明。两种方法殊途同归，参考答案胜在几何直观与篇幅凝练，盲解的代数分解则避免了复杂的圆弧几何作图构思。",
+        "difficulties": [
+          {
+            "detail": "在不知道答案的情况下，容易被 \\((0,0),(\\frac{1}{2},0),(0,\\frac{1}{2}),(\\frac{1}{2},\\frac{1}{2})\\) 给出 \\(r=\\frac{1}{2}\\) 的表面对称性迷惑；要突破 \\(\\frac{1}{2}\\)，必须意识到当两个点某维坐标相同时距离至多为 \\(\\frac{1}{2}\\)，从而尝试通过错位让尽量多点对在两维上同时产生贡献（对应扭棱正方形密铺中的正三角形边长 \\(d = \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)）。",
+            "title": "构造突破 \\(\\frac{1}{2}\\) 门槛的极值点集构型"
+          },
+          {
+            "detail": "仅将剩余星形区域 \\(R_d\\) 切分成 \\(3\\) 块直径 \\(\\le d\\) 的区域，只能说明 \\(3\\) 个点 \\(B,C,D\\) 恰好每块占 \\(1\\) 个，还不足以产生矛盾；参考答案最核心的跃迁在于发现“排除边界 \\(JK, KL\\) 后，绿色三角形 \\(\\triangle FKJ\\) 与蓝色三角形 \\(\\triangle GKL\\) 必各含一点”，再利用正方形的旋转对称性同时得到另外两角的三角形 \\(\\triangle HLI, \\triangle EIJ\\) 也各含一点，从而制造出“\\(4\\) 个不交区域容纳 \\(3\\) 个点”的抽屉矛盾。",
+            "title": "如何利用“恰好各占一区”与旋转对称性制造 \\(4>3\\) 的矛盾"
+          }
+        ],
+        "difficulty_tag": "训练:压轴攻坚",
+        "method_tags": [
+          "构造与反例",
+          "辅助线与几何变换",
+          "反证与分类讨论"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:边界与退化情形",
+          "易错:隐含假设与越界推广",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "小数距离 \\(\\sqrt{\\|x_1-x_2\\|^2 + \\|y_1-y_2\\|^2}\\) 只与坐标的小数部分及平移后的相对位置有关，本质上等价于边长为 \\(1\\) 的平环面 \\(\\mathbb{R}^2/\\mathbb{Z}^2\\) 上的欧氏距离。由此立刻得到平移不变性：总可把其中一个点 \\(A\\) 移至 \\((0,0)\\)，把其余三点 \\(B,C,D\\) 平移进单位正方形 \\([0,1)^2\\) 中。",
+            "step": "识别平移不变性与周期本质"
+          },
+          {
+            "detail": "若把单位正方形 \\(AXYZ\\)（\\(A(0,0), X(1,0), Y(1,1), Z(0,1)\\)）视作铺开的平面基本域，则任意点 \\(P\\in [0,1]^2\\) 到 \\(A\\) 的小数距离就是 \\(P\\) 到四个顶点 \\(A,X,Y,Z\\) 几何距离的最小值。因此“\\(B,C,D\\) 与 \\(A\\) 小数距离大于 \\(d\\)”等价于它们位于正方形内被四个半径为 \\(d\\) 的角圆挖去后剩下的中心星形区域。",
+            "step": "将小数距离转化为单位正方形内的几何限制区域"
+          },
+          {
+            "detail": "若四点有两两相同的横（或纵）坐标，距离必不超过 \\(\\frac{1}{2}\\)。于是为了最大化 \\(r\\)，应令 \\(B,C\\) 分别靠近下、左边界中点（对应角圆交点 \\(E,H\\)），\\(D\\) 位于中心偏右上（靠近 \\(\\odot Y\\) 圆弧），使尽可能多的点对同时达到等距，解出 \\(\\frac{1}{4}+a^2 = 2\\left(\\frac{1}{2}-a\\right)^2\\) 即得极值 \\(d = \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。",
+            "step": "通过平衡等距条件猜测极值构型"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "令 \\(a = 1 - \\frac{\\sqrt{3}}{2}\\)，取 \\(A(0,0)\\)，\\(B\\left(a, \\frac{1}{2}\\right)\\)，\\(C\\left(\\frac{1}{2}, a\\right)\\)，\\(D\\left(\\frac{1}{2}+a, \\frac{1}{2}+a\\right)\\)，逐一验算 \\(6\\) 对点的小数距离平方均为 \\(a^2+\\frac{1}{4} = 2\\left(\\frac{1}{2}-a\\right)^2 = 2-\\sqrt{3}\\)，从而证明 \\(r_{\\max} \\ge \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)。这一构型实际上是平面上正三角形与正方形交替密铺（扭棱正方形密铺）在周期为 \\(1\\) 下的四个代表顶点。",
+            "motivation": "先给出紧致的下界构型，并利用极值构型的几何特征反过来指导上界证明中的辅助圆作法。",
+            "step": "第一步：构造极值四点组并验证等距性"
+          },
+          {
+            "detail": "设 \\(d = \\frac{\\sqrt{6}-\\sqrt{2}}{2}\\)，反设存在四点两两小数距离均大于 \\(d\\)。利用整数平移不变性，将 \\(A\\) 置于原点 \\((0,0)\\)，\\(B,C,D\\) 移入单位正方形 \\(AXYZ\\)（\\(X(1,0),Y(1,1),Z(0,1)\\)）内，则 \\(B,C,D\\) 均位于以 \\(A,X,Y,Z\\) 为圆心、\\(d\\) 为半径的四个开圆之外。由于 \\(d\\) 恰好满足角圆交点 \\(E,F,G,H\\) 与角点构成正三角形（\\(\\triangle AEH, \\triangle XEF, \\triangle YFG, \\triangle ZGH\\) 边长均为 \\(d\\)），被挖去四个圆后剩下的中心区域是一个四重对称的曲边星形。",
+            "motivation": "把无穷平面上的周期距离问题完全等价地压缩到有界单位正方形内的标准欧氏几何区域中。",
+            "step": "第二步：单位正方形归约与角圆挖空"
+          },
+          {
+            "detail": "以星形四个尖点 \\(E,F,G,H\\) 为圆心、\\(d\\) 为半径再作四个圆，它们两两交于 \\(I,J,K,L\\)；由构型计算可知 \\(I,J,K,L\\) 恰好也落在原本的四个角圆 \\(\\odot A, \\odot X, \\odot Y, \\odot Z\\) 上（即极值构型中第 \\(4\\) 个点的位置）。利用这些圆弧将中心星形区域划分为三部分：曲边三角形 \\(\\triangle FKJ\\)、\\(\\triangle GKL\\) 以及六边形（曲边多边形）\\(EJKLHI\\)。由于三块区域的各边弦长均为 \\(\\frac{\\sqrt{6}-\\sqrt{2}}{2}d < d\\)，且相关圆弧向内凹或半径受控，容易验证每一块区域内部任意两点的几何距离都不超过 \\(d\\)（进而小数距离也不超过 \\(d\\)）。",
+            "motivation": "围绕极值点 \\(I,J,K,L\\) 构造直径不超过 \\(d\\) 的覆盖剖分，使每块区域最多只能容纳 \\(B,C,D\\) 中的一个点。",
+            "step": "第三步：借由次级辅助圆完成直径不超 \\(d\\) 的三区域剖分"
+          },
+          {
+            "detail": "因为 \\(B,C,D\\) 两两小数距离大于 \\(d\\)，上述三块区域每块至多包含 \\(B,C,D\\) 中的一个点；又因一共恰好有 \\(3\\) 个点，故三块区域必各含 \\(1\\) 个点。特别地，没有任何点能落在区域之间的公共边 \\(JK, KL\\) 上（否则该点同时计入两块区域，剩下至多 \\(1\\) 个区域却要容纳余下 \\(2\\) 个点，矛盾）。因此去掉边界 \\(JK, KL\\) 后的 \\(\\triangle FKJ\\) 与 \\(\\triangle GKL\\) 必各含一点。由正方形绕中心旋转 \\(90^\\circ\\) 的对称性，去掉边界 \\(LI, IJ\\) 后的 \\(\\triangle HLI\\) 与 \\(\\triangle EIJ\\) 也必各含一点。这样就得到了四个互不相交的三角形区域，每个区域内至少有一个点，但总点数只有 \\(3\\) 个（\\(B,C,D\\)），从而导出矛盾，完成证明。",
+            "motivation": "打破 \\(3\\) 个区域对应 \\(3\\) 个点的僵局，利用对称性把“局部必有一点”复制到正方形的四个角上，通过抽屉原理 \\(4 > 3\\) 一举击穿。",
+            "step": "第四步：边界排除与旋转对称性导出抽屉矛盾"
+          }
+        ],
+        "teaching_takeaway": "面对平环面（小数距离或周期边界）上的极值点集问题，核心思路是利用平移不变性将一点固定为参考原点、其余点收入基本单位区域，再结合极值构型的对称节点去构造“直径不超过目标阈值”的覆盖剖分（几何法）或紧致不等式链（代数法）。",
+        "topic_tags": [
+          "组合几何",
+          "抽屉原理与区域剖分",
+          "平环面距离最值"
+        ]
+      }
+    },
+    {
+      "id": "cmo-2024-both-days-combined-q5",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "5",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 5",
+      "blind_attempt": {
+        "approach": "将条件转化为有向（或无向）功能图 \\(G_p\\) 上的带宽问题：令 \\(g(a) = a^2 \\bmod p\\)（\\(a \\in \\{0, 1, \\dots, p-1\\}\\)），则题目条件等价于寻找双射 \\(f\\)，使得每条边 \\((a, g(a))\\) 两端函数值之差不超过 \\(2024\\)。\n1. **存在性（无穷多个素数）**：考虑所有满足 \\(p \\equiv 3 \\pmod 4\\) 的素数（由欧几里得式反证法易知有无穷多个）。此时 \\(-1\\) 是模 \\(p\\) 的二次非剩余，于是 \\(g\\) 限制在二次剩余集 \\(Q\\) 上是一个双射，把 \\(Q\\) 分解为若干个不相交的有向圈；每个二次非剩余 \\(u \\in N\\) 恰好只指向 \\(Q\\) 中的一个元素，而 \\(0\\) 为孤立点。这样 \\(G_p\\) 的每个非平凡连通分支都是“一个圈上每个点外挂一个度为 \\(1\\) 的叶子”。通过将圈“对折”编号并把叶子紧挨对应的圈顶点放置，可构造出双射 \\(f\\) 使得对任意 \\(a\\) 都有 \\(|f(a) - f(g(a))| \\leqslant 4 \\leqslant 2024\\)。\n2. **不存在性（无穷多个素数）**：考虑所有满足 \\(2^{16} \\mid p - 1\\) 的素数（利用 \\((2q_1 \\cdots q_s)^{2^{15}} + 1\\) 的素因子可初等证明其有无穷多个）。对这样的素数 \\(p\\)，模 \\(p\\) 的乘法群中存在 \\(2^{16} = 65536\\) 个元素满足 \\(x^{2^{16}} \\equiv 1 \\pmod p\\)。对其中每个 \\(x\\)，在 \\(g\\) 的作用下至多 \\(16\\) 步即到达 \\(1\\)，由三角不等式得 \\(|f(x) - f(1)| \\leqslant 16 \\times 2024 = 32384\\)。然而闭区间 \\([f(1) - 32384,\\, f(1) + 32384]\\) 内仅有 \\(64769\\) 个整数，少于 \\(65536\\) 个，与 \\(f\\) 为单射矛盾。",
+        "final_answer": "证明完成：\n1. **存在满足条件的 \\(f\\) 的素数有无穷多个**：所有满足 \\(p \\equiv 3 \\pmod 4\\) 的素数 \\(p\\)（共有无穷多个）均存在满足题设的双射 \\(f\\)（事实上可使 \\(|f(a) - f(b)| \\leqslant 4 \\leqslant 2024\\)）。\n2. **不存在满足条件的 \\(f\\) 的素数有无穷多个**：所有满足 \\(2^{16} \\mid p - 1\\) 的素数 \\(p\\)（共有无穷多个）均不存在满足题设的双射 \\(f\\)。",
+        "problem_statement_zh": "设 \\(p\\) 为素数，\\(f\\) 为 \\(\\{0, 1, \\cdots, p-1\\}\\) 到自身的一个双射，满足当 \\(p \\mid a^2 - b\\) 时，\\(|f(a) - f(b)| \\leqslant 2024\\)。\n求证：有无穷多个素数 \\(p\\) 使得 \\(f\\) 存在，也有无穷多个素数 \\(p\\) 使得 \\(f\\) 不存在。",
+        "steps": [
+          "**第一部分：证明有无穷多个素数 \\(p\\) 使得 \\(f\\) 存在。**\n\n首先证明有无穷多个形如 \\(4k+3\\) 的素数。反设只有有限个满足 \\(p \\equiv 3 \\pmod 4\\) 的素数 \\(p_1, p_2, \\dots, p_r\\)（至少有 \\(3\\)，故 \\(r \\geqslant 1\\)）。考虑正整数 \\(M = 4p_1 p_2 \\cdots p_r - 1 \\geqslant 11\\)。由于 \\(M\\) 为奇数且 \\(M \\equiv 3 \\pmod 4\\)，其素因子不能全模 \\(4\\) 余 \\(1\\)，必存在素因子 \\(q \\equiv 3 \\pmod 4\\)。但 \\(q \\nmid 4p_1 p_2 \\cdots p_r\\)，故 \\(q \\notin \\{p_1, \\dots, p_r\\}\\)，矛盾。因此满足 \\(p \\equiv 3 \\pmod 4\\) 的素数有无穷多个。",
+          "对任意素数 \\(p \\equiv 3 \\pmod 4\\)，定义映射 \\(g : \\{0, 1, \\dots, p-1\\} \\to \\{0, 1, \\dots, p-1\\}\\) 为 \\(g(a) = a^2 \\bmod p\\)。对 \\(a, b \\in \\{0, 1, \\dots, p-1\\}\\)，\\(p \\mid a^2 - b\\) 当且仅当 \\(b = g(a)\\)。\n\n显然 \\(g(0) = 0\\)。令 \\(Q = \\{g(x) : 1 \\leqslant x \\leqslant p-1\\}\\) 为模 \\(p\\) 的二次剩余集，\\(N = \\{1, \\dots, p-1\\} \\setminus Q\\) 为二次非剩余集。\n由于 \\(p \\equiv 3 \\pmod 4\\)，\\(\\frac{p-1}{2}\\) 为奇数，故 \\(-1 \\in N\\)：否则若存在 \\(u\\) 使 \\(u^2 \\equiv -1 \\pmod p\\)，由费马小定理得 \\(1 \\equiv u^{p-1} = (u^2)^{\\frac{p-1}{2}} \\equiv (-1)^{\\frac{p-1}{2}} = -1 \\pmod p\\)，与 \\(p \\geqslant 3\\) 矛盾。\n\n进一步，\\(g|_Q : Q \\to Q\\) 是双射：若 \\(x_1, x_2 \\in Q\\) 满足 \\(g(x_1) = g(x_2)\\)，则 \\(p \\mid (x_1 - x_2)(x_1 + x_2)\\)。若 \\(x_1 + x_2 = p\\)，设 \\(x_1 \\equiv u^2,\\, x_2 \\equiv v^2 \\pmod p\\)，则 \\((uv^{-1})^2 \\equiv x_1 x_2^{-1} \\equiv -1 \\pmod p\\)，矛盾。故必有 \\(x_1 = x_2\\)。由于 \\(Q\\) 为有限集，\\(g|_Q\\) 为双射。\n\n对每个 \\(y \\in Q\\)，同余方程 \\(x^2 \\equiv y \\pmod p\\) 在 \\(\\{1, \\dots, p-1\\}\\) 中恰有两个解 \\(x_0\\) 与 \\(p - x_0\\)。因 \\(g|_Q\\) 是 \\(Q\\) 上的双射，恰有一解在 \\(Q\\) 中，另一解必在 \\(N\\) 中。由此映射 \\(x \\mapsto p - x\\) 建立 \\(Q\\) 与 \\(N\\) 之间的一一对应，故 \\(|Q| = |N| = \\frac{p-1}{2}\\)。",
+          "将置换 \\(g|_Q\\) 分解为若干个不相交的轮换 \\(C_1, C_2, \\dots, C_m\\)。对其中任意一个长度为 \\(L \\geqslant 1\\) 的轮换 \\(C = (v_0, v_1, \\dots, v_{L-1})\\)（满足 \\(g(v_j) = v_{j+1 \\bmod L}\\)），令 \\(u_j = p - v_{j-1 \\bmod L} \\in N\\)（\\(0 \\leqslant j \\leqslant L-1\\)），则\n\\[g(u_j) = g(v_{j-1 \\bmod L}) = v_j.\\]\n记 \\(K_C = \\{v_0, \\dots, v_{L-1}, u_0, \\dots, u_{L-1}\\}\\)，其大小为 \\(2L\\)，且 \\(\\{0\\}, K_{C_1}, \\dots, K_{C_m}\\) 构成 \\(\\{0, 1, \\dots, p-1\\}\\) 的一个划分。\n\n在每个 \\(K_C\\) 上构造双射 \\(h_C : K_C \\to \\{0, 1, \\dots, 2L-1\\}\\)：先定义 \\(\\{0, 1, \\dots, L-1\\}\\) 上的置换 \\(r\\) 如下：\n\\[r(j) = \\begin{cases} 0, & j = 0, \\\\ 2j - 1, & 1 \\leqslant j \\leqslant \\lfloor L/2 \\rfloor, \\\\ 2(L - j), & \\lfloor L/2 \\rfloor + 1 \\leqslant j \\leqslant L - 1. \\end{cases}\\]\n（当 \\(L=1\\) 时仅 \\(r(0)=0\\)；当 \\(L=2\\) 时 \\(r(0)=0, r(1)=1\\)。）\n逐段验证相邻两项之差 \\(|r(j) - r(j+1 \\bmod L)|\\)：\n- \\(L=1\\) 时为 \\(0\\)；\\(L=2\\) 时为 \\(1\\)；\n- \\(L \\geqslant 3\\) 时：\\(j=0\\) 处为 \\(|0 - 1| = 1\\)；\\(1 \\leqslant j \\leqslant \\lfloor L/2 \\rfloor - 1\\) 处为 \\(|(2j-1)-(2j+1)| = 2\\)；\\(j = \\lfloor L/2 \\rfloor\\) 处不论 \\(L\\) 奇偶均有 \\(|r(\\lfloor L/2 \\rfloor) - r(\\lfloor L/2 \\rfloor + 1)| = 1\\)；\\(\\lfloor L/2 \\rfloor + 1 \\leqslant j \\leqslant L-2\\) 处为 \\(2\\)；\\(j = L-1\\) 处为 \\(|2 - 0| = 2\\)。\n故对任意 \\(L \\geqslant 1\\) 与任意 \\(0 \\leqslant j \\leqslant L-1\\)，均有 \\(|r(j) - r(j+1 \\bmod L)| \\leqslant 2\\)。\n\n现令 \\(h_C(v_j) = 2r(j)\\)，\\(h_C(u_j) = 2r(j) + 1\\)，则 \\(h_C\\) 为双射，且：\n\\[|h_C(v_j) - h_C(g(v_j))| = 2|r(j) - r(j+1 \\bmod L)| \\leqslant 4, \\quad |h_C(u_j) - h_C(g(u_j))| = 1.\\]\n最后设轮换 \\(C_1, \\dots, C_m\\) 的长度分别为 \\(L_1, \\dots, L_m\\)，令 \\(S_{i-1} = 1 + \\sum_{t=1}^{i-1} 2L_t\\)（\\(S_0 = 1\\)），定义：\n\\[f(0) = 0, \\qquad f(x) = S_{i-1} + h_{C_i}(x) \\quad (x \\in K_{C_i},\\; 1 \\leqslant i \\leqslant m).\\]\n由于 \\(\\sum_{i=1}^m 2L_i = p - 1\\)，\\(f\\) 是 \\(\\{0, 1, \\dots, p-1\\}\\) 到自身的双射。且对任意 \\(a \\in \\{0, 1, \\dots, p-1\\}\\)，\\(a\\) 与 \\(g(a)\\) 同属 \\(\\{0\\}\\) 或同一个 \\(K_{C_i}\\)，故 \\(|f(a) - f(g(a))| \\leqslant 4 \\leqslant 2024\\)。这就证明了存在无穷多个素数 \\(p\\) 使 \\(f\\) 存在。",
+          "**第二部分：证明有无穷多个素数 \\(p\\) 使得 \\(f\\) 不存在。**\n\n先证满足 \\(2^{16} \\mid p - 1\\) 的素数 \\(p\\) 有无穷多个。反设只有有限个这样的素数 \\(q_1, \\dots, q_s\\)（若无则取空积为 \\(1\\)）。令 \\(A = 2q_1 \\cdots q_s\\)，考虑正整数 \\(N = A^{2^{15}} + 1 > 1\\)。因 \\(N\\) 为奇数，取 \\(N\\) 的任一素因子 \\(p\\)，则 \\(p\\) 为奇素数且 \\(p \\nmid A\\)。由 \\(A^{2^{15}} \\equiv -1 \\pmod p\\) 平方得 \\(A^{2^{16}} \\equiv 1 \\pmod p\\)。设 \\(d\\) 为 \\(A\\) 模 \\(p\\) 的阶，则 \\(d \\mid 2^{16}\\)。若 \\(d \\mid 2^{15}\\)，则 \\(1 \\equiv A^{2^{15}} \\equiv -1 \\pmod p\\)，与 \\(p\\) 为奇素数矛盾。故 \\(d = 2^{16}\\)。由费马小定理 \\(d \\mid p - 1\\)，即 \\(2^{16} \\mid p - 1\\)，但 \\(p \\notin \\{q_1, \\dots, q_s\\}\\)，矛盾。因此满足 \\(2^{16} \\mid p - 1\\) 的素数 \\(p\\) 有无穷多个。",
+          "对任意满足 \\(2^{16} \\mid p - 1\\) 的素数 \\(p\\)，取模 \\(p\\) 的原根 \\(\\gamma\\)，并令\n\\[H = \\left\\{ \\gamma^{k \\cdot \\frac{p-1}{2^{16}}} \\bmod p \\;\\middle|\\; k = 0, 1, \\dots, 2^{16} - 1 \\right\\} \\subseteq \\{1, \\dots, p-1\\}.\\]\n易知 \\(H\\) 中元素两两不同，故 \\(|H| = 2^{16} = 65536\\)，且对每个 \\(x \\in H\\) 均有 \\(x^{2^{16}} \\equiv 1 \\pmod p\\)。\n\n假设存在满足题设的双射 \\(f\\)。对每个 \\(x \\in H\\)，构造序列 \\(a_0, a_1, \\dots, a_{16} \\in \\{0, 1, \\dots, p-1\\}\\)，其中 \\(a_0 = x\\)，\\(a_{i+1} = a_i^2 \\bmod p\\)（\\(0 \\leqslant i \\leqslant 15\\)）。由归纳法得 \\(a_{16} \\equiv x^{2^{16}} \\equiv 1 \\pmod p\\)，又 \\(p > 2^{16} > 1\\)，故 \\(a_{16} = 1\\)。\n\n由 \\(p \\mid a_i^2 - a_{i+1}\\) 及题设条件，有 \\(|f(a_i) - f(a_{i+1})| \\leqslant 2024\\)（\\(0 \\leqslant i \\leqslant 15\\)）。根据三角不等式：\n\\[|f(x) - f(1)| = |f(a_0) - f(a_{16})| \\leqslant \\sum_{i=0}^{15} |f(a_i) - f(a_{i+1})| \\leqslant 16 \\times 2024 = 32384.\\]\n这意味着对所有 \\(x \\in H\\)，\\(f(x)\\) 均落在整数区间 \\([f(1) - 32384,\\, f(1) + 32384]\\) 内。但该区间至多包含\n\\[2 \\times 32384 + 1 = 64769\\]\n个整数，而 \\(|H| = 65536 > 64769\\)，这与 \\(f\\) 是单射矛盾。因此对所有满足 \\(2^{16} \\mid p - 1\\) 的无穷多个素数 \\(p\\)，均不存在满足题设的双射 \\(f\\)。"
+        ],
+        "uncertainties": []
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "明确题目只要求证明“存在”与“不存在”的素数各无穷多个，果断放弃寻找一般判据，分别在最极端的特殊素数族（\\(v_2(p-1)=1\\) 与 \\(v_2(p-1)\\) 充分大）中构造即可。",
+            "mistake": "试图刻画使 \\(f\\) 存在的充要条件，对任意 \\(p-1 = 2^k m\\) 的混合结构强行分析，导致陷入图带宽判定（NP-hard 级别）的复杂讨论。",
+            "title": "误求充要条件导致卡壳",
+            "why_wrong": "一般素数下 \\(x \\mapsto x^2 \\bmod p\\) 的功能图由深度为 \\(k\\) 的二叉树与若干圈复合而成，确定精确带宽阈值 \\(2024\\) 的充要条件极为困难且完全不必要。"
+          },
+          {
+            "how_to_avoid": "写出双射时必须显式验证：\\(g|_Q\\) 在 \\(p \\equiv 3 \\pmod 4\\) 下是单射（依赖 \\(-1\\) 为二次非剩余），并对 \\(L=1\\)（如 \\(1 \\mapsto 1\\)）和 \\(L=2\\) 的小圈以及孤立点 \\(0\\) 单独核对差值界。",
+            "mistake": "忽略 \\(p \\equiv 3 \\pmod 4\\) 这一前提，误以为对所有奇素数 \\(x \\mapsto x^2 \\bmod p\\) 都是二次剩余集上的双射；或忽略 \\(L=1\\) 的自环（如 \\(1^2 \\equiv 1\\)）导致索引越界。",
+            "title": "忽视 \\(p \\equiv 3 \\pmod 4\\) 与退化圈长 \\(L=1\\)",
+            "why_wrong": "若 \\(p \\equiv 1 \\pmod 4\\)，则 \\(-1\\) 是二次剩余，\\(a\\) 与 \\(-a\\) 可以同为二次剩余且平方相等，此时 \\(x \\mapsto x^2\\) 在 \\(Q\\) 上不再是双射，圈上会挂出深度更大的二叉树而非单个叶子。"
+          },
+          {
+            "how_to_avoid": "构造集合 \\(H\\) 后，必须从“模 \\(p\\) 阶为 \\(2^{n+1}\\)（参考解答）”或“原根幂次与 \\(2^{16} \\mid p-1\\)（自主解答）”严格证明 \\(H\\) 中元素两两模 \\(p\\) 不同余，且 \\(p > 2^n\\) 保证 \\(1\\) 的唯一性。",
+            "mistake": "在不存在性证明中，构造出若干满足 \\(x^{2^n} \\equiv 1 \\pmod p\\) 的数后未严格证明它们模 \\(p\\) 两两互异，或仅用“对充分大 \\(p\\)”而未证明存在无穷多个满足 \\(2^n \\mid p-1\\) 的素数。",
+            "title": "漏证同余互异性或素数无穷性",
+            "why_wrong": "若未能保证 \\(2^n\\) 个元素模 \\(p\\) 互不同余，则无法应用 \\(f\\) 的单射性得到 \\(|f(H)| = 2^n\\) 与区间整数个数 \\(4048n+1\\) 的矛盾。"
+          }
+        ],
+        "comparison_summary": "第一轮自主解答结果完全正确（outcome: correct），核心思路与官方参考解答高度一致：\n1. **存在性部分**：两者均将条件转化为模 \\(p\\) 平方映射的功能图，利用 \\(p \\equiv 3 \\pmod 4\\) 时 \\(-1\\) 为二次非剩余的性质，证明每个非零连通分支都是“有向圈 + 每个圈顶点外挂一个叶子”，再将圈“对折”交错排布（把叶子紧挨对应的圈顶点），使相邻点差值不超过 \\(4 \\leqslant 2024\\)。自主解答还补充了分段解析式对所有圈长 \\(L \\geqslant 1\\) 的严格验证以及无穷多个 \\(p \\equiv 3 \\pmod 4\\) 的初等证明。\n2. **不存在性部分**：两者本质相同，均利用 \\(2^n\\) 个满足 \\(x^{2^n} \\equiv 1 \\pmod p\\) 的元素在 \\(n\\) 步平方后到达 \\(1\\)，结合三角不等式与 \\(2^n > 4048n + 1\\) 导出矛盾。差异仅在于取数细节：参考解答取费马数 \\(2^{2^n}+1\\) 的素因子（使 \\(\\operatorname{ord}_p(2) = 2^{n+1}\\)）并以 \\(2^{2^i}\\) 的子集乘积直接给出 \\(2^n\\) 个互异元素（连原根存在性都无需引用）；自主解答则直接固定最小阈值 \\(n = 16\\)（\\(2^{16}=65536 > 64769\\)），用 \\(A^{2^{15}}+1\\) 初等证明有无穷多个素数满足 \\(2^{16} \\mid p - 1\\)，再借助模 \\(p\\) 原根构造集合 \\(H\\)。两种方法均严密无误。",
+        "difficulties": [
+          {
+            "detail": "常数 \\(2024\\) 看似极大，实则提示了“极小阶数构造（差 \\(\\leqslant 4\\)）”与“指数膨胀反证（\\(2^n > 4048n+1\\)）”。突破口在于想到通过控制 \\(p-1\\) 的 \\(2\\)-adic 赋值 \\(v_2(p-1)\\) 来分别控制功能图的局部宽度与深度。",
+            "title": "将抽象同余双射转化为功能图结构并用 \\(v_2(p-1)\\) 分离两类素数"
+          },
+          {
+            "detail": "即使看出了每个连通分支是“长 \\(k\\) 的圈外挂 \\(k\\) 个叶子”，直接沿圈顺时针编号会使首尾两端差值达到 \\(2k-1\\)（随 \\(p\\) 增大而无界）。需要采用“从一端双路折叠交错排列”的技巧，把长圈拉直成带宽为 \\(O(1)\\) 的线性排布。",
+            "title": "长圈的“对折”编号以实现常数带宽"
+          }
+        ],
+        "difficulty_tag": "训练:技巧进阶",
+        "method_tags": [
+          "构造与反例",
+          "奇偶与同余",
+          "放缩与估值"
+        ],
+        "outcome": "correct",
+        "pitfall_tags": [
+          "易错:隐含假设与越界推广",
+          "易错:计数重复与漏算",
+          "易错:边界与退化情形"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "对每个 \\(a \\in \\{0, 1, \\dots, p-1\\}\\)，满足 \\(p \\mid a^2 - b\\) 的 \\(b\\) 是唯一的，即 \\(b = a^2 \\bmod p\\)。这自然诱导了一个以 \\(\\{0, \\dots, p-1\\}\\) 为顶点集、以 \\(a \\to a^2 \\bmod p\\) 为有向边的功能图 \\(G_p\\)。题目要求将顶点重排为 \\(0, 1, \\dots, p-1\\) 的一个排列（双射 \\(f\\)），使所有相邻顶点的标号之差不超过固定常数 \\(2024\\)（即图 \\(G_p\\) 的带宽 \\(\\leqslant 2024\\)）。",
+            "step": "条件图论化：识别功能图与带宽模型"
+          },
+          {
+            "detail": "注意到 \\(2024\\) 是常数而 \\(p\\) 趋于无穷。若 \\(G_p\\) 中某点到很多其他点的距离都很短（例如树形分叉很多、直径小而点数多），则三角不等式会迫使标号跨度极大，从而 \\(f\\) 不存在；反之，若每个连通分支的树深很浅，主要结构是单圈或路径，就有可能通过折叠排列将带宽压在常数以内。",
+            "step": "规模直觉：对比“指数爆炸”与“有界带宽”"
+          },
+          {
+            "detail": "由于映射是 \\(x \\mapsto x^2 \\bmod p\\)，模 \\(p\\) 乘法群 \\(\\mathbb{F}_p^\\times\\)（\\(p-1\\) 阶循环群）的 \\(2\\)-Sylow 子群阶数 \\(2^{v_2(p-1)}\\) 直接决定了“多对一汇入 \\(1\\)”的二叉树深度：当 \\(v_2(p-1) = 1\\)（即 \\(p \\equiv 3 \\pmod 4\\)）时，二次剩余与非剩余恰好平分且二次映射在二次剩余上为双射，树深仅为 \\(1\\)；当 \\(v_2(p-1)\\) 充分大（如 \\(p \\mid 2^{2^n}+1\\) 或 \\(2^{16} \\mid p-1\\)）时，至多 \\(n\\) 步就能将 \\(2^n\\) 个元素全部映射到 \\(1\\)，从而打破常数上界。",
+            "step": "数论抓手：锁定 \\(p - 1\\) 中因子 \\(2\\) 的幂次"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "把 \\(a^2 \\equiv b \\pmod p\\) 视作从 \\(a\\) 指向 \\(b\\) 的有向边。\\(0\\) 是孤立点（仅有自环），其余 \\(p-1\\) 个点构成若干连通分支。题目即要求给顶点赋予 \\(0, 1, \\dots, p-1\\) 的双射标号，使每条边两端标号差 \\(\\leqslant 2024\\)。",
+            "motivation": "将代数整除关系转换为直观的图论标号（带宽）问题，便于利用图形态（圈 vs 树）进行分析。",
+            "step": "步骤 1：建立功能图模型"
+          },
+          {
+            "detail": "取无穷多个满足 \\(p \\equiv 3 \\pmod 4\\) 的素数。此时 \\(-1\\) 是模 \\(p\\) 的二次非剩余，故 \\(x\\) 与 \\(p-x\\) 中恰有一个二次剩余。由此 \\(x \\mapsto x^2 \\bmod p\\) 限制在 \\(\\frac{p-1}{2}\\) 个二次剩余上是入度与出度均为 \\(1\\) 的双射（分解为若干不相交的有向圈），而每个二次非剩余唯一指向圈上一点且入度为 \\(0\\)。因此除 \\(0\\) 外，每个连通分支均为“一个 \\(k\\) 元圈 + 圈外 \\(k\\) 个度为 \\(1\\) 的悬垂点”。",
+            "motivation": "利用 \\(p \\equiv 3 \\pmod 4\\) 使二次映射退化为“带刺的圈”，消除深层分叉结构。",
+            "step": "步骤 2：存在性方向——解析 \\(p \\equiv 3 \\pmod 4\\) 时的连通分支结构"
+          },
+          {
+            "detail": "对每个含 \\(2k\\) 个点的分支，把连续 \\(2k\\) 个整数 \\(a, a+1, \\dots, a+2k-1\\) 按“从外向内对折”的方式排成：\\(a, a+2, \\dots, a+2k-2, a+2k-1, a+2k-3, \\dots, a+3, a+1\\)。将圈上第 \\(i\\) 个点（顺时针）放到该序列第 \\(2i-1\\) 位，其对应的圈外点放到第 \\(2i\\) 位。这样每条悬垂边两端相邻（差不超过 \\(2\\)），圈上相邻两点在折叠序列中至多相隔 \\(2\\) 个圈点（差不超过 \\(4\\)），远小于 \\(2024\\)。再把 \\(v_0\\) 赋为 \\(0\\)，将 \\(1, \\dots, p-1\\) 分段分给各分支即可。",
+            "motivation": "通过“对折”消除首尾回绕的大跨度，并将悬垂点穿插进对应圈点旁以保持局部性。",
+            "step": "步骤 3：存在性方向——对折构造完成局部到整体赋值"
+          },
+          {
+            "detail": "利用费马数 \\(2^{2^n}+1\\) 两两互素的性质，对充分大的 \\(n\\) 取其素因子 \\(p\\)（满足 \\(p \\nmid 2^{2^i}+1,\\; 0 \\leqslant i \\leqslant n-1\\)），则 \\(\\operatorname{ord}_p(2) = 2^{n+1}\\)。令 \\(a_i \\equiv 2^{2^i} \\pmod p\\)（\\(1 \\leqslant i \\leqslant n\\)），考察 \\(a_1, \\dots, a_n\\) 中任意若干项之积共 \\(2^n\\) 个数 \\(x_1, \\dots, x_{2^n}\\)。因指数对应二进制不重不漏且均小于 \\(2^{n+1}\\)，这 \\(2^n\\) 个数模 \\(p\\) 互不同余，且都满足 \\(x_k^{2^n} \\equiv 1 \\pmod p\\)。若 \\(f\\) 存在，反复平方 \\(n\\) 次后 \\(x_k\\) 到达 \\(1\\)，由三角不等式得 \\(|f(x_k) - f(1)| \\leqslant 2024n\\)，于是 \\(2^n\\) 个互异整数落在仅有 \\(4048n + 1\\) 个整数的区间内；当 \\(n\\) 充分大（如 \\(n \\geqslant 16\\)）时 \\(2^n > 4048n + 1\\)，矛盾。",
+            "motivation": "构造出指数级规模的顶点集合，使其在常数步（\\(n\\) 步）平方迭代内全部汇聚于 \\(1\\)，用三角不等式与抽屉原理击穿 \\(2024\\) 的限制。",
+            "step": "步骤 4：不存在性方向——利用高阶 \\(2\\) 次幂素因子导出指数爆炸矛盾"
+          }
+        ],
+        "teaching_takeaway": "面对“要求在无穷多素数上成立或不成立”的数论组合题，不要急于求一般充要条件，而应将整除映射图论化，并抓住 \\(p-1\\) 的关键素因子（此处为 \\(v_2(p-1)\\)）构造结构最简单的极端素数族：一边用“对折排列”把单圈带宽压到常数，一边用“\\(n\\) 步汇于 \\(1\\) 的指数级点集”配合三角不等式与抽屉原理制造矛盾。",
+        "topic_tags": [
+          "二次剩余与原根",
+          "功能图构造",
+          "抽屉原理与估值"
+        ]
+      }
+    },
+    {
+      "id": "cmo-2024-both-days-combined-q6",
+      "resource_id": "cmo-2024-both-days-combined",
+      "source_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "solution_resource_id": "cmo-2024-both-days-combined",
+      "solution_sha256": "3a535467d36bb312b698a2a2ed3908362605895b7031b38474e6e3e72d89695a",
+      "contest": "CMO",
+      "year": 2024,
+      "number": "6",
+      "level": "高中",
+      "title": "2024 CMO 试题与解答 · 6",
+      "blind_attempt": {
+        "approach": "首先令 \\(y_i = x_i - 1\\) 将条件中心化为 \\(\\sum_{i=1}^n y_i = 0\\)、\\(\\sum_{i=1}^n y_i^2 = n\\)、\\(\\sum_{i=1}^n y_i^3 = -n\\)，设 \\(u = \\max y_i > 0\\)、\\(v = -\\min y_i > 0\\)，目标极差为 \\(R = u + v\\)。\n\n第（1）问：利用 \\(y_i \\in [-v, u]\\) 构造三个非负和式 \\(S_1 = \\frac{1}{n}\\sum (u-y_i)(y_i+v) = uv - 1 \\geqslant 0\\)、\\(S_2 = \\frac{1}{n}\\sum (u-y_i)(y_i+v)^2 = u(v^2+1)-2v+1 \\geqslant 0\\)、\\(S_3 = \\frac{1}{n}\\sum (u-y_i)^2(y_i+v) = v(u^2+1)-2u-1 \\geqslant 0\\)。分 \\(u \\geqslant u_0\\) 与 \\(0 < u < u_0\\)（其中 \\(u_0 = \\frac{\\sqrt{5}-1}{2}\\)，\\(v_0 = \\frac{\\sqrt{5}+1}{2}\\)）两类，结合单调函数 \\(g(u)=u+\\frac{2u+1}{u^2+1}\\) 与 \\(k(v)=v+\\frac{2v-1}{v^2+1}\\) 证明对一切 \\(n \\geqslant 4\\) 均有 \\(u+v \\geqslant \\sqrt{5}\\)。再对任意 \\(n \\geqslant 4\\) 取 \\(k = \\lceil n p_0 \\rceil\\)（其中 \\(p_0 = \\frac{5+\\sqrt{5}}{10}\\)），通过只取三个值的结构及介值定理构造出满足所有条件的实数列，使得当 \\(n \\to \\infty\\) 时极差趋近于 \\(\\sqrt{5}\\)，从而确定最大常数 \\(C = \\sqrt{5}\\)。\n\n第（2）问：设 \\(\\delta = u + v - \\sqrt{5}\\)。当 \\(\\delta > 0.03\\) 时由 \\(n \\geqslant 4\\) 显然有 \\(\\delta > \\frac{1}{35} n^{-3/2}\\)。当 \\(\\delta \\leqslant 0.03\\) 时，由 \\(g'(u), k'(v)\\) 的下界得到 \\(|\\alpha| = |u-u_0|\\) 与 \\(|\\beta| = |v-v_0|\\) 均为 \\(O(\\delta)\\)，进而 \\(S_1 = O(\\delta)\\)。将指标按与 \\(\\frac{u-v}{2}\\) 的大小关系分成靠近 \\(u\\) 的集合 \\(A\\)（设 \\(|A|=k\\)）和靠近 \\(-v\\) 的集合 \\(B\\)，记偏差矩 \\(E_j = \\frac{1}{n}\\sum_{i \\in A}(u-y_i)^j\\)，\\(H_j = \\frac{1}{n}\\sum_{i \\in B}(y_i+v)^j\\)，则 \\(E_1 + H_1 = O(\\delta)\\) 且 \\(E_2 + H_2 \\leqslant n(E_1 + H_1)^2 = O(n \\delta^2)\\)。将 \\(S_2, S_3\\) 用 \\(E_j, H_j\\) 展开并代入 \\(\\sum y_i = 0\\) 中，发现一阶线性项 \\(p_0 \\alpha - E_1\\) 与 \\((1-p_0)\\beta - H_1\\) 相互抵消，从而得到 \\(\\left|\\frac{k}{n} - p_0\\right| \\leqslant 6\\delta^2 + \\frac{3}{5}(E_2 + H_2) \\leqslant 24 n \\delta^2\\)。另一方面，因 \\(p_0 = \\frac{5+\\sqrt{5}}{10}\\) 是二次无理数，对任意整数 \\(k\\) 均有 \\(\\left|\\frac{k}{n} - p_0\\right| \\geqslant \\frac{1}{50n^2}\\)。联立即得 \\(\\delta \\geqslant \\frac{1}{35} n^{-3/2}\\)。",
+        "final_answer": "(1) 最大的常数 \\(C = \\sqrt{5}\\)。\n(2) 可取常数 \\(\\lambda = \\frac{1}{35} > 0\\)（具体证明见推导步骤），使得对所有 \\(n \\geqslant 4\\) 均有 \\(\\max\\{x_1, x_2, \\ldots, x_n\\} - \\min\\{x_1, x_2, \\ldots, x_n\\} \\geqslant \\sqrt{5} + \\lambda n^{-\\frac{3}{2}}\\)。",
+        "problem_statement_zh": "已知 \\(x_1, x_2, \\ldots, x_n\\) 为实数，且 \\(\\sum_{i=1}^n x_i = n\\)，\\(\\sum_{i=1}^n x_i^2 = 2n\\)，\\(\\sum_{i=1}^n x_i^3 = 3n\\)。\n(1) 求最大的常数 \\(C\\)，使得对所有 \\(n \\geqslant 4\\)，均有 \\(\\max\\{x_1, x_2, \\ldots, x_n\\} - \\min\\{x_1, x_2, \\ldots, x_n\\} \\geqslant C\\)。\n(2) 证明存在常数 \\(\\lambda > 0\\)，使得对所有 \\(n \\geqslant 4\\)，均有 \\(\\max\\{x_1, x_2, \\ldots, x_n\\} - \\min\\{x_1, x_2, \\ldots, x_n\\} \\geqslant C + \\lambda n^{-\\frac{3}{2}}\\)，其中 \\(C\\) 为第 (1) 问所求值。",
+        "steps": [
+          "步骤 1（平移化简）：令 \\(y_i = x_i - 1\\)（\\(i = 1, 2, \\ldots, n\\)），则有\n\\[\n\\sum_{i=1}^n y_i = \\sum_{i=1}^n x_i - n = 0,\n\\]\n\\[\n\\sum_{i=1}^n y_i^2 = \\sum_{i=1}^n x_i^2 - 2\\sum_{i=1}^n x_i + n = 2n - 2n + n = n,\n\\]\n\\[\n\\sum_{i=1}^n y_i^3 = \\sum_{i=1}^n x_i^3 - 3\\sum_{i=1}^n x_i^2 + 3\\sum_{i=1}^n x_i - n = 3n - 6n + 3n - n = -n.\n\\]\n记 \\(u = \\max_{1 \\leqslant i \\leqslant n} y_i\\)，\\(v = -\\min_{1 \\leqslant i \\leqslant n} y_i\\)。由于 \\(\\sum_{i=1}^n y_i = 0\\) 且 \\(\\sum_{i=1}^n y_i^2 = n > 0\\)，\\(y_i\\) 不全为 \\(0\\)，故 \\(u > 0\\)，\\(v > 0\\)，且对每个 \\(i\\) 都有 \\(-v \\leqslant y_i \\leqslant u\\)。待求极差即为 \\(R = \\max\\{x_i\\} - \\min\\{x_i\\} = u + v\\)。",
+          "步骤 2（证明第 (1) 问下界 \\(R \\geqslant \\sqrt{5}\\)）：由 \\(-v \\leqslant y_i \\leqslant u\\) 构造以下三个非负均值：\n\\[\nS_1 = \\frac{1}{n}\\sum_{i=1}^n (u - y_i)(y_i + v) = \\frac{1}{n}\\sum_{i=1}^n \\left(-y_i^2 + (u - v)y_i + uv\\right) = uv - 1 \\geqslant 0,\n\\]\n\\[\nS_2 = \\frac{1}{n}\\sum_{i=1}^n (u - y_i)(y_i + v)^2 = \\frac{1}{n}\\sum_{i=1}^n \\left(-y_i^3 + (u - 2v)y_i^2 + (2uv - v^2)y_i + uv^2\\right) = u(v^2 + 1) - 2v + 1 \\geqslant 0,\n\\]\n\\[\nS_3 = \\frac{1}{n}\\sum_{i=1}^n (u - y_i)^2(y_i + v) = \\frac{1}{n}\\sum_{i=1}^n \\left(y_i^3 + (v - 2u)y_i^2 + (u^2 - 2uv)y_i + u^2v\\right) = v(u^2 + 1) - 2u - 1 \\geqslant 0.\n\\]\n记 \\(u_0 = \\frac{\\sqrt{5} - 1}{2}\\)，\\(v_0 = \\frac{\\sqrt{5} + 1}{2}\\)，注意 \\(u_0 v_0 = 1\\)，\\(v_0 - u_0 = 1\\)，\\(u_0 + v_0 = \\sqrt{5}\\)，\\(u_0^2 = 1 - u_0\\)，\\(v_0^2 = 1 + v_0\\)。\n- 情形 1：若 \\(u \\geqslant u_0\\)，由 \\(S_3 \\geqslant 0\\) 得 \\(v \\geqslant \\frac{2u + 1}{u^2 + 1}\\)，故 \\(u + v \\geqslant g(u) := u + \\frac{2u + 1}{u^2 + 1}\\)。计算导数：\n\\[\ng'(u) = 1 + \\frac{2(u^2 + 1) - 2u(2u + 1)}{(u^2 + 1)^2} = \\frac{u^4 - 2u + 3}{(u^2 + 1)^2} = \\frac{(u^2 - 1)^2 + 2\\left(u - \\frac{1}{2}\\right)^2 + \\frac{3}{2}}{(u^2 + 1)^2} > 0,\n\\]\n故 \\(g(u)\\) 在 \\((0, +\\infty)\\) 上严格递增，从而 \\(u + v \\geqslant g(u) \\geqslant g(u_0) = u_0 + \\frac{2u_0 + 1}{u_0^2 + 1} = u_0 + v_0 = \\sqrt{5}\\)。\n- 情形 2：若 \\(0 < u < u_0\\)，由 \\(S_1 \\geqslant 0\\) 得 \\(v \\geqslant \\frac{1}{u} > \\frac{1}{u_0} = v_0 > \\frac{1}{2}\\)。再由 \\(S_2 \\geqslant 0\\) 得 \\(u \\geqslant \\frac{2v - 1}{v^2 + 1}\\)，故 \\(u + v \\geqslant k(v) := v + \\frac{2v - 1}{v^2 + 1}\\)。计算导数：\n\\[\nk'(v) = 1 + \\frac{2(v^2 + 1) - 2v(2v - 1)}{(v^2 + 1)^2} = \\frac{v^4 + 2v + 3}{(v^2 + 1)^2} > 0 \\quad (v > 0),\n\\]\n故 \\(k(v)\\) 在 \\((0, +\\infty)\\) 上严格递增，从而 \\(u + v \\geqslant k(v) > k(v_0) = v_0 + \\frac{2v_0 - 1}{v_0^2 + 1} = v_0 + u_0 = \\sqrt{5}\\)。\n\n综上，对所有 \\(n \\geqslant 4\\) 均有 \\(\\max\\{x_i\\} - \\min\\{x_i\\} \\geqslant \\sqrt{5}\\)。",
+          "步骤 3（构造极小序列，确定第 (1) 问最大值 \\(C = \\sqrt{5}\\)）：记 \\(p_0 = \\frac{v_0}{\\sqrt{5}} = \\frac{5 + \\sqrt{5}}{10} \\in (0.72, 0.73)\\)。对任意整数 \\(n \\geqslant 4\\)，取 \\(k = \\lceil n p_0 \\rceil\\)。因 \\(p_0\\) 为无理数，有 \\(k - 1 < n p_0 < k\\)，且由 \\(n \\geqslant 4\\) 可得 \\(n p_0 > 2.88 \\implies k \\geqslant 3\\)，\\(n(1 - p_0) > 1.08 \\implies n - k \\geqslant 1\\)。\n对 \\(s \\in \\left[s_0, 1\\right]\\)（其中 \\(s_0 = -\\frac{k - 1}{n - k + 1}\\)），定义 \\(r(s) = \\frac{k - 1 + s}{n - k} > 0\\)（满足 \\(-r(s) \\leqslant s \\leqslant 1\\)）。考虑由 \\(k - 1\\) 个 \\(1\\)、\\(1\\) 个 \\(s\\) 和 \\(n - k\\) 个 \\(-r(s)\\) 组成的数列，其和为 \\(0\\)。记\n\\[\nQ(s) = \\frac{k - 1 + s^2 + (n - k)r(s)^2}{n} > 0, \\qquad C_3(s) = \\frac{k - 1 + s^3 - (n - k)r(s)^3}{n}, \\qquad F(s) = \\frac{C_3(s)}{Q(s)^{3/2}}.\n\\]\n令 \\(h(t) = \\frac{1 - 2t}{\\sqrt{t(1 - t)}} = \\sqrt{\\frac{1 - t}{t}} - \\sqrt{\\frac{t}{1 - t}}\\)，它在 \\((0, 1)\\) 上严格递减，且 \\(h(p_0) = \\sqrt{\\frac{u_0}{v_0}} - \\sqrt{\\frac{v_0}{u_0}} = \\frac{u_0 - v_0}{\\sqrt{u_0 v_0}} = -1\\)。直接计算端值：取 \\(p = \\frac{k}{n} > p_0\\) 与 \\(p' = \\frac{k - 1}{n} < p_0\\)，有\n\\[\nF(1) = h(p) < -1 < h(p') = F(s_0).\n\\]\n由介值定理，存在 \\(s \\in (s_0, 1)\\) 使得 \\(F(s) = -1\\)。对该 \\(s\\) 令 \\(u = Q(s)^{-1/2}\\)，将上述数列各元素乘以 \\(u\\) 再加 \\(1\\) 得到 \\(x_1, \\ldots, x_n\\)，则 \\(\\sum x_i = n\\)，\\(\\sum x_i^2 = 2n\\)，\\(\\sum x_i^3 = 3n\\)，且极差为 \\(\\frac{1 + r(s)}{\\sqrt{Q(s)}}\\)。\n当 \\(n \\to \\infty\\) 时，\\(p = \\frac{k}{n} \\to p_0\\)，由于 \\(s \\in (-r(s), 1)\\) 有界，故 \\(r(s) \\to \\frac{p_0}{1 - p_0} = \\frac{v_0}{u_0}\\)，\\(Q(s) \\to p_0 + (1 - p_0)\\frac{v_0^2}{u_0^2} = \\frac{1}{u_0^2}\\)，于是极差 \\(\\frac{1 + r(s)}{\\sqrt{Q(s)}} \\to u_0 + v_0 = \\sqrt{5}\\)。因此最大常数 \\(C = \\sqrt{5}\\)。",
+          "步骤 4（第 (2) 问：大偏差情形与小偏差下的局部线性估计）：记 \\(\\delta = R - \\sqrt{5} \\geqslant 0\\)，令 \\(\\alpha = u - u_0\\)，\\(\\beta = v - v_0\\)，则 \\(\\alpha + \\beta = \\delta\\)。\n若 \\(\\delta > 0.03\\)，因 \\(n \\geqslant 4\\) 时 \\(n^{-3/2} \\leqslant \\frac{1}{8}\\)，显然有 \\(\\delta > 0.03 \\geqslant 0.24 n^{-3/2} > \\frac{1}{35} n^{-3/2}\\)。\n以下假设 \\(0 \\leqslant \\delta \\leqslant 0.03\\)（故 \\(R = \\sqrt{5} + \\delta \\in (2.23, 2.27)\\)）：\n- 若 \\(u \\geqslant u_0\\)，因 \\(g(1) = 2.5 > \\sqrt{5} + 0.03 \\geqslant g(u)\\) 且 \\(g\\) 严格递增，故 \\(u \\in [u_0, 1)\\)。在 \\([u_0, 1)\\) 上 \\(g'(u) \\geqslant \\frac{3/2}{(1 + 1)^2} = \\frac{3}{8}\\)，于是 \\(\\delta \\geqslant g(u) - g(u_0) \\geqslant \\frac{3}{8}\\alpha\\)，得 \\(0 \\leqslant \\alpha \\leqslant \\frac{8}{3}\\delta\\)，且 \\(|\\beta| = |\\delta - \\alpha| \\leqslant \\frac{8}{3}\\delta\\)。\n- 若 \\(0 < u < u_0\\)，则 \\(v > v_0\\)。因 \\(k(2) = 2.6 > \\sqrt{5} + 0.03 \\geqslant k(v)\\) 且 \\(k\\) 严格递增，故 \\(v \\in (v_0, 2)\\)。在 \\((v_0, 2)\\) 上 \\(v > \\frac{3}{2}\\)，\\(k'(v) = \\frac{v^4 + 2v + 3}{(v^2 + 1)^2} > \\frac{(3/2)^4 + 6}{5^2} > \\frac{11}{25} > \\frac{3}{8}\\)，于是 \\(\\delta \\geqslant k(v) - k(v_0) \\geqslant \\frac{3}{8}\\beta\\)，得 \\(0 < \\beta \\leqslant \\frac{8}{3}\\delta\\)，且 \\(|\\alpha| = |\\delta - \\beta| \\leqslant \\frac{8}{3}\\delta\\)。\n\n由此，\\(u < 0.70 < 1\\)，\\(v < 1.70 < 2\\)，且\n\\[\nS_1 = uv - 1 = v_0 \\alpha + u_0 \\beta + \\alpha \\beta \\leqslant (v_0 + u_0)\\frac{8}{3}\\delta + \\frac{64}{9}\\delta^2 = \\frac{8\\sqrt{5}}{3}\\delta + \\frac{64}{9}\\delta^2 < 6.2\\delta.\n\\]",
+          "步骤 5（第 (2) 问：聚类分解与一阶对消）：将下标集 \\(\\{1, 2, \\ldots, n\\}\\) 分为 \\(A = \\{i : y_i \\geqslant \\frac{u - v}{2}\\}\\)（设 \\(|A| = k\\)）与 \\(B = \\{i : y_i < \\frac{u - v}{2}\\}\\)（则 \\(|B| = n - k\\)）。对 \\(i \\in A\\) 令 \\(\\epsilon_i = u - y_i \\in \\left[0, \\frac{R}{2}\\right]\\)；对 \\(i \\in B\\) 令 \\(\\eta_i = y_i + v \\in \\left[0, \\frac{R}{2}\\right)\\)。由于对 \\(i \\in A\\) 有 \\(y_i + v \\geqslant \\frac{R}{2}\\)，对 \\(i \\in B\\) 有 \\(u - y_i > \\frac{R}{2}\\)，记 \\(E_j = \\frac{1}{n}\\sum_{i \\in A} \\epsilon_i^j\\)，\\(H_j = \\frac{1}{n}\\sum_{i \\in B} \\eta_i^j\\)（\\(j = 1, 2, 3\\)），则\n\\[\n\\frac{\\sqrt{5}}{2}(E_1 + H_1) \\leqslant \\frac{R}{2}(E_1 + H_1) \\leqslant S_1 < 6.2\\delta \\implies E_1 + H_1 < \\frac{12.4}{\\sqrt{5}}\\delta < 6\\delta.\n\\]\n又由 \\(\\epsilon_i, \\eta_i \\geqslant 0\\)，有\n\\[\nE_2 + H_2 = \\frac{1}{n}\\left(\\sum_{i \\in A}\\epsilon_i^2 + \\sum_{i \\in B}\\eta_i^2\\right) \\leqslant \\frac{1}{n}\\left(\\left(\\sum_{i \\in A}\\epsilon_i\\right)^2 + \\left(\\sum_{i \\in B}\\eta_i\\right)^2\\right) = n(E_1^2 + H_1^2) \\leqslant n(E_1 + H_1)^2 \\leqslant 36 n \\delta^2.\n\\]\n将 \\(S_2, S_3\\) 按 \\(A, B\\) 展开：对 \\(i \\in A\\)，\\((u - y_i)(y_i + v)^2 = \\epsilon_i(R - \\epsilon_i)^2\\)，\\((u - y_i)^2(y_i + v) = \\epsilon_i^2(R - \\epsilon_i)\\)；对 \\(i \\in B\\)，\\((u - y_i)(y_i + v)^2 = (R - \\eta_i)\\eta_i^2\\)，\\((u - y_i)^2(y_i + v) = (R - \\eta_i)^2\\eta_i\\)。于是\n\\[\nS_2 = R^2 E_1 - 2R E_2 + E_3 + R H_2 - H_3, \\qquad S_3 = R^2 H_1 - 2R H_2 + H_3 + R E_2 - E_3.\n\\]\n另一方面，利用 \\(u_0(v_0^2+1)-2v_0+1=0\\)、\\(v_0(u_0^2+1)-2u_0-1=0\\)、\\(2u_0 v_0 - 2 = 0\\) 及 \\(v_0^2 + 1 = \\sqrt{5} v_0 = 5 p_0\\)、\\(u_0^2 + 1 = \\sqrt{5} u_0 = 5(1 - p_0)\\)，直接展开 \\(S_2, S_3\\) 得\n\\[\nS_2 = 5 p_0 \\alpha + 2 v_0 \\alpha \\beta + u \\beta^2, \\qquad S_3 = 5(1 - p_0)\\beta + 2 u_0 \\alpha \\beta + v \\alpha^2.\n\\]\n令 \\(p = \\frac{k}{n}\\)，\\(\\epsilon = p - p_0\\)。由 \\(\\frac{1}{n}\\sum_{i=1}^n y_i = p u - (1 - p)v - E_1 + H_1 = 0\\) 及 \\(p_0 u_0 - (1 - p_0)v_0 = 0\\)，整理得\n\\[\n\\epsilon R + (p_0 \\alpha - E_1) - ((1 - p_0)\\beta - H_1) = 0 \\implies R|\\epsilon| \\leqslant |E_1 - p_0 \\alpha| + |H_1 - (1 - p_0)\\beta|.\n\\]\n注意到 \\(R^2 - 5 = 2\\sqrt{5}\\delta + \\delta^2\\)，代入 \\(R^2 E_1 = S_2 + 2R E_2 - E_3 - R H_2 + H_3\\)，有\n\\[\nR^2(E_1 - p_0 \\alpha) = 2v_0 \\alpha \\beta + u \\beta^2 - p_0(2\\sqrt{5}\\delta + \\delta^2)\\alpha + (2R E_2 - E_3) - (R H_2 - H_3).\n\\]\n类似地，\n\\[\nR^2(H_1 - (1 - p_0)\\beta) = 2u_0 \\alpha \\beta + v \\alpha^2 - (1 - p_0)(2\\sqrt{5}\\delta + \\delta^2)\\beta + (2R H_2 - H_3) - (R E_2 - E_3).\n\\]\n由于 \\(0 \\leqslant \\epsilon_i, \\eta_i \\leqslant \\frac{R}{2}\\)，有 \\(0 \\leqslant E_3 \\leqslant \\frac{R}{2} E_2\\) 与 \\(0 \\leqslant H_3 \\leqslant \\frac{R}{2} H_2\\)，因此 \\(0 \\leqslant 2R E_2 - E_3 \\leqslant 2R E_2\\)，\\(0 \\leqslant R H_2 - H_3 \\leqslant R H_2\\)，两组绝对值之和中的 \\(E, H\\) 项不超过 \\(3R(E_2 + H_2)\\)。对其余含 \\(\\alpha, \\beta, \\delta\\) 的项，结合 \\(|\\alpha|, |\\beta| \\leqslant \\frac{8}{3}\\delta\\)、\\(u + v < 2.4\\)、\\(\\delta \\leqslant 0.03\\)，有\n\\[\n\\left(2(v_0 + u_0) + u + v\\right)\\left(\\frac{8}{3}\\delta\\right)^2 + (2\\sqrt{5} + \\delta)\\frac{8}{3}\\delta^2 < \\left(7 \\cdot \\frac{64}{9} + 4.53 \\cdot \\frac{8}{3}\\right)\\delta^2 < 63\\delta^2.\n\\]\n故 \\(R^2\\left(|E_1 - p_0 \\alpha| + |H_1 - (1 - p_0)\\beta|\\right) \\leqslant 63\\delta^2 + 3R(E_2 + H_2)\\)。两边除以 \\(R^3\\)（利用 \\(R \\geqslant \\sqrt{5}\\)，\\(R^2 \\geqslant 5\\)，\\(R^3 \\geqslant 5\\sqrt{5} > 11\\)）并结合 \\(n \\geqslant 4\\) 得\n\\[\n|\\epsilon| \\leqslant \\frac{63}{R^3}\\delta^2 + \\frac{3}{R^2}(E_2 + H_2) \\leqslant 6\\delta^2 + \\frac{3}{5} \\cdot 36 n \\delta^2 = (6 + 21.6 n)\\delta^2 \\leqslant 24 n \\delta^2.\n\\]",
+          "步骤 6（第 (2) 问：二次无理数丢番图逼近下界）：记整数 \\(m = 10k - 5n\\)，则\n\\[\n|\\epsilon| = \\left|\\frac{k}{n} - \\frac{5 + \\sqrt{5}}{10}\\right| = \\frac{|m - n\\sqrt{5}|}{10n}.\n\\]\n若 \\(|m - n\\sqrt{5}| \\geqslant 1\\)，则 \\(|\\epsilon| \\geqslant \\frac{1}{10n} > \\frac{1}{50n^2}\\)。若 \\(|m - n\\sqrt{5}| < 1\\)，因 \\(\\sqrt{5}\\) 为无理数且 \\(n \\geqslant 4\\)，整数 \\(|m^2 - 5n^2| \\geqslant 1\\)，而 \\(|m + n\\sqrt{5}| \\leqslant 2n\\sqrt{5} + 1 < 5n\\)（因 \\(2\\sqrt{5} < 4.48\\) 且 \\(n \\geqslant 4\\)），故\n\\[\n|\\epsilon| = \\frac{|m^2 - 5n^2|}{10n |m + n\\sqrt{5}|} \\geqslant \\frac{1}{10n \\cdot 5n} = \\frac{1}{50n^2}.\n\\]\n联立步骤 5 的上界得 \\(\\frac{1}{50n^2} \\leqslant 24 n \\delta^2\\)，即 \\(\\delta^2 \\geqslant \\frac{1}{1200 n^3}\\)，从而\n\\[\n\\delta \\geqslant \\frac{1}{20\\sqrt{3}} n^{-\\frac{3}{2}} > \\frac{1}{35} n^{-\\frac{3}{2}}.\n\\]\n因此取 \\(\\lambda = \\frac{1}{35} > 0\\)，对所有 \\(n \\geqslant 4\\) 结论成立。"
+        ],
+        "uncertainties": [
+          "无未解决的不确定性：第 (1) 问的上下界推导、第 (1) 问中对每个 n>=4 的可构造性及渐近极限、以及第 (2) 问对所有 n>=4 的常数估算均已逐项验证无误。"
+        ]
+      },
+      "analysis": {
+        "common_pitfalls": [
+          {
+            "how_to_avoid": "遇到极端点比例 \\(p_0\\) 为无理数时，不能直接令全体 \\(y_i\\) 取该两点，而应通过有理逼近（取 3 个或 4 个相近取值）并用介值定理或整数线性组合调整权重来构造。",
+            "mistake": "在第（1）问中，算出极值点 \\(y_i \\in \\left\\{-t, \\frac{1}{t}\\right\\}\\) 后直接认为“取 \\(m\\) 个 \\(-t\\) 和 \\(n-m\\) 个 \\(\\frac{1}{t}\\) 即可取等”，忽略了比例 \\(p_0 = \\frac{5+\\sqrt{5}}{10}\\) 为无理数、\\(n p_0\\) 不是整数这一事实。",
+            "title": "忽略无理比例导致的伪构造",
+            "why_wrong": "当 \\(y_i\\) 仅取 \\(-t\\) 与 \\(\\frac{1}{t}\\) 两个值时，\\(\\sum y_i = 0\\) 要求两者的个数比为无理数，对任何有限正整数 \\(n\\) 都不可能成立，因此 \\(\\sqrt{5}\\) 只能作为下确界被无限逼近而不能在有限 \\(n\\) 下达到。"
+          },
+          {
+            "how_to_avoid": "在使用 \\(AB \\geqslant 1\\) 和 \\(B \\geqslant t\\) 之后，务必明确标出 \\(B \\geqslant t > 1\\)，再调用 \\(g(x) = x + \\frac{1}{x}\\) 在 \\([1, +\\infty)\\) 上的单调性（或直接像参考解答那样写恒等式 \\(B + \\frac{1}{B} - \\left(t + \\frac{1}{t}\\right) = (B - t)\\left(1 - \\frac{1}{Bt}\\right)\\)）。",
+            "mistake": "在得到 \\(A \\geqslant \\frac{1}{B}\\) 与 \\(B \\geqslant t\\) 后，错误地认为只需用到基本不等式，或未讨论 \\(B\\) 与 \\(1\\) 的大小关系就直接放缩 \\(B + \\frac{1}{B} \\geqslant t + \\frac{1}{t}\\)。",
+            "title": "反比例函数单调区间与符号方向漏判",
+            "why_wrong": "\\(x + \\frac{1}{x}\\) 只在 \\([1, +\\infty)\\) 上单调递增，在 \\((0, 1]\\) 上单调递减。若缺少 \\(t = \\frac{1+\\sqrt{5}}{2} > 1\\) 这一关键验证，单调放缩的依据就不完整；同样，在第（2）问中 \\(y_i\\) 落在 \\([-t, \\frac{1}{t}]\\) 内外时 \\((y_i + t)(y_i - \\frac{1}{t})\\) 符号相反，若未分集合 \\(S, T\\) 讨论会导致放缩反向。"
+          },
+          {
+            "how_to_avoid": "在每一步放缩后检查量纲与 \\(n\\) 的幂次：由 \\(\\sum_{i=1}^n f^2(y_i) \\geqslant \\frac{1}{6n}\\) 与 \\(f(y_i) \\geqslant 0\\) 应先写 \\(\\left(\\sum_{i=1}^n f(y_i)\\right)^2 \\geqslant \\sum_{i=1}^n f^2(y_i) \\geqslant \\frac{1}{6n}\\)，开方得 \\(\\sum_{i=1}^n f(y_i) \\geqslant \\frac{1}{\\sqrt{6}} n^{-\\frac{1}{2}}\\)，再与上界 \\(4\\lambda_0 n^{-\\frac{1}{2}}\\) 比较。",
+            "mistake": "由 \\(\\sum_{i=1}^n f^2(y_i) \\geqslant \\frac{1}{6n}\\) 错误地直接推出 \\(\\sum_{i=1}^n f(y_i) \\geqslant \\frac{1}{6n}\\)（参考解答第 11 页末尾亦存在此印刷笔误），或在第（2）问步骤 ③ 中把 \\(y_i\\) 的范围误写成 \\(\\left[-t, \\frac{1}{t}\\right]\\) 而遗漏 \\(\\lambda_0 n^{-\\frac{3}{2}}\\) 的扰动量。",
+            "title": "放缩精度损失与幂次开方失误",
+            "why_wrong": "由于 \\(\\sum f(y_i)\\) 的上界量级为 \\(O(n^{-1/2})\\)，若把下界错写为 \\(\\frac{1}{6n}\\)，当 \\(n\\) 充分大时 \\(\\frac{1}{6n} < 4\\lambda_0 n^{-1/2}\\)，反证法将彻底失效。同时，若忽略 \\(y_i\\) 可能略微超出 \\(\\left[-t, \\frac{1}{t}\\right]\\) 达 \\(\\lambda_0 n^{-3/2}\\)，后续对非负项求和的逻辑就会出现漏洞。"
+          }
+        ],
+        "comparison_summary": "独立盲解（Turn 1）与参考解答均完整求出了第（1）问的最大常数 \\(C = \\sqrt{5}\\) 并严格证明了第（2）问的 \\(\\lambda n^{-\\frac{3}{2}}\\) 量化下界，核心数学本质高度一致，但在具体实现路径上属于不同的有效方法（`different_valid_method`）：\n1. 第（1）问下界：盲解通过构造三个非负矩表达式 \\(S_1, S_2, S_3\\)，对 \\(u \\geqslant u_0\\) 与 \\(0 < u < u_0\\) 分类并结合导数证明 \\(g(u), k(v)\\) 的单调性；参考解答更为精炼，直接由 \\(AB \\geqslant 1\\) 配合单一三次恒等式 \\(\\sum (y_i + t)\\left(y_i - \\frac{1}{t}\\right)^2 = 0\\) 反证得出 \\(B \\geqslant t\\)，避开了求导与分类。\n2. 第（1）问构造：盲解对任意 \\(n \\geqslant 4\\) 取 \\(k = \\lceil n p_0 \\rceil\\)，利用三值结构与连续函数介值定理一次性完成了“对所有 \\(n \\geqslant 4\\) 的存在性”与“极限趋近 \\(\\sqrt{5}\\)”的构造；参考解答则巧妙利用四点有理配对（\\(\\pm\\) 互为倒数的有理数对自动满足 \\(\\sum y_i = 0\\) 与 \\(\\sum y_i^2 = n\\)），通过线性组合同时满足三次和条件，代数上更为初等。\n3. 第（2）问量化下界：两者都捕捉到了相同的底层机制——所有 \\(y_i\\) 必须向两点 \\(-t, \\frac{1}{t}\\) 聚集、一阶偏离必须相互抵消、以及无理数 \\(p_0\\) 的丢番图逼近下界 \\(\\Omega(n^{-2})\\)。盲解通过展开 \\(S_2, S_3\\) 消去 \\(\\sum y_i = 0\\) 中的一阶偏离量 \\(E_1, H_1\\)，得到显式常数 \\(\\lambda = \\frac{1}{35}\\)；参考解答则构造了导数为 \\(6(x+t)\\left(x - \\frac{1}{t}\\right)\\) 的三次函数 \\(h(x) = 2x^3 + 3x^2 - 6x\\)，利用其在两点导数为零的性质直接得到二阶偏离下界 \\(\\sum f^2(y_i) \\geqslant \\frac{1}{6n}\\)。此外需指出，参考解答第 11 页倒数第 4 行出现了笔误，将由 \\(10\\sum f^2(y_i) \\geqslant \\frac{5}{3n}\\) 应得的 \\(\\sum f(y_i) \\geqslant \\frac{1}{\\sqrt{6n}}\\) 误印成了 \\(\\sum f(y_i) \\geqslant \\frac{1}{6n}\\)（若按 \\(\\frac{1}{6n}\\) 则在 \\(n\\) 充分大时不能大于 \\(4\\lambda_0 n^{-0.5}\\)），且第 10 页步骤 ③ 中漏写了 \\(y_i\\) 超出 \\(\\left[-t, \\frac{1}{t}\\right]\\) 至多 \\(\\lambda_0 n^{-1.5}\\) 的容差（但不影响主要放缩成立）。",
+        "difficulties": [
+          {
+            "detail": "仅凭 \\(\\sum y_i = 0\\)、\\(\\sum y_i^2 = n\\)、\\(\\sum y_i^3 = -n\\) 很难直接猜到 \\(\\sqrt{5}\\)。难点在于先假定极端分布只取两值，反推出特征方程 \\(x^2 - x - 1 = 0\\) 的两个根 \\(\\frac{1}{t}\\) 与 \\(-t\\)，再反向构造恰好在 \\(-t\\) 处变号、在 \\(\\frac{1}{t}\\) 处取双零点的三次多项式 \\((y_i + t)\\left(y_i - \\frac{1}{t}\\right)^2\\)。",
+            "title": "从两点极值模型反推零点多项式与黄金分割数 \\(t\\)"
+          },
+          {
+            "detail": "要同时满足一、二、三次和约束，直接解非线性方程组极易陷入繁琐计算。参考解答利用“\\(s^2\\) 个 \\(-\\frac{r}{s}\\) 与 \\(r^2\\) 个 \\(\\frac{s}{r}\\) 自动使一次和为 \\(0\\)、二次和等于个数”的结构，把三条件压缩为单一的线性配比问题；而盲解则通过齐次化与介值定理把三条件压缩为一元连续方程，各有巧思。",
+            "title": "同时满足三阶矩条件的逼近构造"
+          },
+          {
+            "detail": "如果只用一阶偏离量 \\(E_1 + H_1 = O(\\delta)\\)，无法对抗无理数逼近的 \\(\\Omega(n^{-2})\\) 下界（因为按一阶估计只能得到 \\(\\delta \\geqslant c n^{-2}\\)，而非 \\(n^{-3/2}\\)）。核心飞跃在于发现：由均值与二阶矩约束，一阶偏差在三次函数 \\(h(x) = 2x^3 + 3x^2 - 6x\\)（满足 \\(h'(-t) = h'\\left(\\frac{1}{t}\\right) = 0\\)）下完全消去，只剩下二阶项 \\(\\sum f^2(y_i) \\geqslant \\frac{1}{6n}\\)，再通过 \\(\\left(\\sum f(y_i)\\right)^2 \\geqslant \\sum f^2(y_i)\\) 开方后与 \\(\\sum f(y_i) \\leqslant O(n\\delta) = O(\\lambda_0 n^{-1/2})\\) 对撞，才精确锁定 \\(n^{-3/2}\\) 的量级。",
+            "title": "一阶偏差对消与 \\(n^{-3/2}\\) 阶数的精确匹配"
+          }
+        ],
+        "difficulty_tag": "训练:压轴攻坚",
+        "method_tags": [
+          "放缩与估值",
+          "构造与反例",
+          "反证与分类讨论"
+        ],
+        "outcome": "different_valid_method",
+        "pitfall_tags": [
+          "易错:计算精度与等价替换",
+          "易错:边界与退化情形",
+          "易错:符号与方向"
+        ],
+        "problem_decomposition": [
+          {
+            "detail": "注意到 \\(\\sum x_i = n\\) 意味着均值为 \\(1\\)，而极差 \\(\\max x_i - \\min x_i\\) 具有平移不变性。令 \\(y_i = x_i - 1\\)，条件立即化简为最干净的中心矩形式：\\(\\sum y_i = 0\\)、\\(\\sum y_i^2 = n\\)、\\(\\sum y_i^3 = -n\\)。",
+            "step": "平移中心化，消除常数均值干扰"
+          },
+          {
+            "detail": "设想 \\(y_i\\) 仅在两个端点 \\(A > 0\\) 与 \\(-B < 0\\) 上分布，由 \\(\\sum y_i = 0\\) 与 \\(\\sum y_i^2 = n\\) 立即得 \\(AB = 1\\)，代入 \\(\\sum y_i^3 = -n\\) 得 \\(A - B = -1\\)，即 \\(B - A = 1\\)。解得 \\(B = t = \\frac{1+\\sqrt{5}}{2}\\)，\\(A = \\frac{1}{t} = \\frac{\\sqrt{5}-1}{2}\\)，极差为 \\(\\sqrt{5}\\)，而 \\(A\\) 的占比 \\(p_0 = \\frac{5+\\sqrt{5}}{10}\\) 为无理数。",
+            "step": "用两点分布试探极值结构与 \\(n^{-3/2}\\) 的成因"
+          },
+          {
+            "detail": "由于 \\(n p_0\\) 不是整数，有限个实数不可能全部落在 \\(-t\\) 与 \\(\\frac{1}{t}\\) 上。第（1）问需要构造充分接近该两点分布的数列使极差逼近 \\(\\sqrt{5}\\)；第（2）问则需要把极差超出 \\(\\sqrt{5}\\) 的微扰 \\(\\delta\\) 转化为变量对 \\(\\left\\{-t, \\frac{1}{t}\\right\\}\\) 的偏离，进而利用 \\(p_0\\) 的二次无理数丢番图逼近下界导出 \\(\\delta \\gtrsim n^{-3/2}\\)。",
+            "step": "从理想极值向有限 \\(n\\) 情形的微扰与逼近分析"
+          }
+        ],
+        "solution_breakdown": [
+          {
+            "detail": "令 \\(y_i = x_i - 1\\)，则 \\(\\sum y_i = 0\\)、\\(\\sum y_i^2 = n\\)、\\(\\sum y_i^3 = -n\\)。设 \\(\\max y_i = A\\)，\\(\\min y_i = -B\\)。由 \\((y_i + B)(y_i - A) \\leqslant 0\\) 求和得 \\(n(1 - AB) \\leqslant 0\\)，即 \\(AB \\geqslant 1\\)。再取 \\(t = \\frac{1+\\sqrt{5}}{2}\\)，计算恒等式 \\(\\sum (y_i + t)\\left(y_i - \\frac{1}{t}\\right)^2 = 0\\)；若 \\(B < t\\) 则每项非负，迫使 \\(y_i \\equiv \\frac{1}{t}\\)，与 \\(\\sum y_i = 0\\) 矛盾，故 \\(B \\geqslant t\\)。因此 \\(A + B \\geqslant B + \\frac{1}{B} \\geqslant t + \\frac{1}{t} = \\sqrt{5}\\)。这一步仅用一个三次恒等式就锁定了边界 \\(B \\geqslant t\\)，无需任何求导。",
+            "motivation": "将边界条件转化为多项式的非负性，利用 \\(\\frac{1}{t}\\) 处的重根消去取等以外的自由度。",
+            "step": "步骤 1：中心化与第（1）问极差下界 \\(A + B \\geqslant \\sqrt{5}\\) 的证明"
+          },
+          {
+            "detail": "取 \\(r, s, r_0, s_0 \\in \\mathbb{Z}^+\\) 满足 \\(t - \\epsilon < \\frac{r_0}{s_0} < t < \\frac{r}{s} < t + \\epsilon\\)，令 \\(n = (s^2 + r^2)k + (s_0^2 + r_0^2)l\\)，并在 \\(y_i\\) 中分别放置 \\(s^2 k\\) 个 \\(-\\frac{r}{s}\\)、\\(r^2 k\\) 个 \\(\\frac{s}{r}\\)、\\(s_0^2 l\\) 个 \\(-\\frac{r_0}{s_0}\\)、\\(r_0^2 l\\) 个 \\(\\frac{s_0}{r_0}\\)。这组权重保证无论 \\(k, l\\) 取何值，都有 \\(\\sum y_i = 0\\) 与 \\(\\sum y_i^2 = n\\)；而 \\(\\sum y_i^3 = -n\\) 化为关于 \\(k, l\\) 的齐次一次方程，且因 \\(\\frac{r_0}{s_0} < t < \\frac{r}{s}\\)，\\(k, l\\) 的系数一正一负，故必存在正整数解 \\((k, l)\\)。此时 \\(A + B = \\frac{r}{s} + \\frac{s_0}{r_0} \\to t + \\frac{1}{t} = \\sqrt{5}\\)，由此确证 \\(C = \\sqrt{5}\\)。",
+            "motivation": "分别从 \\(t\\) 的左右两侧逼近，利用两组“自动满足一、二阶矩”的有理配对线性调节三阶矩的符号。",
+            "step": "步骤 2：第（1）问的四值有理配对构造"
+          },
+          {
+            "detail": "反证假设 \\(A + B \\leqslant \\sqrt{5} + \\lambda n^{-1.5}\\)（取 \\(\\lambda_0 = 10^{-10}\\)，\\(\\lambda \\leqslant 10^{-100}\\)）。先后由 \\(B \\geqslant t\\) 与 \\(B + \\frac{1}{B} = \\sqrt{5} + (B-t)\\left(1 - \\frac{1}{Bt}\\right)\\) 推出 \\(A \\leqslant \\frac{1}{t} + \\lambda_0 n^{-1.5}\\) 且 \\(B \\leqslant t + \\lambda_0 n^{-1.5}\\)。再借助 \\(\\sum (y_i + t)\\left(y_i - \\frac{1}{t}\\right) = 0\\)，证明所有 \\(y_i\\) 与 \\(\\left\\{-t, \\frac{1}{t}\\right\\}\\) 的距离 \\(f(y_i) = \\min\\left\\{|y_i + t|, \\left|y_i - \\frac{1}{t}\\right|\\right\\}\\) 都不超过 \\(\\frac{1}{1000}\\)；并按 \\(y_i\\) 是否落在 \\(\\left[-t, \\frac{1}{t}\\right]\\) 外部分为集合 \\(S, T\\)，结合 \\(i \\in S\\) 时 \\(f(y_i) \\leqslant \\lambda_0 n^{-1.5}\\) 得出偏离总和 \\(\\sum_{i=1}^n f(y_i) \\leqslant 4\\sum_{i \\in S} f(y_i) \\leqslant 4\\lambda_0 n^{-0.5}\\)。",
+            "motivation": "一旦极差只比 \\(\\sqrt{5}\\) 多 \\(O(n^{-1.5})\\)，就必须证明所有点只能紧贴 \\(-t\\) 或 \\(\\frac{1}{t}\\) 分布，从而将整体偏差和压缩到 \\(O(n^{-0.5})\\)。",
+            "step": "步骤 3：第（2）问反证法下的两点聚集与总偏离上界"
+          },
+          {
+            "detail": "设靠近 \\(-t\\) 的有 \\(m\\) 个，靠近 \\(\\frac{1}{t}\\) 的有 \\(n - m\\) 个。构造 \\(h(x) = 2x^3 + 3x^2 - 6x\\)，其导数 \\(h'(x) = 6(x^2 + x - 1)\\) 在 \\(-t\\) 与 \\(\\frac{1}{t}\\) 处均为 \\(0\\)，故在两点邻域内 \\(|h(y_i) - h(-t)| \\leqslant 10(y_i + t)^2\\)，\\(\\left|h(y_i) - h\\left(\\frac{1}{t}\\right)\\right| \\leqslant 10\\left(y_i - \\frac{1}{t}\\right)^2\\)。求和得 \\(10\\sum_{i=1}^n f^2(y_i) \\geqslant \\left|n - m h(-t) - (n - m)h\\left(\\frac{1}{t}\\right)\\right| = 5|t(n - 2m) - (n - m)|\\)。利用 \\(t = \\frac{1+\\sqrt{5}}{2}\\) 满足 \\(t^2 - t - 1 = 0\\) 的二次无理数共轭放缩，分子 \\(|(n - 2m)^2 + (n - m)(n - 2m) - (n - m)^2| \\geqslant 1\\)，分母小于 \\(3n\\)，于是 \\(10\\sum f^2(y_i) \\geqslant \\frac{5}{3n}\\)，即 \\(\\sum f^2(y_i) \\geqslant \\frac{1}{6n}\\)。从而 \\(\\sum_{i=1}^n f(y_i) \\geqslant \\sqrt{\\sum_{i=1}^n f^2(y_i)} \\geqslant \\frac{1}{\\sqrt{6n}} > 4\\lambda_0 n^{-0.5}\\)（注：参考解答此处笔误写作 \\(\\frac{1}{6n}\\)），产生矛盾！",
+            "motivation": "寻找在极端两点处一阶导数为零的三次组合，使一次偏差彻底消去，让二次偏差与无理数的丢番图逼近下界直接对撞。",
+            "step": "步骤 4：第（2）问二阶误差估计与二次无理数逼近下界"
+          }
+        ],
+        "teaching_takeaway": "面对多阶矩约束下的极差最值与定量稳定性问题，应先通过平移与“两点极值模型”锁定特征方程和极限分布，再用在极限点处取重零点（或导数为零）的低次多项式将一阶误差自动消去，将结构误差转化为无理数逼近与平方偏离之间的矛盾。",
+        "topic_tags": [
+          "代数不等式",
+          "多项式构造",
+          "无理数逼近"
+        ]
+      }
+    }
+  ]
+}
